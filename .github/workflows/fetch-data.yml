@@ -2,10 +2,13 @@ name: Fetch Market Data
 
 on:
   schedule:
-    # Every 15 min Mon–Fri, 01:30–08:00 UTC (09:30–16:00 HKT)
+    # Weekdays: HK/Asia session 09:30-16:00 HKT = 01:30-08:00 UTC
     - cron: "*/15 1-8 * * 1-5"
-    # US session: Mon–Fri 13:30–21:00 UTC
+    # Weekdays: US session 09:30-16:00 ET = 13:30-21:00 UTC
     - cron: "*/15 13-21 * * 1-5"
+    # Weekend: run once Saturday and Sunday at 10:00 HKT = 02:00 UTC
+    # This ensures Friday's closing data is available for the dashboard
+    - cron: "0 2 * * 0,6"
   workflow_dispatch:
 
 jobs:
@@ -28,7 +31,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run pipeline
-        run: python pipeline.py --output data.json --pretty
+        run: python pipeline.py --output data.json
 
       - name: Commit & push data.json
         run: |
