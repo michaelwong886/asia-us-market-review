@@ -239,25 +239,41 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
   font-size: var(--text-sm); font-weight: 600; color: var(--text);
   display: flex; align-items: center; gap: var(--space-2);
 }
-.data-table { width: 100%; border-collapse: collapse; }
+.data-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
 .data-table th, .data-table td {
-  padding: var(--space-3) var(--space-5);
+  padding: var(--space-3) var(--space-4);
   font-size: var(--text-xs); text-align: left;
+  overflow: hidden;
 }
+/* Column widths for sector table */
+.sector-table .col-sector  { width: 38%; }
+.sector-table .col-anchor  { width: 20%; }
+.sector-table .col-chg     { width: 24%; }
+.sector-table .col-markets { width: 18%; }
+
 .data-table th {
   color: var(--text-faint); text-transform: uppercase;
   letter-spacing: 0.06em; font-weight: 500;
   border-bottom: 1px solid var(--border);
+  white-space: nowrap;
 }
 .data-table td { border-bottom: 1px solid var(--border); color: var(--text-muted); }
 .data-table tr:last-child td { border-bottom: none; }
 .data-table tr:hover td { background: var(--surface-2); }
-.data-table .name-cell { color: var(--text); font-weight: 500; }
+.data-table .name-cell { color: var(--text); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .data-table .mono-cell { font-family: var(--font-mono); }
+.data-table .anchor-cell {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text);
+  font-weight: 600;
+  white-space: nowrap;
+}
 .data-table .tag-cell {
   font-size: 10px; letter-spacing: 0.04em;
   color: var(--text-faint);
   text-align: right;
+  white-space: nowrap;
 }
 .chg-up   { color: var(--green) !important; font-weight: 600; }
 .chg-down { color: var(--red)   !important; font-weight: 600; }
@@ -384,13 +400,19 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
         <div class="data-table-card-header">
           🏭 Sector Snapshot
         </div>
-        <table class="data-table" aria-label="Sector performance">
+        <table class="data-table sector-table" aria-label="Sector performance">
+          <colgroup>
+            <col class="col-sector">
+            <col class="col-anchor">
+            <col class="col-chg">
+            <col class="col-markets">
+          </colgroup>
           <thead>
             <tr>
-              <th>Sector</th>
-              <th>Anchor</th>
-              <th class="mono-cell" style="text-align:right">Chg%</th>
-              <th class="tag-cell">Markets</th>
+              <th class="col-sector">Sector</th>
+              <th class="col-anchor">Anchor</th>
+              <th class="col-chg mono-cell" style="text-align:right">Chg%</th>
+              <th class="col-markets tag-cell">Markets</th>
             </tr>
           </thead>
           <tbody id="sectorsTbody">
@@ -550,7 +572,7 @@ function renderSectors(sectors) {
   tbody.innerHTML = Object.entries(sectors).map(([name, d]) => `
     <tr>
       <td class="name-cell">${name}</td>
-      <td class="mono-cell" style="font-size:var(--text-xs);color:var(--text-faint)">${d.anchor || ''}</td>
+      <td class="anchor-cell">${d.anchor || ''}</td>
       <td class="mono-cell ${chgClass(d.pct_change)}" style="text-align:right">${fmtPct(d.pct_change)}</td>
       <td class="tag-cell">${d.markets || ''}</td>
     </tr>
