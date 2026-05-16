@@ -140,6 +140,29 @@ US_UNIVERSE = [
 ]
 
 # ─────────────────────────────────────────────
+# Ticker meta cache  (longName + industry)
+# We fetch .info once per mover ticker after screening to keep
+# batch download fast. Results are cached in-process.
+# ─────────────────────────────────────────────
+_META_CACHE: dict = {}
+
+def fetch_ticker_meta(tkr: str) -> dict:
+    """Return {longName, industry} for a ticker using yf.Ticker.info."""
+    if tkr in _META_CACHE:
+        return _META_CACHE[tkr]
+    try:
+        info = yf.Ticker(tkr).info
+        meta = {
+            "longName": info.get("longName") or info.get("shortName") or tkr,
+            "industry": info.get("industry") or info.get("sector") or "",
+        }
+    except Exception:
+        meta = {"longName": tkr, "industry": ""}
+    _META_CACHE[tkr] = meta
+    return meta
+
+
+# ─────────────────────────────────────────────
 # Helpers
 # ─────────────────────────────────────────────
 
@@ -222,6 +245,9 @@ def fetch_movers(tickers: list, min_volume: int, currency: str, top_n: int = 5) 
     Fetch batch quotes for a universe of tickers and return
     top N gainers and top N losers filtered by min_volume.
 
+    Each mover row now includes longName + industry fetched via
+    yf.Ticker(tkr).info after screening so batch download stays fast.
+
     Weekend rule: Yahoo Finance sometimes returns a zero-volume row for
     the current weekend day. We always pick the LAST row with non-zero
     volume (= Friday close on Sat/Sun, today's close on weekdays).
@@ -268,19 +294,15 @@ def fetch_movers(tickers: list, min_volume: int, currency: str, top_n: int = 5) 
                 continue
 
             # ── WEEKEND FIX ──────────────────────────────────────────
-            # On Sat/Sun Yahoo may append a partial row with Close=NaN
-            # or Volume=0. Find the last row where Volume > 0 to get
-            # the real last trading day (Friday).
-            # On weekdays this still resolves to today's last row.
             nonzero_vol_idx = volume_series[volume_series > 0].index
             if nonzero_vol_idx.empty:
                 continue
 
-            last_idx = nonzero_vol_idx[-1]   # last date with real volume
+            last_idx = nonzero_vol_idx[-1]
             pos      = close_series.index.get_loc(last_idx)
 
             if pos < 1:
-                continue  # need at least one prior row for pct_change
+                continue
 
             close_val = float(close_series.iloc[pos])
             prev_val  = float(close_series.iloc[pos - 1])
@@ -312,6 +334,15 @@ def fetch_movers(tickers: list, min_volume: int, currency: str, top_n: int = 5) 
     rows.sort(key=lambda x: x["pct_change"])
     losers  = rows[:top_n]
     gainers = list(reversed(rows[-top_n:]))
+
+    # ── Enrich top movers with longName + industry ────────────────────
+    # Only fetch meta for the ~10 rows we actually display (not full universe)
+    print(f"  Enriching {len(gainers)+len(losers)} movers with name/industry...", flush=True)
+    for row in gainers + losers:
+        meta = fetch_ticker_meta(row["ticker"])
+        row["longName"] = meta["longName"]
+        row["industry"] = meta["industry"]
+    # ─────────────────────────────────────────────────────────────────
 
     return {
         "gainers":             gainers,
@@ -349,7 +380,6 @@ def fetch_index_entry(market_key: str, cfg: dict) -> dict:
             "volume_fmt": format_volume(q.get("volume") or 0, market_key),
         }
 
-    # Sparkline from primary ticker
     entry["sparkline"] = fetch_history_week(cfg["primary"]["ticker"])
     return entry
 
@@ -403,24 +433,20 @@ def build_payload(verbose: bool = False) -> dict:
         "movers":   {},
     }
 
-    # ── Indices
     print("[1/4] Fetching indices...", flush=True)
     for mkt, cfg in INDICES.items():
         if verbose:
             print(f"  {mkt}...", flush=True)
         payload["indices"][mkt] = fetch_index_entry(mkt, cfg)
 
-    # ── Sectors
     print("[2/4] Fetching sectors...", flush=True)
     for name, cfg in SECTORS.items():
         payload["sectors"][name] = fetch_sector_entry(name, cfg)
 
-    # ── FX
     print("[3/4] Fetching FX...", flush=True)
     for pair, sym in FX_PAIRS.items():
         payload["fx"][pair] = fetch_fx_entry(pair, sym)
 
-    # ── Movers
     print("[4/4] Fetching movers...", flush=True)
     print("  HK universe...", flush=True)
     payload["movers"]["HK"] = fetch_movers(
