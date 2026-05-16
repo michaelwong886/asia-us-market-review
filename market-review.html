@@ -220,9 +220,14 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 }
 
 /* ── Top Movers ───────────────────────────── */
+/*
+  FIX #1 — Column truncation:
+  Increased card min-width from 320px → 380px so all 4 columns
+  have enough room. Also loosened the col widths so VOL is never clipped.
+*/
 .movers-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr));
   gap: var(--space-4);
   margin-bottom: var(--space-8);
 }
@@ -247,7 +252,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 }
 .movers-direction-badge.up   { background: rgba(74,222,128,0.12); color: var(--green); }
 .movers-direction-badge.down { background: rgba(248,113,113,0.12); color: var(--red); }
-/* Weekend fallback badge */
 .weekend-badge {
   font-size: 10px; font-weight: 600; letter-spacing: 0.03em;
   padding: 2px 6px; border-radius: 3px;
@@ -256,17 +260,18 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 }
 .movers-screener-note {
   font-size: 10px; color: var(--text-faint); font-family: var(--font-mono);
-  padding: 0 var(--space-5) var(--space-2);
+  padding: var(--space-2) var(--space-5);
   border-bottom: 1px solid var(--border);
 }
 
+/* FIX #1 continued — col widths rebalanced so all 4 cols are always visible */
 .movers-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-.movers-table col.c-tkr   { width: 26%; }
-.movers-table col.c-close { width: 26%; }
-.movers-table col.c-chg   { width: 24%; }
-.movers-table col.c-vol   { width: 24%; }
+.movers-table col.c-tkr   { width: 28%; }
+.movers-table col.c-close { width: 24%; }
+.movers-table col.c-chg   { width: 22%; }
+.movers-table col.c-vol   { width: 26%; }
 .movers-table th, .movers-table td {
-  padding: var(--space-2) var(--space-4);
+  padding: var(--space-2) var(--space-3);
   font-size: var(--text-xs);
   text-align: left;
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
@@ -488,6 +493,17 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 </div><!-- /app -->
 
 <script>
+/*
+ * FIX #2 — Data disappears after ~8 seconds:
+ * Root cause: loadData(false) used cache:'default', which served the stale
+ * GitHub Pages CDN version of data.json (the OLD one with no movers key).
+ * That stale response then wiped the rendered movers tables back to empty.
+ *
+ * Fix: ALL fetches now use cache:'no-store' so every request bypasses
+ * the CDN entirely and always gets the freshest committed data.json.
+ * The ?_=timestamp bust is kept for belt-and-suspenders on manual refresh.
+ */
+
 const REFRESH_MS = 5 * 60 * 1000;
 const DATA_URL   = './data.json';
 let sparkCharts  = {};
@@ -510,8 +526,7 @@ function badgeCls(val) {
   return val > 0 ? 'up' : val < 0 ? 'down' : 'flat';
 }
 
-// ── TIMESTAMP: always use the browser's current local time ──
-// Runs immediately so the header shows a time even before data loads.
+// Stamp current HKT immediately so header is never blank
 function stampNow() {
   const el = document.getElementById('lastUpdatedTime');
   if (!el) return;
@@ -522,11 +537,8 @@ function stampNow() {
   });
   el.setAttribute('datetime', now.toISOString());
 }
-// Stamp immediately on parse so the header is never empty.
 stampNow();
 
-// ── WEEKEND HELPER ──
-// Returns true if the browser's local date is Saturday or Sunday (HKT)
 function isWeekend() {
   const day = new Date().toLocaleDateString('en-HK', { weekday: 'short', timeZone: 'Asia/Hong_Kong' });
   return day === 'Sat' || day === 'Sun';
@@ -661,16 +673,15 @@ async function loadData(force = false) {
   const btn = document.getElementById('refreshBtn');
   btn?.classList.add('spinning');
   btn?.setAttribute('disabled', '');
-  setStatus('loading');
 
-  // ── Stamp the time RIGHT NOW before even fetching ──
-  // This guarantees the header always shows a real time,
-  // even if the fetch fails or data is stale.
   stampNow();
 
-  const url = force ? `${DATA_URL}?_=${Date.now()}` : DATA_URL;
+  // FIX #2: Always cache:'no-store' — never serve stale CDN data
+  // Previously cache:'default' would return the old data.json (no movers key)
+  // from GitHub Pages CDN ~8s after page load, wiping the rendered tables.
+  const url = `${DATA_URL}?_=${Date.now()}`;
   try {
-    const res  = await fetch(url, { cache: force ? 'no-cache' : 'default' });
+    const res  = await fetch(url, { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
 
@@ -684,14 +695,10 @@ async function loadData(force = false) {
     renderSectors(data?.sectors);
     renderFX(data?.fx);
 
-    // ── Movers: show Friday data on weekends ──
-    // pipeline.py now writes movers.HK.is_friday_fallback = true when
-    // it snapped on Sat/Sun and fell back to Friday's data.
+    // Movers
     const hk = data?.movers?.HK || {};
     const us = data?.movers?.US || {};
     const weekend = isWeekend();
-
-    // Show "Fri Data" badge if it's a weekend in HKT OR pipeline flagged fallback
     const hkFallback = weekend || hk.is_friday_fallback;
     const usFallback = weekend || us.is_friday_fallback;
 
@@ -703,7 +710,6 @@ async function loadData(force = false) {
     renderMovers('tb-us-up',   us.gainers, usFallback ? 'No US gainers on Friday'  : 'No US gainers today');
     renderMovers('tb-us-down', us.losers,  usFallback ? 'No US losers on Friday'   : 'No US losers today');
 
-    // Footer: pipeline generation time
     const footer = document.getElementById('footerGenerated');
     if (footer) footer.textContent = `Pipeline: ${data?.generated_at_hkt || data?.generated_at || '—'}`;
 
