@@ -129,7 +129,7 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 .markets-badge { display: inline-block; font-size: 10px; font-family: var(--font-mono); color: var(--text-faint); background: var(--surface-3); border: 1px solid var(--border); border-radius: 3px; padding: 1px 4px; margin-left: var(--space-2); vertical-align: middle; letter-spacing: 0.02em; white-space: nowrap; }
 
 /* Top Movers */
-.movers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(420px, 100%), 1fr)); gap: var(--space-4); margin-bottom: var(--space-8); }
+.movers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(480px, 100%), 1fr)); gap: var(--space-4); margin-bottom: var(--space-8); }
 .movers-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; min-width: 0; }
 .movers-card-header { padding: var(--space-3) var(--space-5); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); }
 .movers-card-title { font-size: var(--text-sm); font-weight: 600; display: flex; align-items: center; gap: var(--space-2); }
@@ -139,35 +139,47 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 .weekend-badge { font-size: 10px; font-weight: 600; letter-spacing: 0.03em; padding: 2px 6px; border-radius: 3px; background: rgba(251,191,36,0.12); color: var(--gold); white-space: nowrap; }
 .movers-screener-note { font-size: 10px; color: var(--text-faint); font-family: var(--font-mono); padding: var(--space-2) var(--space-5); border-bottom: 1px solid var(--border); }
 
-/* Movers table — wider cards, name+industry sub-row */
+/* Movers table */
 .movers-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-.movers-table col.c-info  { width: 42%; }
-.movers-table col.c-close { width: 20%; }
-.movers-table col.c-chg   { width: 18%; }
-.movers-table col.c-vol   { width: 20%; }
+.movers-table col.c-info  { width: 50%; }
+.movers-table col.c-close { width: 17%; }
+.movers-table col.c-chg   { width: 16%; }
+.movers-table col.c-vol   { width: 17%; }
 .movers-table th, .movers-table td {
   padding: var(--space-2) var(--space-3);
   font-size: var(--text-xs);
   text-align: left;
-  overflow: hidden; white-space: nowrap;
+  overflow: hidden;
 }
-.movers-table th { color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 500; border-bottom: 1px solid var(--border); background: var(--surface-2); }
-.movers-table td { border-bottom: 1px solid var(--border); vertical-align: middle; }
+.movers-table th { color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 500; border-bottom: 1px solid var(--border); background: var(--surface-2); white-space: nowrap; }
+.movers-table td { border-bottom: 1px solid var(--border); vertical-align: top; padding-top: var(--space-3); padding-bottom: var(--space-3); }
 .movers-table tr:last-child td { border-bottom: none; }
 .movers-table tbody tr:hover td { background: rgba(255,255,255,0.025); }
 
-/* Info cell: ticker on top, company name + industry chip below */
-.mover-info-cell { display: flex; flex-direction: column; gap: 2px; overflow: hidden; }
-.mover-ticker    { font-family: var(--font-mono); font-weight: 700; color: var(--text); font-size: 11px; white-space: nowrap; }
-.mover-meta      { display: flex; align-items: center; gap: 4px; overflow: hidden; }
-.mover-longname  { font-size: 10px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 130px; }
-.mover-industry  {
-  font-size: 9px; font-family: var(--font-mono); white-space: nowrap;
-  padding: 1px 4px; border-radius: 3px; flex-shrink: 0;
-  background: rgba(56,189,248,0.1); color: var(--accent);
+/* Info cell: ticker bold on top, full company name below, industry chip on its own line */
+.mover-info-cell  { display: flex; flex-direction: column; gap: 3px; }
+.mover-ticker     { font-family: var(--font-mono); font-weight: 700; color: var(--text); font-size: 12px; white-space: nowrap; line-height: 1.3; }
+.mover-longname   {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.4;
+  /* wrap naturally — no truncation */
+  white-space: normal;
+  word-break: break-word;
+}
+.mover-industry   {
+  display: inline-block;
+  font-size: 9px;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+  padding: 1px 5px;
+  border-radius: 3px;
+  margin-top: 1px;
+  background: rgba(56,189,248,0.1);
+  color: var(--accent);
   border: 1px solid rgba(56,189,248,0.2);
 }
-.mover-close     { font-family: var(--font-mono); color: var(--text-muted); text-overflow: ellipsis; overflow: hidden; }
+.mover-close      { font-family: var(--font-mono); color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* Skeleton */
 @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
@@ -448,20 +460,21 @@ function renderMovers(tbodyId, rows, emptyMsg) {
     return;
   }
   tbody.innerHTML = rows.map(r => {
-    // Industry chip — only render if data exists
+    // Full company name — no truncation, wraps naturally
+    const longName = r.longName && r.longName !== r.ticker
+      ? `<span class="mover-longname">${r.longName}</span>`
+      : '';
+    // Industry chip on its own line below name
     const industryChip = r.industry
       ? `<span class="mover-industry">${r.industry}</span>`
-      : '';
-    // Long name truncated elegantly via CSS
-    const longName = r.longName && r.longName !== r.ticker
-      ? `<span class="mover-longname" title="${r.longName}">${r.longName}</span>`
       : '';
     return `
     <tr>
       <td>
         <div class="mover-info-cell">
           <span class="mover-ticker">${r.ticker}</span>
-          <div class="mover-meta">${longName}${industryChip}</div>
+          ${longName}
+          ${industryChip}
         </div>
       </td>
       <td class="mono-cell right-cell mover-close">${fmt(r.close, 2)}</td>
