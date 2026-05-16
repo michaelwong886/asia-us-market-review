@@ -1,0 +1,263 @@
+{
+  "generated_at": "2026-05-16T17:22:07.349748+00:00",
+  "generated_at_hkt": "2026-05-16 17:22 HKT",
+  "indices": {
+    "HK": {
+      "label": "Hong Kong",
+      "flag": "🇭🇰",
+      "primary": {
+        "ticker": "^HSI",
+        "close": 25962.73,
+        "prev_close": 26389.04,
+        "pct_change": -1.62,
+        "volume": 3259900000,
+        "52w_high": 28056.1,
+        "52w_low": 22668.35,
+        "name": "HSI",
+        "volume_fmt": "HK$3.3B"
+      },
+      "secondary": {
+        "ticker": "^HSCE",
+        "close": 8691.03,
+        "prev_close": 8858.63,
+        "pct_change": -1.89,
+        "volume": 2582800,
+        "52w_high": 9770.21,
+        "52w_low": 8173.75,
+        "name": "HSCEI"
+      },
+      "sparkline": [
+        26406.84,
+        26347.91,
+        26388.44,
+        26389.04,
+        25962.73
+      ]
+    },
+    "CN": {
+      "label": "China A",
+      "flag": "🇨🇳",
+      "primary": {
+        "ticker": "000300.SS",
+        "close": 4859.59,
+        "prev_close": 4914.6,
+        "pct_change": -1.12,
+        "volume": 277000,
+        "52w_high": 5030.52,
+        "52w_low": 3827.08,
+        "name": "CSI 300",
+        "volume_fmt": "¥0.0T"
+      },
+      "secondary": {
+        "ticker": "000001.SS",
+        "close": 4135.39,
+        "prev_close": 4177.92,
+        "pct_change": -1.02,
+        "volume": 733200,
+        "52w_high": 4258.86,
+        "52w_low": 3332.49,
+        "name": "SSE Composite"
+      },
+      "sparkline": [
+        4951.84,
+        4948.05,
+        4998.34,
+        4914.6,
+        4859.59
+      ]
+    },
+    "KR": {
+      "label": "Korea",
+      "flag": "🇰🇷",
+      "primary": {
+        "ticker": "^KS11",
+        "close": 7493.18,
+        "prev_close": 7981.41,
+        "pct_change": -6.12,
+        "volume": 885600,
+        "52w_high": 8046.78,
+        "52w_low": 2588.09,
+        "name": "KOSPI",
+        "volume_fmt": "₩0.0T"
+      },
+      "secondary": {
+        "ticker": "^KQ11",
+        "close": 1129.82,
+        "prev_close": 1191.09,
+        "pct_change": -5.14,
+        "volume": 1100,
+        "52w_high": 1229.42,
+        "52w_low": 710.47,
+        "name": "KOSDAQ"
+      },
+      "sparkline": [
+        7822.24,
+        7643.15,
+        7844.01,
+        7981.41,
+        7493.18
+      ]
+    },
+    "JP": {
+      "label": "Japan",
+      "flag": "🇯🇵",
+      "primary": {
+        "ticker": "^N225",
+        "close": 61409.29,
+        "prev_close": 62654.05,
+        "pct_change": -1.99,
+        "volume": 213900000,
+        "52w_high": 63799.32,
+        "52w_low": 36855.83,
+        "name": "Nikkei 225",
+        "volume_fmt": "¥0.0T"
+      },
+      "secondary": {
+        "ticker": "^TPX",
+        "error": "no_data",
+        "name": "TOPIX"
+      },
+      "sparkline": [
+        62417.88,
+        62742.57,
+        63272.11,
+        62654.05,
+        61409.29
+      ]
+    },
+    "US": {
+      "label": "US",
+      "flag": "🇺🇸",
+      "primary": {
+        "ticker": "^GSPC",
+        "close": 7408.5,
+        "prev_close": 7501.24,
+        "pct_change": -1.24,
+        "volume": 5582070000,
+        "52w_high": 7517.12,
+        "52w_low": 5767.41,
+        "name": "S&P 500",
+        "volume_fmt": "$5.6B"
+      },
+      "secondary": {
+        "ticker": "^IXIC",
+        "close": 26225.14,
+        "prev_close": 26635.22,
+        "pct_change": -1.54,
+        "volume": 9584430000,
+        "52w_high": 26707.14,
+        "52w_low": 18599.69,
+        "name": "NASDAQ"
+      },
+      "tertiary": {
+        "ticker": "^DJI",
+        "close": 49526.17,
+        "prev_close": 50063.46,
+        "pct_change": -1.07,
+        "volume": 587920000,
+        "52w_high": 50512.79,
+        "52w_low": 41354.09,
+        "name": "Dow Jones"
+      },
+      "sparkline": [
+        7412.84,
+        7400.96,
+        7444.25,
+        7501.24,
+        7408.5
+      ]
+    }
+  },
+  "sectors": {
+    "AI / Chips": {
+      "markets": "US/HK/KR",
+      "anchor": "SOXX",
+      "pct_change": -4.06,
+      "close": 508.52,
+      "error": null
+    },
+    "CN Internet": {
+      "markets": "HK/CN",
+      "anchor": "KWEB",
+      "pct_change": -3.53,
+      "close": 28.17,
+      "error": null
+    },
+    "EV / Battery": {
+      "markets": "CN/US",
+      "anchor": "LIT",
+      "pct_change": -3.3,
+      "close": 84.08,
+      "error": null
+    },
+    "Robotics": {
+      "markets": "JP/CN",
+      "anchor": "ROBO",
+      "pct_change": -2.24,
+      "close": 84.99,
+      "error": null
+    },
+    "Clean Energy": {
+      "markets": "US/CN",
+      "anchor": "ICLN",
+      "pct_change": -1.54,
+      "close": 21.79,
+      "error": null
+    },
+    "Biotech": {
+      "markets": "US/HK/KR",
+      "anchor": "XBI",
+      "pct_change": -3.08,
+      "close": 130.69,
+      "error": null
+    },
+    "Financials": {
+      "markets": "US/HK/KR",
+      "anchor": "XLF",
+      "pct_change": -0.37,
+      "close": 51.1,
+      "error": null
+    },
+    "Defence": {
+      "markets": "US/KR",
+      "anchor": "ITA",
+      "pct_change": -3.2,
+      "close": 217.27,
+      "error": null
+    }
+  },
+  "fx": {
+    "USD/HKD": {
+      "rate": 7.83,
+      "pct_change": -0.04,
+      "error": null
+    },
+    "USD/CNY": {
+      "rate": 6.81,
+      "pct_change": 0.35,
+      "error": null
+    },
+    "USD/KRW": {
+      "rate": 1497.76,
+      "pct_change": 0.3,
+      "error": null
+    },
+    "USD/JPY": {
+      "rate": 158.73,
+      "pct_change": 0.56,
+      "error": null
+    },
+    "EUR/USD": {
+      "rate": 1.16,
+      "pct_change": -0.73,
+      "error": null
+    },
+    "DXY": {
+      "rate": 99.27,
+      "pct_change": 0.39,
+      "error": null
+    }
+  },
+  "breadth": {},
+  "errors": []
+}
