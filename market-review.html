@@ -57,7 +57,7 @@ body {
 img { display: block; max-width: 100%; }
 button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
 
-/* ── Layout ────────────────────────────────── */
+/* ── Layout ─────────────────────────────────── */
 .app { display: flex; flex-direction: column; min-height: 100dvh; }
 
 /* Header */
@@ -72,13 +72,12 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 .header-left { display: flex; align-items: center; gap: var(--space-3); }
 .logo {
   display: flex; align-items: center; gap: var(--space-2);
-  font-size: var(--text-sm); font-weight: 600; letter-spacing: -0.01em; color: var(--text);
-  text-decoration: none;
+  text-decoration: none; color: var(--text);
 }
 .logo svg { color: var(--accent); flex-shrink: 0; }
 .logo-name { display: flex; flex-direction: column; line-height: 1.2; }
-.logo-title { font-size: var(--text-sm); font-weight: 700; letter-spacing: -0.02em; color: var(--text); }
-.logo-sub   { font-size: var(--text-xs); color: var(--text-muted); font-weight: 400; letter-spacing: 0.02em; }
+.logo-title { font-size: var(--text-sm); font-weight: 700; letter-spacing: -0.02em; }
+.logo-sub   { font-size: var(--text-xs); color: var(--text-muted); font-weight: 400; }
 .header-right { display: flex; align-items: center; gap: var(--space-3); }
 .refresh-btn {
   display: flex; align-items: center; gap: var(--space-2);
@@ -93,11 +92,7 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 .refresh-btn:hover { color: var(--text); background: var(--surface-3); border-color: var(--accent); }
 .refresh-btn.spinning svg { animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
-.status-dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: var(--text-faint); flex-shrink: 0;
-  transition: background 0.4s;
-}
+.status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--text-faint); flex-shrink: 0; transition: background 0.4s; }
 .status-dot.live  { background: var(--green); box-shadow: 0 0 6px var(--green); }
 .status-dot.error { background: var(--red); }
 .last-updated { font-size: var(--text-xs); color: var(--text-muted); font-family: var(--font-mono); }
@@ -108,13 +103,13 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 
 /* Section headers */
 .section-header { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4); }
-.section-title  { font-size: var(--text-sm); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
+.section-title  { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); white-space: nowrap; }
 .section-divider { flex: 1; height: 1px; background: var(--border); }
 
-/* ── KPI Grid ──────────────────────────────── */
+/* ── KPI Grid ─────────────────────────────── */
 .indices-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
   gap: var(--space-4);
   margin-bottom: var(--space-8);
 }
@@ -123,8 +118,8 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: var(--space-5);
-  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
   position: relative; overflow: hidden;
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 .kpi-card:hover { border-color: var(--border-strong); box-shadow: var(--shadow-md); transform: translateY(-1px); }
 .kpi-card::before {
@@ -136,41 +131,26 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 .kpi-card[data-market="KR"] { --card-accent: #4ade80; }
 .kpi-card[data-market="JP"] { --card-accent: #fbbf24; }
 .kpi-card[data-market="US"] { --card-accent: #a78bfa; }
-
 .kpi-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: var(--space-4); }
 .kpi-market-label { display: flex; align-items: center; gap: var(--space-2); }
 .kpi-flag { font-size: 1.2em; line-height: 1; }
-.kpi-market-name { font-size: var(--text-sm); font-weight: 600; color: var(--text); }
+.kpi-market-name { font-size: var(--text-sm); font-weight: 600; }
 .kpi-market-sub  { font-size: var(--text-xs); color: var(--text-muted); margin-top: 1px; }
-.kpi-badge {
-  font-size: var(--text-xs); font-weight: 600;
-  padding: 2px var(--space-2); border-radius: 4px;
-  font-family: var(--font-mono);
-  white-space: nowrap;
-}
+.kpi-badge { font-size: var(--text-xs); font-weight: 600; padding: 2px var(--space-2); border-radius: 4px; font-family: var(--font-mono); white-space: nowrap; }
 .kpi-badge.up   { background: rgba(74,222,128,0.12); color: var(--green); }
 .kpi-badge.down { background: rgba(248,113,113,0.12); color: var(--red); }
 .kpi-badge.flat { background: rgba(255,255,255,0.06); color: var(--text-muted); }
-.kpi-primary { margin-bottom: var(--space-3); }
-.kpi-value {
-  font-family: var(--font-mono);
-  font-size: var(--text-xl); font-weight: 600;
-  color: var(--text); letter-spacing: -0.02em; transition: color 0.4s;
-}
-.kpi-secondary-row {
-  display: flex; align-items: center; justify-content: space-between;
-  padding-top: var(--space-3); border-top: 1px solid var(--border); gap: var(--space-2);
-}
+.kpi-value { font-family: var(--font-mono); font-size: var(--text-xl); font-weight: 600; letter-spacing: -0.02em; transition: color 0.4s; }
+.kpi-sparkline-wrap { height: 36px; margin: var(--space-3) 0 var(--space-2); }
+.kpi-sparkline-wrap canvas { width: 100% !important; height: 100% !important; }
+.kpi-secondary-row { display: flex; align-items: center; justify-content: space-between; padding-top: var(--space-3); border-top: 1px solid var(--border); gap: var(--space-2); }
 .kpi-secondary-item { display: flex; flex-direction: column; gap: 1px; }
 .kpi-secondary-label { font-size: var(--text-xs); color: var(--text-faint); }
 .kpi-secondary-value { font-family: var(--font-mono); font-size: var(--text-xs); font-weight: 500; color: var(--text-muted); }
 .kpi-secondary-value.up   { color: var(--green); }
 .kpi-secondary-value.down { color: var(--red); }
-.kpi-sparkline-wrap { height: 36px; margin: var(--space-3) 0 var(--space-2); }
-.kpi-sparkline-wrap canvas { width: 100% !important; height: 100% !important; }
-.kpi-vol { font-size: var(--text-xs); color: var(--text-faint); font-family: var(--font-mono); }
 
-/* ── Sector & FX Grid ──────────────────────── */
+/* ── Tables (Sector + FX) — fixed 3-col layout ── */
 .two-col-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
@@ -187,75 +167,127 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 .data-table-card-header {
   padding: var(--space-4) var(--space-5);
   border-bottom: 1px solid var(--border);
-  font-size: var(--text-sm); font-weight: 600; color: var(--text);
+  font-size: var(--text-sm); font-weight: 600;
   display: flex; align-items: center; gap: var(--space-2);
 }
-
-/* ── Clean 3-column table — no overflow ──── */
 .data-table {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
 }
 .data-table th, .data-table td {
-  padding: var(--space-3) var(--space-5);
+  padding: var(--space-3) var(--space-4);
   font-size: var(--text-xs);
   text-align: left;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .data-table th {
   color: var(--text-faint); text-transform: uppercase;
   letter-spacing: 0.06em; font-weight: 500;
   border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
 }
-.data-table td { border-bottom: 1px solid var(--border); color: var(--text-muted); }
+.data-table td { border-bottom: 1px solid var(--border); color: var(--text-muted); vertical-align: middle; }
 .data-table tr:last-child td { border-bottom: none; }
-.data-table tr:hover td { background: var(--surface-2); }
+.data-table tbody tr:hover td { background: rgba(255,255,255,0.025); }
 
-/* Sector table: 3 cols — Sector 45%, Anchor 25%, Chg% 30% */
-.sector-table col.c-name   { width: 45%; }
-.sector-table col.c-anchor { width: 25%; }
-.sector-table col.c-chg    { width: 30%; }
+/* Sector table: Sector 44% | Anchor 24% | Chg% 32% */
+.sector-table col.c-name   { width: 44%; }
+.sector-table col.c-anchor { width: 24%; }
+.sector-table col.c-chg    { width: 32%; }
 
-/* FX table: 3 cols — Pair 40%, Rate 35%, Chg% 25% */
-.fx-table col.c-pair { width: 40%; }
-.fx-table col.c-rate { width: 35%; }
+/* FX table: Pair 38% | Rate 37% | Chg% 25% */
+.fx-table col.c-pair { width: 38%; }
+.fx-table col.c-rate { width: 37%; }
 .fx-table col.c-chg  { width: 25%; }
 
 .name-cell   { color: var(--text) !important; font-weight: 500; }
-.anchor-cell { font-family: var(--font-mono); color: var(--text) !important; font-weight: 600; }
+.anchor-cell { font-family: var(--font-mono); color: var(--text) !important; font-weight: 600; font-size: 11px; letter-spacing: 0.03em; }
 .mono-cell   { font-family: var(--font-mono); }
 .right-cell  { text-align: right !important; }
-
 .chg-up   { color: var(--green) !important; font-weight: 600; }
 .chg-down { color: var(--red)   !important; font-weight: 600; }
 .chg-flat { color: var(--text-muted) !important; }
 
-/* ── Markets tooltip on hover ──────────────── */
-.sector-row { position: relative; cursor: default; }
-.markets-tip {
-  display: none;
-  position: absolute;
-  right: var(--space-5);
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--surface-3);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-sm);
-  padding: 2px var(--space-2);
+/* Markets badge — visible inline, small muted pill */
+.markets-badge {
+  display: inline-block;
   font-size: 10px;
   font-family: var(--font-mono);
-  color: var(--text-muted);
+  color: var(--text-faint);
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1px 4px;
+  margin-left: var(--space-2);
+  vertical-align: middle;
+  letter-spacing: 0.02em;
   white-space: nowrap;
-  z-index: 10;
-  pointer-events: none;
-  letter-spacing: 0.04em;
 }
-.sector-row:hover .markets-tip { display: block; }
 
-/* ── Skeleton ──────────────────────────────── */
+/* ── Top Movers ───────────────────────────── */
+.movers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+.movers-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  min-width: 0;
+}
+.movers-card-header {
+  padding: var(--space-3) var(--space-5);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--space-2);
+}
+.movers-card-title {
+  font-size: var(--text-sm); font-weight: 600;
+  display: flex; align-items: center; gap: var(--space-2);
+}
+.movers-direction-badge {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 2px 6px; border-radius: 3px;
+}
+.movers-direction-badge.up   { background: rgba(74,222,128,0.12); color: var(--green); }
+.movers-direction-badge.down { background: rgba(248,113,113,0.12); color: var(--red); }
+.movers-screener-note {
+  font-size: 10px; color: var(--text-faint); font-family: var(--font-mono);
+  padding: 0 var(--space-5) var(--space-2);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Movers table: Ticker 28% | Name 0 (hidden via overflow) | Close 28% | Chg% 22% | Vol 22% */
+.movers-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.movers-table col.c-tkr  { width: 26%; }
+.movers-table col.c-close { width: 26%; }
+.movers-table col.c-chg  { width: 24%; }
+.movers-table col.c-vol  { width: 24%; }
+.movers-table th, .movers-table td {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-xs);
+  text-align: left;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.movers-table th {
+  color: var(--text-faint); text-transform: uppercase;
+  letter-spacing: 0.06em; font-weight: 500;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+}
+.movers-table td { border-bottom: 1px solid var(--border); }
+.movers-table tr:last-child td { border-bottom: none; }
+.movers-table tbody tr:hover td { background: rgba(255,255,255,0.025); }
+.mover-ticker { font-family: var(--font-mono); font-weight: 700; color: var(--text); font-size: 11px; }
+.mover-close  { font-family: var(--font-mono); color: var(--text-muted); }
+
+/* ── Skeleton ─────────────────────────────── */
 @keyframes shimmer {
   0%   { background-position: -200% 0; }
   100% { background-position:  200% 0; }
@@ -264,23 +296,11 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
   background: linear-gradient(90deg, var(--surface-2) 25%, var(--surface-3) 50%, var(--surface-2) 75%);
   background-size: 200% 100%;
   animation: shimmer 1.4s ease-in-out infinite;
-  border-radius: 4px;
-  display: inline-block;
+  border-radius: 4px; display: inline-block;
 }
 .sk-text-lg { width: 120px; height: 1.6em; }
-.sk-text-sm { width: 60px;  height: 1em; }
-.sk-text-xs { width: 40px;  height: 0.85em; }
-
-/* ── Footer ────────────────────────────────── */
-.footer {
-  border-top: 1px solid var(--border);
-  padding: var(--space-4) var(--space-6);
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: var(--space-3);
-  font-size: var(--text-xs); color: var(--text-faint);
-}
-.footer a { color: var(--accent); text-decoration: none; }
-.footer a:hover { color: var(--accent-hover); }
+.sk-text-sm { width: 80px;  height: 1em; }
+.sk-row { width: 100%; height: 40px; margin-bottom: 1px; }
 
 /* ── Error banner ──────────────────────────── */
 .error-banner {
@@ -294,7 +314,18 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 }
 .error-banner.visible { display: flex; align-items: center; gap: var(--space-3); }
 
-/* ── Responsive ────────────────────────────── */
+/* ── Footer ─────────────────────────────────── */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: var(--space-4) var(--space-6);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: var(--space-3);
+  font-size: var(--text-xs); color: var(--text-faint);
+}
+.footer a { color: var(--accent); text-decoration: none; }
+.footer a:hover { color: var(--accent-hover); }
+
+/* ── Responsive ─────────────────────────────── */
 @media (max-width: 640px) {
   .header { padding: var(--space-3) var(--space-4); }
   .main   { padding: var(--space-4) var(--space-4) var(--space-10); }
@@ -308,11 +339,11 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 <body>
 <div class="app">
 
-  <!-- ── Header ──────────────────────────────── -->
+  <!-- Header -->
   <header class="header">
     <div class="header-left">
       <a class="logo" href="#">
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-label="Michael. W Dashboard" xmlns="http://www.w3.org/2000/svg">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-label="Logo" xmlns="http://www.w3.org/2000/svg">
           <rect width="28" height="28" rx="7" fill="currentColor" opacity="0.08"/>
           <polyline points="4,20 9,13 13,16 18,8 24,11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
           <circle cx="24" cy="11" r="2.5" fill="currentColor"/>
@@ -324,9 +355,9 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
       </a>
     </div>
     <div class="header-right">
-      <span class="status-dot" id="statusDot" title="Data status"></span>
+      <span class="status-dot" id="statusDot"></span>
       <span class="last-updated">Updated: <time id="lastUpdatedTime">—</time></span>
-      <button class="refresh-btn" id="refreshBtn" aria-label="Refresh data now" onclick="loadData(true)">
+      <button class="refresh-btn" id="refreshBtn" aria-label="Refresh data" onclick="loadData(true)">
         <svg id="refreshIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
           <path d="M21 3v5h-5"/>
@@ -338,7 +369,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
     </div>
   </header>
 
-  <!-- ── Main ────────────────────────────────── -->
   <main class="main" id="mainContent">
 
     <div class="error-banner" id="errorBanner" role="alert">
@@ -346,7 +376,7 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
       <span id="errorMsg">Unable to load data.json — retrying…</span>
     </div>
 
-    <!-- Indices -->
+    <!-- ── Market Indices ── -->
     <div class="section-header">
       <span class="section-title">📊 Market Indices</span>
       <div class="section-divider"></div>
@@ -359,11 +389,15 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
       <div class="kpi-card" data-market="US"><div class="skeleton sk-text-lg"></div></div>
     </div>
 
-    <!-- Sectors + FX -->
+    <!-- ── Sector + FX ── -->
+    <div class="section-header">
+      <span class="section-title">🏭 Sectors &amp; FX</span>
+      <div class="section-divider"></div>
+    </div>
     <div class="two-col-grid">
 
-      <!-- Sectors: 3 cols, Markets on hover -->
-      <div class="data-table-card" id="sectorsCard">
+      <!-- Sector Snapshot -->
+      <div class="data-table-card">
         <div class="data-table-card-header">🏭 Sector Snapshot</div>
         <table class="data-table sector-table" aria-label="Sector performance">
           <colgroup>
@@ -379,13 +413,13 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
             </tr>
           </thead>
           <tbody id="sectorsTbody">
-            <tr><td colspan="3"><div class="skeleton sk-text-sm" style="margin:var(--space-4) auto;display:block;"></div></td></tr>
+            <tr><td colspan="3"><div class="skeleton sk-row"></div></td></tr>
           </tbody>
         </table>
       </div>
 
-      <!-- FX: 3 cols -->
-      <div class="data-table-card" id="fxCard">
+      <!-- FX Rates -->
+      <div class="data-table-card">
         <div class="data-table-card-header">💱 FX Rates</div>
         <table class="data-table fx-table" aria-label="FX rates">
           <colgroup>
@@ -401,12 +435,73 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
             </tr>
           </thead>
           <tbody id="fxTbody">
-            <tr><td colspan="3"><div class="skeleton sk-text-sm" style="margin:var(--space-4) auto;display:block;"></div></td></tr>
+            <tr><td colspan="3"><div class="skeleton sk-row"></div></td></tr>
           </tbody>
         </table>
       </div>
 
     </div>
+
+    <!-- ── Top Movers ── -->
+    <div class="section-header">
+      <span class="section-title">🔥 Top Movers</span>
+      <div class="section-divider"></div>
+    </div>
+    <div class="movers-grid">
+
+      <!-- HK Gainers -->
+      <div class="movers-card" id="card-hk-up">
+        <div class="movers-card-header">
+          <div class="movers-card-title">🇭🇰 HK Top Gainers <span class="movers-direction-badge up">▲ TOP 5</span></div>
+        </div>
+        <div class="movers-screener-note">Mkt cap ≥ 200B HKD · Vol ≥ 500k</div>
+        <table class="movers-table" aria-label="HK top gainers">
+          <colgroup><col class="c-tkr"><col class="c-close"><col class="c-chg"><col class="c-vol"></colgroup>
+          <thead><tr><th>Ticker</th><th class="right-cell">Close</th><th class="right-cell">Chg%</th><th class="right-cell">Vol</th></tr></thead>
+          <tbody id="tb-hk-up"><tr><td colspan="4"><div class="skeleton sk-row"></div></td></tr></tbody>
+        </table>
+      </div>
+
+      <!-- HK Losers -->
+      <div class="movers-card" id="card-hk-down">
+        <div class="movers-card-header">
+          <div class="movers-card-title">🇭🇰 HK Top Losers <span class="movers-direction-badge down">▼ TOP 5</span></div>
+        </div>
+        <div class="movers-screener-note">Mkt cap ≥ 200B HKD · Vol ≥ 500k</div>
+        <table class="movers-table" aria-label="HK top losers">
+          <colgroup><col class="c-tkr"><col class="c-close"><col class="c-chg"><col class="c-vol"></colgroup>
+          <thead><tr><th>Ticker</th><th class="right-cell">Close</th><th class="right-cell">Chg%</th><th class="right-cell">Vol</th></tr></thead>
+          <tbody id="tb-hk-down"><tr><td colspan="4"><div class="skeleton sk-row"></div></td></tr></tbody>
+        </table>
+      </div>
+
+      <!-- US Gainers -->
+      <div class="movers-card" id="card-us-up">
+        <div class="movers-card-header">
+          <div class="movers-card-title">🇺🇸 US Top Gainers <span class="movers-direction-badge up">▲ TOP 5</span></div>
+        </div>
+        <div class="movers-screener-note">Mkt cap ≥ 1B USD · Vol ≥ 500k</div>
+        <table class="movers-table" aria-label="US top gainers">
+          <colgroup><col class="c-tkr"><col class="c-close"><col class="c-chg"><col class="c-vol"></colgroup>
+          <thead><tr><th>Ticker</th><th class="right-cell">Close</th><th class="right-cell">Chg%</th><th class="right-cell">Vol</th></tr></thead>
+          <tbody id="tb-us-up"><tr><td colspan="4"><div class="skeleton sk-row"></div></td></tr></tbody>
+        </table>
+      </div>
+
+      <!-- US Losers -->
+      <div class="movers-card" id="card-us-down">
+        <div class="movers-card-header">
+          <div class="movers-card-title">🇺🇸 US Top Losers <span class="movers-direction-badge down">▼ TOP 5</span></div>
+        </div>
+        <div class="movers-screener-note">Mkt cap ≥ 1B USD · Vol ≥ 500k</div>
+        <table class="movers-table" aria-label="US top losers">
+          <colgroup><col class="c-tkr"><col class="c-close"><col class="c-chg"><col class="c-vol"></colgroup>
+          <thead><tr><th>Ticker</th><th class="right-cell">Close</th><th class="right-cell">Chg%</th><th class="right-cell">Vol</th></tr></thead>
+          <tbody id="tb-us-down"><tr><td colspan="4"><div class="skeleton sk-row"></div></td></tr></tbody>
+        </table>
+      </div>
+
+    </div><!-- /movers-grid -->
   </main>
 
   <footer class="footer">
@@ -414,52 +509,51 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
     <span id="footerGenerated">—</span>
   </footer>
 
-</div>
+</div><!-- /app -->
 
 <script>
-const REFRESH_INTERVAL_MS = 5 * 60 * 1000;
-const DATA_URL = './data.json';
-let sparklineCharts = {};
+const REFRESH_MS = 5 * 60 * 1000;
+const DATA_URL   = './data.json';
+let sparkCharts  = {};
 let refreshTimer = null;
 
-function fmt(val, decimals = 2) {
+function fmt(val, dec = 2) {
   if (val == null || isNaN(val)) return '—';
-  return Number(val).toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+  return Number(val).toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec });
 }
 function fmtPct(val) {
   if (val == null || isNaN(val)) return '—';
-  const sign = val >= 0 ? '+' : '';
-  return `${sign}${Number(val).toFixed(2)}%`;
+  return (val >= 0 ? '+' : '') + Number(val).toFixed(2) + '%';
 }
-function chgClass(val) {
+function chgCls(val) {
   if (val == null || isNaN(val)) return 'chg-flat';
   return val > 0 ? 'chg-up' : val < 0 ? 'chg-down' : 'chg-flat';
 }
-function badgeClass(val) {
+function badgeCls(val) {
   if (val == null || isNaN(val)) return 'flat';
   return val > 0 ? 'up' : val < 0 ? 'down' : 'flat';
 }
 
-function drawSparkline(canvasId, data, isUp) {
-  const canvas = document.getElementById(canvasId);
+function drawSparkline(id, data, isUp) {
+  const canvas = document.getElementById(id);
   if (!canvas || !data || data.length < 2) return;
-  if (sparklineCharts[canvasId]) { sparklineCharts[canvasId].destroy(); delete sparklineCharts[canvasId]; }
+  if (sparkCharts[id]) { sparkCharts[id].destroy(); delete sparkCharts[id]; }
   const color = isUp ? '#4ade80' : '#f87171';
-  sparklineCharts[canvasId] = new Chart(canvas.getContext('2d'), {
+  sparkCharts[id] = new Chart(canvas.getContext('2d'), {
     type: 'line',
     data: {
       labels: data.map((_, i) => i),
       datasets: [{ data, borderColor: color, borderWidth: 1.5, pointRadius: 0, fill: true,
-        backgroundColor: (ctx2) => {
-          const g = ctx2.chart.ctx.createLinearGradient(0, 0, 0, 36);
+        backgroundColor: ctx => {
+          const g = ctx.chart.ctx.createLinearGradient(0, 0, 0, 36);
           g.addColorStop(0, color + '33'); g.addColorStop(1, color + '00'); return g;
-        }, tension: 0.4 }],
+        }, tension: 0.4 }]
     },
     options: {
       responsive: true, maintainAspectRatio: false, animation: false,
       plugins: { legend: { display: false }, tooltip: { enabled: false } },
-      scales: { x: { display: false }, y: { display: false } },
-    },
+      scales: { x: { display: false }, y: { display: false } }
+    }
   });
 }
 
@@ -477,22 +571,22 @@ function renderKpiCard(card, entry) {
           <div class="kpi-market-sub">${p.name || ''}</div>
         </div>
       </div>
-      <span class="kpi-badge ${badgeClass(p.pct_change)}">${fmtPct(p.pct_change)}</span>
+      <span class="kpi-badge ${badgeCls(p.pct_change)}">${fmtPct(p.pct_change)}</span>
     </div>
-    <div class="kpi-primary"><div class="kpi-value">${fmt(p.close, 2)}</div></div>
+    <div class="kpi-value">${fmt(p.close, 2)}</div>
     <div class="kpi-sparkline-wrap"><canvas id="spark-${mkt}" aria-label="${entry.label} sparkline"></canvas></div>
     <div class="kpi-secondary-row">
       <div class="kpi-secondary-item">
         <span class="kpi-secondary-label">${s.name || '—'}</span>
-        <span class="kpi-secondary-value ${chgClass(s.pct_change)}">${s.close ? fmt(s.close) : '—'}</span>
+        <span class="kpi-secondary-value ${chgCls(s.pct_change)}">${s.close ? fmt(s.close) : '—'}</span>
       </div>
       ${t.name ? `<div class="kpi-secondary-item">
         <span class="kpi-secondary-label">${t.name}</span>
-        <span class="kpi-secondary-value ${chgClass(t.pct_change)}">${t.close ? fmt(t.close) : '—'}</span>
+        <span class="kpi-secondary-value ${chgCls(t.pct_change)}">${t.close ? fmt(t.close) : '—'}</span>
       </div>` : ''}
       <div class="kpi-secondary-item" style="text-align:right">
         <span class="kpi-secondary-label">Vol</span>
-        <span class="kpi-secondary-value kpi-vol">${p.volume_fmt || '—'}</span>
+        <span class="kpi-secondary-value">${p.volume_fmt || '—'}</span>
       </div>
     </div>`;
   if (entry.sparkline && entry.sparkline.length > 1) drawSparkline(`spark-${mkt}`, entry.sparkline, isUp);
@@ -501,25 +595,45 @@ function renderKpiCard(card, entry) {
 function renderSectors(sectors) {
   const tbody = document.getElementById('sectorsTbody');
   if (!sectors || !tbody) return;
-  tbody.innerHTML = Object.entries(sectors).map(([name, d]) => `
-    <tr class="sector-row">
-      <td class="name-cell">${name}</td>
+  tbody.innerHTML = Object.entries(sectors).map(([name, d]) => {
+    const mktBadge = d.markets
+      ? `<span class="markets-badge">${d.markets}</span>`
+      : '';
+    return `<tr>
+      <td class="name-cell">${name}${mktBadge}</td>
       <td class="anchor-cell">${d.anchor || ''}</td>
-      <td class="mono-cell right-cell ${chgClass(d.pct_change)}">${fmtPct(d.pct_change)}
-        ${d.markets ? `<span class="markets-tip">${d.markets}</span>` : ''}
-      </td>
-    </tr>`).join('');
+      <td class="mono-cell right-cell ${chgCls(d.pct_change)}">${fmtPct(d.pct_change)}</td>
+    </tr>`;
+  }).join('');
 }
 
 function renderFX(fx) {
   const tbody = document.getElementById('fxTbody');
   if (!fx || !tbody) return;
-  tbody.innerHTML = Object.entries(fx).map(([pair, d]) => `
-    <tr>
+  tbody.innerHTML = Object.entries(fx).map(([pair, d]) =>
+    `<tr>
       <td class="name-cell">${pair}</td>
       <td class="mono-cell right-cell">${fmt(d.rate, 4)}</td>
-      <td class="mono-cell right-cell ${chgClass(d.pct_change)}">${fmtPct(d.pct_change)}</td>
-    </tr>`).join('');
+      <td class="mono-cell right-cell ${chgCls(d.pct_change)}">${fmtPct(d.pct_change)}</td>
+    </tr>`
+  ).join('');
+}
+
+function renderMovers(tbodyId, rows, emptyMsg) {
+  const tbody = document.getElementById(tbodyId);
+  if (!tbody) return;
+  if (!rows || rows.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;color:var(--text-faint);padding:var(--space-4)">${emptyMsg || 'No data'}</td></tr>`;
+    return;
+  }
+  tbody.innerHTML = rows.map(r => `
+    <tr>
+      <td class="mover-ticker">${r.ticker}</td>
+      <td class="mono-cell right-cell mover-close">${fmt(r.close, 2)}</td>
+      <td class="mono-cell right-cell ${chgCls(r.pct_change)}">${fmtPct(r.pct_change)}</td>
+      <td class="mono-cell right-cell" style="color:var(--text-faint)">${r.volume_fmt || '—'}</td>
+    </tr>`
+  ).join('');
 }
 
 function setStatus(state) {
@@ -528,47 +642,56 @@ function setStatus(state) {
   dot.className = 'status-dot';
   if (state === 'live')  dot.classList.add('live');
   if (state === 'error') dot.classList.add('error');
-  dot.title = state === 'live' ? 'Data loaded' : state === 'error' ? 'Load error' : 'Loading…';
 }
-function setLastUpdated(isoStr) {
+function setLastUpdated(iso) {
   const el = document.getElementById('lastUpdatedTime');
   if (!el) return;
-  if (!isoStr) { el.textContent = '—'; return; }
+  if (!iso) { el.textContent = '—'; return; }
   try {
-    const d = new Date(isoStr);
-    el.textContent = d.toLocaleTimeString('en-HK', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Hong_Kong' });
-    el.setAttribute('datetime', isoStr);
-  } catch { el.textContent = isoStr; }
+    el.textContent = new Date(iso).toLocaleTimeString('en-HK', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Hong_Kong' });
+    el.setAttribute('datetime', iso);
+  } catch { el.textContent = iso; }
 }
 function showError(msg) {
-  const banner = document.getElementById('errorBanner');
-  const msgEl  = document.getElementById('errorMsg');
-  if (banner) banner.classList.add('visible');
-  if (msgEl)  msgEl.textContent = msg || 'Unable to load data.json — retrying…';
+  const b = document.getElementById('errorBanner'), m = document.getElementById('errorMsg');
+  if (b) b.classList.add('visible');
+  if (m) m.textContent = msg;
   setStatus('error');
 }
 function hideError() {
-  const banner = document.getElementById('errorBanner');
-  if (banner) banner.classList.remove('visible');
+  const b = document.getElementById('errorBanner');
+  if (b) b.classList.remove('visible');
 }
 
 async function loadData(force = false) {
-  const btn  = document.getElementById('refreshBtn');
-  const icon = document.getElementById('refreshIcon');
+  const btn = document.getElementById('refreshBtn');
   btn?.classList.add('spinning');
-  btn?.setAttribute('disabled', 'true');
+  btn?.setAttribute('disabled', '');
   setStatus('loading');
   const url = force ? `${DATA_URL}?_=${Date.now()}` : DATA_URL;
   try {
-    const res = await fetch(url, { cache: force ? 'no-cache' : 'default' });
-    if (!res.ok) throw new Error(`HTTP ${res.status} — ${res.statusText}`);
+    const res  = await fetch(url, { cache: force ? 'no-cache' : 'default' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
+
+    // Indices
     document.querySelectorAll('.kpi-card[data-market]').forEach(card => {
       const entry = data?.indices?.[card.dataset.market];
       if (entry) renderKpiCard(card, entry);
     });
+
+    // Sectors & FX
     renderSectors(data?.sectors);
     renderFX(data?.fx);
+
+    // Movers
+    const hk = data?.movers?.HK || {};
+    const us = data?.movers?.US || {};
+    renderMovers('tb-hk-up',   hk.gainers, 'No HK gainers today');
+    renderMovers('tb-hk-down', hk.losers,  'No HK losers today');
+    renderMovers('tb-us-up',   us.gainers, 'No US gainers today');
+    renderMovers('tb-us-down', us.losers,  'No US losers today');
+
     setLastUpdated(data?.generated_at);
     const footer = document.getElementById('footerGenerated');
     if (footer) footer.textContent = `Pipeline: ${data?.generated_at_hkt || '—'}`;
@@ -584,7 +707,7 @@ async function loadData(force = false) {
 
 function scheduleRefresh() {
   if (refreshTimer) clearInterval(refreshTimer);
-  refreshTimer = setInterval(() => loadData(false), REFRESH_INTERVAL_MS);
+  refreshTimer = setInterval(() => loadData(false), REFRESH_MS);
 }
 document.addEventListener('DOMContentLoaded', () => { loadData(); scheduleRefresh(); });
 document.addEventListener('visibilitychange', () => {

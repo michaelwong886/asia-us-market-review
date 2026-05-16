@@ -2,7 +2,6 @@
 """
 Asia-US Market Review — Data Pipeline
 Fetches live/latest market data from Yahoo Finance and outputs data.json
-for the market-review.html dashboard.
 
 Markets covered:
   🇭🇰 Hong Kong  — ^HSI, ^HSCE
@@ -11,14 +10,9 @@ Markets covered:
   🇯🇵 Japan      — ^N225 (Nikkei), ^TPX (TOPIX)
   🇺🇸 US         — ^GSPC (S&P500), ^IXIC (NASDAQ), ^DJI (Dow)
 
-Sector ETFs (Yahoo Finance proxies):
-  AI/Chips, EV/Battery, CN Tech, Robotics, Biotech, Energy, Financials
-
-Usage:
-  pip install yfinance pandas python-dotenv
-  python pipeline.py
-  python pipeline.py --output ./data.json
-  python pipeline.py --pretty  (human-readable JSON)
+Screeners:
+  HK Movers — market cap >= 200B HKD, volume >= 500k
+  US Movers — market cap >= 1B USD,   volume >= 500k
 """
 
 import json
@@ -93,6 +87,54 @@ FX_PAIRS = {
     "DXY":     "DX-Y.NYB",
 }
 
+# HK large-cap universe — >=200B HKD mkt cap, liquid names
+# Approx 200B HKD threshold selects HSI constituents + major H-shares
+HK_UNIVERSE = [
+    "0700.HK",  # Tencent
+    "9988.HK",  # Alibaba
+    "0941.HK",  # China Mobile
+    "1299.HK",  # AIA
+    "0005.HK",  # HSBC
+    "0939.HK",  # CCB
+    "1398.HK",  # ICBC
+    "3690.HK",  # Meituan
+    "0388.HK",  # HKEx
+    "2318.HK",  # Ping An
+    "1810.HK",  # Xiaomi
+    "9618.HK",  # JD.com
+    "0883.HK",  # CNOOC
+    "2628.HK",  # China Life
+    "1211.HK",  # BYD
+    "0857.HK",  # PetroChina
+    "9999.HK",  # NetEase
+    "0027.HK",  # Galaxy Entertainment
+    "1177.HK",  # Sino Biopharm
+    "0011.HK",  # Hang Seng Bank
+    "2269.HK",  # Wuxi Biologics
+    "0016.HK",  # SHK Properties
+    "0688.HK",  # China Overseas Land
+    "0003.HK",  # HK & China Gas
+    "1038.HK",  # CK Infrastructure
+    "0002.HK",  # CLP Holdings
+    "6098.HK",  # Country Garden Services
+    "0762.HK",  # China Unicom
+    "2020.HK",  # ANTA Sports
+    "9961.HK",  # Trip.com
+]
+
+# US large-cap universe — >=1B USD mkt cap, S&P500 + NASDAQ100 majors
+US_UNIVERSE = [
+    "AAPL", "MSFT", "NVDA", "AMZN", "GOOGL", "META", "TSLA", "BRK-B",
+    "UNH", "LLY", "JPM", "V", "XOM", "MA", "AVGO", "HD", "CVX", "MRK",
+    "ABBV", "COST", "PEP", "KO", "WMT", "BAC", "PFE", "TMO", "CSCO",
+    "ACN", "MCD", "CRM", "ADBE", "NFLX", "ABT", "AMD", "INTC", "QCOM",
+    "DHR", "TXN", "NEE", "PM", "RTX", "HON", "AMGN", "IBM", "GE",
+    "SPGI", "UPS", "CAT", "BA", "GS", "MS", "BLK", "AXP", "BKNG",
+    "UBER", "ABNB", "SQ", "COIN", "PLTR", "SNOW", "ARM", "SMCI",
+    "MU", "LRCX", "AMAT", "KLAC", "MRVL", "ORCL", "SAP", "NOW",
+    "PANW", "CRWD", "ZS", "FTNT", "TSM", "ASML", "SHOP",
+]
+
 # ─────────────────────────────────────────────
 # Helpers
 # ─────────────────────────────────────────────
@@ -149,7 +191,6 @@ def fetch_history_week(ticker_sym: str) -> list:
 
 
 def format_volume(vol: int, market: str) -> str:
-    """Format volume with appropriate currency/unit."""
     currency_map = {
         "HK": ("HK$", "B", 1e9),
         "CN": ("¥",   "T", 1e12),
@@ -163,6 +204,87 @@ def format_volume(vol: int, market: str) -> str:
         return f"{sym}{val:.1f}{unit}"
     except Exception:
         return "—"
+
+
+def fetch_movers(tickers: list, min_volume: int, currency: str, top_n: int = 5) -> dict:
+    """
+    Fetch batch quotes for a universe of tickers and return
+    top N gainers and top N losers filtered by min_volume.
+
+    Returns:
+        {
+          "gainers": [{ticker, name, close, pct_change, volume}, ...],
+          "losers":  [{ticker, name, close, pct_change, volume}, ...],
+          "screener_note": "..."
+        }
+    """
+    print(f"  Downloading {len(tickers)} tickers (batch)...", flush=True)
+    try:
+        raw = yf.download(
+            tickers,
+            period="5d",
+            interval="1d",
+            auto_adjust=True,
+            group_by="ticker",
+            threads=True,
+            progress=False,
+        )
+    except Exception as e:
+        print(f"  ERROR downloading batch: {e}")
+        return {"gainers": [], "losers": [], "screener_note": f"error: {e}"}
+
+    rows = []
+    for tkr in tickers:
+        try:
+            if len(tickers) == 1:
+                df = raw
+            else:
+                df = raw[tkr] if tkr in raw.columns.get_level_values(0) else pd.DataFrame()
+
+            if df is None or df.empty or len(df) < 2:
+                continue
+
+            close_series  = df["Close"].dropna()
+            volume_series = df["Volume"].dropna()
+
+            if len(close_series) < 2:
+                continue
+
+            close_val  = float(close_series.iloc[-1])
+            prev_val   = float(close_series.iloc[-2])
+            vol_val    = float(volume_series.iloc[-1]) if not volume_series.empty else 0
+            chg        = pct_change(close_val, prev_val)
+
+            if chg is None:
+                continue
+            if vol_val < min_volume:
+                continue
+
+            # Format volume
+            if currency == "HKD":
+                vol_fmt = f"HK${vol_val/1e6:.0f}M" if vol_val >= 1e6 else f"{int(vol_val):,}"
+            else:
+                vol_fmt = f"${vol_val/1e6:.0f}M" if vol_val >= 1e6 else f"{int(vol_val):,}"
+
+            rows.append({
+                "ticker":     tkr,
+                "close":      safe_round(close_val, 2),
+                "pct_change": chg,
+                "volume":     int(vol_val),
+                "volume_fmt": vol_fmt,
+            })
+        except Exception:
+            continue
+
+    rows.sort(key=lambda x: x["pct_change"], reverse=True)
+    gainers = rows[:top_n]
+    losers  = list(reversed(rows[-top_n:])) if len(rows) >= top_n else list(reversed(rows))
+
+    return {
+        "gainers": gainers,
+        "losers":  losers,
+        "count_passed_screen": len(rows),
+    }
 
 
 # ─────────────────────────────────────────────
@@ -179,6 +301,7 @@ def run_pipeline(output_path: str = "data.json", pretty: bool = False) -> dict:
         "indices":  {},
         "sectors":  {},
         "fx":       {},
+        "movers":   {},
         "breadth":  {},
         "errors":   [],
     }
@@ -242,7 +365,33 @@ def run_pipeline(output_path: str = "data.json", pretty: bool = False) -> dict:
         }
         print(f"{data.get('close')}" if data.get("close") else "ERROR")
 
-    # ── 4. Save output ───────────────────────────
+    # ── 4. HK Movers ────────────────────────────
+    # Screener: mkt cap >= 200B HKD (~25B USD), vol >= 500k shares
+    print("\n🇭🇰 Fetching HK movers (>=200B HKD mktcap, vol>=500k)...")
+    result["movers"]["HK"] = fetch_movers(
+        tickers=HK_UNIVERSE,
+        min_volume=500_000,
+        currency="HKD",
+        top_n=5,
+    )
+    hk_m = result["movers"]["HK"]
+    print(f"  Passed screen: {hk_m.get('count_passed_screen', 0)} tickers")
+    print(f"  Top gainer: {hk_m['gainers'][0]['ticker']} {hk_m['gainers'][0]['pct_change']:+.2f}%" if hk_m.get('gainers') else "  No gainers")
+
+    # ── 5. US Movers ────────────────────────────
+    # Screener: mkt cap >= 1B USD, vol >= 500k shares
+    print("\n🇺🇸 Fetching US movers (>=1B USD mktcap, vol>=500k)...")
+    result["movers"]["US"] = fetch_movers(
+        tickers=US_UNIVERSE,
+        min_volume=500_000,
+        currency="USD",
+        top_n=5,
+    )
+    us_m = result["movers"]["US"]
+    print(f"  Passed screen: {us_m.get('count_passed_screen', 0)} tickers")
+    print(f"  Top gainer: {us_m['gainers'][0]['ticker']} {us_m['gainers'][0]['pct_change']:+.2f}%" if us_m.get('gainers') else "  No gainers")
+
+    # ── 6. Save output ───────────────────────────
     indent = 2 if pretty else None
     out    = json.dumps(result, ensure_ascii=False, indent=indent)
     Path(output_path).write_text(out, encoding="utf-8")
