@@ -13,6 +13,11 @@ Markets covered:
 Screeners:
   HK Movers — market cap >= 200B HKD, volume >= 500k
   US Movers — market cap >= 1B USD,   volume >= 500k
+
+Weekend rule:
+  If today is Saturday or Sunday (HKT), fetch_movers uses the last row
+  with non-zero volume, which will be Friday's close. The output JSON
+  includes is_friday_fallback=true so the dashboard can show a badge.
 """
 
 import json
@@ -88,7 +93,6 @@ FX_PAIRS = {
 }
 
 # HK large-cap universe — >=200B HKD mkt cap, liquid names
-# Approx 200B HKD threshold selects HSI constituents + major H-shares
 HK_UNIVERSE = [
     "0700.HK",  # Tencent
     "9988.HK",  # Alibaba
@@ -153,6 +157,13 @@ def pct_change(current, previous):
         return None
 
 
+def is_weekend_hkt() -> bool:
+    """Return True if current time in Hong Kong is Saturday or Sunday."""
+    from zoneinfo import ZoneInfo
+    hkt_now = datetime.now(ZoneInfo("Asia/Hong_Kong"))
+    return hkt_now.weekday() >= 5  # 5=Saturday, 6=Sunday
+
+
 def fetch_quote(ticker_sym: str) -> dict:
     """Fetch latest quote for a single ticker."""
     try:
@@ -211,18 +222,24 @@ def fetch_movers(tickers: list, min_volume: int, currency: str, top_n: int = 5) 
     Fetch batch quotes for a universe of tickers and return
     top N gainers and top N losers filtered by min_volume.
 
+    Weekend rule: Yahoo Finance sometimes returns a zero-volume row for
+    the current weekend day. We always pick the LAST row with non-zero
+    volume (= Friday close on Sat/Sun, today's close on weekdays).
+
     Returns:
         {
-          "gainers": [{ticker, name, close, pct_change, volume}, ...],
-          "losers":  [{ticker, name, close, pct_change, volume}, ...],
+          "gainers": [...],
+          "losers":  [...],
+          "is_friday_fallback": bool,
           "screener_note": "..."
         }
     """
-    print(f"  Downloading {len(tickers)} tickers (batch)...", flush=True)
+    weekend = is_weekend_hkt()
+    print(f"  Downloading {len(tickers)} tickers (batch)... [weekend={weekend}]", flush=True)
     try:
         raw = yf.download(
             tickers,
-            period="5d",
+            period="7d",   # extend to 7d to always capture Friday on weekends
             interval="1d",
             auto_adjust=True,
             group_by="ticker",
@@ -231,7 +248,7 @@ def fetch_movers(tickers: list, min_volume: int, currency: str, top_n: int = 5) 
         )
     except Exception as e:
         print(f"  ERROR downloading batch: {e}")
-        return {"gainers": [], "losers": [], "screener_note": f"error: {e}"}
+        return {"gainers": [], "losers": [], "is_friday_fallback": weekend, "screener_note": f"error: {e}"}
 
     rows = []
     for tkr in tickers:
@@ -241,7 +258,7 @@ def fetch_movers(tickers: list, min_volume: int, currency: str, top_n: int = 5) 
             else:
                 df = raw[tkr] if tkr in raw.columns.get_level_values(0) else pd.DataFrame()
 
-            if df is None or df.empty or len(df) < 2:
+            if df is None or df.empty:
                 continue
 
             close_series  = df["Close"].dropna()
@@ -250,10 +267,26 @@ def fetch_movers(tickers: list, min_volume: int, currency: str, top_n: int = 5) 
             if len(close_series) < 2:
                 continue
 
-            close_val  = float(close_series.iloc[-1])
-            prev_val   = float(close_series.iloc[-2])
-            vol_val    = float(volume_series.iloc[-1]) if not volume_series.empty else 0
-            chg        = pct_change(close_val, prev_val)
+            # ── WEEKEND FIX ──────────────────────────────────────────
+            # On Sat/Sun Yahoo may append a partial row with Close=NaN
+            # or Volume=0. Find the last row where Volume > 0 to get
+            # the real last trading day (Friday).
+            # On weekdays this still resolves to today's last row.
+            nonzero_vol_idx = volume_series[volume_series > 0].index
+            if nonzero_vol_idx.empty:
+                continue
+
+            last_idx = nonzero_vol_idx[-1]   # last date with real volume
+            pos      = close_series.index.get_loc(last_idx)
+
+            if pos < 1:
+                continue  # need at least one prior row for pct_change
+
+            close_val = float(close_series.iloc[pos])
+            prev_val  = float(close_series.iloc[pos - 1])
+            vol_val   = float(volume_series.loc[last_idx])
+            chg       = pct_change(close_val, prev_val)
+            # ─────────────────────────────────────────────────────────
 
             if chg is None:
                 continue
@@ -276,138 +309,148 @@ def fetch_movers(tickers: list, min_volume: int, currency: str, top_n: int = 5) 
         except Exception:
             continue
 
-    rows.sort(key=lambda x: x["pct_change"], reverse=True)
-    gainers = rows[:top_n]
-    losers  = list(reversed(rows[-top_n:])) if len(rows) >= top_n else list(reversed(rows))
+    rows.sort(key=lambda x: x["pct_change"])
+    losers  = rows[:top_n]
+    gainers = list(reversed(rows[-top_n:]))
 
     return {
-        "gainers": gainers,
-        "losers":  losers,
-        "count_passed_screen": len(rows),
+        "gainers":             gainers,
+        "losers":              losers,
+        "is_friday_fallback":  weekend,
+        "screener_note":       f"Last trading day data{'  (Fri fallback)' if weekend else ''}",
     }
 
 
 # ─────────────────────────────────────────────
-# Main pipeline
+# Index fetching
 # ─────────────────────────────────────────────
 
-def run_pipeline(output_path: str = "data.json", pretty: bool = False) -> dict:
-    print("\n🚀 Asia-US Market Review — Data Pipeline")
-    print("=" * 50)
+def fetch_index_entry(market_key: str, cfg: dict) -> dict:
+    entry = {
+        "label":    cfg["label"],
+        "flag":     cfg["flag"],
+        "primary":  {},
+        "secondary":{},
+    }
+    if "tertiary" in cfg:
+        entry["tertiary"] = {}
 
-    result = {
-        "generated_at":     datetime.now(timezone.utc).isoformat(),
-        "generated_at_hkt": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M HKT"),
+    for role in ["primary", "secondary", "tertiary"]:
+        if role not in cfg:
+            continue
+        sym  = cfg[role]["ticker"]
+        name = cfg[role]["name"]
+        q    = fetch_quote(sym)
+        entry[role] = {
+            "name":       name,
+            "ticker":     sym,
+            "close":      q.get("close"),
+            "pct_change": q.get("pct_change"),
+            "volume_fmt": format_volume(q.get("volume") or 0, market_key),
+        }
+
+    # Sparkline from primary ticker
+    entry["sparkline"] = fetch_history_week(cfg["primary"]["ticker"])
+    return entry
+
+
+# ─────────────────────────────────────────────
+# Sector fetching
+# ─────────────────────────────────────────────
+
+def fetch_sector_entry(name: str, cfg: dict) -> dict:
+    anchor_tkr = cfg["tickers"][0]
+    q = fetch_quote(anchor_tkr)
+    return {
+        "anchor":     anchor_tkr,
+        "markets":    cfg.get("markets", ""),
+        "close":      q.get("close"),
+        "pct_change": q.get("pct_change"),
+    }
+
+
+# ─────────────────────────────────────────────
+# FX fetching
+# ─────────────────────────────────────────────
+
+def fetch_fx_entry(pair: str, yf_sym: str) -> dict:
+    q = fetch_quote(yf_sym)
+    return {
+        "rate":       q.get("close"),
+        "pct_change": q.get("pct_change"),
+    }
+
+
+# ─────────────────────────────────────────────
+# Main
+# ─────────────────────────────────────────────
+
+def build_payload(verbose: bool = False) -> dict:
+    now_utc = datetime.now(timezone.utc)
+    try:
+        from zoneinfo import ZoneInfo
+        now_hkt = datetime.now(ZoneInfo("Asia/Hong_Kong"))
+        hkt_str = now_hkt.strftime("%Y-%m-%d %H:%M HKT")
+    except Exception:
+        hkt_str = now_utc.strftime("%Y-%m-%d %H:%MZ")
+
+    payload = {
+        "generated_at":     now_utc.isoformat(),
+        "generated_at_hkt": hkt_str,
         "indices":  {},
         "sectors":  {},
         "fx":       {},
         "movers":   {},
-        "breadth":  {},
-        "errors":   [],
     }
 
-    # ── 1. Indices ──────────────────────────────
-    print("\n📊 Fetching indices...")
-    for mkt_code, mkt in INDICES.items():
-        print(f"  {mkt['flag']} {mkt['label']}...", end=" ", flush=True)
-        entry = {
-            "label":     mkt["label"],
-            "flag":      mkt["flag"],
-            "primary":   None,
-            "secondary": None,
-        }
-        for slot in ["primary", "secondary", "tertiary"]:
-            cfg = mkt.get(slot)
-            if not cfg:
-                continue
-            data = fetch_quote(cfg["ticker"])
-            data["name"] = cfg["name"]
-            entry[slot] = data
+    # ── Indices
+    print("[1/4] Fetching indices...", flush=True)
+    for mkt, cfg in INDICES.items():
+        if verbose:
+            print(f"  {mkt}...", flush=True)
+        payload["indices"][mkt] = fetch_index_entry(mkt, cfg)
 
-        entry["sparkline"] = fetch_history_week(mkt["primary"]["ticker"])
+    # ── Sectors
+    print("[2/4] Fetching sectors...", flush=True)
+    for name, cfg in SECTORS.items():
+        payload["sectors"][name] = fetch_sector_entry(name, cfg)
 
-        if entry.get("primary") and entry["primary"].get("volume"):
-            entry["primary"]["volume_fmt"] = format_volume(
-                entry["primary"]["volume"], mkt_code
-            )
+    # ── FX
+    print("[3/4] Fetching FX...", flush=True)
+    for pair, sym in FX_PAIRS.items():
+        payload["fx"][pair] = fetch_fx_entry(pair, sym)
 
-        result["indices"][mkt_code] = entry
-        close = entry["primary"].get("close") if entry.get("primary") else "?"
-        chg   = entry["primary"].get("pct_change") if entry.get("primary") else None
-        chg_str = (f"+{chg}%" if (chg or 0) >= 0 else f"{chg}%") if chg is not None else "N/A"
-        print(f"{close:,.0f}  {chg_str}" if isinstance(close, (int, float)) else "ERROR")
-
-    # ── 2. Sectors ──────────────────────────────
-    print("\n🏭 Fetching sector ETFs...")
-    for sector_name, cfg in SECTORS.items():
-        print(f"  {sector_name}...", end=" ", flush=True)
-        anchor = cfg["tickers"][0]
-        data   = fetch_quote(anchor)
-        result["sectors"][sector_name] = {
-            "markets":    cfg["markets"],
-            "anchor":     anchor,
-            "pct_change": data.get("pct_change"),
-            "close":      data.get("close"),
-            "error":      data.get("error"),
-        }
-        chg = data.get("pct_change")
-        print(f"{chg:+.2f}%" if chg is not None else "ERROR")
-
-    # ── 3. FX pairs ─────────────────────────────
-    print("\n💱 Fetching FX rates...")
-    for pair_name, ticker_sym in FX_PAIRS.items():
-        print(f"  {pair_name}...", end=" ", flush=True)
-        data = fetch_quote(ticker_sym)
-        result["fx"][pair_name] = {
-            "rate":       data.get("close"),
-            "pct_change": data.get("pct_change"),
-            "error":      data.get("error"),
-        }
-        print(f"{data.get('close')}" if data.get("close") else "ERROR")
-
-    # ── 4. HK Movers ────────────────────────────
-    # Screener: mkt cap >= 200B HKD (~25B USD), vol >= 500k shares
-    print("\n🇭🇰 Fetching HK movers (>=200B HKD mktcap, vol>=500k)...")
-    result["movers"]["HK"] = fetch_movers(
-        tickers=HK_UNIVERSE,
-        min_volume=500_000,
-        currency="HKD",
-        top_n=5,
+    # ── Movers
+    print("[4/4] Fetching movers...", flush=True)
+    print("  HK universe...", flush=True)
+    payload["movers"]["HK"] = fetch_movers(
+        HK_UNIVERSE, min_volume=500_000, currency="HKD"
     )
-    hk_m = result["movers"]["HK"]
-    print(f"  Passed screen: {hk_m.get('count_passed_screen', 0)} tickers")
-    print(f"  Top gainer: {hk_m['gainers'][0]['ticker']} {hk_m['gainers'][0]['pct_change']:+.2f}%" if hk_m.get('gainers') else "  No gainers")
-
-    # ── 5. US Movers ────────────────────────────
-    # Screener: mkt cap >= 1B USD, vol >= 500k shares
-    print("\n🇺🇸 Fetching US movers (>=1B USD mktcap, vol>=500k)...")
-    result["movers"]["US"] = fetch_movers(
-        tickers=US_UNIVERSE,
-        min_volume=500_000,
-        currency="USD",
-        top_n=5,
+    print("  US universe...", flush=True)
+    payload["movers"]["US"] = fetch_movers(
+        US_UNIVERSE, min_volume=500_000, currency="USD"
     )
-    us_m = result["movers"]["US"]
-    print(f"  Passed screen: {us_m.get('count_passed_screen', 0)} tickers")
-    print(f"  Top gainer: {us_m['gainers'][0]['ticker']} {us_m['gainers'][0]['pct_change']:+.2f}%" if us_m.get('gainers') else "  No gainers")
 
-    # ── 6. Save output ───────────────────────────
-    indent = 2 if pretty else None
-    out    = json.dumps(result, ensure_ascii=False, indent=indent)
-    Path(output_path).write_text(out, encoding="utf-8")
-    print(f"\n✅ Saved → {output_path}  ({len(out):,} bytes)")
-    print(f"   Timestamp: {result['generated_at']}")
+    return payload
 
-    return result
+
+def main():
+    parser = argparse.ArgumentParser(description="Asia-US Market Review pipeline")
+    parser.add_argument("-o", "--output", default="data.json", help="Output file path")
+    parser.add_argument("-v", "--verbose", action="store_true", help="Verbose output")
+    args = parser.parse_args()
+
+    print(f"Starting pipeline → {args.output}", flush=True)
+    payload = build_payload(verbose=args.verbose)
+
+    out_path = Path(args.output)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(out_path, "w") as f:
+        json.dump(payload, f, indent=2, ensure_ascii=False)
+
+    print(f"\nDone. Written to {out_path} ({out_path.stat().st_size:,} bytes)", flush=True)
+    print(f"Generated: {payload['generated_at_hkt']}", flush=True)
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
-        description="Fetch Asia-US market data and write data.json"
-    )
-    parser.add_argument("--output", "-o", default="data.json",
-                        help="Output file path (default: data.json)")
-    parser.add_argument("--pretty", "-p", action="store_true",
-                        help="Pretty-print JSON with indentation")
-    args = parser.parse_args()
-    run_pipeline(output_path=args.output, pretty=args.pretty)
+    main()

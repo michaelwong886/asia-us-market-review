@@ -194,12 +194,10 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 .data-table tr:last-child td { border-bottom: none; }
 .data-table tbody tr:hover td { background: rgba(255,255,255,0.025); }
 
-/* Sector table: Sector 44% | Anchor 24% | Chg% 32% */
 .sector-table col.c-name   { width: 44%; }
 .sector-table col.c-anchor { width: 24%; }
 .sector-table col.c-chg    { width: 32%; }
 
-/* FX table: Pair 38% | Rate 37% | Chg% 25% */
 .fx-table col.c-pair { width: 38%; }
 .fx-table col.c-rate { width: 37%; }
 .fx-table col.c-chg  { width: 25%; }
@@ -214,17 +212,11 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 
 .markets-badge {
   display: inline-block;
-  font-size: 10px;
-  font-family: var(--font-mono);
-  color: var(--text-faint);
-  background: var(--surface-3);
-  border: 1px solid var(--border);
-  border-radius: 3px;
-  padding: 1px 4px;
-  margin-left: var(--space-2);
-  vertical-align: middle;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
+  font-size: 10px; font-family: var(--font-mono);
+  color: var(--text-faint); background: var(--surface-3);
+  border: 1px solid var(--border); border-radius: 3px;
+  padding: 1px 4px; margin-left: var(--space-2);
+  vertical-align: middle; letter-spacing: 0.02em; white-space: nowrap;
 }
 
 /* ── Top Movers ───────────────────────────── */
@@ -238,14 +230,12 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  overflow: hidden;
-  min-width: 0;
+  overflow: hidden; min-width: 0;
 }
 .movers-card-header {
   padding: var(--space-3) var(--space-5);
   border-bottom: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: space-between;
-  gap: var(--space-2);
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-2);
 }
 .movers-card-title {
   font-size: var(--text-sm); font-weight: 600;
@@ -257,6 +247,13 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 }
 .movers-direction-badge.up   { background: rgba(74,222,128,0.12); color: var(--green); }
 .movers-direction-badge.down { background: rgba(248,113,113,0.12); color: var(--red); }
+/* Weekend fallback badge */
+.weekend-badge {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.03em;
+  padding: 2px 6px; border-radius: 3px;
+  background: rgba(251,191,36,0.12); color: var(--gold);
+  white-space: nowrap;
+}
 .movers-screener-note {
   font-size: 10px; color: var(--text-faint); font-family: var(--font-mono);
   padding: 0 var(--space-5) var(--space-2);
@@ -264,10 +261,10 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 }
 
 .movers-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-.movers-table col.c-tkr  { width: 26%; }
+.movers-table col.c-tkr   { width: 26%; }
 .movers-table col.c-close { width: 26%; }
-.movers-table col.c-chg  { width: 24%; }
-.movers-table col.c-vol  { width: 24%; }
+.movers-table col.c-chg   { width: 24%; }
+.movers-table col.c-vol   { width: 24%; }
 .movers-table th, .movers-table td {
   padding: var(--space-2) var(--space-4);
   font-size: var(--text-xs);
@@ -399,21 +396,9 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
       <div class="data-table-card">
         <div class="data-table-card-header">🏭 Sector Snapshot</div>
         <table class="data-table sector-table" aria-label="Sector performance">
-          <colgroup>
-            <col class="c-name">
-            <col class="c-anchor">
-            <col class="c-chg">
-          </colgroup>
-          <thead>
-            <tr>
-              <th>Sector</th>
-              <th>Anchor</th>
-              <th class="right-cell">Chg%</th>
-            </tr>
-          </thead>
-          <tbody id="sectorsTbody">
-            <tr><td colspan="3"><div class="skeleton sk-row"></div></td></tr>
-          </tbody>
+          <colgroup><col class="c-name"><col class="c-anchor"><col class="c-chg"></colgroup>
+          <thead><tr><th>Sector</th><th>Anchor</th><th class="right-cell">Chg%</th></tr></thead>
+          <tbody id="sectorsTbody"><tr><td colspan="3"><div class="skeleton sk-row"></div></td></tr></tbody>
         </table>
       </div>
 
@@ -421,21 +406,9 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
       <div class="data-table-card">
         <div class="data-table-card-header">💱 FX Rates</div>
         <table class="data-table fx-table" aria-label="FX rates">
-          <colgroup>
-            <col class="c-pair">
-            <col class="c-rate">
-            <col class="c-chg">
-          </colgroup>
-          <thead>
-            <tr>
-              <th>Pair</th>
-              <th class="right-cell">Rate</th>
-              <th class="right-cell">Chg%</th>
-            </tr>
-          </thead>
-          <tbody id="fxTbody">
-            <tr><td colspan="3"><div class="skeleton sk-row"></div></td></tr>
-          </tbody>
+          <colgroup><col class="c-pair"><col class="c-rate"><col class="c-chg"></colgroup>
+          <thead><tr><th>Pair</th><th class="right-cell">Rate</th><th class="right-cell">Chg%</th></tr></thead>
+          <tbody id="fxTbody"><tr><td colspan="3"><div class="skeleton sk-row"></div></td></tr></tbody>
         </table>
       </div>
 
@@ -452,8 +425,9 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
       <div class="movers-card" id="card-hk-up">
         <div class="movers-card-header">
           <div class="movers-card-title">🇭🇰 HK Top Gainers <span class="movers-direction-badge up">▲ TOP 5</span></div>
+          <span class="weekend-badge" id="wb-hk-up" style="display:none">📅 Fri Data</span>
         </div>
-        <div class="movers-screener-note">Mkt cap ≥ 200B HKD · Vol ≥ 500k</div>
+        <div class="movers-screener-note" id="note-hk-up">Mkt cap ≥ 200B HKD · Vol ≥ 500k</div>
         <table class="movers-table" aria-label="HK top gainers">
           <colgroup><col class="c-tkr"><col class="c-close"><col class="c-chg"><col class="c-vol"></colgroup>
           <thead><tr><th>Ticker</th><th class="right-cell">Close</th><th class="right-cell">Chg%</th><th class="right-cell">Vol</th></tr></thead>
@@ -465,8 +439,9 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
       <div class="movers-card" id="card-hk-down">
         <div class="movers-card-header">
           <div class="movers-card-title">🇭🇰 HK Top Losers <span class="movers-direction-badge down">▼ TOP 5</span></div>
+          <span class="weekend-badge" id="wb-hk-down" style="display:none">📅 Fri Data</span>
         </div>
-        <div class="movers-screener-note">Mkt cap ≥ 200B HKD · Vol ≥ 500k</div>
+        <div class="movers-screener-note" id="note-hk-down">Mkt cap ≥ 200B HKD · Vol ≥ 500k</div>
         <table class="movers-table" aria-label="HK top losers">
           <colgroup><col class="c-tkr"><col class="c-close"><col class="c-chg"><col class="c-vol"></colgroup>
           <thead><tr><th>Ticker</th><th class="right-cell">Close</th><th class="right-cell">Chg%</th><th class="right-cell">Vol</th></tr></thead>
@@ -478,8 +453,9 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
       <div class="movers-card" id="card-us-up">
         <div class="movers-card-header">
           <div class="movers-card-title">🇺🇸 US Top Gainers <span class="movers-direction-badge up">▲ TOP 5</span></div>
+          <span class="weekend-badge" id="wb-us-up" style="display:none">📅 Fri Data</span>
         </div>
-        <div class="movers-screener-note">Mkt cap ≥ 1B USD · Vol ≥ 500k</div>
+        <div class="movers-screener-note" id="note-us-up">Mkt cap ≥ 1B USD · Vol ≥ 500k</div>
         <table class="movers-table" aria-label="US top gainers">
           <colgroup><col class="c-tkr"><col class="c-close"><col class="c-chg"><col class="c-vol"></colgroup>
           <thead><tr><th>Ticker</th><th class="right-cell">Close</th><th class="right-cell">Chg%</th><th class="right-cell">Vol</th></tr></thead>
@@ -491,8 +467,9 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
       <div class="movers-card" id="card-us-down">
         <div class="movers-card-header">
           <div class="movers-card-title">🇺🇸 US Top Losers <span class="movers-direction-badge down">▼ TOP 5</span></div>
+          <span class="weekend-badge" id="wb-us-down" style="display:none">📅 Fri Data</span>
         </div>
-        <div class="movers-screener-note">Mkt cap ≥ 1B USD · Vol ≥ 500k</div>
+        <div class="movers-screener-note" id="note-us-down">Mkt cap ≥ 1B USD · Vol ≥ 500k</div>
         <table class="movers-table" aria-label="US top losers">
           <colgroup><col class="c-tkr"><col class="c-close"><col class="c-chg"><col class="c-vol"></colgroup>
           <thead><tr><th>Ticker</th><th class="right-cell">Close</th><th class="right-cell">Chg%</th><th class="right-cell">Vol</th></tr></thead>
@@ -533,20 +510,33 @@ function badgeCls(val) {
   return val > 0 ? 'up' : val < 0 ? 'down' : 'flat';
 }
 
-// ── KEY FIX: always use browser's current time, not pipeline time ──
+// ── TIMESTAMP: always use the browser's current local time ──
+// Runs immediately so the header shows a time even before data loads.
 function stampNow() {
   const el = document.getElementById('lastUpdatedTime');
   if (!el) return;
   const now = new Date();
-  // Format as HH:MM am/pm in HKT
-  const timeStr = now.toLocaleTimeString('en-HK', {
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: true,
+  el.textContent = now.toLocaleTimeString('en-HK', {
+    hour: '2-digit', minute: '2-digit', hour12: true,
     timeZone: 'Asia/Hong_Kong'
   });
-  el.textContent = timeStr;
   el.setAttribute('datetime', now.toISOString());
+}
+// Stamp immediately on parse so the header is never empty.
+stampNow();
+
+// ── WEEKEND HELPER ──
+// Returns true if the browser's local date is Saturday or Sunday (HKT)
+function isWeekend() {
+  const day = new Date().toLocaleDateString('en-HK', { weekday: 'short', timeZone: 'Asia/Hong_Kong' });
+  return day === 'Sat' || day === 'Sun';
+}
+
+function showWeekendBadge(ids) {
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'inline-block';
+  });
 }
 
 function drawSparkline(id, data, isUp) {
@@ -611,9 +601,7 @@ function renderSectors(sectors) {
   const tbody = document.getElementById('sectorsTbody');
   if (!sectors || !tbody) return;
   tbody.innerHTML = Object.entries(sectors).map(([name, d]) => {
-    const mktBadge = d.markets
-      ? `<span class="markets-badge">${d.markets}</span>`
-      : '';
+    const mktBadge = d.markets ? `<span class="markets-badge">${d.markets}</span>` : '';
     return `<tr>
       <td class="name-cell">${name}${mktBadge}</td>
       <td class="anchor-cell">${d.anchor || ''}</td>
@@ -674,6 +662,12 @@ async function loadData(force = false) {
   btn?.classList.add('spinning');
   btn?.setAttribute('disabled', '');
   setStatus('loading');
+
+  // ── Stamp the time RIGHT NOW before even fetching ──
+  // This guarantees the header always shows a real time,
+  // even if the fetch fails or data is stale.
+  stampNow();
+
   const url = force ? `${DATA_URL}?_=${Date.now()}` : DATA_URL;
   try {
     const res  = await fetch(url, { cache: force ? 'no-cache' : 'default' });
@@ -690,18 +684,26 @@ async function loadData(force = false) {
     renderSectors(data?.sectors);
     renderFX(data?.fx);
 
-    // Movers
+    // ── Movers: show Friday data on weekends ──
+    // pipeline.py now writes movers.HK.is_friday_fallback = true when
+    // it snapped on Sat/Sun and fell back to Friday's data.
     const hk = data?.movers?.HK || {};
     const us = data?.movers?.US || {};
-    renderMovers('tb-hk-up',   hk.gainers, 'No HK gainers today');
-    renderMovers('tb-hk-down', hk.losers,  'No HK losers today');
-    renderMovers('tb-us-up',   us.gainers, 'No US gainers today');
-    renderMovers('tb-us-down', us.losers,  'No US losers today');
+    const weekend = isWeekend();
 
-    // ── FIXED: stamp the current browser time, NOT data.generated_at ──
-    stampNow();
+    // Show "Fri Data" badge if it's a weekend in HKT OR pipeline flagged fallback
+    const hkFallback = weekend || hk.is_friday_fallback;
+    const usFallback = weekend || us.is_friday_fallback;
 
-    // Footer shows pipeline generation time for reference
+    if (hkFallback) showWeekendBadge(['wb-hk-up', 'wb-hk-down']);
+    if (usFallback) showWeekendBadge(['wb-us-up', 'wb-us-down']);
+
+    renderMovers('tb-hk-up',   hk.gainers, hkFallback ? 'No HK gainers on Friday' : 'No HK gainers today');
+    renderMovers('tb-hk-down', hk.losers,  hkFallback ? 'No HK losers on Friday'  : 'No HK losers today');
+    renderMovers('tb-us-up',   us.gainers, usFallback ? 'No US gainers on Friday'  : 'No US gainers today');
+    renderMovers('tb-us-down', us.losers,  usFallback ? 'No US losers on Friday'   : 'No US losers today');
+
+    // Footer: pipeline generation time
     const footer = document.getElementById('footerGenerated');
     if (footer) footer.textContent = `Pipeline: ${data?.generated_at_hkt || data?.generated_at || '—'}`;
 
