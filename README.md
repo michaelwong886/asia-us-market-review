@@ -1,4 +1,4 @@
-# Asia-US Market Review 复盘大师
+# Asia-US Market Review
 
 A daily short-term market review dashboard inspired by 复盘大师 style, covering **Hong Kong, China, Korea, Japan, and US** equity markets.
 
