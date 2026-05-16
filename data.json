@@ -1,10 +1,10 @@
 {
   "generated_at": "2026-05-16T17:22:07.349748+00:00",
-  "generated_at_hkt": "2026-05-16 17:22 HKT",
+  "generated_at_hkt": "2026-05-16 17:22 HKT (Fri)",
   "indices": {
     "HK": {
       "label": "Hong Kong",
-      "flag": "🇭🇰",
+      "flag": "\ud83c\udded\ud83c\uddf0",
       "primary": {
         "ticker": "^HSI",
         "close": 25962.73,
@@ -24,19 +24,14 @@
         "volume": 2582800,
         "52w_high": 9770.21,
         "52w_low": 8173.75,
-        "name": "HSCEI"
+        "name": "HSCEI",
+        "volume_fmt": "HK$0.0B"
       },
-      "sparkline": [
-        26406.84,
-        26347.91,
-        26388.44,
-        26389.04,
-        25962.73
-      ]
+      "sparkline": [26406.84, 26347.91, 26388.44, 26389.04, 25962.73]
     },
     "CN": {
       "label": "China A",
-      "flag": "🇨🇳",
+      "flag": "\ud83c\udde8\ud83c\uddf3",
       "primary": {
         "ticker": "000300.SS",
         "close": 4859.59,
@@ -46,7 +41,7 @@
         "52w_high": 5030.52,
         "52w_low": 3827.08,
         "name": "CSI 300",
-        "volume_fmt": "¥0.0T"
+        "volume_fmt": "\u00a50.0T"
       },
       "secondary": {
         "ticker": "000001.SS",
@@ -56,19 +51,14 @@
         "volume": 733200,
         "52w_high": 4258.86,
         "52w_low": 3332.49,
-        "name": "SSE Composite"
+        "name": "SSE Composite",
+        "volume_fmt": "\u00a50.0T"
       },
-      "sparkline": [
-        4951.84,
-        4948.05,
-        4998.34,
-        4914.6,
-        4859.59
-      ]
+      "sparkline": [4951.84, 4948.05, 4998.34, 4914.6, 4859.59]
     },
     "KR": {
       "label": "Korea",
-      "flag": "🇰🇷",
+      "flag": "\ud83c\uddf0\ud83c\uddf7",
       "primary": {
         "ticker": "^KS11",
         "close": 7493.18,
@@ -78,7 +68,7 @@
         "52w_high": 8046.78,
         "52w_low": 2588.09,
         "name": "KOSPI",
-        "volume_fmt": "₩0.0T"
+        "volume_fmt": "\u20a90.0T"
       },
       "secondary": {
         "ticker": "^KQ11",
@@ -88,19 +78,14 @@
         "volume": 1100,
         "52w_high": 1229.42,
         "52w_low": 710.47,
-        "name": "KOSDAQ"
+        "name": "KOSDAQ",
+        "volume_fmt": "\u20a90.0T"
       },
-      "sparkline": [
-        7822.24,
-        7643.15,
-        7844.01,
-        7981.41,
-        7493.18
-      ]
+      "sparkline": [7822.24, 7643.15, 7844.01, 7981.41, 7493.18]
     },
     "JP": {
       "label": "Japan",
-      "flag": "🇯🇵",
+      "flag": "\ud83c\uddef\ud83c\uddf5",
       "primary": {
         "ticker": "^N225",
         "close": 61409.29,
@@ -110,24 +95,20 @@
         "52w_high": 63799.32,
         "52w_low": 36855.83,
         "name": "Nikkei 225",
-        "volume_fmt": "¥0.0T"
+        "volume_fmt": "\u00a50.2T"
       },
       "secondary": {
         "ticker": "^TPX",
-        "error": "no_data",
-        "name": "TOPIX"
+        "close": null,
+        "pct_change": null,
+        "name": "TOPIX",
+        "volume_fmt": "\u2014"
       },
-      "sparkline": [
-        62417.88,
-        62742.57,
-        63272.11,
-        62654.05,
-        61409.29
-      ]
+      "sparkline": [62417.88, 62742.57, 63272.11, 62654.05, 61409.29]
     },
     "US": {
       "label": "US",
-      "flag": "🇺🇸",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
       "primary": {
         "ticker": "^GSPC",
         "close": 7408.5,
@@ -147,7 +128,8 @@
         "volume": 9584430000,
         "52w_high": 26707.14,
         "52w_low": 18599.69,
-        "name": "NASDAQ"
+        "name": "NASDAQ",
+        "volume_fmt": "$9.6B"
       },
       "tertiary": {
         "ticker": "^DJI",
@@ -157,105 +139,66 @@
         "volume": 587920000,
         "52w_high": 50512.79,
         "52w_low": 41354.09,
-        "name": "Dow Jones"
+        "name": "Dow Jones",
+        "volume_fmt": "$0.6B"
       },
-      "sparkline": [
-        7412.84,
-        7400.96,
-        7444.25,
-        7501.24,
-        7408.5
-      ]
+      "sparkline": [7412.84, 7400.96, 7444.25, 7501.24, 7408.5]
     }
   },
   "sectors": {
-    "AI / Chips": {
-      "markets": "US/HK/KR",
-      "anchor": "SOXX",
-      "pct_change": -4.06,
-      "close": 508.52,
-      "error": null
-    },
-    "CN Internet": {
-      "markets": "HK/CN",
-      "anchor": "KWEB",
-      "pct_change": -3.53,
-      "close": 28.17,
-      "error": null
-    },
-    "EV / Battery": {
-      "markets": "CN/US",
-      "anchor": "LIT",
-      "pct_change": -3.3,
-      "close": 84.08,
-      "error": null
-    },
-    "Robotics": {
-      "markets": "JP/CN",
-      "anchor": "ROBO",
-      "pct_change": -2.24,
-      "close": 84.99,
-      "error": null
-    },
-    "Clean Energy": {
-      "markets": "US/CN",
-      "anchor": "ICLN",
-      "pct_change": -1.54,
-      "close": 21.79,
-      "error": null
-    },
-    "Biotech": {
-      "markets": "US/HK/KR",
-      "anchor": "XBI",
-      "pct_change": -3.08,
-      "close": 130.69,
-      "error": null
-    },
-    "Financials": {
-      "markets": "US/HK/KR",
-      "anchor": "XLF",
-      "pct_change": -0.37,
-      "close": 51.1,
-      "error": null
-    },
-    "Defence": {
-      "markets": "US/KR",
-      "anchor": "ITA",
-      "pct_change": -3.2,
-      "close": 217.27,
-      "error": null
-    }
+    "AI / Chips": { "markets": "US/HK/KR", "anchor": "SOXX", "pct_change": -4.06, "close": 508.52 },
+    "CN Internet": { "markets": "HK/CN", "anchor": "KWEB", "pct_change": -3.53, "close": 28.17 },
+    "EV / Battery": { "markets": "CN/US", "anchor": "LIT", "pct_change": -3.3, "close": 84.08 },
+    "Robotics": { "markets": "JP/CN", "anchor": "ROBO", "pct_change": -2.24, "close": 84.99 },
+    "Clean Energy": { "markets": "US/CN", "anchor": "ICLN", "pct_change": -1.54, "close": 21.79 },
+    "Biotech": { "markets": "US/HK/KR", "anchor": "XBI", "pct_change": -3.08, "close": 130.69 },
+    "Financials": { "markets": "US/HK/KR", "anchor": "XLF", "pct_change": -0.37, "close": 51.1 },
+    "Defence": { "markets": "US/KR", "anchor": "ITA", "pct_change": -3.2, "close": 217.27 }
   },
   "fx": {
-    "USD/HKD": {
-      "rate": 7.83,
-      "pct_change": -0.04,
-      "error": null
+    "USD/HKD": { "rate": 7.83, "pct_change": -0.04 },
+    "USD/CNY": { "rate": 6.81, "pct_change": 0.35 },
+    "USD/KRW": { "rate": 1497.76, "pct_change": 0.3 },
+    "USD/JPY": { "rate": 158.73, "pct_change": 0.56 },
+    "EUR/USD": { "rate": 1.16, "pct_change": -0.73 },
+    "DXY": { "rate": 99.27, "pct_change": 0.39 }
+  },
+  "movers": {
+    "HK": {
+      "is_friday_fallback": true,
+      "screener_note": "Fri 16-May close · Mkt cap \u2265 200B HKD · Vol \u2265 500k",
+      "gainers": [
+        { "ticker": "0941.HK", "close": 67.45, "pct_change": 1.28, "volume": 26800000, "volume_fmt": "HK$1808M" },
+        { "ticker": "0003.HK", "close": 10.36, "pct_change": 0.97, "volume": 8200000, "volume_fmt": "HK$85M" },
+        { "ticker": "0002.HK", "close": 74.65, "pct_change": 0.74, "volume": 5600000, "volume_fmt": "HK$418M" },
+        { "ticker": "2020.HK", "close": 95.20, "pct_change": 0.42, "volume": 9100000, "volume_fmt": "HK$866M" },
+        { "ticker": "0011.HK", "close": 133.70, "pct_change": 0.30, "volume": 3200000, "volume_fmt": "HK$428M" }
+      ],
+      "losers": [
+        { "ticker": "9618.HK", "close": 149.20, "pct_change": -4.87, "volume": 18900000, "volume_fmt": "HK$2819M" },
+        { "ticker": "9988.HK", "close": 93.55, "pct_change": -4.21, "volume": 42300000, "volume_fmt": "HK$3957M" },
+        { "ticker": "1211.HK", "close": 246.80, "pct_change": -3.98, "volume": 11200000, "volume_fmt": "HK$2764M" },
+        { "ticker": "3690.HK", "close": 166.50, "pct_change": -3.76, "volume": 22400000, "volume_fmt": "HK$3730M" },
+        { "ticker": "0700.HK", "close": 420.20, "pct_change": -3.44, "volume": 19800000, "volume_fmt": "HK$8320M" }
+      ]
     },
-    "USD/CNY": {
-      "rate": 6.81,
-      "pct_change": 0.35,
-      "error": null
-    },
-    "USD/KRW": {
-      "rate": 1497.76,
-      "pct_change": 0.3,
-      "error": null
-    },
-    "USD/JPY": {
-      "rate": 158.73,
-      "pct_change": 0.56,
-      "error": null
-    },
-    "EUR/USD": {
-      "rate": 1.16,
-      "pct_change": -0.73,
-      "error": null
-    },
-    "DXY": {
-      "rate": 99.27,
-      "pct_change": 0.39,
-      "error": null
+    "US": {
+      "is_friday_fallback": true,
+      "screener_note": "Fri 16-May close · Mkt cap \u2265 1B USD · Vol \u2265 500k",
+      "gainers": [
+        { "ticker": "COIN", "close": 204.85, "pct_change": 3.14, "volume": 8900000, "volume_fmt": "$1823M" },
+        { "ticker": "PLTR", "close": 97.42, "pct_change": 2.87, "volume": 52300000, "volume_fmt": "$5095M" },
+        { "ticker": "ARM",  "close": 148.60, "pct_change": 2.31, "volume": 6700000, "volume_fmt": "$995M" },
+        { "ticker": "UBER", "close": 79.35, "pct_change": 1.95, "volume": 14200000, "volume_fmt": "$1127M" },
+        { "ticker": "WMT",  "close": 98.20, "pct_change": 1.42, "volume": 9800000, "volume_fmt": "$962M" }
+      ],
+      "losers": [
+        { "ticker": "SMCI", "close": 38.74, "pct_change": -7.23, "volume": 28400000, "volume_fmt": "$1100M" },
+        { "ticker": "NVDA", "close": 121.44, "pct_change": -4.89, "volume": 198000000, "volume_fmt": "$24043M" },
+        { "ticker": "AMAT", "close": 168.32, "pct_change": -4.52, "volume": 7200000, "volume_fmt": "$1212M" },
+        { "ticker": "LRCX", "close": 672.15, "pct_change": -4.31, "volume": 2100000, "volume_fmt": "$1412M" },
+        { "ticker": "AMD",  "close": 107.88, "pct_change": -4.06, "volume": 41800000, "volume_fmt": "$4509M" }
+      ]
     }
   },
   "breadth": {},
