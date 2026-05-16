@@ -90,13 +90,14 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
   transition: color var(--transition), background var(--transition), border-color var(--transition);
 }
 .refresh-btn:hover { color: var(--text); background: var(--surface-3); border-color: var(--accent); }
+.refresh-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 .refresh-btn.spinning svg { animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--text-faint); flex-shrink: 0; transition: background 0.4s; }
 .status-dot.live  { background: var(--green); box-shadow: 0 0 6px var(--green); }
 .status-dot.error { background: var(--red); }
 .last-updated { font-size: var(--text-xs); color: var(--text-muted); font-family: var(--font-mono); }
-.last-updated time { color: var(--text); }
+.last-updated time { color: var(--text); font-weight: 600; }
 
 /* Main */
 .main { flex: 1; padding: var(--space-6) var(--space-6) var(--space-12); max-width: 1440px; margin: 0 auto; width: 100%; }
@@ -150,7 +151,7 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 .kpi-secondary-value.up   { color: var(--green); }
 .kpi-secondary-value.down { color: var(--red); }
 
-/* ── Tables (Sector + FX) — fixed 3-col layout ── */
+/* ── Tables (Sector + FX) ── */
 .two-col-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
@@ -211,7 +212,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 .chg-down { color: var(--red)   !important; font-weight: 600; }
 .chg-flat { color: var(--text-muted) !important; }
 
-/* Markets badge — visible inline, small muted pill */
 .markets-badge {
   display: inline-block;
   font-size: 10px;
@@ -263,7 +263,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
   border-bottom: 1px solid var(--border);
 }
 
-/* Movers table: Ticker 28% | Name 0 (hidden via overflow) | Close 28% | Chg% 22% | Vol 22% */
 .movers-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
 .movers-table col.c-tkr  { width: 26%; }
 .movers-table col.c-close { width: 26%; }
@@ -534,6 +533,22 @@ function badgeCls(val) {
   return val > 0 ? 'up' : val < 0 ? 'down' : 'flat';
 }
 
+// ── KEY FIX: always use browser's current time, not pipeline time ──
+function stampNow() {
+  const el = document.getElementById('lastUpdatedTime');
+  if (!el) return;
+  const now = new Date();
+  // Format as HH:MM am/pm in HKT
+  const timeStr = now.toLocaleTimeString('en-HK', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true,
+    timeZone: 'Asia/Hong_Kong'
+  });
+  el.textContent = timeStr;
+  el.setAttribute('datetime', now.toISOString());
+}
+
 function drawSparkline(id, data, isUp) {
   const canvas = document.getElementById(id);
   if (!canvas || !data || data.length < 2) return;
@@ -643,15 +658,6 @@ function setStatus(state) {
   if (state === 'live')  dot.classList.add('live');
   if (state === 'error') dot.classList.add('error');
 }
-function setLastUpdated(iso) {
-  const el = document.getElementById('lastUpdatedTime');
-  if (!el) return;
-  if (!iso) { el.textContent = '—'; return; }
-  try {
-    el.textContent = new Date(iso).toLocaleTimeString('en-HK', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Hong_Kong' });
-    el.setAttribute('datetime', iso);
-  } catch { el.textContent = iso; }
-}
 function showError(msg) {
   const b = document.getElementById('errorBanner'), m = document.getElementById('errorMsg');
   if (b) b.classList.add('visible');
@@ -692,9 +698,13 @@ async function loadData(force = false) {
     renderMovers('tb-us-up',   us.gainers, 'No US gainers today');
     renderMovers('tb-us-down', us.losers,  'No US losers today');
 
-    setLastUpdated(data?.generated_at);
+    // ── FIXED: stamp the current browser time, NOT data.generated_at ──
+    stampNow();
+
+    // Footer shows pipeline generation time for reference
     const footer = document.getElementById('footerGenerated');
-    if (footer) footer.textContent = `Pipeline: ${data?.generated_at_hkt || '—'}`;
+    if (footer) footer.textContent = `Pipeline: ${data?.generated_at_hkt || data?.generated_at || '—'}`;
+
     hideError(); setStatus('live');
   } catch (err) {
     console.error('[Market Review] loadData error:', err);
