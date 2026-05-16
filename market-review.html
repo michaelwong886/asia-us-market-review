@@ -76,15 +76,9 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
   text-decoration: none;
 }
 .logo svg { color: var(--accent); flex-shrink: 0; }
-.logo-name {
-  display: flex; flex-direction: column; line-height: 1.2;
-}
-.logo-title {
-  font-size: var(--text-sm); font-weight: 700; letter-spacing: -0.02em; color: var(--text);
-}
-.logo-sub {
-  font-size: var(--text-xs); color: var(--text-muted); font-weight: 400; letter-spacing: 0.02em;
-}
+.logo-name { display: flex; flex-direction: column; line-height: 1.2; }
+.logo-title { font-size: var(--text-sm); font-weight: 700; letter-spacing: -0.02em; color: var(--text); }
+.logo-sub   { font-size: var(--text-xs); color: var(--text-muted); font-weight: 400; letter-spacing: 0.02em; }
 .header-right { display: flex; align-items: center; gap: var(--space-3); }
 .refresh-btn {
   display: flex; align-items: center; gap: var(--space-2);
@@ -104,38 +98,26 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
   background: var(--text-faint); flex-shrink: 0;
   transition: background 0.4s;
 }
-.status-dot.live { background: var(--green); box-shadow: 0 0 6px var(--green); }
+.status-dot.live  { background: var(--green); box-shadow: 0 0 6px var(--green); }
 .status-dot.error { background: var(--red); }
-.last-updated {
-  font-size: var(--text-xs); color: var(--text-muted);
-  font-family: var(--font-mono);
-}
+.last-updated { font-size: var(--text-xs); color: var(--text-muted); font-family: var(--font-mono); }
 .last-updated time { color: var(--text); }
 
-/* Main content */
+/* Main */
 .main { flex: 1; padding: var(--space-6) var(--space-6) var(--space-12); max-width: 1440px; margin: 0 auto; width: 100%; }
 
 /* Section headers */
-.section-header {
-  display: flex; align-items: center; gap: var(--space-3);
-  margin-bottom: var(--space-4);
-}
-.section-title {
-  font-size: var(--text-sm); font-weight: 600; letter-spacing: 0.06em;
-  text-transform: uppercase; color: var(--text-muted);
-}
-.section-divider {
-  flex: 1; height: 1px; background: var(--border);
-}
+.section-header { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4); }
+.section-title  { font-size: var(--text-sm); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
+.section-divider { flex: 1; height: 1px; background: var(--border); }
 
-/* ── KPI Grid (Indices) ────────────────────── */
+/* ── KPI Grid ──────────────────────────────── */
 .indices-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
   gap: var(--space-4);
   margin-bottom: var(--space-8);
 }
-
 .kpi-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -144,94 +126,63 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
   transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
   position: relative; overflow: hidden;
 }
-.kpi-card:hover {
-  border-color: var(--border-strong);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-1px);
-}
+.kpi-card:hover { border-color: var(--border-strong); box-shadow: var(--shadow-md); transform: translateY(-1px); }
 .kpi-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--card-accent, var(--accent));
-  opacity: 0.6;
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--card-accent, var(--accent)); opacity: 0.6;
 }
-
-/* Card variants */
 .kpi-card[data-market="HK"] { --card-accent: #38bdf8; }
 .kpi-card[data-market="CN"] { --card-accent: #f87171; }
 .kpi-card[data-market="KR"] { --card-accent: #4ade80; }
 .kpi-card[data-market="JP"] { --card-accent: #fbbf24; }
 .kpi-card[data-market="US"] { --card-accent: #a78bfa; }
 
-.kpi-header {
-  display: flex; align-items: flex-start; justify-content: space-between;
-  margin-bottom: var(--space-4);
-}
-.kpi-market-label {
-  display: flex; align-items: center; gap: var(--space-2);
-}
+.kpi-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: var(--space-4); }
+.kpi-market-label { display: flex; align-items: center; gap: var(--space-2); }
 .kpi-flag { font-size: 1.2em; line-height: 1; }
 .kpi-market-name { font-size: var(--text-sm); font-weight: 600; color: var(--text); }
 .kpi-market-sub  { font-size: var(--text-xs); color: var(--text-muted); margin-top: 1px; }
-
 .kpi-badge {
   font-size: var(--text-xs); font-weight: 600;
   padding: 2px var(--space-2); border-radius: 4px;
   font-family: var(--font-mono);
-  transition: background var(--transition), color var(--transition);
+  white-space: nowrap;
 }
 .kpi-badge.up   { background: rgba(74,222,128,0.12); color: var(--green); }
 .kpi-badge.down { background: rgba(248,113,113,0.12); color: var(--red); }
 .kpi-badge.flat { background: rgba(255,255,255,0.06); color: var(--text-muted); }
-
 .kpi-primary { margin-bottom: var(--space-3); }
 .kpi-value {
   font-family: var(--font-mono);
   font-size: var(--text-xl); font-weight: 600;
-  color: var(--text); letter-spacing: -0.02em;
-  transition: color 0.4s;
+  color: var(--text); letter-spacing: -0.02em; transition: color 0.4s;
 }
-.kpi-index-name { font-size: var(--text-xs); color: var(--text-muted); margin-top: 1px; }
-
 .kpi-secondary-row {
   display: flex; align-items: center; justify-content: space-between;
-  padding-top: var(--space-3);
-  border-top: 1px solid var(--border);
-  gap: var(--space-2);
+  padding-top: var(--space-3); border-top: 1px solid var(--border); gap: var(--space-2);
 }
 .kpi-secondary-item { display: flex; flex-direction: column; gap: 1px; }
 .kpi-secondary-label { font-size: var(--text-xs); color: var(--text-faint); }
-.kpi-secondary-value {
-  font-family: var(--font-mono); font-size: var(--text-xs); font-weight: 500;
-  color: var(--text-muted);
-}
+.kpi-secondary-value { font-family: var(--font-mono); font-size: var(--text-xs); font-weight: 500; color: var(--text-muted); }
 .kpi-secondary-value.up   { color: var(--green); }
 .kpi-secondary-value.down { color: var(--red); }
-
-/* Sparkline canvas */
 .kpi-sparkline-wrap { height: 36px; margin: var(--space-3) 0 var(--space-2); }
 .kpi-sparkline-wrap canvas { width: 100% !important; height: 100% !important; }
-
-/* Volume chip */
-.kpi-vol {
-  font-size: var(--text-xs); color: var(--text-faint);
-  font-family: var(--font-mono);
-}
+.kpi-vol { font-size: var(--text-xs); color: var(--text-faint); font-family: var(--font-mono); }
 
 /* ── Sector & FX Grid ──────────────────────── */
 .two-col-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
   gap: var(--space-4);
   margin-bottom: var(--space-8);
 }
-
 .data-table-card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
+  min-width: 0;
 }
 .data-table-card-header {
   padding: var(--space-4) var(--space-5);
@@ -239,45 +190,70 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
   font-size: var(--text-sm); font-weight: 600; color: var(--text);
   display: flex; align-items: center; gap: var(--space-2);
 }
-.data-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-.data-table th, .data-table td {
-  padding: var(--space-3) var(--space-4);
-  font-size: var(--text-xs); text-align: left;
-  overflow: hidden;
-}
-/* Column widths for sector table */
-.sector-table .col-sector  { width: 38%; }
-.sector-table .col-anchor  { width: 20%; }
-.sector-table .col-chg     { width: 24%; }
-.sector-table .col-markets { width: 18%; }
 
+/* ── Clean 3-column table — no overflow ──── */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.data-table th, .data-table td {
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--text-xs);
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .data-table th {
   color: var(--text-faint); text-transform: uppercase;
   letter-spacing: 0.06em; font-weight: 500;
   border-bottom: 1px solid var(--border);
-  white-space: nowrap;
 }
 .data-table td { border-bottom: 1px solid var(--border); color: var(--text-muted); }
 .data-table tr:last-child td { border-bottom: none; }
 .data-table tr:hover td { background: var(--surface-2); }
-.data-table .name-cell { color: var(--text); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.data-table .mono-cell { font-family: var(--font-mono); }
-.data-table .anchor-cell {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  color: var(--text);
-  font-weight: 600;
-  white-space: nowrap;
-}
-.data-table .tag-cell {
-  font-size: 10px; letter-spacing: 0.04em;
-  color: var(--text-faint);
-  text-align: right;
-  white-space: nowrap;
-}
+
+/* Sector table: 3 cols — Sector 45%, Anchor 25%, Chg% 30% */
+.sector-table col.c-name   { width: 45%; }
+.sector-table col.c-anchor { width: 25%; }
+.sector-table col.c-chg    { width: 30%; }
+
+/* FX table: 3 cols — Pair 40%, Rate 35%, Chg% 25% */
+.fx-table col.c-pair { width: 40%; }
+.fx-table col.c-rate { width: 35%; }
+.fx-table col.c-chg  { width: 25%; }
+
+.name-cell   { color: var(--text) !important; font-weight: 500; }
+.anchor-cell { font-family: var(--font-mono); color: var(--text) !important; font-weight: 600; }
+.mono-cell   { font-family: var(--font-mono); }
+.right-cell  { text-align: right !important; }
+
 .chg-up   { color: var(--green) !important; font-weight: 600; }
 .chg-down { color: var(--red)   !important; font-weight: 600; }
 .chg-flat { color: var(--text-muted) !important; }
+
+/* ── Markets tooltip on hover ──────────────── */
+.sector-row { position: relative; cursor: default; }
+.markets-tip {
+  display: none;
+  position: absolute;
+  right: var(--space-5);
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--surface-3);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 2px var(--space-2);
+  font-size: 10px;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  white-space: nowrap;
+  z-index: 10;
+  pointer-events: none;
+  letter-spacing: 0.04em;
+}
+.sector-row:hover .markets-tip { display: block; }
 
 /* ── Skeleton ──────────────────────────────── */
 @keyframes shimmer {
@@ -285,10 +261,7 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
   100% { background-position:  200% 0; }
 }
 .skeleton {
-  background: linear-gradient(90deg,
-    var(--surface-2) 25%,
-    var(--surface-3) 50%,
-    var(--surface-2) 75%);
+  background: linear-gradient(90deg, var(--surface-2) 25%, var(--surface-3) 50%, var(--surface-2) 75%);
   background-size: 200% 100%;
   animation: shimmer 1.4s ease-in-out infinite;
   border-radius: 4px;
@@ -328,10 +301,7 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
   .last-updated { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
 </style>
 </head>
@@ -355,13 +325,12 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
     </div>
     <div class="header-right">
       <span class="status-dot" id="statusDot" title="Data status"></span>
-      <span class="last-updated">
-        Updated: <time id="lastUpdatedTime">—</time>
-      </span>
+      <span class="last-updated">Updated: <time id="lastUpdatedTime">—</time></span>
       <button class="refresh-btn" id="refreshBtn" aria-label="Refresh data now" onclick="loadData(true)">
         <svg id="refreshIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
-          <path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+          <path d="M21 3v5h-5"/>
+          <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
           <path d="M8 16H3v5"/>
         </svg>
         Refresh
@@ -372,18 +341,16 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
   <!-- ── Main ────────────────────────────────── -->
   <main class="main" id="mainContent">
 
-    <!-- Error banner -->
     <div class="error-banner" id="errorBanner" role="alert">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
       <span id="errorMsg">Unable to load data.json — retrying…</span>
     </div>
 
-    <!-- ── Indices KPI Cards ─────────────────── -->
+    <!-- Indices -->
     <div class="section-header">
       <span class="section-title">📊 Market Indices</span>
       <div class="section-divider"></div>
     </div>
-
     <div class="indices-grid" id="indicesGrid">
       <div class="kpi-card" data-market="HK"><div class="skeleton sk-text-lg"></div></div>
       <div class="kpi-card" data-market="CN"><div class="skeleton sk-text-lg"></div></div>
@@ -392,46 +359,45 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
       <div class="kpi-card" data-market="US"><div class="skeleton sk-text-lg"></div></div>
     </div>
 
-    <!-- ── Sectors + FX ──────────────────────── -->
+    <!-- Sectors + FX -->
     <div class="two-col-grid">
 
-      <!-- Sectors -->
+      <!-- Sectors: 3 cols, Markets on hover -->
       <div class="data-table-card" id="sectorsCard">
-        <div class="data-table-card-header">
-          🏭 Sector Snapshot
-        </div>
+        <div class="data-table-card-header">🏭 Sector Snapshot</div>
         <table class="data-table sector-table" aria-label="Sector performance">
           <colgroup>
-            <col class="col-sector">
-            <col class="col-anchor">
-            <col class="col-chg">
-            <col class="col-markets">
+            <col class="c-name">
+            <col class="c-anchor">
+            <col class="c-chg">
           </colgroup>
           <thead>
             <tr>
-              <th class="col-sector">Sector</th>
-              <th class="col-anchor">Anchor</th>
-              <th class="col-chg mono-cell" style="text-align:right">Chg%</th>
-              <th class="col-markets tag-cell">Markets</th>
+              <th>Sector</th>
+              <th>Anchor</th>
+              <th class="right-cell">Chg%</th>
             </tr>
           </thead>
           <tbody id="sectorsTbody">
-            <tr><td colspan="4"><div class="skeleton sk-text-sm" style="margin:var(--space-4) auto;display:block;"></div></td></tr>
+            <tr><td colspan="3"><div class="skeleton sk-text-sm" style="margin:var(--space-4) auto;display:block;"></div></td></tr>
           </tbody>
         </table>
       </div>
 
-      <!-- FX -->
+      <!-- FX: 3 cols -->
       <div class="data-table-card" id="fxCard">
-        <div class="data-table-card-header">
-          💱 FX Rates
-        </div>
-        <table class="data-table" aria-label="FX rates">
+        <div class="data-table-card-header">💱 FX Rates</div>
+        <table class="data-table fx-table" aria-label="FX rates">
+          <colgroup>
+            <col class="c-pair">
+            <col class="c-rate">
+            <col class="c-chg">
+          </colgroup>
           <thead>
             <tr>
               <th>Pair</th>
-              <th class="mono-cell" style="text-align:right">Rate</th>
-              <th class="mono-cell" style="text-align:right">Chg%</th>
+              <th class="right-cell">Rate</th>
+              <th class="right-cell">Chg%</th>
             </tr>
           </thead>
           <tbody id="fxTbody">
@@ -443,13 +409,12 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
     </div>
   </main>
 
-  <!-- ── Footer ──────────────────────────────── -->
   <footer class="footer">
     <span>Data via <a href="https://finance.yahoo.com" target="_blank" rel="noopener">Yahoo Finance</a> · GitHub Actions every 15 min · ~10–25 min cache on GitHub Pages</span>
     <span id="footerGenerated">—</span>
   </footer>
 
-</div><!-- /.app -->
+</div>
 
 <script>
 const REFRESH_INTERVAL_MS = 5 * 60 * 1000;
@@ -459,10 +424,7 @@ let refreshTimer = null;
 
 function fmt(val, decimals = 2) {
   if (val == null || isNaN(val)) return '—';
-  return Number(val).toLocaleString('en-US', {
-    minimumFractionDigits: decimals,
-    maximumFractionDigits: decimals,
-  });
+  return Number(val).toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
 }
 function fmtPct(val) {
   if (val == null || isNaN(val)) return '—';
@@ -481,49 +443,31 @@ function badgeClass(val) {
 function drawSparkline(canvasId, data, isUp) {
   const canvas = document.getElementById(canvasId);
   if (!canvas || !data || data.length < 2) return;
-  if (sparklineCharts[canvasId]) {
-    sparklineCharts[canvasId].destroy();
-    delete sparklineCharts[canvasId];
-  }
+  if (sparklineCharts[canvasId]) { sparklineCharts[canvasId].destroy(); delete sparklineCharts[canvasId]; }
   const color = isUp ? '#4ade80' : '#f87171';
-  const ctx = canvas.getContext('2d');
-  sparklineCharts[canvasId] = new Chart(ctx, {
+  sparklineCharts[canvasId] = new Chart(canvas.getContext('2d'), {
     type: 'line',
     data: {
       labels: data.map((_, i) => i),
-      datasets: [{
-        data,
-        borderColor: color,
-        borderWidth: 1.5,
-        pointRadius: 0,
-        fill: true,
+      datasets: [{ data, borderColor: color, borderWidth: 1.5, pointRadius: 0, fill: true,
         backgroundColor: (ctx2) => {
           const g = ctx2.chart.ctx.createLinearGradient(0, 0, 0, 36);
-          g.addColorStop(0, color + '33');
-          g.addColorStop(1, color + '00');
-          return g;
-        },
-        tension: 0.4,
-      }],
+          g.addColorStop(0, color + '33'); g.addColorStop(1, color + '00'); return g;
+        }, tension: 0.4 }],
     },
     options: {
-      responsive: true, maintainAspectRatio: false,
-      animation: false,
+      responsive: true, maintainAspectRatio: false, animation: false,
       plugins: { legend: { display: false }, tooltip: { enabled: false } },
       scales: { x: { display: false }, y: { display: false } },
-      elements: { line: { borderCapStyle: 'round' } },
     },
   });
 }
 
 function renderKpiCard(card, entry) {
   if (!entry) return;
-  const p  = entry.primary   || {};
-  const s  = entry.secondary || {};
-  const t  = entry.tertiary  || {};
+  const p = entry.primary || {}, s = entry.secondary || {}, t = entry.tertiary || {};
   const isUp = (p.pct_change || 0) >= 0;
   const mkt  = card.dataset.market;
-
   card.innerHTML = `
     <div class="kpi-header">
       <div class="kpi-market-label">
@@ -535,22 +479,14 @@ function renderKpiCard(card, entry) {
       </div>
       <span class="kpi-badge ${badgeClass(p.pct_change)}">${fmtPct(p.pct_change)}</span>
     </div>
-
-    <div class="kpi-primary">
-      <div class="kpi-value">${fmt(p.close, mkt === 'FX' ? 4 : 2)}</div>
-    </div>
-
-    <div class="kpi-sparkline-wrap">
-      <canvas id="spark-${mkt}" aria-label="${entry.label} 5-day sparkline"></canvas>
-    </div>
-
+    <div class="kpi-primary"><div class="kpi-value">${fmt(p.close, 2)}</div></div>
+    <div class="kpi-sparkline-wrap"><canvas id="spark-${mkt}" aria-label="${entry.label} sparkline"></canvas></div>
     <div class="kpi-secondary-row">
       <div class="kpi-secondary-item">
         <span class="kpi-secondary-label">${s.name || '—'}</span>
         <span class="kpi-secondary-value ${chgClass(s.pct_change)}">${s.close ? fmt(s.close) : '—'}</span>
       </div>
-      ${t.name ? `
-      <div class="kpi-secondary-item">
+      ${t.name ? `<div class="kpi-secondary-item">
         <span class="kpi-secondary-label">${t.name}</span>
         <span class="kpi-secondary-value ${chgClass(t.pct_change)}">${t.close ? fmt(t.close) : '—'}</span>
       </div>` : ''}
@@ -558,25 +494,21 @@ function renderKpiCard(card, entry) {
         <span class="kpi-secondary-label">Vol</span>
         <span class="kpi-secondary-value kpi-vol">${p.volume_fmt || '—'}</span>
       </div>
-    </div>
-  `;
-
-  if (entry.sparkline && entry.sparkline.length > 1) {
-    drawSparkline(`spark-${mkt}`, entry.sparkline, isUp);
-  }
+    </div>`;
+  if (entry.sparkline && entry.sparkline.length > 1) drawSparkline(`spark-${mkt}`, entry.sparkline, isUp);
 }
 
 function renderSectors(sectors) {
   const tbody = document.getElementById('sectorsTbody');
   if (!sectors || !tbody) return;
   tbody.innerHTML = Object.entries(sectors).map(([name, d]) => `
-    <tr>
+    <tr class="sector-row">
       <td class="name-cell">${name}</td>
       <td class="anchor-cell">${d.anchor || ''}</td>
-      <td class="mono-cell ${chgClass(d.pct_change)}" style="text-align:right">${fmtPct(d.pct_change)}</td>
-      <td class="tag-cell">${d.markets || ''}</td>
-    </tr>
-  `).join('');
+      <td class="mono-cell right-cell ${chgClass(d.pct_change)}">${fmtPct(d.pct_change)}
+        ${d.markets ? `<span class="markets-tip">${d.markets}</span>` : ''}
+      </td>
+    </tr>`).join('');
 }
 
 function renderFX(fx) {
@@ -585,10 +517,9 @@ function renderFX(fx) {
   tbody.innerHTML = Object.entries(fx).map(([pair, d]) => `
     <tr>
       <td class="name-cell">${pair}</td>
-      <td class="mono-cell" style="text-align:right">${fmt(d.rate, 4)}</td>
-      <td class="mono-cell ${chgClass(d.pct_change)}" style="text-align:right">${fmtPct(d.pct_change)}</td>
-    </tr>
-  `).join('');
+      <td class="mono-cell right-cell">${fmt(d.rate, 4)}</td>
+      <td class="mono-cell right-cell ${chgClass(d.pct_change)}">${fmtPct(d.pct_change)}</td>
+    </tr>`).join('');
 }
 
 function setStatus(state) {
@@ -605,9 +536,7 @@ function setLastUpdated(isoStr) {
   if (!isoStr) { el.textContent = '—'; return; }
   try {
     const d = new Date(isoStr);
-    el.textContent = d.toLocaleTimeString('en-HK', {
-      hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Hong_Kong',
-    });
+    el.textContent = d.toLocaleTimeString('en-HK', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Hong_Kong' });
     el.setAttribute('datetime', isoStr);
   } catch { el.textContent = isoStr; }
 }
@@ -624,45 +553,32 @@ function hideError() {
 }
 
 async function loadData(force = false) {
-  const refreshBtn  = document.getElementById('refreshBtn');
-  const refreshIcon = document.getElementById('refreshIcon');
-  if (refreshBtn)  refreshBtn.classList.add('spinning');
-  if (refreshIcon) refreshIcon.parentElement?.classList.add('spinning');
-  refreshBtn?.setAttribute('disabled', 'true');
+  const btn  = document.getElementById('refreshBtn');
+  const icon = document.getElementById('refreshIcon');
+  btn?.classList.add('spinning');
+  btn?.setAttribute('disabled', 'true');
   setStatus('loading');
-
   const url = force ? `${DATA_URL}?_=${Date.now()}` : DATA_URL;
-
   try {
     const res = await fetch(url, { cache: force ? 'no-cache' : 'default' });
     if (!res.ok) throw new Error(`HTTP ${res.status} — ${res.statusText}`);
     const data = await res.json();
-
-    const cards = document.querySelectorAll('.kpi-card[data-market]');
-    cards.forEach(card => {
-      const mkt = card.dataset.market;
-      const entry = data?.indices?.[mkt];
+    document.querySelectorAll('.kpi-card[data-market]').forEach(card => {
+      const entry = data?.indices?.[card.dataset.market];
       if (entry) renderKpiCard(card, entry);
     });
-
     renderSectors(data?.sectors);
     renderFX(data?.fx);
     setLastUpdated(data?.generated_at);
     const footer = document.getElementById('footerGenerated');
     if (footer) footer.textContent = `Pipeline: ${data?.generated_at_hkt || '—'}`;
-
-    hideError();
-    setStatus('live');
-
+    hideError(); setStatus('live');
   } catch (err) {
     console.error('[Market Review] loadData error:', err);
     showError(`Failed to load data: ${err.message}`);
   } finally {
-    if (refreshBtn) {
-      refreshBtn.classList.remove('spinning');
-      refreshBtn.removeAttribute('disabled');
-    }
-    if (refreshIcon) refreshIcon.parentElement?.classList.remove('spinning');
+    btn?.classList.remove('spinning');
+    btn?.removeAttribute('disabled');
   }
 }
 
@@ -670,17 +586,9 @@ function scheduleRefresh() {
   if (refreshTimer) clearInterval(refreshTimer);
   refreshTimer = setInterval(() => loadData(false), REFRESH_INTERVAL_MS);
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  loadData();
-  scheduleRefresh();
-});
-
+document.addEventListener('DOMContentLoaded', () => { loadData(); scheduleRefresh(); });
 document.addEventListener('visibilitychange', () => {
-  if (document.visibilityState === 'visible') {
-    loadData();
-    scheduleRefresh();
-  }
+  if (document.visibilityState === 'visible') { loadData(); scheduleRefresh(); }
 });
 </script>
 </body>
