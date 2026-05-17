@@ -297,8 +297,20 @@ canvas{max-height:200px}
 
     <!-- LEVELS -->
     <div class="tab-panel" id="tab-levels">
-      <div class="sec-hdr"><div><div class="sec-title">S/R Levels</div><div class="sec-sub">Support &amp; Resistance</div></div><button class="btn-sm btn-accent" onclick="addLevel()">+ Add</button></div>
-      <div class="lvl-grid" id="lvl-grid"></div>
+      <div class="sec-hdr">
+        <div>
+          <div class="sec-title">S/R Levels</div>
+          <div class="sec-sub">Floor Pivot &middot; Auto-calculated from prev session &middot; <span id="lvl-src" style="color:var(--accent)">Calculating...</span></div>
+        </div>
+        <button class="btn-sm btn-accent" onclick="addLevel()">+ Add</button>
+      </div>
+      <div class="lvl-grid" id="lvl-grid">
+        <div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-muted)">
+          <div style="font-size:2rem">&#128207;</div>
+          <div style="font-weight:600;margin-top:8px">Fetching live pivot levels...</div>
+          <div style="font-size:var(--text-xs);margin-top:4px">Using previous session H/L/C via Yahoo Finance</div>
+        </div>
+      </div>
     </div>
 
     <!-- JOURNAL -->
@@ -480,7 +492,6 @@ async function loadLive(){
   if(u)u.textContent='Updated '+new Date().toLocaleTimeString('en-HK',{timeZone:'Asia/Hong_Kong'})+' HKT'+(anyLive?' (Yahoo Finance live)':' (demo fallback)');
   updateSentimentVix();
   loadVix5DayChart();
-  // Load extras: F&G, Yields, Commodities
   loadAllLiveExtras();
 }
 function updateSentimentVix(){
@@ -609,7 +620,6 @@ function buildTicker(){
     var price=d.c>0?Number(d.c).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}):'--';
     return '<div class="ticker-item"><span class="ticker-name">'+s+'</span><span style="color:var(--text)">'+price+'</span><span class="ticker-chg '+(up?'up':'down')+'">'+arr(d.dp)+Math.abs(d.dp).toFixed(2)+'%</span></div>';
   }).join('');
-  // Add commodity prices from live COMMODITIES array
   var commItems=COMMODITIES.slice(0,3).map(function(c){
     var up=c.pct>=0;
     return '<div class="ticker-item"><span class="ticker-name">'+c.name.split(' ')[0]+'</span><span style="color:var(--text)">'+fmt(c.price,2)+'</span><span class="ticker-chg '+(up?'up':'down')+'">'+arr(c.pct)+Math.abs(c.pct).toFixed(2)+'%</span></div>';
@@ -686,12 +696,14 @@ function renderVixChart(labels,values,isLive){
   var lineColor=trend?'#ef4444':'#22c55e';
   vixChart=new Chart(ctx,{type:'line',data:{labels:labels,datasets:[{data:values,borderColor:lineColor,borderWidth:2,fill:true,backgroundColor:lineColor.replace(')',',0.08)').replace('rgb','rgba'),pointRadius:3,pointBackgroundColor:lineColor,tension:0.3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'#1e2226',titleColor:'#7a8090',bodyColor:'#e2e4e8',borderColor:'rgba(255,255,255,0.07)',borderWidth:1,callbacks:{label:function(ctx){return 'VIX: '+ctx.parsed.y.toFixed(2);}}}},scales:{x:{ticks:{color:'#7a8090',font:{size:9}},grid:{color:'rgba(255,255,255,0.04)'}},y:{ticks:{color:'#7a8090',font:{size:9},callback:function(v){return v.toFixed(1);}},grid:{color:'rgba(255,255,255,0.04)'},position:'right'}}}});
 }
+// Legacy static level renderer kept as fallback only
 var LEVELS=[
   {ticker:'SPY',levels:[{t:'R2',p:755.00,cls:'lvl-r'},{t:'R1',p:747.50,cls:'lvl-r'},{t:'Pivot',p:739.17,cls:''},{t:'S1',p:732.00,cls:'lvl-s'},{t:'S2',p:724.50,cls:'lvl-s'}]},
   {ticker:'QQQ',levels:[{t:'R2',p:722.00,cls:'lvl-r'},{t:'R1',p:715.50,cls:'lvl-r'},{t:'Pivot',p:708.93,cls:''},{t:'S1',p:701.00,cls:'lvl-s'},{t:'S2',p:694.00,cls:'lvl-s'}]},
   {ticker:'HSI',levels:[{t:'R2',p:26800,cls:'lvl-r'},{t:'R1',p:26400,cls:'lvl-r'},{t:'Pivot',p:25963,cls:''},{t:'S1',p:25600,cls:'lvl-s'},{t:'S2',p:25200,cls:'lvl-s'}]}
 ];
 function renderLevels(){
+  // Static fallback only — live levels rendered by loadPivotLevels() in live-data.js
   var g=document.getElementById('lvl-grid');if(!g)return;
   g.innerHTML=LEVELS.map(function(l){
     return '<div class="lvl-card"><div class="lvl-ticker">'+l.ticker+'</div>'+l.levels.map(function(r){return '<div class="lvl-row"><span class="lvl-type">'+r.t+'</span><span class="lvl-price '+r.cls+'">'+fmt(r.p,r.p>1000?0:2)+'</span></div>';}).join('')+'</div>';
@@ -752,12 +764,9 @@ async function refreshAll(){await loadLive();await loadWatchlist();}
 initFallback();
 renderCatalysts();
 renderCalendar();
-renderLevels();
 renderJournal();
 renderMacro();
+// Start live data fetch after live-data.js is loaded
 setTimeout(function(){loadLive();loadWatchlist();},1000);
 </script>
-<!-- Live data: Fear & Greed (CNN), Treasury Yields (US Treasury), Commodities (Yahoo Finance) -->
-<script src="live-data.js"></script>
-</body>
-</html>
+<!-- Live data
