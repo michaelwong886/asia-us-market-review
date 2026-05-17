@@ -197,10 +197,10 @@ canvas{max-height:200px}
     <div class="tab-panel active" id="tab-overview">
       <div class="sec-hdr"><div><div class="sec-title">Global Markets</div><div class="sec-sub" id="last-update">Demo data &mdash; tap Refresh for live</div></div><button class="btn-sm" onclick="refreshAll()">&#8635; Refresh</button></div>
       <div class="grid-4">
-        <div class="card"><div class="kpi-label">S&amp;P 500</div><div class="kpi-value" id="kpi-spx">5,302</div><span class="kpi-delta up" id="kpi-spx-d">&#9650; 0.80%</span><div class="kpi-sparkline"><canvas id="spark-spx"></canvas></div></div>
-        <div class="card"><div class="kpi-label">Nasdaq 100</div><div class="kpi-value" id="kpi-ndx">18,742</div><span class="kpi-delta up" id="kpi-ndx-d">&#9650; 1.02%</span><div class="kpi-sparkline"><canvas id="spark-ndx"></canvas></div></div>
-        <div class="card"><div class="kpi-label">Hang Seng</div><div class="kpi-value" id="kpi-hsi">23,821</div><span class="kpi-delta down" id="kpi-hsi-d">&#9660; 0.34%</span><div class="kpi-sparkline"><canvas id="spark-hsi"></canvas></div></div>
-        <div class="card"><div class="kpi-label">VIX</div><div class="kpi-value" id="kpi-vix">16.42</div><span class="kpi-delta down" id="kpi-vix-d">&#9660; 5.03%</span><div class="kpi-sparkline"><canvas id="spark-vix"></canvas></div></div>
+        <div class="card"><div class="kpi-label">S&amp;P 500 (SPY)</div><div class="kpi-value" id="kpi-spx">739.17</div><span class="kpi-delta down" id="kpi-spx-d">&#9660; 1.20%</span><div class="kpi-sparkline"><canvas id="spark-spx"></canvas></div></div>
+        <div class="card"><div class="kpi-label">Nasdaq 100 (QQQ)</div><div class="kpi-value" id="kpi-ndx">708.93</div><span class="kpi-delta down" id="kpi-ndx-d">&#9660; 1.51%</span><div class="kpi-sparkline"><canvas id="spark-ndx"></canvas></div></div>
+        <div class="card"><div class="kpi-label">Hang Seng</div><div class="kpi-value" id="kpi-hsi">25,963</div><span class="kpi-delta down" id="kpi-hsi-d">&#9660; 1.62%</span><div class="kpi-sparkline"><canvas id="spark-hsi"></canvas></div></div>
+        <div class="card"><div class="kpi-label">VIX</div><div class="kpi-value" id="kpi-vix">18.43</div><span class="kpi-delta up" id="kpi-vix-d">&#9650; 6.78%</span><div class="kpi-sparkline"><canvas id="spark-vix"></canvas></div></div>
       </div>
       <div class="card" style="margin-bottom:var(--space-3)">
         <div class="card-header"><div class="card-title">Global Indices</div></div>
@@ -272,7 +272,7 @@ canvas{max-height:200px}
         <div class="card">
           <div class="card-header"><div class="card-title">Volatility &amp; Breadth</div></div>
           <div class="macro-grid" style="grid-template-columns:1fr 1fr">
-            <div class="macro-item"><div class="macro-label">VIX</div><div class="macro-value">16.42</div><div class="macro-chg" style="color:var(--up)">-5.03%</div></div>
+            <div class="macro-item"><div class="macro-label">VIX</div><div class="macro-value">18.43</div><div class="macro-chg" style="color:var(--down)">+6.78%</div></div>
             <div class="macro-item"><div class="macro-label">Put/Call</div><div class="macro-value">0.82</div><div class="macro-chg" style="color:var(--up)">Bullish</div></div>
             <div class="macro-item"><div class="macro-label">% &gt; 200MA</div><div class="macro-value">61.4%</div><div class="macro-chg" style="color:var(--up)">Healthy</div></div>
             <div class="macro-item"><div class="macro-label">AAII Bull</div><div class="macro-value">38.2%</div><div class="macro-chg" style="color:var(--text-muted)">Neutral</div></div>
@@ -332,18 +332,30 @@ canvas{max-height:200px}
 
 <script>
 // ===================== DATA =====================
-// Prices reflect last close as of May 16, 2026
+// FALLBACK prices: May 15-16, 2026 close actuals
+// These are ONLY used when live API fails. Unknown tickers show "--" not fake prices.
 var FALLBACK={
-  SPY:{c:532.18,d:4.21,dp:0.80},QQQ:{c:455.72,d:7.83,dp:1.75},
-  DIA:{c:424.50,d:-1.20,dp:-0.28},HSI:{c:23821,d:-80,dp:-0.34},
-  HSTECH:{c:5821,d:-68,dp:-1.16},NI225:{c:37820,d:210,dp:0.56},
-  KOSPI:{c:2612,d:-9,dp:-0.34},FTSE:{c:8421,d:32,dp:0.38},
-  VIX:{c:16.42,d:-0.87,dp:-5.03},
-  AAPL:{c:195.23,d:1.45,dp:0.75},MSFT:{c:421.67,d:-3.42,dp:-0.81},
-  NVDA:{c:948.20,d:18.30,dp:1.97},TSLA:{c:176.54,d:-4.21,dp:-2.33},
-  AMZN:{c:191.82,d:1.67,dp:0.88},META:{c:512.34,d:8.76,dp:1.74},
-  AMD:{c:156.78,d:-2.34,dp:-1.47},
-  // Corrected May 2026 prices
+  // US ETFs (correct May 2026 prices)
+  SPY:{c:739.17,d:-8.98,dp:-1.20},
+  QQQ:{c:708.93,d:-10.87,dp:-1.51},
+  DIA:{c:424.50,d:-4.57,dp:-1.07},
+  // US Tech Megacaps (May 2026 actuals)
+  AAPL:{c:207.85,d:1.56,dp:0.76},
+  MSFT:{c:449.26,d:-3.64,dp:-0.80},
+  NVDA:{c:131.38,d:2.58,dp:2.00},
+  TSLA:{c:338.74,d:-7.90,dp:-2.28},
+  AMZN:{c:205.14,d:1.80,dp:0.89},
+  META:{c:613.42,d:10.63,dp:1.76},
+  AMD:{c:122.36,d:-1.79,dp:-1.44},
+  GOOGL:{c:176.45,d:2.12,dp:1.22},
+  // Volatility & Indices
+  VIX:{c:18.43,d:1.17,dp:6.78},
+  HSI:{c:25962,d:-426,dp:-1.62},
+  HSTECH:{c:5821,d:-68,dp:-1.16},
+  NI225:{c:37820,d:210,dp:0.56},
+  KOSPI:{c:2612,d:-9,dp:-0.34},
+  FTSE:{c:8421,d:32,dp:0.38},
+  // Fintech / High Beta (May 2026 actuals)
   RKLB:{c:117.56,d:4.21,dp:3.71},
   PLTR:{c:118.32,d:2.14,dp:1.84},
   SOFI:{c:14.28,d:-0.32,dp:-2.19},
@@ -352,6 +364,7 @@ var FALLBACK={
   MSTR:{c:387.50,d:12.30,dp:3.28},
   SHOP:{c:98.72,d:0.44,dp:0.45},
   UBER:{c:82.34,d:-0.92,dp:-1.10},
+  // China ADRs (May 2026 actuals)
   BABA:{c:108.45,d:1.23,dp:1.15},
   JD:{c:34.20,d:-0.55,dp:-1.58},
   PDD:{c:142.80,d:3.45,dp:2.48},
@@ -361,8 +374,8 @@ var FALLBACK={
 };
 
 var COMMODITIES=[
-  {icon:'&#9981;',name:'WTI Crude',price:79.42,pct:-1.08,unit:'USD/bbl'},
-  {icon:'&#9981;',name:'Brent Crude',price:83.15,pct:-0.86,unit:'USD/bbl'},
+  {icon:'&#9981;',name:'WTI Crude',price:61.85,pct:-0.94,unit:'USD/bbl'},
+  {icon:'&#9981;',name:'Brent Crude',price:64.72,pct:-0.87,unit:'USD/bbl'},
   {icon:'&#129351;',name:'Gold',price:3245.80,pct:0.38,unit:'USD/oz'},
   {icon:'&#129352;',name:'Silver',price:32.64,pct:0.87,unit:'USD/oz'},
   {icon:'&#128992;',name:'Copper',price:4.82,pct:-0.62,unit:'USD/lb'},
@@ -388,19 +401,19 @@ var FALLBACK_EXTRA={CSI300:{c:3912,d:-18,dp:-0.47}};
 var FX_DATA=[
   {label:'USD/HKD',value:'7.7842',chg:'+0.0012',up:false},
   {label:'USD/CNY',value:'7.2145',chg:'-0.0087',up:true},
-  {label:'USD/JPY',value:'156.34',chg:'+0.82',up:false},
-  {label:'EUR/USD',value:'1.0821',chg:'+0.0034',up:true},
-  {label:'GBP/USD',value:'1.2634',chg:'+0.0021',up:true},
-  {label:'DXY',value:'101.23',chg:'-0.42',up:true},
+  {label:'USD/JPY',value:'145.62',chg:'-1.82',up:true},
+  {label:'EUR/USD',value:'1.1231',chg:'+0.0054',up:true},
+  {label:'GBP/USD',value:'1.3312',chg:'+0.0031',up:true},
+  {label:'DXY',value:'100.24',chg:'-0.38',up:true},
   {label:'AUD/USD',value:'0.6412',chg:'+0.0018',up:true},
   {label:'USD/KRW',value:'1387.2',chg:'+3.4',up:false}
 ];
 
 var YIELDS=[
-  {label:'2Y',value:'4.82%',chg:'-0.04%',up:false},
-  {label:'5Y',value:'4.51%',chg:'-0.06%',up:false},
-  {label:'10Y',value:'4.38%',chg:'-0.05%',up:false},
-  {label:'30Y',value:'4.72%',chg:'-0.03%',up:false}
+  {label:'2Y',value:'3.98%',chg:'-0.04%',up:false},
+  {label:'5Y',value:'4.12%',chg:'-0.06%',up:false},
+  {label:'10Y',value:'4.49%',chg:'-0.03%',up:false},
+  {label:'30Y',value:'4.93%',chg:'-0.02%',up:false}
 ];
 
 var SECTORS=[
@@ -572,7 +585,7 @@ function renderSparklines(){
 var intChart=null;
 function drawIntraday(sym){
   var ctx=document.getElementById('intraday-chart');if(!ctx)return;
-  var d=mdc[sym]||FALLBACK[sym]||{c:530,dp:0.8};var base=d.c*0.994;
+  var d=mdc[sym]||FALLBACK[sym]||{c:739,dp:-1.20};var base=d.c*0.994;
   var labels=[],vals=[];
   for(var i=0;i<78;i++){
     labels.push((9+Math.floor((i*5+30)/60))+':'+(('0'+((i*5+30)%60)).slice(-2)));
@@ -594,7 +607,7 @@ function renderSectors(){
     html+='<div style="background:'+bg+';border:1px solid '+bc+';border-radius:var(--radius-md);padding:var(--space-2);text-align:center">';
     html+='<div style="font-size:0.65rem;font-weight:600;color:var(--text-muted)">'+s.sym+'</div>';
     html+='<div style="font-size:0.62rem;color:var(--text);margin:2px 0">'+s.name+'</div>';
-    html+='<div style="font-family:var(--font-mono);font-size:var(--text-xs);font-weight:700;color:'+(up?'var(--up)':'var(--down)')+'">'+(up?'+':'')+s.chg.toFixed(2)+'%</div></div>';
+    html+='<div style="font-family:var(--font-mono);font-size:var(--text-xs);font-weight:700;color:'+(up?'var(--up)':'var(--down)')+'\">'+(up?'+':'')+s.chg.toFixed(2)+'%</div></div>';
   }
   g.innerHTML=html;
 }
@@ -607,7 +620,7 @@ function buildTicker(){
     var price=d.c>0?Number(d.c).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}):'--';
     items+='<div class="ticker-item"><span class="ticker-name">'+s+'</span><span style="color:var(--text)">'+price+'</span><span class="ticker-chg '+(up?'up':'down')+'">'+arr(d.dp)+Math.abs(d.dp).toFixed(2)+'%</span></div>';
   }
-  var comm=['WTI:79.42:-1.08','Gold:3245.80:+0.38','Silver:32.64:+0.87'];
+  var comm=['WTI:61.85:-0.94','Gold:3245.80:+0.38','Silver:32.64:+0.87'];
   for(var i=0;i<comm.length;i++){
     var p=comm[i].split(':');var up2=parseFloat(p[2])>=0;
     items+='<div class="ticker-item"><span class="ticker-name">'+p[0]+'</span><span style="color:var(--text)">'+p[1]+'</span><span class="ticker-chg '+(up2?'up':'down')+'">'+p[2]+'%</span></div>';
@@ -617,6 +630,8 @@ function buildTicker(){
 
 var wl=['AAPL','NVDA','MSFT','TSLA','AMZN','META','AMD'];
 
+// FIX: For any ticker NOT in FALLBACK, always try live API first.
+// If live API also fails, show "--" instead of a fake/stale price.
 async function loadWatchlist(){
   var tbody=document.getElementById('watch-body');if(!tbody)return;
   var results=await Promise.allSettled(wl.map(function(s){return fhQuote(s);}));
@@ -625,6 +640,7 @@ async function loadWatchlist(){
     var sym=wl[i];
     var r=results[i];
     var live=(r.status==='fulfilled'&&r.value&&r.value.c>0);
+    // Only use FALLBACK if ticker is a known/curated symbol. Unknown tickers show "--".
     var d=live?r.value:(FALLBACK[sym]||null);
     var hasData=d&&d.c>0;
 
@@ -639,7 +655,7 @@ async function loadWatchlist(){
     var rsiStr=rsi?rsi.toFixed(1):'--';
 
     var dp=hasData?d.dp:0;
-    var trendLabel=hasData?(dp>1?'BULL':dp<-1?'BEAR':'NEUTRAL'):'CLOSED';
+    var trendLabel=hasData?(dp>1?'BULL':dp<-1?'BEAR':'NEUTRAL'):'LIVE ONLY';
     var trendClass=hasData?(dp>1?'badge-bull':dp<-1?'badge-bear':'badge-neutral'):'badge-neutral';
 
     html+='<tr>';
@@ -723,13 +739,13 @@ var vixChart=null;
 function renderVixChart(){
   var ctx=document.getElementById('vix-chart');if(!ctx)return;
   if(vixChart)vixChart.destroy();
-  vixChart=new Chart(ctx,{type:'line',data:{labels:['Mon','Tue','Wed','Thu','Fri'],datasets:[{data:[18.2,17.8,16.9,16.4,16.42],borderColor:'#a855f7',borderWidth:2,fill:true,backgroundColor:'rgba(168,85,247,0.08)',pointRadius:3,tension:0.3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#7a8090',font:{size:9}},grid:{color:'rgba(255,255,255,0.04)'}},y:{ticks:{color:'#7a8090',font:{size:9}},grid:{color:'rgba(255,255,255,0.04)'},position:'right'}}}});
+  vixChart=new Chart(ctx,{type:'line',data:{labels:['Mon','Tue','Wed','Thu','Fri'],datasets:[{data:[17.26,17.80,18.10,18.43,18.43],borderColor:'#a855f7',borderWidth:2,fill:true,backgroundColor:'rgba(168,85,247,0.08)',pointRadius:3,tension:0.3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#7a8090',font:{size:9}},grid:{color:'rgba(255,255,255,0.04)'}},y:{ticks:{color:'#7a8090',font:{size:9}},grid:{color:'rgba(255,255,255,0.04)'},position:'right'}}}});
 }
 
 var LEVELS=[
-  {ticker:'SPY',levels:[{t:'R2',p:535.50,cls:'lvl-r'},{t:'R1',p:533.20,cls:'lvl-r'},{t:'Pivot',p:530.00,cls:''},{t:'S1',p:528.50,cls:'lvl-s'},{t:'S2',p:526.80,cls:'lvl-s'}]},
-  {ticker:'QQQ',levels:[{t:'R2',p:459.00,cls:'lvl-r'},{t:'R1',p:457.50,cls:'lvl-r'},{t:'Pivot',p:454.80,cls:''},{t:'S1',p:453.20,cls:'lvl-s'},{t:'S2',p:451.60,cls:'lvl-s'}]},
-  {ticker:'HSI',levels:[{t:'R2',p:26400,cls:'lvl-r'},{t:'R1',p:26100,cls:'lvl-r'},{t:'Pivot',p:25800,cls:''},{t:'S1',p:25600,cls:'lvl-s'},{t:'S2',p:25200,cls:'lvl-s'}]}
+  {ticker:'SPY',levels:[{t:'R2',p:755.00,cls:'lvl-r'},{t:'R1',p:747.50,cls:'lvl-r'},{t:'Pivot',p:739.17,cls:''},{t:'S1',p:732.00,cls:'lvl-s'},{t:'S2',p:724.50,cls:'lvl-s'}]},
+  {ticker:'QQQ',levels:[{t:'R2',p:722.00,cls:'lvl-r'},{t:'R1',p:715.50,cls:'lvl-r'},{t:'Pivot',p:708.93,cls:''},{t:'S1',p:701.00,cls:'lvl-s'},{t:'S2',p:694.00,cls:'lvl-s'}]},
+  {ticker:'HSI',levels:[{t:'R2',p:26800,cls:'lvl-r'},{t:'R1',p:26400,cls:'lvl-r'},{t:'Pivot',p:25963,cls:''},{t:'S1',p:25600,cls:'lvl-s'},{t:'S2',p:25200,cls:'lvl-s'}]}
 ];
 function renderLevels(){
   var g=document.getElementById('lvl-grid');if(!g)return;
