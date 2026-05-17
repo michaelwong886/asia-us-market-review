@@ -332,21 +332,20 @@ canvas{max-height:200px}
 
 <script>
 // ===================== DATA =====================
-// FALLBACK: Futu-verified close prices as of May 15, 2026
-// Used ONLY when Yahoo Finance live API fails for a KNOWN ticker.
+// FALLBACK: Verified close prices May 14-15, 2026
+// Used ONLY when ALL live API proxies fail for a KNOWN ticker.
 // Unknown tickers always show "--" (no fake prices).
 var FALLBACK={
   SPY:{c:739.17,d:-8.98,dp:-1.20},
   QQQ:{c:708.93,d:-10.87,dp:-1.51},
   DIA:{c:424.50,d:-4.57,dp:-1.07},
-  // Futu-verified May 15 closes
   AAPL:{c:207.85,d:1.56,dp:0.76},
   MSFT:{c:449.26,d:-3.64,dp:-0.80},
   NVDA:{c:131.38,d:2.58,dp:2.00},
-  TSLA:{c:422.24,d:-21.06,dp:-4.75},   // Futu verified
+  TSLA:{c:422.24,d:-21.06,dp:-4.75},
   AMZN:{c:205.14,d:1.80,dp:0.89},
   META:{c:613.42,d:10.63,dp:1.76},
-  AMD:{c:424.10,d:-25.60,dp:-5.69},    // Futu verified
+  AMD:{c:424.10,d:-25.60,dp:-5.69},
   GOOGL:{c:176.45,d:2.12,dp:1.22},
   VIX:{c:18.43,d:1.17,dp:6.78},
   HSI:{c:25962,d:-426,dp:-1.62},
@@ -355,7 +354,8 @@ var FALLBACK={
   KOSPI:{c:2612,d:-9,dp:-0.34},
   FTSE:{c:8421,d:32,dp:0.38},
   RKLB:{c:117.56,d:4.21,dp:3.71},
-  PLTR:{c:118.32,d:2.14,dp:1.84},
+  PLTR:{c:133.99,d:0.26,dp:0.19},   // May 15 close (Twelve Data verified)
+  PL:{c:43.04,d:2.30,dp:5.65},      // Planet Labs May 14 close (Yahoo Finance verified)
   SOFI:{c:14.28,d:-0.32,dp:-2.19},
   HOOD:{c:42.15,d:1.08,dp:2.63},
   COIN:{c:312.40,d:-8.20,dp:-2.56},
@@ -438,13 +438,19 @@ function seedMACD(sym){
 
 var mdc={};
 
-// ===================== YAHOO FINANCE API =====================
-// Uses allorigins CORS proxy to fetch Yahoo Finance quotes.
-// Yahoo Finance is free, no API key needed, much more reliable than Finnhub.
-var YF_PROXY='https://api.allorigins.win/get?url=';
+// ===================== YAHOO FINANCE — MULTI-PROXY CHAIN =====================
+// Tries 3 different CORS proxies in sequence. First one to succeed wins.
+// This makes live data much more reliable vs relying on a single proxy.
 var YF_BASE='https://query1.finance.yahoo.com/v8/finance/chart/';
 
-// Map internal ticker names to Yahoo Finance symbols
+// CORS proxy list — tried in order
+var YF_PROXIES=[
+  function(url){return 'https://corsproxy.io/?'+encodeURIComponent(url);},
+  function(url){return 'https://api.allorigins.win/get?url='+encodeURIComponent(url);},
+  function(url){return 'https://thingproxy.freeboard.io/fetch/'+url;}
+];
+
+// Yahoo Finance symbol overrides for indices
 var YF_SYMBOL_MAP={
   HSI:'^HSI', HSTECH:'^HSTECH', NI225:'^N225', KOSPI:'^KS11',
   FTSE:'^FTSE', VIX:'^VIX', CSI300:'000300.SS',
@@ -455,25 +461,35 @@ function yfSymbol(sym){
   return YF_SYMBOL_MAP[sym]||sym;
 }
 
-function yfQuote(sym){
-  var yfSym=yfSymbol(sym);
+// Try fetching via one proxy; parse wrapper format for allorigins vs direct JSON
+async function yfTryProxy(proxyFn, yfSym){
   var url=YF_BASE+encodeURIComponent(yfSym)+'?interval=1d&range=2d';
-  var proxyUrl=YF_PROXY+encodeURIComponent(url);
-  return fetch(proxyUrl,{signal:AbortSignal.timeout(8000)})
-    .then(function(r){return r.json();})
-    .then(function(wrapper){
-      var data=JSON.parse(wrapper.contents);
-      var result=data&&data.chart&&data.chart.result&&data.chart.result[0];
-      if(!result)return null;
-      var meta=result.meta;
-      var c=meta.regularMarketPrice||0;
-      var prev=meta.chartPreviousClose||meta.previousClose||0;
-      var d=prev>0?c-prev:0;
-      var dp=prev>0?(d/prev)*100:0;
-      if(c<=0)return null;
-      return {c:c,d:d,dp:dp};
-    })
-    .catch(function(){return null;});
+  var proxyUrl=proxyFn(url);
+  var resp=await fetch(proxyUrl,{signal:AbortSignal.timeout(7000)});
+  var raw=await resp.json();
+  // allorigins wraps in {contents:...}, others return JSON directly
+  var data=(raw && raw.contents)?JSON.parse(raw.contents):raw;
+  var result=data&&data.chart&&data.chart.result&&data.chart.result[0];
+  if(!result)return null;
+  var meta=result.meta;
+  var c=meta.regularMarketPrice||0;
+  var prev=meta.chartPreviousClose||meta.previousClose||0;
+  var d=prev>0?c-prev:0;
+  var dp=prev>0?(d/prev)*100:0;
+  if(c<=0)return null;
+  return {c:c,d:d,dp:dp};
+}
+
+// Main quote function: try each proxy in sequence
+async function yfQuote(sym){
+  var yfSym=yfSymbol(sym);
+  for(var i=0;i<YF_PROXIES.length;i++){
+    try{
+      var result=await yfTryProxy(YF_PROXIES[i],yfSym);
+      if(result&&result.c>0)return result;
+    }catch(e){}
+  }
+  return null;
 }
 
 async function loadLive(){
@@ -485,7 +501,6 @@ async function loadLive(){
     if(r.status==='fulfilled'&&r.value&&r.value.c>0){
       mdc[sym]=r.value;anyLive=true;
     } else {
-      // Only fall back to FALLBACK for known curated tickers
       mdc[sym]=FALLBACK[sym]||{c:0,d:0,dp:0};
     }
   });
@@ -638,7 +653,7 @@ function renderSectors(){
     html+='<div style="background:'+bg+';border:1px solid '+bc+';border-radius:var(--radius-md);padding:var(--space-2);text-align:center">';
     html+='<div style="font-size:0.65rem;font-weight:600;color:var(--text-muted)">'+s.sym+'</div>';
     html+='<div style="font-size:0.62rem;color:var(--text);margin:2px 0">'+s.name+'</div>';
-    html+='<div style="font-family:var(--font-mono);font-size:var(--text-xs);font-weight:700;color:'+(up?'var(--up)':'var(--down)')+'\">'+(up?'+':'')+s.chg.toFixed(2)+'%</div></div>';
+    html+='<div style="font-family:var(--font-mono);font-size:var(--text-xs);font-weight:700;color:'+(up?'var(--up)':'var(--down)')+'">'+(up?'+':'')+s.chg.toFixed(2)+'%</div></div>';
   }
   g.innerHTML=html;
 }
@@ -659,12 +674,12 @@ function buildTicker(){
   var t=document.getElementById('ticker-track');if(t)t.innerHTML=items+items;
 }
 
-var wl=['AAPL','NVDA','MSFT','TSLA','AMZN','META','AMD'];
+var wl=['AAPL','NVDA','MSFT','TSLA','AMZN','META','AMD','PLTR','PL'];
 
-// ===================== WATCHLIST WITH YAHOO FINANCE =====================
-// All tickers use Yahoo Finance live first.
-// If live fails AND ticker is in FALLBACK → show FALLBACK with [FB] indicator.
-// If live fails AND ticker is NOT in FALLBACK → show "--" (no fake prices).
+// ===================== WATCHLIST WITH YAHOO FINANCE MULTI-PROXY =====================
+// All tickers use the same multi-proxy yfQuote() above.
+// If ALL proxies fail AND ticker is in FALLBACK → show FALLBACK with [FB] badge.
+// If ALL proxies fail AND ticker is NOT in FALLBACK → show "--" (no fake prices).
 async function loadWatchlist(){
   var tbody=document.getElementById('watch-body');if(!tbody)return;
   var results=await Promise.allSettled(wl.map(function(s){return yfQuote(s);}));
@@ -683,7 +698,7 @@ async function loadWatchlist(){
     var pctStr=hasData?((d.dp>=0?'+':'')+Number(d.dp).toFixed(2)+'%'):'--';
     var chgClass=hasData?(d.dp>=0?'td-up':'td-down'):'td-neutral';
 
-    // Show [FB] badge if using fallback (not live)
+    // Show [FB] badge only when using fallback (not live)
     var sourceTag=live?'':fb?'<span class="badge badge-warn" style="font-size:0.5rem;margin-left:3px">FB</span>':'';
 
     var rsi=hasData?seedRSI(sym):null;
