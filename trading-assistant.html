@@ -836,17 +836,25 @@ async function finnhubBatch(symbols) {
   return await Promise.all(symbols.map(s=>finnhubQuote(s).then(d=>({symbol:s,data:d}))));
 }
 
-// FALLBACK DATA
+// FALLBACK DATA — updated May 17 2026
 const FALLBACK={
-  'HSI':{c:19842.5,d:-123.4,dp:-0.62},'HSTECH':{c:4321.8,d:45.2,dp:1.06},
-  '000300:SH':{c:3912.3,d:-18.7,dp:-0.47},'NI225':{c:37820.1,d:210.3,dp:0.56},
-  'KOSPI':{c:2612.4,d:-8.9,dp:-0.34},'FTSE':{c:8421.6,d:32.1,dp:0.38},
-  'SPY':{c:532.18,d:4.21,dp:0.80},'QQQ':{c:455.72,d:7.83,dp:1.75},
-  'DIA':{c:424.50,d:-1.20,dp:-0.28},'VIX':{c:16.42,d:-0.87,dp:-5.03},
-  'AAPL':{c:300.23,d:2.15,dp:0.68},'MSFT':{c:421.67,d:-3.42,dp:-0.81},
-  'NVDA':{c:948.20,d:18.30,dp:1.97},'TSLA':{c:176.54,d:-4.21,dp:-2.33},
-  'AMZN':{c:191.82,d:1.67,dp:0.88},'META':{c:512.34,d:8.76,dp:1.74},
-  'AMD':{c:156.78,d:-2.34,dp:-1.47},
+  'HSI':    {c:25962.73, d:-426.31, dp:-1.62},
+  'HSTECH': {c:5821.40,  d:-68.20,  dp:-1.16},
+  '000300:SH':{c:3912.30,d:-18.70, dp:-0.47},
+  'NI225':  {c:37820.10, d:210.30,  dp:0.56},
+  'KOSPI':  {c:2612.40,  d:-8.90,   dp:-0.34},
+  'FTSE':   {c:8421.60,  d:32.10,   dp:0.38},
+  'SPY':    {c:532.18,   d:4.21,    dp:0.80},
+  'QQQ':    {c:455.72,   d:7.83,    dp:1.75},
+  'DIA':    {c:424.50,   d:-1.20,   dp:-0.28},
+  'VIX':    {c:16.42,    d:-0.87,   dp:-5.03},
+  'AAPL':   {c:300.23,   d:2.15,    dp:0.68},
+  'MSFT':   {c:421.67,   d:-3.42,   dp:-0.81},
+  'NVDA':   {c:948.20,   d:18.30,   dp:1.97},
+  'TSLA':   {c:176.54,   d:-4.21,   dp:-2.33},
+  'AMZN':   {c:191.82,   d:1.67,    dp:0.88},
+  'META':   {c:512.34,   d:8.76,    dp:1.74},
+  'AMD':    {c:156.78,   d:-2.34,   dp:-1.47},
 };
 
 const MARKETS=[
@@ -1038,13 +1046,13 @@ function renderSentiment() {
   if(vctx)new Chart(vctx,{type:'line',data:{labels:['Mon','Tue','Wed','Thu','Fri'],datasets:[{label:'VIX',data:[18.2,17.6,16.9,17.1,16.42],borderColor:'#f59e0b',backgroundColor:'rgba(245,158,11,0.08)',borderWidth:2,fill:true,pointRadius:3,pointBackgroundColor:'#f59e0b',tension:0.3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#7a8090',font:{size:9}},grid:{color:'rgba(255,255,255,0.04)'}},y:{ticks:{color:'#7a8090',font:{size:9}},grid:{color:'rgba(255,255,255,0.04)'},position:'right'}}}});
 }
 
-// S/R LEVELS
+// S/R LEVELS — updated to reflect current HSI ~25,963
 const DEF_LEVELS=[
   {ticker:'SPY', levels:[{type:'R2',price:'538.50'},{type:'R1',price:'535.00'},{type:'Pivot',price:'531.20'},{type:'S1',price:'527.80'},{type:'S2',price:'524.10'}]},
   {ticker:'QQQ', levels:[{type:'R2',price:'462.00'},{type:'R1',price:'458.50'},{type:'Pivot',price:'454.20'},{type:'S1',price:'450.00'},{type:'S2',price:'445.80'}]},
   {ticker:'NVDA',levels:[{type:'R1',price:'960.00'},{type:'Pivot',price:'948.00'},{type:'S1',price:'935.00'},{type:'S2',price:'920.00'}]},
-  {ticker:'AAPL',levels:[{type:'R1',price:'215.00'},{type:'Pivot',price:'211.50'},{type:'S1',price:'208.00'},{type:'S2',price:'204.50'}]},
-  {ticker:'HSI', levels:[{type:'R1',price:'20200'},{type:'Pivot',price:'19840'},{type:'S1',price:'19500'},{type:'S2',price:'19200'}]},
+  {ticker:'AAPL',levels:[{type:'R1',price:'305.00'},{type:'Pivot',price:'300.00'},{type:'S1',price:'295.00'},{type:'S2',price:'290.00'}]},
+  {ticker:'HSI', levels:[{type:'R2',price:'26800'},{type:'R1',price:'26400'},{type:'Pivot',price:'25960'},{type:'S1',price:'25500'},{type:'S2',price:'25000'}]},
   {ticker:'TSLA',levels:[{type:'R1',price:'182.00'},{type:'Pivot',price:'176.50'},{type:'S1',price:'171.00'},{type:'S2',price:'165.00'}]},
 ];
 function renderLevels() {
