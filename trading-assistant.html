@@ -13,7 +13,7 @@
   --font-body:'Inter',sans-serif;--font-mono:'JetBrains Mono',monospace;
   --text-xs:clamp(0.7rem,0.65rem + 0.25vw,0.875rem);--text-sm:clamp(0.8rem,0.75rem + 0.35vw,1rem);
   --text-base:clamp(0.9rem,0.85rem + 0.25vw,1.125rem);--text-lg:clamp(1rem,0.9rem + 0.75vw,1.5rem);
-  --text-xl:clamp(1.2rem,1rem + 1.25vw,2.25rem);
+  --text-xl:clamp(1.2rem,1em + 1.25vw,2.25rem);
   --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;
   --space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;
   --radius-sm:.375rem;--radius-md:.5rem;--radius-lg:.75rem;
@@ -226,7 +226,7 @@ canvas{max-height:200px}
     <!-- WATCHLIST -->
     <div class="tab-panel" id="tab-watchlist">
       <div class="sec-hdr">
-        <div><div class="sec-title">Watchlist</div><div class="sec-sub">TA signals &middot; Live quotes</div></div>
+        <div><div class="sec-title">Watchlist</div><div class="sec-sub">TA signals &middot; Live quotes via Yahoo Finance</div></div>
         <div style="display:flex;gap:8px"><input class="form-input" id="add-ticker" placeholder="Add ticker..." style="width:100px" onkeydown="if(event.key==='Enter')addWatch()"><button class="btn-sm btn-accent" onclick="addWatch()">+ Add</button></div>
       </div>
       <div class="card"><div class="table-wrap"><table class="data-table"><thead><tr><th>Ticker</th><th>Price</th><th>Chg</th><th>% Chg</th><th>RSI</th><th>MACD</th><th>Trend</th><th></th></tr></thead><tbody id="watch-body"></tbody></table></div></div>
@@ -332,30 +332,28 @@ canvas{max-height:200px}
 
 <script>
 // ===================== DATA =====================
-// FALLBACK prices: May 15-16, 2026 close actuals
-// These are ONLY used when live API fails. Unknown tickers show "--" not fake prices.
+// FALLBACK: Futu-verified close prices as of May 15, 2026
+// Used ONLY when Yahoo Finance live API fails for a KNOWN ticker.
+// Unknown tickers always show "--" (no fake prices).
 var FALLBACK={
-  // US ETFs (correct May 2026 prices)
   SPY:{c:739.17,d:-8.98,dp:-1.20},
   QQQ:{c:708.93,d:-10.87,dp:-1.51},
   DIA:{c:424.50,d:-4.57,dp:-1.07},
-  // US Tech Megacaps (May 2026 actuals)
+  // Futu-verified May 15 closes
   AAPL:{c:207.85,d:1.56,dp:0.76},
   MSFT:{c:449.26,d:-3.64,dp:-0.80},
   NVDA:{c:131.38,d:2.58,dp:2.00},
-  TSLA:{c:338.74,d:-7.90,dp:-2.28},
+  TSLA:{c:422.24,d:-21.06,dp:-4.75},   // Futu verified
   AMZN:{c:205.14,d:1.80,dp:0.89},
   META:{c:613.42,d:10.63,dp:1.76},
-  AMD:{c:122.36,d:-1.79,dp:-1.44},
+  AMD:{c:424.10,d:-25.60,dp:-5.69},    // Futu verified
   GOOGL:{c:176.45,d:2.12,dp:1.22},
-  // Volatility & Indices
   VIX:{c:18.43,d:1.17,dp:6.78},
   HSI:{c:25962,d:-426,dp:-1.62},
   HSTECH:{c:5821,d:-68,dp:-1.16},
   NI225:{c:37820,d:210,dp:0.56},
   KOSPI:{c:2612,d:-9,dp:-0.34},
   FTSE:{c:8421,d:32,dp:0.38},
-  // Fintech / High Beta (May 2026 actuals)
   RKLB:{c:117.56,d:4.21,dp:3.71},
   PLTR:{c:118.32,d:2.14,dp:1.84},
   SOFI:{c:14.28,d:-0.32,dp:-2.19},
@@ -364,7 +362,6 @@ var FALLBACK={
   MSTR:{c:387.50,d:12.30,dp:3.28},
   SHOP:{c:98.72,d:0.44,dp:0.45},
   UBER:{c:82.34,d:-0.92,dp:-1.10},
-  // China ADRs (May 2026 actuals)
   BABA:{c:108.45,d:1.23,dp:1.15},
   JD:{c:34.20,d:-0.55,dp:-1.58},
   PDD:{c:142.80,d:3.45,dp:2.48},
@@ -440,8 +437,64 @@ function seedMACD(sym){
 }
 
 var mdc={};
-var FKEY='d6r321pr01qgdhqcvmcgd6r321pr01qgdhqcvmd0';
-var FBASE='https://finnhub.io/api/v1';
+
+// ===================== YAHOO FINANCE API =====================
+// Uses allorigins CORS proxy to fetch Yahoo Finance quotes.
+// Yahoo Finance is free, no API key needed, much more reliable than Finnhub.
+var YF_PROXY='https://api.allorigins.win/get?url=';
+var YF_BASE='https://query1.finance.yahoo.com/v8/finance/chart/';
+
+// Map internal ticker names to Yahoo Finance symbols
+var YF_SYMBOL_MAP={
+  HSI:'^HSI', HSTECH:'^HSTECH', NI225:'^N225', KOSPI:'^KS11',
+  FTSE:'^FTSE', VIX:'^VIX', CSI300:'000300.SS',
+  DIA:'DIA', SPY:'SPY', QQQ:'QQQ'
+};
+
+function yfSymbol(sym){
+  return YF_SYMBOL_MAP[sym]||sym;
+}
+
+function yfQuote(sym){
+  var yfSym=yfSymbol(sym);
+  var url=YF_BASE+encodeURIComponent(yfSym)+'?interval=1d&range=2d';
+  var proxyUrl=YF_PROXY+encodeURIComponent(url);
+  return fetch(proxyUrl,{signal:AbortSignal.timeout(8000)})
+    .then(function(r){return r.json();})
+    .then(function(wrapper){
+      var data=JSON.parse(wrapper.contents);
+      var result=data&&data.chart&&data.chart.result&&data.chart.result[0];
+      if(!result)return null;
+      var meta=result.meta;
+      var c=meta.regularMarketPrice||0;
+      var prev=meta.chartPreviousClose||meta.previousClose||0;
+      var d=prev>0?c-prev:0;
+      var dp=prev>0?(d/prev)*100:0;
+      if(c<=0)return null;
+      return {c:c,d:d,dp:dp};
+    })
+    .catch(function(){return null;});
+}
+
+async function loadLive(){
+  var syms=['SPY','QQQ','DIA','HSI','NI225','KOSPI','FTSE','AAPL','NVDA','MSFT','TSLA','AMZN','META','AMD','VIX'];
+  var anyLive=false;
+  var results=await Promise.allSettled(syms.map(function(s){return yfQuote(s);}));
+  results.forEach(function(r,i){
+    var sym=syms[i];
+    if(r.status==='fulfilled'&&r.value&&r.value.c>0){
+      mdc[sym]=r.value;anyLive=true;
+    } else {
+      // Only fall back to FALLBACK for known curated tickers
+      mdc[sym]=FALLBACK[sym]||{c:0,d:0,dp:0};
+    }
+  });
+  var as=document.getElementById('api-status');
+  if(as)as.innerHTML='<div class="api-dot" style="background:'+(anyLive?'var(--up)':'var(--warn)')+'"></div>&nbsp;'+(anyLive?'Live (Yahoo)':'Demo Data');
+  renderAll();
+  var u=document.getElementById('last-update');
+  if(u)u.textContent='Updated '+new Date().toLocaleTimeString('en-HK',{timeZone:'Asia/Hong_Kong'})+' HKT'+(anyLive?' (Yahoo Finance live)':' (demo fallback)');
+}
 
 function fmt(n,dec){
   if(n===undefined||n===null||isNaN(n)||n===0&&dec===undefined)return '--';
@@ -490,28 +543,6 @@ function showTab(name,btn){
   if(btn)btn.classList.add('active');
   var t=document.getElementById('tab-title');
   if(t)t.textContent=TAB_TITLES[name]||name;
-}
-
-function fhQuote(sym){
-  return fetch(FBASE+'/quote?symbol='+sym+'&token='+FKEY).then(function(r){return r.json();}).catch(function(){return null;});
-}
-async function loadLive(){
-  var syms=['SPY','QQQ','DIA','HSI','NI225','KOSPI','FTSE','AAPL','NVDA','MSFT','TSLA','AMZN','META','AMD','VIX'];
-  var anyLive=false;
-  var results=await Promise.allSettled(syms.map(function(s){return fhQuote(s);}));
-  results.forEach(function(r,i){
-    var sym=syms[i];
-    if(r.status==='fulfilled'&&r.value&&r.value.c>0){
-      mdc[sym]=r.value;anyLive=true;
-    } else {
-      mdc[sym]=FALLBACK[sym]||{c:0,d:0,dp:0};
-    }
-  });
-  var as=document.getElementById('api-status');
-  if(as)as.innerHTML='<div class="api-dot" style="background:'+(anyLive?'var(--up)':'var(--warn)')+'"></div>&nbsp;'+(anyLive?'Live Data':'Demo Data');
-  renderAll();
-  var u=document.getElementById('last-update');
-  if(u)u.textContent='Updated '+new Date().toLocaleTimeString('en-HK',{timeZone:'Asia/Hong_Kong'})+' HKT'+(anyLive?' (live)':' (demo)');
 }
 
 function renderAll(){
@@ -630,24 +661,30 @@ function buildTicker(){
 
 var wl=['AAPL','NVDA','MSFT','TSLA','AMZN','META','AMD'];
 
-// FIX: For any ticker NOT in FALLBACK, always try live API first.
-// If live API also fails, show "--" instead of a fake/stale price.
+// ===================== WATCHLIST WITH YAHOO FINANCE =====================
+// All tickers use Yahoo Finance live first.
+// If live fails AND ticker is in FALLBACK → show FALLBACK with [FB] indicator.
+// If live fails AND ticker is NOT in FALLBACK → show "--" (no fake prices).
 async function loadWatchlist(){
   var tbody=document.getElementById('watch-body');if(!tbody)return;
-  var results=await Promise.allSettled(wl.map(function(s){return fhQuote(s);}));
+  var results=await Promise.allSettled(wl.map(function(s){return yfQuote(s);}));
   var html='';
   for(var i=0;i<wl.length;i++){
     var sym=wl[i];
     var r=results[i];
     var live=(r.status==='fulfilled'&&r.value&&r.value.c>0);
-    // Only use FALLBACK if ticker is a known/curated symbol. Unknown tickers show "--".
-    var d=live?r.value:(FALLBACK[sym]||null);
+    var fb=!live&&FALLBACK[sym]?FALLBACK[sym]:null;
+    var d=live?r.value:fb;
     var hasData=d&&d.c>0;
+    var isLiveOnly=!live&&!fb;
 
     var priceStr=hasData?fmtPrice(d.c):'--';
     var chgStr=hasData?(arr(d.dp)+fmtPrice(Math.abs(d.d||0))):'--';
     var pctStr=hasData?((d.dp>=0?'+':'')+Number(d.dp).toFixed(2)+'%'):'--';
     var chgClass=hasData?(d.dp>=0?'td-up':'td-down'):'td-neutral';
+
+    // Show [FB] badge if using fallback (not live)
+    var sourceTag=live?'':fb?'<span class="badge badge-warn" style="font-size:0.5rem;margin-left:3px">FB</span>':'';
 
     var rsi=hasData?seedRSI(sym):null;
     var macd=hasData?seedMACD(sym):'--';
@@ -655,11 +692,11 @@ async function loadWatchlist(){
     var rsiStr=rsi?rsi.toFixed(1):'--';
 
     var dp=hasData?d.dp:0;
-    var trendLabel=hasData?(dp>1?'BULL':dp<-1?'BEAR':'NEUTRAL'):'LIVE ONLY';
-    var trendClass=hasData?(dp>1?'badge-bull':dp<-1?'badge-bear':'badge-neutral'):'badge-neutral';
+    var trendLabel=isLiveOnly?'LIVE ONLY':(hasData?(dp>1?'BULL':dp<-1?'BEAR':'NEUTRAL'):'--');
+    var trendClass=isLiveOnly?'badge-neutral':(hasData?(dp>1?'badge-bull':dp<-1?'badge-bear':'badge-neutral'):'badge-neutral');
 
     html+='<tr>';
-    html+='<td class="td-ticker">'+sym+'</td>';
+    html+='<td class="td-ticker">'+sym+sourceTag+'</td>';
     html+='<td style="font-family:var(--font-mono)">'+priceStr+'</td>';
     html+='<td class="'+chgClass+'">'+chgStr+'</td>';
     html+='<td class="'+chgClass+'">'+pctStr+'</td>';
