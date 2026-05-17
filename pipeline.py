@@ -18,11 +18,19 @@ Weekend rule:
   If today is Saturday or Sunday (HKT), fetch_movers uses the last row
   with non-zero volume, which will be Friday's close. The output JSON
   includes is_friday_fallback=true so the dashboard can show a badge.
+
+News:
+  Fetches up to 10 headlines each from Yahoo Finance RSS feeds for:
+    - Global markets news (finance.yahoo.com/rss/2.0/headline?s=^GSPC)
+    - Asia markets tag feed
+    - HK/CN-specific feeds via HKEX + ^HSI query
+  Stored in data.json under data.news = [{title, url, source, published_hkt}, ...]
 """
 
 import json
 import argparse
 import sys
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -92,41 +100,41 @@ FX_PAIRS = {
     "DXY":     "DX-Y.NYB",
 }
 
-# HK large-cap universe — >=200B HKD mkt cap, liquid names
-HK_UNIVERSE = [
-    "0700.HK",  # Tencent
-    "9988.HK",  # Alibaba
-    "0941.HK",  # China Mobile
-    "1299.HK",  # AIA
-    "0005.HK",  # HSBC
-    "0939.HK",  # CCB
-    "1398.HK",  # ICBC
-    "3690.HK",  # Meituan
-    "0388.HK",  # HKEx
-    "2318.HK",  # Ping An
-    "1810.HK",  # Xiaomi
-    "9618.HK",  # JD.com
-    "0883.HK",  # CNOOC
-    "2628.HK",  # China Life
-    "1211.HK",  # BYD
-    "0857.HK",  # PetroChina
-    "9999.HK",  # NetEase
-    "0027.HK",  # Galaxy Entertainment
-    "1177.HK",  # Sino Biopharm
-    "0011.HK",  # Hang Seng Bank
-    "2269.HK",  # Wuxi Biologics
-    "0016.HK",  # SHK Properties
-    "0688.HK",  # China Overseas Land
-    "0003.HK",  # HK & China Gas
-    "1038.HK",  # CK Infrastructure
-    "0002.HK",  # CLP Holdings
-    "6098.HK",  # Country Garden Services
-    "0762.HK",  # China Unicom
-    "2020.HK",  # ANTA Sports
-    "9961.HK",  # Trip.com
+# News RSS sources — Yahoo Finance headline feeds (public, no auth)
+NEWS_SOURCES = [
+    {
+        "label": "US Markets",
+        "url": "https://finance.yahoo.com/rss/2.0/headline?s=%5EGSPC&region=US&lang=en-US",
+        "max": 8,
+    },
+    {
+        "label": "Asia Markets",
+        "url": "https://finance.yahoo.com/rss/2.0/headline?s=%5EHSI&region=HK&lang=en-US",
+        "max": 8,
+    },
+    {
+        "label": "China Tech",
+        "url": "https://finance.yahoo.com/rss/2.0/headline?s=9988.HK&region=HK&lang=en-US",
+        "max": 6,
+    },
+    {
+        "label": "Semiconductors",
+        "url": "https://finance.yahoo.com/rss/2.0/headline?s=NVDA&region=US&lang=en-US",
+        "max": 6,
+    },
 ]
 
-# US large-cap universe — >=1B USD mkt cap, S&P500 + NASDAQ100 majors
+# HK large-cap universe
+HK_UNIVERSE = [
+    "0700.HK", "9988.HK", "0941.HK", "1299.HK", "0005.HK",
+    "0939.HK", "1398.HK", "3690.HK", "0388.HK", "2318.HK",
+    "1810.HK", "9618.HK", "0883.HK", "2628.HK", "1211.HK",
+    "0857.HK", "9999.HK", "0027.HK", "1177.HK", "0011.HK",
+    "2269.HK", "0016.HK", "0688.HK", "0003.HK", "1038.HK",
+    "0002.HK", "6098.HK", "0762.HK", "2020.HK", "9961.HK",
+]
+
+# US large-cap universe
 US_UNIVERSE = [
     "AAPL", "MSFT", "NVDA", "AMZN", "GOOGL", "META", "TSLA", "BRK-B",
     "UNH", "LLY", "JPM", "V", "XOM", "MA", "AVGO", "HD", "CVX", "MRK",
@@ -139,15 +147,9 @@ US_UNIVERSE = [
     "PANW", "CRWD", "ZS", "FTNT", "TSM", "ASML", "SHOP",
 ]
 
-# ─────────────────────────────────────────────
-# Ticker meta cache  (longName + industry)
-# We fetch .info once per mover ticker after screening to keep
-# batch download fast. Results are cached in-process.
-# ─────────────────────────────────────────────
 _META_CACHE: dict = {}
 
 def fetch_ticker_meta(tkr: str) -> dict:
-    """Return {longName, industry} for a ticker using yf.Ticker.info."""
     if tkr in _META_CACHE:
         return _META_CACHE[tkr]
     try:
@@ -181,14 +183,12 @@ def pct_change(current, previous):
 
 
 def is_weekend_hkt() -> bool:
-    """Return True if current time in Hong Kong is Saturday or Sunday."""
     from zoneinfo import ZoneInfo
     hkt_now = datetime.now(ZoneInfo("Asia/Hong_Kong"))
-    return hkt_now.weekday() >= 5  # 5=Saturday, 6=Sunday
+    return hkt_now.weekday() >= 5
 
 
 def fetch_quote(ticker_sym: str) -> dict:
-    """Fetch latest quote for a single ticker."""
     try:
         t = yf.Ticker(ticker_sym)
         info = t.fast_info
@@ -216,7 +216,6 @@ def fetch_quote(ticker_sym: str) -> dict:
 
 
 def fetch_history_week(ticker_sym: str) -> list:
-    """Return list of 5 daily closes for sparkline."""
     try:
         hist = yf.Ticker(ticker_sym).history(period="5d", interval="1d", auto_adjust=True)
         return [safe_round(v) for v in hist["Close"].tolist()]
@@ -241,31 +240,12 @@ def format_volume(vol: int, market: str) -> str:
 
 
 def fetch_movers(tickers: list, min_volume: int, currency: str, top_n: int = 5) -> dict:
-    """
-    Fetch batch quotes for a universe of tickers and return
-    top N gainers and top N losers filtered by min_volume.
-
-    Each mover row now includes longName + industry fetched via
-    yf.Ticker(tkr).info after screening so batch download stays fast.
-
-    Weekend rule: Yahoo Finance sometimes returns a zero-volume row for
-    the current weekend day. We always pick the LAST row with non-zero
-    volume (= Friday close on Sat/Sun, today's close on weekdays).
-
-    Returns:
-        {
-          "gainers": [...],
-          "losers":  [...],
-          "is_friday_fallback": bool,
-          "screener_note": "..."
-        }
-    """
     weekend = is_weekend_hkt()
     print(f"  Downloading {len(tickers)} tickers (batch)... [weekend={weekend}]", flush=True)
     try:
         raw = yf.download(
             tickers,
-            period="7d",   # extend to 7d to always capture Friday on weekends
+            period="7d",
             interval="1d",
             auto_adjust=True,
             group_by="ticker",
@@ -293,7 +273,6 @@ def fetch_movers(tickers: list, min_volume: int, currency: str, top_n: int = 5) 
             if len(close_series) < 2:
                 continue
 
-            # ── WEEKEND FIX ──────────────────────────────────────────
             nonzero_vol_idx = volume_series[volume_series > 0].index
             if nonzero_vol_idx.empty:
                 continue
@@ -308,14 +287,12 @@ def fetch_movers(tickers: list, min_volume: int, currency: str, top_n: int = 5) 
             prev_val  = float(close_series.iloc[pos - 1])
             vol_val   = float(volume_series.loc[last_idx])
             chg       = pct_change(close_val, prev_val)
-            # ─────────────────────────────────────────────────────────
 
             if chg is None:
                 continue
             if vol_val < min_volume:
                 continue
 
-            # Format volume
             if currency == "HKD":
                 vol_fmt = f"HK${vol_val/1e6:.0f}M" if vol_val >= 1e6 else f"{int(vol_val):,}"
             else:
@@ -335,14 +312,11 @@ def fetch_movers(tickers: list, min_volume: int, currency: str, top_n: int = 5) 
     losers  = rows[:top_n]
     gainers = list(reversed(rows[-top_n:]))
 
-    # ── Enrich top movers with longName + industry ────────────────────
-    # Only fetch meta for the ~10 rows we actually display (not full universe)
     print(f"  Enriching {len(gainers)+len(losers)} movers with name/industry...", flush=True)
     for row in gainers + losers:
         meta = fetch_ticker_meta(row["ticker"])
         row["longName"] = meta["longName"]
         row["industry"] = meta["industry"]
-    # ─────────────────────────────────────────────────────────────────
 
     return {
         "gainers":             gainers,
@@ -350,6 +324,106 @@ def fetch_movers(tickers: list, min_volume: int, currency: str, top_n: int = 5) 
         "is_friday_fallback":  weekend,
         "screener_note":       f"Last trading day data{'  (Fri fallback)' if weekend else ''}",
     }
+
+
+# ─────────────────────────────────────────────
+# News fetcher
+# ─────────────────────────────────────────────
+
+def parse_rss_date(date_str: str) -> str:
+    """Parse RFC 2822 date from RSS and convert to HKT string."""
+    try:
+        from email.utils import parsedate_to_datetime
+        from zoneinfo import ZoneInfo
+        dt = parsedate_to_datetime(date_str)
+        hkt = dt.astimezone(ZoneInfo("Asia/Hong_Kong"))
+        return hkt.strftime("%Y-%m-%d %H:%M HKT")
+    except Exception:
+        return date_str or ""
+
+
+def fetch_news() -> list:
+    """
+    Fetch market news headlines from Yahoo Finance RSS feeds.
+    Returns a deduplicated list of dicts:
+      {title, url, source, published_hkt, label}
+    sorted newest-first, max 30 total.
+    """
+    import urllib.request
+    import xml.etree.ElementTree as ET
+
+    seen_urls = set()
+    all_items = []
+
+    for src in NEWS_SOURCES:
+        try:
+            print(f"  Fetching news: {src['label']}...", flush=True)
+            req = urllib.request.Request(
+                src["url"],
+                headers={"User-Agent": "Mozilla/5.0 (compatible; MarketBot/1.0)"},
+            )
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                xml_bytes = resp.read()
+
+            root = ET.fromstring(xml_bytes)
+            channel = root.find("channel")
+            if channel is None:
+                continue
+
+            count = 0
+            for item in channel.findall("item"):
+                if count >= src["max"]:
+                    break
+
+                title = (item.findtext("title") or "").strip()
+                link  = (item.findtext("link")  or "").strip()
+                pub   = (item.findtext("pubDate") or "").strip()
+
+                # Try <source> tag first, fallback to channel title
+                src_el = item.find("source")
+                source_name = ""
+                if src_el is not None and src_el.text:
+                    source_name = src_el.text.strip()
+                if not source_name:
+                    ch_title = channel.findtext("title") or ""
+                    # Strip "Yahoo Finance" prefix if present
+                    source_name = re.sub(r"^Yahoo Finance\s*[-–:]?\s*", "", ch_title).strip() or "Yahoo Finance"
+
+                if not title or not link:
+                    continue
+                if link in seen_urls:
+                    continue
+
+                seen_urls.add(link)
+                all_items.append({
+                    "title":         title,
+                    "url":           link,
+                    "source":        source_name,
+                    "published_hkt": parse_rss_date(pub),
+                    "label":         src["label"],
+                    "_pub_raw":      pub,
+                })
+                count += 1
+
+        except Exception as e:
+            print(f"  WARNING: news fetch failed for {src['label']}: {e}", flush=True)
+            continue
+
+    # Sort newest-first by parsed date, fallback to insertion order
+    def sort_key(item):
+        try:
+            from email.utils import parsedate_to_datetime
+            return parsedate_to_datetime(item["_pub_raw"]).timestamp()
+        except Exception:
+            return 0
+
+    all_items.sort(key=sort_key, reverse=True)
+
+    # Remove internal sort key before saving
+    for item in all_items:
+        item.pop("_pub_raw", None)
+
+    return all_items[:30]
 
 
 # ─────────────────────────────────────────────
@@ -384,10 +458,6 @@ def fetch_index_entry(market_key: str, cfg: dict) -> dict:
     return entry
 
 
-# ─────────────────────────────────────────────
-# Sector fetching
-# ─────────────────────────────────────────────
-
 def fetch_sector_entry(name: str, cfg: dict) -> dict:
     anchor_tkr = cfg["tickers"][0]
     q = fetch_quote(anchor_tkr)
@@ -398,10 +468,6 @@ def fetch_sector_entry(name: str, cfg: dict) -> dict:
         "pct_change": q.get("pct_change"),
     }
 
-
-# ─────────────────────────────────────────────
-# FX fetching
-# ─────────────────────────────────────────────
 
 def fetch_fx_entry(pair: str, yf_sym: str) -> dict:
     q = fetch_quote(yf_sym)
@@ -431,23 +497,24 @@ def build_payload(verbose: bool = False) -> dict:
         "sectors":  {},
         "fx":       {},
         "movers":   {},
+        "news":     [],
     }
 
-    print("[1/4] Fetching indices...", flush=True)
+    print("[1/5] Fetching indices...", flush=True)
     for mkt, cfg in INDICES.items():
         if verbose:
             print(f"  {mkt}...", flush=True)
         payload["indices"][mkt] = fetch_index_entry(mkt, cfg)
 
-    print("[2/4] Fetching sectors...", flush=True)
+    print("[2/5] Fetching sectors...", flush=True)
     for name, cfg in SECTORS.items():
         payload["sectors"][name] = fetch_sector_entry(name, cfg)
 
-    print("[3/4] Fetching FX...", flush=True)
+    print("[3/5] Fetching FX...", flush=True)
     for pair, sym in FX_PAIRS.items():
         payload["fx"][pair] = fetch_fx_entry(pair, sym)
 
-    print("[4/4] Fetching movers...", flush=True)
+    print("[4/5] Fetching movers...", flush=True)
     print("  HK universe...", flush=True)
     payload["movers"]["HK"] = fetch_movers(
         HK_UNIVERSE, min_volume=500_000, currency="HKD"
@@ -456,6 +523,10 @@ def build_payload(verbose: bool = False) -> dict:
     payload["movers"]["US"] = fetch_movers(
         US_UNIVERSE, min_volume=500_000, currency="USD"
     )
+
+    print("[5/5] Fetching news...", flush=True)
+    payload["news"] = fetch_news()
+    print(f"  {len(payload['news'])} headlines collected.", flush=True)
 
     return payload
 
