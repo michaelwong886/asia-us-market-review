@@ -153,6 +153,22 @@ body{font-family:var(--font-body);font-size:var(--text-sm);color:var(--text);bac
 .cal-dots{display:flex;gap:2px}
 .cal-dot{width:6px;height:6px;border-radius:50%}
 #sector-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--space-2)}
+/* ===== NEWS FEED STYLES ===== */
+.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3);margin-bottom:var(--space-3)}
+.news-col-header{display:flex;align-items:center;gap:var(--space-2);margin-bottom:var(--space-2)}
+.news-col-title{font-size:var(--text-sm);font-weight:700;letter-spacing:-0.01em}
+.news-col-flag{font-size:1.2rem}
+.news-card{display:block;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-3);margin-bottom:var(--space-2);text-decoration:none;color:var(--text);transition:all var(--transition);cursor:pointer}
+.news-card:hover{background:var(--surface-3);border-color:var(--border-strong);transform:translateY(-1px)}
+.news-card:last-child{margin-bottom:0}
+.news-meta{display:flex;align-items:center;gap:var(--space-2);margin-bottom:6px}
+.news-badge{font-size:0.55rem;font-weight:700;padding:2px 6px;border-radius:99px;letter-spacing:0.05em;text-transform:uppercase;flex-shrink:0}
+.news-time{font-size:0.6rem;color:var(--text-faint);font-family:var(--font-mono)}
+.news-title{font-size:var(--text-xs);font-weight:600;line-height:1.45;color:var(--text);margin-bottom:4px}
+.news-desc{font-size:0.62rem;color:var(--text-muted);line-height:1.4}
+.news-loading{text-align:center;padding:40px 20px;color:var(--text-muted);display:flex;flex-direction:column;align-items:center;gap:8px;font-size:var(--text-xs)}
+@media(max-width:900px){.news-grid{grid-template-columns:1fr}}
+/* ===== END NEWS STYLES ===== */
 ::-webkit-scrollbar{width:4px;height:4px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:3px}
@@ -186,6 +202,7 @@ canvas{max-height:200px}
     <button class="nav-item" title="S/R Levels" onclick="showTab('levels',this)">&#128207;</button>
     <button class="nav-item" title="Journal" onclick="showTab('journal',this)">&#128218;</button>
     <button class="nav-item" title="Macro/FX" onclick="showTab('macro',this)">&#127760;</button>
+    <button class="nav-item" title="News Feed" onclick="showTab('news',this);if(!window._newsLoaded){loadNewsFeed();window._newsLoaded=true;}">&#128240;</button>
   </nav>
   <div class="sidebar-footer"><div class="status-dot"></div></div>
 </aside>
@@ -347,6 +364,39 @@ canvas{max-height:200px}
       <div class="card" style="margin-bottom:var(--space-3)"><div class="card-header"><div class="card-title">FX Rates</div></div><div class="macro-grid" id="fx-grid"></div></div>
       <div class="card" style="margin-bottom:var(--space-3)"><div class="card-header"><div class="card-title">US Treasury Yields</div><span style="font-size:0.58rem;color:var(--text-faint)" id="yield-src">Loading...</span></div><div class="macro-grid" id="yield-grid"></div></div>
       <div class="card" style="margin-bottom:var(--space-3)"><div class="card-header"><div class="card-title">Commodities</div></div><div class="comm-grid" id="comm-grid-macro"></div></div>
+    </div>
+
+    <!-- NEWS FEED -->
+    <div class="tab-panel" id="tab-news">
+      <div class="sec-hdr">
+        <div>
+          <div class="sec-title">&#128240; News Feed</div>
+          <div class="sec-sub">Live RSS &middot; <span id="news-src" style="color:var(--accent)">Loading...</span> &middot; <span id="news-last-update" style="color:var(--text-faint)"></span></div>
+        </div>
+        <button class="btn-sm" onclick="loadNewsFeed()">&#8635; Refresh</button>
+      </div>
+      <div class="news-grid">
+        <div>
+          <div class="news-col-header">
+            <span class="news-col-flag">&#127464;&#127472;</span>
+            <span class="news-col-title">Hong Kong &mdash; Top 5</span>
+            <span class="badge badge-gold" style="margin-left:auto">HK</span>
+          </div>
+          <div id="news-hk">
+            <div class="news-loading"><div style="font-size:1.5rem">&#128240;</div><div>Tap the tab to load HK headlines</div></div>
+          </div>
+        </div>
+        <div>
+          <div class="news-col-header">
+            <span class="news-col-flag">&#127482;&#127480;</span>
+            <span class="news-col-title">United States &mdash; Top 5</span>
+            <span class="badge badge-blue" style="margin-left:auto">US</span>
+          </div>
+          <div id="news-us">
+            <div class="news-loading"><div style="font-size:1.5rem">&#128240;</div><div>Tap the tab to load US headlines</div></div>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -540,7 +590,7 @@ function tick(){
   }
 }
 setInterval(tick,1000);tick();
-var TAB_TITLES={overview:'Market Overview',watchlist:'Watchlist',catalyst:'Catalyst Feed',calendar:'Economic Calendar',sentiment:'Market Sentiment',levels:'S/R Levels',journal:'Trade Journal',macro:'Macro & FX'};
+var TAB_TITLES={overview:'Market Overview',watchlist:'Watchlist',catalyst:'Catalyst Feed',calendar:'Economic Calendar',sentiment:'Market Sentiment',levels:'S/R Levels',journal:'Trade Journal',macro:'Macro & FX',news:'News Feed'};
 function showTab(name,btn){
   document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active');});
   document.querySelectorAll('.nav-item').forEach(function(n){n.classList.remove('active');});
@@ -696,14 +746,12 @@ function renderVixChart(labels,values,isLive){
   var lineColor=trend?'#ef4444':'#22c55e';
   vixChart=new Chart(ctx,{type:'line',data:{labels:labels,datasets:[{data:values,borderColor:lineColor,borderWidth:2,fill:true,backgroundColor:lineColor.replace(')',',0.08)').replace('rgb','rgba'),pointRadius:3,pointBackgroundColor:lineColor,tension:0.3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'#1e2226',titleColor:'#7a8090',bodyColor:'#e2e4e8',borderColor:'rgba(255,255,255,0.07)',borderWidth:1,callbacks:{label:function(ctx){return 'VIX: '+ctx.parsed.y.toFixed(2);}}}},scales:{x:{ticks:{color:'#7a8090',font:{size:9}},grid:{color:'rgba(255,255,255,0.04)'}},y:{ticks:{color:'#7a8090',font:{size:9},callback:function(v){return v.toFixed(1);}},grid:{color:'rgba(255,255,255,0.04)'},position:'right'}}}});
 }
-// Legacy static level renderer kept as fallback only
 var LEVELS=[
   {ticker:'SPY',levels:[{t:'R2',p:755.00,cls:'lvl-r'},{t:'R1',p:747.50,cls:'lvl-r'},{t:'Pivot',p:739.17,cls:''},{t:'S1',p:732.00,cls:'lvl-s'},{t:'S2',p:724.50,cls:'lvl-s'}]},
   {ticker:'QQQ',levels:[{t:'R2',p:722.00,cls:'lvl-r'},{t:'R1',p:715.50,cls:'lvl-r'},{t:'Pivot',p:708.93,cls:''},{t:'S1',p:701.00,cls:'lvl-s'},{t:'S2',p:694.00,cls:'lvl-s'}]},
   {ticker:'HSI',levels:[{t:'R2',p:26800,cls:'lvl-r'},{t:'R1',p:26400,cls:'lvl-r'},{t:'Pivot',p:25963,cls:''},{t:'S1',p:25600,cls:'lvl-s'},{t:'S2',p:25200,cls:'lvl-s'}]}
 ];
 function renderLevels(){
-  // Static fallback only — live levels rendered by loadPivotLevels() in live-data.js
   var g=document.getElementById('lvl-grid');if(!g)return;
   g.innerHTML=LEVELS.map(function(l){
     return '<div class="lvl-card"><div class="lvl-ticker">'+l.ticker+'</div>'+l.levels.map(function(r){return '<div class="lvl-row"><span class="lvl-type">'+r.t+'</span><span class="lvl-price '+r.cls+'">'+fmt(r.p,r.p>1000?0:2)+'</span></div>';}).join('')+'</div>';
@@ -766,7 +814,10 @@ renderCatalysts();
 renderCalendar();
 renderJournal();
 renderMacro();
-// Start live data fetch after live-data.js is loaded
 setTimeout(function(){loadLive();loadWatchlist();},1000);
 </script>
-<!-- Live data
+<!-- Live data & News Feed -->
+<script src="live-data.js"></script>
+<script src="news-feed.js"></script>
+</body>
+</html>
