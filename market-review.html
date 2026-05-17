@@ -667,7 +667,6 @@ function navigate(pageId, el) {
   if (page) page.classList.add('active');
   if (el)  el.classList.add('active');
   if (isMobile()) closeMobileSidebar();
-  // Lazy-render news when navigating to it
   if (pageId === 'news') renderNewsPage();
 }
 
@@ -840,10 +839,8 @@ async function loadData(force = false) {
     renderMovers('tb-us-up',   us.gainers, usFallback ? 'No US gainers (Fri)'  : 'No US gainers today');
     renderMovers('tb-us-down', us.losers,  usFallback ? 'No US losers (Fri)'   : 'No US losers today');
 
-    // Cache news data
     if (data?.news?.length) {
       _newsData = data.news;
-      // Re-render if news page is active
       if (document.getElementById('page-news')?.classList.contains('active')) renderNewsPage();
     }
 
@@ -873,7 +870,37 @@ document.addEventListener('visibilitychange', () => {
 });
 
 // ── Ticker Search ─────────────────────────────────────
-const YF_PROXY = 'https://query1.finance.yahoo.com/v8/finance/chart/';
+// CORS proxy fallback chain — tries each proxy in order until one succeeds
+const CORS_PROXIES = [
+  url => `https://corsproxy.io/?${encodeURIComponent(url)}`,
+  url => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
+  url => `https://thingproxy.freeboard.io/fetch/${url}`,
+];
+
+async function fetchWithProxyFallback(targetUrl) {
+  let lastErr = null;
+  for (let i = 0; i < CORS_PROXIES.length; i++) {
+    try {
+      const proxyUrl = CORS_PROXIES[i](targetUrl);
+      const res = await fetch(proxyUrl, { signal: AbortSignal.timeout(8000) });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const text = await res.text();
+      // allorigins wraps the response in { contents: "..." }
+      try {
+        const wrapper = JSON.parse(text);
+        if (wrapper && wrapper.contents !== undefined) {
+          return JSON.parse(wrapper.contents);
+        }
+      } catch (_) {}
+      // corsproxy.io and thingproxy return raw JSON
+      return JSON.parse(text);
+    } catch (err) {
+      console.warn(`[Ticker] Proxy ${i+1} failed:`, err.message);
+      lastErr = err;
+    }
+  }
+  throw new Error(`All proxies failed. Last error: ${lastErr?.message || 'Unknown'}`);
+}
 
 function quickSearch(sym) {
   document.getElementById('tickerInput').value = sym;
@@ -893,15 +920,11 @@ async function doSearch() {
   document.getElementById('searchResult').classList.remove('visible');
 
   try {
-    // Use allOrigins CORS proxy to bypass browser CORS on YF
-    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(`https://query1.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=5d`)}`;
-    const res  = await fetch(proxyUrl);
-    const json = await res.json();
-    const data = JSON.parse(json.contents);
-    const meta = data?.chart?.result?.[0]?.meta;
-    const quotes = data?.chart?.result?.[0]?.indicators?.quote?.[0];
+    const targetUrl = `https://query1.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=5d`;
+    const data = await fetchWithProxyFallback(targetUrl);
+    const meta   = data?.chart?.result?.[0]?.meta;
 
-    if (!meta) throw new Error('Ticker not found');
+    if (!meta) throw new Error('Ticker not found. Check the symbol and try again.');
 
     const close     = meta.regularMarketPrice ?? meta.chartPreviousClose;
     const prevClose = meta.chartPreviousClose;
@@ -910,13 +933,12 @@ async function doSearch() {
 
     document.getElementById('resTicker').textContent   = meta.symbol || sym;
     document.getElementById('resLongname').textContent = meta.longName || meta.shortName || sym;
-    document.getElementById('resPrice').textContent    = fmt(close, meta.currency === 'USD' ? 2 : 2);
+    document.getElementById('resPrice').textContent    = fmt(close, 2);
 
     const chgEl = document.getElementById('resChg');
     chgEl.textContent  = chgVal != null ? `${fmtPct(chgVal)}  (${chgAbs >= 0 ? '+' : ''}${fmt(chgAbs, 2)})` : '—';
     chgEl.className    = 'result-chg ' + badgeCls(chgVal);
 
-    // Tags
     const tagsEl = document.getElementById('resTags');
     tagsEl.innerHTML = [
       meta.exchangeName,
@@ -924,7 +946,6 @@ async function doSearch() {
       meta.instrumentType,
     ].filter(Boolean).map(t => `<span class="result-tag">${t}</span>`).join('');
 
-    // Stats grid
     const statsEl = document.getElementById('resStats');
     const statsData = [
       { label: 'Prev Close',  value: fmt(prevClose, 2) },
@@ -941,7 +962,7 @@ async function doSearch() {
     document.getElementById('searchResult').classList.add('visible');
   } catch (err) {
     document.getElementById('searchEmpty').style.display  = 'block';
-    document.getElementById('searchEmpty').innerHTML = `<div class="empty-icon">⚠️</div><p>${err.message || 'Ticker not found. Try a different symbol.'}</p>`;
+    document.getElementById('searchEmpty').innerHTML = `<div class="empty-icon">⚠️</div><p style="color:var(--red)">${err.message || 'Failed to fetch. Try again in a moment.'}</p>`;
   } finally {
     btn.disabled = false;
     btn.textContent = 'Search';
@@ -962,7 +983,6 @@ function renderNewsPage() {
     return;
   }
 
-  // Build filter buttons from unique labels
   const labels = ['All', ...new Set(_newsData.map(n => n.label).filter(Boolean))];
   const filtersEl = document.getElementById('newsFilters');
   filtersEl.innerHTML = labels.map(l =>
