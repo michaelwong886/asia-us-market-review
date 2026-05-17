@@ -1,52 +1,36 @@
-// ===================== NEWS FEED =====================
-// RSS sources via CORS proxy
+// ===================== NEWS FEED (rss2json) =====================
+// Uses rss2json.com free API - no CORS issues, works from any browser
+
+var RSS2JSON = 'https://api.rss2json.com/v1/api.json?rss_url=';
+
 var NEWS_SOURCES = {
   hk: [
-    { name: 'SCMP Markets', url: 'https://www.scmp.com/rss/91/feed', badge: 'SCMP', color: 'var(--gold)' },
-    { name: 'RTHK Business', url: 'https://rthk.hk/rthk/news/rss/e_expressnews_business.xml', badge: 'RTHK', color: 'var(--blue)' }
+    { name: 'RTHK Business', url: 'https://rthk.hk/rthk/news/rss/e_expressnews_business.xml', badge: 'RTHK', color: 'var(--blue)' },
+    { name: 'The Standard HK', url: 'https://www.thestandard.com.hk/newsfeed/rss/section/3', badge: 'STD', color: 'var(--gold)' }
   ],
   us: [
-    { name: 'Yahoo Finance', url: 'https://finance.yahoo.com/news/rssindex', badge: 'YAHOO', color: 'var(--accent)' },
-    { name: 'CNBC Markets', url: 'https://www.cnbc.com/id/10000664/device/rss/rss.html', badge: 'CNBC', color: 'var(--up)' }
+    { name: 'MarketWatch', url: 'https://feeds.content.dowjones.io/public/rss/mw_realtimeheadlines', badge: 'MKT', color: 'var(--accent)' },
+    { name: 'Seeking Alpha', url: 'https://seekingalpha.com/market_currents.xml', badge: 'SA', color: 'var(--up)' }
   ]
 };
 
-var NEWS_PROXIES = [
-  function(url) { return 'https://api.allorigins.win/get?url=' + encodeURIComponent(url); },
-  function(url) { return 'https://corsproxy.io/?' + encodeURIComponent(url); }
-];
-
-async function fetchRSS(sourceUrl) {
-  for (var i = 0; i < NEWS_PROXIES.length; i++) {
-    try {
-      var resp = await fetch(NEWS_PROXIES[i](sourceUrl), { signal: AbortSignal.timeout(8000) });
-      var raw = await resp.json();
-      var text = (raw && raw.contents) ? raw.contents : (typeof raw === 'string' ? raw : null);
-      if (!text) continue;
-      var parser = new DOMParser();
-      var xml = parser.parseFromString(text, 'text/xml');
-      var items = xml.querySelectorAll('item');
-      if (!items || !items.length) continue;
-      var results = [];
-      for (var j = 0; j < Math.min(items.length, 5); j++) {
-        var item = items[j];
-        var title = item.querySelector('title');
-        var link = item.querySelector('link');
-        var pubDate = item.querySelector('pubDate');
-        var desc = item.querySelector('description');
-        if (title && title.textContent) {
-          results.push({
-            title: title.textContent.replace(/<!\[CDATA\[|\]\]>/g, '').trim(),
-            link: link ? (link.textContent || link.getAttribute('href') || '#') : '#',
-            time: pubDate ? formatNewsTime(pubDate.textContent) : 'Recent',
-            desc: desc ? desc.textContent.replace(/<!\[CDATA\[|\]\]>/g, '').replace(/<[^>]+>/g, '').trim().substring(0, 120) : ''
-          });
-        }
-      }
-      if (results.length) return results;
-    } catch (e) {}
+async function fetchRSS2JSON(sourceUrl) {
+  try {
+    var apiUrl = RSS2JSON + encodeURIComponent(sourceUrl) + '&count=5';
+    var resp = await fetch(apiUrl, { signal: AbortSignal.timeout(10000) });
+    var data = await resp.json();
+    if (!data || data.status !== 'ok' || !data.items || !data.items.length) return null;
+    return data.items.slice(0, 5).map(function(item) {
+      return {
+        title: (item.title || '').replace(/<[^>]+>/g, '').trim(),
+        link: item.link || item.guid || '#',
+        time: item.pubDate ? formatNewsTime(item.pubDate) : 'Recent',
+        desc: (item.description || item.content || '').replace(/<[^>]+>/g, '').trim().substring(0, 120)
+      };
+    });
+  } catch (e) {
+    return null;
   }
-  return null;
 }
 
 function formatNewsTime(dateStr) {
@@ -79,7 +63,7 @@ function renderNewsPlaceholder(region) {
 }
 
 function renderNewsError(region) {
-  return '<div class="news-loading" style="color:var(--down)"><div style="font-size:1.5rem">&#9888;</div><div>Could not load ' + region + ' news</div><div style="font-size:0.6rem;margin-top:4px;color:var(--text-faint)">RSS proxy unavailable</div></div>';
+  return '<div class="news-loading" style="color:var(--down)"><div style="font-size:1.5rem">&#9888;</div><div>Could not load ' + region + ' news</div><div style="font-size:0.6rem;margin-top:4px;color:var(--text-faint)">Check back shortly</div></div>';
 }
 
 async function loadNewsFeed() {
@@ -91,14 +75,16 @@ async function loadNewsFeed() {
   if (hkEl) hkEl.innerHTML = renderNewsPlaceholder('HK');
   if (usEl) usEl.innerHTML = renderNewsPlaceholder('US');
 
-  // Fetch all sources in parallel
-  var hkPromises = NEWS_SOURCES.hk.map(function(s) { return fetchRSS(s.url).then(function(items) { return { items: items, source: s }; }); });
-  var usPromises = NEWS_SOURCES.us.map(function(s) { return fetchRSS(s.url).then(function(items) { return { items: items, source: s }; }); });
+  var hkPromises = NEWS_SOURCES.hk.map(function(s) {
+    return fetchRSS2JSON(s.url).then(function(items) { return { items: items, source: s }; });
+  });
+  var usPromises = NEWS_SOURCES.us.map(function(s) {
+    return fetchRSS2JSON(s.url).then(function(items) { return { items: items, source: s }; });
+  });
 
   var hkResults = await Promise.allSettled(hkPromises);
   var usResults = await Promise.allSettled(usPromises);
 
-  // Merge HK top 5
   var hkArticles = [];
   hkResults.forEach(function(r) {
     if (r.status === 'fulfilled' && r.value && r.value.items) {
@@ -108,7 +94,6 @@ async function loadNewsFeed() {
     }
   });
 
-  // Merge US top 5
   var usArticles = [];
   usResults.forEach(function(r) {
     if (r.status === 'fulfilled' && r.value && r.value.items) {
@@ -138,6 +123,5 @@ async function loadNewsFeed() {
   if (srcEl) srcEl.textContent = anyLive ? 'RSS Live' : 'Unavailable';
   if (lastEl) lastEl.textContent = 'Updated ' + new Date().toLocaleTimeString('en-HK', { timeZone: 'Asia/Hong_Kong' }) + ' HKT';
 
-  // Auto-refresh every 10 minutes
   setTimeout(loadNewsFeed, 600000);
 }
