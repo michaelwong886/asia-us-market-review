@@ -204,17 +204,17 @@ canvas{max-height:200px}
     <div class="tab-panel active" id="tab-overview">
       <div class="sec-hdr"><div><div class="sec-title">Global Markets</div><div class="sec-sub" id="last-update">Demo data &mdash; tap Refresh for live</div></div><button class="btn-sm" onclick="refreshAll()">&#8635; Refresh</button></div>
       <div class="grid-4">
-        <div class="card"><div class="kpi-label">S&amp;P 500 (SPY)</div><div class="kpi-value" id="kpi-spx">739.17</div><span class="kpi-delta down" id="kpi-spx-d">&#9660; 1.20%</span><div class="kpi-sparkline"><canvas id="spark-spx"></canvas></div></div>
-        <div class="card"><div class="kpi-label">Nasdaq 100 (QQQ)</div><div class="kpi-value" id="kpi-ndx">708.93</div><span class="kpi-delta down" id="kpi-ndx-d">&#9660; 1.51%</span><div class="kpi-sparkline"><canvas id="spark-ndx"></canvas></div></div>
-        <div class="card"><div class="kpi-label">Hang Seng</div><div class="kpi-value" id="kpi-hsi">25,963</div><span class="kpi-delta down" id="kpi-hsi-d">&#9660; 1.62%</span><div class="kpi-sparkline"><canvas id="spark-hsi"></canvas></div></div>
-        <div class="card"><div class="kpi-label">VIX</div><div class="kpi-value" id="kpi-vix">18.43</div><span class="kpi-delta up" id="kpi-vix-d">&#9650; 6.78%</span><div class="kpi-sparkline"><canvas id="spark-vix"></canvas></div></div>
+        <div class="card"><div class="kpi-label">S&amp;P 500 (SPY)</div><div class="kpi-value" id="kpi-spx">--</div><span class="kpi-delta flat" id="kpi-spx-d">--</span><div class="kpi-sparkline"><canvas id="spark-spx"></canvas></div></div>
+        <div class="card"><div class="kpi-label">Nasdaq 100 (QQQ)</div><div class="kpi-value" id="kpi-ndx">--</div><span class="kpi-delta flat" id="kpi-ndx-d">--</span><div class="kpi-sparkline"><canvas id="spark-ndx"></canvas></div></div>
+        <div class="card"><div class="kpi-label">Hang Seng</div><div class="kpi-value" id="kpi-hsi">--</div><span class="kpi-delta flat" id="kpi-hsi-d">--</span><div class="kpi-sparkline"><canvas id="spark-hsi"></canvas></div></div>
+        <div class="card"><div class="kpi-label">VIX</div><div class="kpi-value" id="kpi-vix">--</div><span class="kpi-delta flat" id="kpi-vix-d">--</span><div class="kpi-sparkline"><canvas id="spark-vix"></canvas></div></div>
       </div>
       <div class="card" style="margin-bottom:var(--space-3)">
         <div class="card-header"><div class="card-title">Global Indices</div></div>
         <div class="mkt-grid" id="mkt-grid"></div>
       </div>
       <div class="card" style="margin-bottom:var(--space-3)">
-        <div class="card-header"><div class="card-title">Commodities</div><span class="badge badge-gold">Spot</span></div>
+        <div class="card-header"><div class="card-title">Commodities</div><span class="badge badge-gold" id="comm-src">Loading...</span></div>
         <div class="comm-grid" id="comm-grid"></div>
       </div>
       <div class="grid-2-1">
@@ -263,16 +263,16 @@ canvas{max-height:200px}
       <div class="sec-hdr"><div><div class="sec-title">Market Sentiment</div><div class="sec-sub">Fear &amp; Greed &middot; VIX &middot; Breadth</div></div></div>
       <div class="grid-2">
         <div class="card">
-          <div class="card-header"><div class="card-title">Fear &amp; Greed</div></div>
+          <div class="card-header"><div class="card-title">Fear &amp; Greed</div><span style="font-size:0.58rem;color:var(--text-faint)" id="fg-src">Loading...</span></div>
           <div style="text-align:center;padding:var(--space-3) 0">
-            <div style="font-size:3rem;font-weight:800;font-family:var(--font-mono);color:var(--warn)">62</div>
-            <div style="font-size:var(--text-sm);color:var(--warn);font-weight:600;margin-bottom:var(--space-2)">Greed</div>
-            <div style="height:8px;background:var(--border);border-radius:99px;overflow:hidden;margin:0 var(--space-3)"><div style="width:62%;height:100%;background:var(--warn);border-radius:99px"></div></div>
+            <div class="kpi-fg-score" style="font-size:3rem;font-weight:800;font-family:var(--font-mono);color:var(--warn)">--</div>
+            <div class="kpi-fg-rating" style="font-size:var(--text-sm);color:var(--warn);font-weight:600;margin-bottom:var(--space-2)">Loading</div>
+            <div style="height:8px;background:var(--border);border-radius:99px;overflow:hidden;margin:0 var(--space-3)"><div class="fg-bar-fill" style="width:50%;height:100%;background:var(--warn);border-radius:99px;transition:width 0.6s ease"></div></div>
             <div style="display:flex;justify-content:space-between;padding:0 var(--space-3);margin-top:4px;font-size:0.6rem;color:var(--text-faint)"><span>Fear</span><span>Neutral</span><span>Greed</span></div>
             <div style="margin-top:var(--space-3);display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--space-2)">
-              <div><div style="font-size:0.6rem;color:var(--text-muted)">1W Ago</div><div style="font-family:var(--font-mono);font-weight:700">55</div></div>
-              <div><div style="font-size:0.6rem;color:var(--text-muted)">1M Ago</div><div style="font-family:var(--font-mono);font-weight:700">38</div></div>
-              <div><div style="font-size:0.6rem;color:var(--text-muted)">1Y Ago</div><div style="font-family:var(--font-mono);font-weight:700">71</div></div>
+              <div><div style="font-size:0.6rem;color:var(--text-muted)">1W Ago</div><div id="fg-w1" style="font-family:var(--font-mono);font-weight:700">--</div></div>
+              <div><div style="font-size:0.6rem;color:var(--text-muted)">1M Ago</div><div id="fg-m1" style="font-family:var(--font-mono);font-weight:700">--</div></div>
+              <div><div style="font-size:0.6rem;color:var(--text-muted)">1Y Ago</div><div style="font-family:var(--font-mono);font-weight:700">--</div></div>
             </div>
           </div>
         </div>
@@ -333,7 +333,7 @@ canvas{max-height:200px}
     <div class="tab-panel" id="tab-macro">
       <div class="sec-hdr"><div><div class="sec-title">Macro &amp; FX</div><div class="sec-sub">Currencies &middot; Bonds &middot; Commodities</div></div></div>
       <div class="card" style="margin-bottom:var(--space-3)"><div class="card-header"><div class="card-title">FX Rates</div></div><div class="macro-grid" id="fx-grid"></div></div>
-      <div class="card" style="margin-bottom:var(--space-3)"><div class="card-header"><div class="card-title">US Treasury Yields</div></div><div class="macro-grid" id="yield-grid"></div></div>
+      <div class="card" style="margin-bottom:var(--space-3)"><div class="card-header"><div class="card-title">US Treasury Yields</div><span style="font-size:0.58rem;color:var(--text-faint)" id="yield-src">Loading...</span></div><div class="macro-grid" id="yield-grid"></div></div>
       <div class="card" style="margin-bottom:var(--space-3)"><div class="card-header"><div class="card-title">Commodities</div></div><div class="comm-grid" id="comm-grid-macro"></div></div>
     </div>
 
@@ -343,42 +343,23 @@ canvas{max-height:200px}
 <script>
 // ===================== DATA =====================
 var FALLBACK={
-  SPY:{c:739.17,d:-8.98,dp:-1.20},
-  QQQ:{c:708.93,d:-10.87,dp:-1.51},
-  DIA:{c:424.50,d:-4.57,dp:-1.07},
-  IWM:{c:204.35,d:-2.18,dp:-1.06},
-  AAPL:{c:207.85,d:1.56,dp:0.76},
-  MSFT:{c:449.26,d:-3.64,dp:-0.80},
-  NVDA:{c:131.38,d:2.58,dp:2.00},
-  TSLA:{c:422.24,d:-21.06,dp:-4.75},
-  AMZN:{c:205.14,d:1.80,dp:0.89},
-  META:{c:613.42,d:10.63,dp:1.76},
-  AMD:{c:424.10,d:-25.60,dp:-5.69},
-  GOOGL:{c:176.45,d:2.12,dp:1.22},
-  VIX:{c:18.43,d:1.17,dp:6.78},
-  HSI:{c:25962,d:-426,dp:-1.62},
-  HSTECH:{c:5821,d:-68,dp:-1.16},
-  NI225:{c:37820,d:210,dp:0.56},
-  KOSPI:{c:2612,d:-9,dp:-0.34},
-  FTSE:{c:8421,d:32,dp:0.38},
-  RKLB:{c:117.56,d:4.21,dp:3.71},
-  PLTR:{c:133.99,d:0.26,dp:0.19},
-  PL:{c:43.04,d:2.30,dp:5.65},
-  SOFI:{c:14.28,d:-0.32,dp:-2.19},
-  HOOD:{c:42.15,d:1.08,dp:2.63},
-  COIN:{c:312.40,d:-8.20,dp:-2.56},
-  MSTR:{c:387.50,d:12.30,dp:3.28},
-  SHOP:{c:98.72,d:0.44,dp:0.45},
-  UBER:{c:82.34,d:-0.92,dp:-1.10},
-  BABA:{c:108.45,d:1.23,dp:1.15},
-  JD:{c:34.20,d:-0.55,dp:-1.58},
-  PDD:{c:142.80,d:3.45,dp:2.48},
-  NIO:{c:4.82,d:-0.12,dp:-2.43},
-  XPEV:{c:11.34,d:0.28,dp:2.53},
-  LI:{c:22.10,d:0.45,dp:2.08}
+  SPY:{c:739.17,d:-8.98,dp:-1.20},QQQ:{c:708.93,d:-10.87,dp:-1.51},
+  DIA:{c:424.50,d:-4.57,dp:-1.07},IWM:{c:204.35,d:-2.18,dp:-1.06},
+  AAPL:{c:207.85,d:1.56,dp:0.76},MSFT:{c:449.26,d:-3.64,dp:-0.80},
+  NVDA:{c:131.38,d:2.58,dp:2.00},TSLA:{c:422.24,d:-21.06,dp:-4.75},
+  AMZN:{c:205.14,d:1.80,dp:0.89},META:{c:613.42,d:10.63,dp:1.76},
+  AMD:{c:424.10,d:-25.60,dp:-5.69},GOOGL:{c:176.45,d:2.12,dp:1.22},
+  VIX:{c:18.43,d:1.17,dp:6.78},HSI:{c:25962,d:-426,dp:-1.62},
+  HSTECH:{c:5821,d:-68,dp:-1.16},NI225:{c:37820,d:210,dp:0.56},
+  KOSPI:{c:2612,d:-9,dp:-0.34},FTSE:{c:8421,d:32,dp:0.38},
+  RKLB:{c:117.56,d:4.21,dp:3.71},PLTR:{c:133.99,d:0.26,dp:0.19},
+  PL:{c:43.04,d:2.30,dp:5.65},SOFI:{c:14.28,d:-0.32,dp:-2.19},
+  HOOD:{c:42.15,d:1.08,dp:2.63},COIN:{c:312.40,d:-8.20,dp:-2.56},
+  MSTR:{c:387.50,d:12.30,dp:3.28},SHOP:{c:98.72,d:0.44,dp:0.45},
+  UBER:{c:82.34,d:-0.92,dp:-1.10},BABA:{c:108.45,d:1.23,dp:1.15},
+  JD:{c:34.20,d:-0.55,dp:-1.58},PDD:{c:142.80,d:3.45,dp:2.48},
+  NIO:{c:4.82,d:-0.12,dp:-2.43},XPEV:{c:11.34,d:0.28,dp:2.53},LI:{c:22.10,d:0.45,dp:2.08}
 };
-
-// ===================== COMMODITIES =====================
 var COMMODITIES=[
   {icon:'&#9981;',name:'WTI Crude',price:101.14,pct:-1.29,unit:'USD/bbl'},
   {icon:'&#9981;',name:'Brent Crude',price:109.26,pct:3.44,unit:'USD/bbl'},
@@ -389,11 +370,7 @@ var COMMODITIES=[
   {icon:'&#128295;',name:'Palladium',price:1394.00,pct:1.20,unit:'USD/oz'},
   {icon:'&#128295;',name:'Aluminum',price:2890,pct:0.77,unit:'USD/t'}
 ];
-
-function flagHtml(cls, label){
-  return '<span class="flag-badge '+cls+'">'+label+'</span>';
-}
-
+function flagHtml(cls,label){return '<span class="flag-badge '+cls+'">'+label+'</span>';}
 var MARKETS=[
   {flagCls:'flag-hk',flagLbl:'HK',name:'HSI',sym:'HSI'},
   {flagCls:'flag-hk',flagLbl:'HK',name:'HSTECH',sym:'HSTECH'},
@@ -406,9 +383,7 @@ var MARKETS=[
   {flagCls:'flag-us',flagLbl:'US',name:'DIA',sym:'DIA'},
   {flagCls:'flag-us',flagLbl:'US',name:'IWM (RUT)',sym:'IWM'}
 ];
-
 var FALLBACK_EXTRA={CSI300:{c:3912,d:-18,dp:-0.47}};
-
 var FX_DATA=[
   {label:'USD/HKD',value:'7.7842',chg:'+0.0012',up:false},
   {label:'USD/CNY',value:'7.2145',chg:'-0.0087',up:true},
@@ -419,15 +394,12 @@ var FX_DATA=[
   {label:'AUD/USD',value:'0.6412',chg:'+0.0018',up:true},
   {label:'USD/KRW',value:'1387.2',chg:'+3.4',up:false}
 ];
-
-// ===================== US TREASURY YIELDS =====================
 var YIELDS=[
-  {label:'2Y',value:'4.14%',chg:'+0.05%',up:false},
-  {label:'5Y',value:'4.43%',chg:'+0.08%',up:false},
-  {label:'10Y',value:'4.59%',chg:'+0.06%',up:false},
-  {label:'30Y',value:'5.12%',chg:'+0.10%',up:false}
+  {label:'2Y',value:'4.14%',chg:'',up:false},
+  {label:'5Y',value:'4.43%',chg:'',up:false},
+  {label:'10Y',value:'4.59%',chg:'',up:false},
+  {label:'30Y',value:'5.12%',chg:'',up:false}
 ];
-
 var SECTORS=[
   {name:'Tech',sym:'XLK',chg:1.82},{name:'Health',sym:'XLV',chg:-0.34},
   {name:'Finance',sym:'XLF',chg:0.67},{name:'Energy',sym:'XLE',chg:-1.21},
@@ -435,54 +407,26 @@ var SECTORS=[
   {name:'Utilities',sym:'XLU',chg:-0.45},{name:'Materials',sym:'XLB',chg:0.83},
   {name:'Real Est',sym:'XLRE',chg:-0.77},{name:'Comm Svcs',sym:'XLC',chg:1.56}
 ];
-
 var _rsiSeeds={};
-function seedRSI(sym){
-  if(!_rsiSeeds[sym]){
-    var h=0;for(var i=0;i<sym.length;i++)h=(h*31+sym.charCodeAt(i))&0xffff;
-    _rsiSeeds[sym]=38+(h%38);
-  }
-  return _rsiSeeds[sym];
-}
-function seedMACD(sym){
-  var r=seedRSI(sym);
-  if(r>65)return 'Bull';
-  if(r<45)return 'Bear';
-  return 'Neutral';
-}
-
+function seedRSI(sym){if(!_rsiSeeds[sym]){var h=0;for(var i=0;i<sym.length;i++)h=(h*31+sym.charCodeAt(i))&0xffff;_rsiSeeds[sym]=38+(h%38);}return _rsiSeeds[sym];}
+function seedMACD(sym){var r=seedRSI(sym);if(r>65)return 'Bull';if(r<45)return 'Bear';return 'Neutral';}
 var mdc={};
-
-// ===================== YAHOO FINANCE — MULTI-PROXY CHAIN =====================
 var YF_BASE='https://query1.finance.yahoo.com/v8/finance/chart/';
-
 var YF_PROXIES=[
   function(url){return 'https://corsproxy.io/?'+encodeURIComponent(url);},
   function(url){return 'https://api.allorigins.win/get?url='+encodeURIComponent(url);},
   function(url){return 'https://thingproxy.freeboard.io/fetch/'+url;}
 ];
-
-var YF_SYMBOL_MAP={
-  HSI:'^HSI', HSTECH:'^HSTECH', NI225:'^N225', KOSPI:'^KS11',
-  FTSE:'^FTSE', VIX:'^VIX', CSI300:'000300.SS',
-  DIA:'DIA', SPY:'SPY', QQQ:'QQQ', IWM:'IWM'
-};
-
-function yfSymbol(sym){
-  return YF_SYMBOL_MAP[sym]||sym;
-}
-
-async function yfTryProxy(proxyFn, yfSym, params){
+var YF_SYMBOL_MAP={HSI:'^HSI',HSTECH:'^HSTECH',NI225:'^N225',KOSPI:'^KS11',FTSE:'^FTSE',VIX:'^VIX',CSI300:'000300.SS',DIA:'DIA',SPY:'SPY',QQQ:'QQQ',IWM:'IWM'};
+function yfSymbol(sym){return YF_SYMBOL_MAP[sym]||sym;}
+async function yfTryProxy(proxyFn,yfSym,params){
   var url=YF_BASE+encodeURIComponent(yfSym)+(params||'?interval=1d&range=2d');
-  var proxyUrl=proxyFn(url);
-  var resp=await fetch(proxyUrl,{signal:AbortSignal.timeout(7000)});
+  var resp=await fetch(proxyFn(url),{signal:AbortSignal.timeout(7000)});
   var raw=await resp.json();
-  var data=(raw && raw.contents)?JSON.parse(raw.contents):raw;
+  var data=(raw&&raw.contents)?JSON.parse(raw.contents):raw;
   var result=data&&data.chart&&data.chart.result&&data.chart.result[0];
-  if(!result)return null;
-  return result;
+  return result||null;
 }
-
 async function yfQuote(sym){
   var yfSym=yfSymbol(sym);
   for(var i=0;i<YF_PROXIES.length;i++){
@@ -499,27 +443,20 @@ async function yfQuote(sym){
   }
   return null;
 }
-
-// ===================== VIX 5-DAY LIVE FETCH =====================
-// Fetches last 5 daily closes for ^VIX and returns {labels, values} or null
 async function fetchVix5Day(){
-  var yfSym='^VIX';
   var params='?interval=1d&range=5d';
   for(var i=0;i<YF_PROXIES.length;i++){
     try{
-      var result=await yfTryProxy(YF_PROXIES[i],yfSym,params);
+      var result=await yfTryProxy(YF_PROXIES[i],'^VIX',params);
       if(!result)continue;
       var timestamps=result.timestamp;
       var closes=result.indicators&&result.indicators.quote&&result.indicators.quote[0]&&result.indicators.quote[0].close;
       if(!timestamps||!closes||timestamps.length<2)continue;
-      var labels=[];
-      var values=[];
-      var days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+      var labels=[],values=[],days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
       for(var j=0;j<timestamps.length;j++){
         var v=closes[j];
         if(v===null||v===undefined||isNaN(v))continue;
-        var dt=new Date(timestamps[j]*1000);
-        labels.push(days[dt.getDay()]);
+        labels.push(days[new Date(timestamps[j]*1000).getDay()]);
         values.push(parseFloat(v.toFixed(2)));
       }
       if(values.length>=2)return {labels:labels,values:values,live:true};
@@ -527,61 +464,41 @@ async function fetchVix5Day(){
   }
   return null;
 }
-
 async function loadLive(){
   var syms=['SPY','QQQ','DIA','IWM','HSI','NI225','KOSPI','FTSE','AAPL','NVDA','MSFT','TSLA','AMZN','META','AMD','VIX'];
   var anyLive=false;
   var results=await Promise.allSettled(syms.map(function(s){return yfQuote(s);}));
   results.forEach(function(r,i){
     var sym=syms[i];
-    if(r.status==='fulfilled'&&r.value&&r.value.c>0){
-      mdc[sym]=r.value;anyLive=true;
-    } else {
-      mdc[sym]=FALLBACK[sym]||{c:0,d:0,dp:0};
-    }
+    if(r.status==='fulfilled'&&r.value&&r.value.c>0){mdc[sym]=r.value;anyLive=true;}
+    else mdc[sym]=FALLBACK[sym]||{c:0,d:0,dp:0};
   });
   var as=document.getElementById('api-status');
   if(as)as.innerHTML='<div class="api-dot" style="background:'+(anyLive?'var(--up)':'var(--warn)')+'"></div>&nbsp;'+(anyLive?'Live (Yahoo)':'Demo Data');
   renderAll();
   var u=document.getElementById('last-update');
   if(u)u.textContent='Updated '+new Date().toLocaleTimeString('en-HK',{timeZone:'Asia/Hong_Kong'})+' HKT'+(anyLive?' (Yahoo Finance live)':' (demo fallback)');
-
-  // Update sentiment VIX display
   updateSentimentVix();
-
-  // Load VIX 5-day chart live
   loadVix5DayChart();
+  // Load extras: F&G, Yields, Commodities
+  loadAllLiveExtras();
 }
-
 function updateSentimentVix(){
-  var d=mdc['VIX'];
-  if(!d)return;
+  var d=mdc['VIX'];if(!d)return;
   var sv=document.getElementById('sent-vix');
   var sc=document.getElementById('sent-vix-chg');
   if(sv)sv.textContent=d.c>0?d.c.toFixed(2):'--';
-  if(sc){
-    var sign=d.dp>=0?'+':'';
-    sc.textContent=sign+d.dp.toFixed(2)+'%';
-    sc.style.color=d.dp>0?'var(--down)':'var(--up)'; // VIX up = bad (red), VIX down = good (green)
-  }
+  if(sc){var sign=d.dp>=0?'+':'';sc.textContent=sign+d.dp.toFixed(2)+'%';sc.style.color=d.dp>0?'var(--down)':'var(--up)';}
 }
-
 async function loadVix5DayChart(){
   var srcEl=document.getElementById('vix-chart-src');
   if(srcEl)srcEl.textContent='Fetching live...';
   var data=await fetchVix5Day();
-  if(data&&data.live){
-    renderVixChart(data.labels,data.values,true);
-    if(srcEl)srcEl.textContent='Yahoo Finance (live)';
-  } else {
-    // fallback: use static data
-    renderVixChart(['Mon','Tue','Wed','Thu','Fri'],[17.26,17.80,18.10,18.43,18.43],false);
-    if(srcEl)srcEl.textContent='Fallback (static)';
-  }
+  if(data&&data.live){renderVixChart(data.labels,data.values,true);if(srcEl)srcEl.textContent='Yahoo Finance (live)';}
+  else{renderVixChart(['Mon','Tue','Wed','Thu','Fri'],[17.26,17.80,18.10,18.43,18.43],false);if(srcEl)srcEl.textContent='Fallback (static)';}
 }
-
 function fmt(n,dec){
-  if(n===undefined||n===null||isNaN(n)||n===0&&dec===undefined)return '--';
+  if(n===undefined||n===null||isNaN(n))return '--';
   dec=(dec===undefined)?2:dec;
   if(n===0)return '--';
   return Number(n).toLocaleString('en-US',{minimumFractionDigits:dec,maximumFractionDigits:dec});
@@ -592,13 +509,11 @@ function fmtPrice(n){
 }
 function clr(dp){return dp>=0?'var(--up)':'var(--down)';}
 function arr(dp){return dp>=0?'&#9650;':'&#9660;';}
-
 function tick(){
   var now=new Date();
   var hkt=new Intl.DateTimeFormat('en-HK',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false,timeZone:'Asia/Hong_Kong'}).format(now);
   var et=new Intl.DateTimeFormat('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false,timeZone:'America/New_York'}).format(now);
-  var hke=document.getElementById('clock-hk');
-  var nye=document.getElementById('clock-ny');
+  var hke=document.getElementById('clock-hk'),nye=document.getElementById('clock-ny');
   if(hke)hke.innerHTML='&#127464;&#127472; HKT '+hkt;
   if(nye)nye.innerHTML='&#127482;&#127480; ET '+et;
   var etH=parseInt(et.split(':')[0]),etM=parseInt(et.split(':')[1]);
@@ -613,197 +528,116 @@ function tick(){
     if(!chips.innerHTML)chips.innerHTML='<div class="session-chip">All Closed</div>';
   }
 }
-setInterval(tick,1000);
-tick();
-
+setInterval(tick,1000);tick();
 var TAB_TITLES={overview:'Market Overview',watchlist:'Watchlist',catalyst:'Catalyst Feed',calendar:'Economic Calendar',sentiment:'Market Sentiment',levels:'S/R Levels',journal:'Trade Journal',macro:'Macro & FX'};
 function showTab(name,btn){
-  var panels=document.querySelectorAll('.tab-panel');
-  for(var i=0;i<panels.length;i++)panels[i].classList.remove('active');
-  var navs=document.querySelectorAll('.nav-item');
-  for(var i=0;i<navs.length;i++)navs[i].classList.remove('active');
-  var p=document.getElementById('tab-'+name);
-  if(p)p.classList.add('active');
+  document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.nav-item').forEach(function(n){n.classList.remove('active');});
+  var p=document.getElementById('tab-'+name);if(p)p.classList.add('active');
   if(btn)btn.classList.add('active');
-  var t=document.getElementById('tab-title');
-  if(t)t.textContent=TAB_TITLES[name]||name;
+  var t=document.getElementById('tab-title');if(t)t.textContent=TAB_TITLES[name]||name;
 }
-
 function renderAll(){
-  renderKPIs();renderMktGrid();renderSparklines();renderCommGrid('comm-grid');
-  renderCommGrid('comm-grid-macro');renderSectors();buildTicker();
-  drawIntraday('SPY');
+  renderKPIs();renderMktGrid();renderSparklines();
+  renderCommGrid('comm-grid');renderCommGrid('comm-grid-macro');
+  renderSectors();buildTicker();drawIntraday('SPY');
 }
-
 function initFallback(){
-  var keys=Object.keys(FALLBACK);
-  for(var i=0;i<keys.length;i++)mdc[keys[i]]=FALLBACK[keys[i]];
+  Object.keys(FALLBACK).forEach(function(k){mdc[k]=FALLBACK[k];});
   mdc.CSI300=FALLBACK_EXTRA.CSI300;
-  renderAll();
-  updateSentimentVix();
+  renderAll();updateSentimentVix();
   renderVixChart(['Mon','Tue','Wed','Thu','Fri'],[17.26,17.80,18.10,18.43,18.43],false);
-  var srcEl=document.getElementById('vix-chart-src');
-  if(srcEl)srcEl.textContent='Static fallback';
+  var srcEl=document.getElementById('vix-chart-src');if(srcEl)srcEl.textContent='Static fallback';
 }
-
 function renderKPIs(){
-  var pairs=[['spx','SPY'],['ndx','QQQ'],['hsi','HSI'],['vix','VIX']];
-  for(var i=0;i<pairs.length;i++){
-    var id=pairs[i][0],sym=pairs[i][1];
-    var d=mdc[sym];if(!d)continue;
-    var ve=document.getElementById('kpi-'+id);
-    var de=document.getElementById('kpi-'+id+'-d');
+  [['spx','SPY'],['ndx','QQQ'],['hsi','HSI'],['vix','VIX']].forEach(function(pair){
+    var d=mdc[pair[1]];if(!d)return;
+    var ve=document.getElementById('kpi-'+pair[0]),de=document.getElementById('kpi-'+pair[0]+'-d');
     if(ve)ve.textContent=d.c>0?fmt(d.c):'--';
     if(de){de.className='kpi-delta '+(d.dp>=0?'up':'down');de.innerHTML=arr(d.dp)+' '+Math.abs(d.dp).toFixed(2)+'%';}
-  }
+  });
 }
-
 function renderMktGrid(){
   var g=document.getElementById('mkt-grid');if(!g)return;
-  var html='';
-  for(var i=0;i<MARKETS.length;i++){
-    var m=MARKETS[i];
+  g.innerHTML=MARKETS.map(function(m){
     var d=mdc[m.sym]||FALLBACK_EXTRA[m.sym]||{c:0,d:0,dp:0};
-    html+='<div class="mkt-card"><div style="display:flex;justify-content:space-between;align-items:center">'+flagHtml(m.flagCls,m.flagLbl)+'<span class="mkt-name">'+m.name+'</span></div>';
-    html+='<div class="mkt-price">'+(d.c>0?fmt(d.c):'--')+'</div>';
-    html+='<div class="mkt-chg '+(d.dp>=0?'up':'down')+'">'+arr(d.dp)+' '+Math.abs(d.dp).toFixed(2)+'%</div></div>';
-  }
-  g.innerHTML=html;
+    return '<div class="mkt-card"><div style="display:flex;justify-content:space-between;align-items:center">'+flagHtml(m.flagCls,m.flagLbl)+'<span class="mkt-name">'+m.name+'</span></div><div class="mkt-price">'+(d.c>0?fmt(d.c):'--')+'</div><div class="mkt-chg '+(d.dp>=0?'up':'down')+'">'+arr(d.dp)+' '+Math.abs(d.dp).toFixed(2)+'%</div></div>';
+  }).join('');
 }
-
 function renderCommGrid(gid){
   var g=document.getElementById(gid);if(!g)return;
-  var html='';
-  for(var i=0;i<COMMODITIES.length;i++){
-    var c=COMMODITIES[i],up=c.pct>=0;
-    html+='<div class="comm-card" style="border-color:'+(up?'rgba(34,197,94,0.2)':'rgba(239,68,68,0.2)')+';background:'+(up?'rgba(34,197,94,0.04)':'rgba(239,68,68,0.04)')+'">';
-    html+='<div class="comm-name">'+c.icon+' '+c.name+'</div>';
-    html+='<div class="comm-price">'+fmt(c.price,c.price>100?2:3)+'</div>';
-    html+='<div class="comm-chg '+(up?'up':'down')+'">'+arr(c.pct)+' '+(up?'+':'')+c.pct.toFixed(2)+'%</div>';
-    html+='<div class="comm-unit">'+c.unit+'</div></div>';
-  }
-  g.innerHTML=html;
+  g.innerHTML=COMMODITIES.map(function(c){
+    var up=c.pct>=0;
+    return '<div class="comm-card" style="border-color:'+(up?'rgba(34,197,94,0.2)':'rgba(239,68,68,0.2)')+';background:'+(up?'rgba(34,197,94,0.04)':'rgba(239,68,68,0.04)')+'">'+'<div class="comm-name">'+c.icon+' '+c.name+'</div>'+'<div class="comm-price">'+fmt(c.price,c.price>100?2:3)+'</div>'+'<div class="comm-chg '+(up?'up':'down')+'">'+arr(c.pct)+' '+(up?'+':'')+c.pct.toFixed(2)+'%</div>'+'<div class="comm-unit">'+c.unit+'</div></div>';
+  }).join('');
 }
-
 var sparks={};
 function renderSparklines(){
-  var pairs=[['spark-spx','SPY'],['spark-ndx','QQQ'],['spark-hsi','HSI'],['spark-vix','VIX']];
-  for(var i=0;i<pairs.length;i++){
-    var id=pairs[i][0],sym=pairs[i][1];
-    var ctx=document.getElementById(id);if(!ctx)continue;
-    var d=mdc[sym]||{c:100,dp:0.5};
-    var dir=d.dp>=0?1:-1;
-    var data=[],base=d.c>0?d.c:100;
+  [['spark-spx','SPY'],['spark-ndx','QQQ'],['spark-hsi','HSI'],['spark-vix','VIX']].forEach(function(pair){
+    var ctx=document.getElementById(pair[0]);if(!ctx)return;
+    var d=mdc[pair[1]]||{c:100,dp:0.5};
+    var dir=d.dp>=0?1:-1,base=d.c>0?d.c:100,data=[];
     for(var j=0;j<12;j++)data.push(base+dir*Math.random()*base*0.005*j);
     var color=d.dp>=0?'#22c55e':'#ef4444';
-    if(sparks[id])sparks[id].destroy();
-    sparks[id]=new Chart(ctx,{type:'line',data:{labels:data.map(function(_,k){return k;}),datasets:[{data:data,borderColor:color,borderWidth:1.5,fill:true,backgroundColor:color+'22',pointRadius:0,tension:0.4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{enabled:false}},scales:{x:{display:false},y:{display:false}},animation:{duration:500}}});
-  }
+    if(sparks[pair[0]])sparks[pair[0]].destroy();
+    sparks[pair[0]]=new Chart(ctx,{type:'line',data:{labels:data.map(function(_,k){return k;}),datasets:[{data:data,borderColor:color,borderWidth:1.5,fill:true,backgroundColor:color+'22',pointRadius:0,tension:0.4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{enabled:false}},scales:{x:{display:false},y:{display:false}},animation:{duration:500}}});
+  });
 }
-
 var intChart=null;
 function drawIntraday(sym){
   var ctx=document.getElementById('intraday-chart');if(!ctx)return;
   var d=mdc[sym]||FALLBACK[sym]||{c:739,dp:-1.20};var base=d.c*0.994;
   var labels=[],vals=[];
-  for(var i=0;i<78;i++){
-    labels.push((9+Math.floor((i*5+30)/60))+':'+(('0'+((i*5+30)%60)).slice(-2)));
-    vals.push(base+(d.c-base)*(i/77)+(Math.random()-0.48)*base*0.003);
-  }
-  vals[77]=d.c;
-  var up=d.dp>=0;
+  for(var i=0;i<78;i++){labels.push((9+Math.floor((i*5+30)/60))+':'+(('0'+((i*5+30)%60)).slice(-2)));vals.push(base+(d.c-base)*(i/77)+(Math.random()-0.48)*base*0.003);}
+  vals[77]=d.c;var up=d.dp>=0;
   if(intChart)intChart.destroy();
   intChart=new Chart(ctx,{type:'line',data:{labels:labels,datasets:[{label:sym,data:vals,borderColor:up?'#22c55e':'#ef4444',borderWidth:2,fill:true,backgroundColor:up?'rgba(34,197,94,0.07)':'rgba(239,68,68,0.07)',pointRadius:0,tension:0.3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false,backgroundColor:'#1e2226',titleColor:'#7a8090',bodyColor:'#e2e4e8',borderColor:'rgba(255,255,255,0.07)',borderWidth:1}},scales:{x:{ticks:{color:'#7a8090',font:{size:8},maxTicksLimit:6},grid:{color:'rgba(255,255,255,0.04)'}},y:{ticks:{color:'#7a8090',font:{size:9},callback:function(v){return Number(v).toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0});}},grid:{color:'rgba(255,255,255,0.04)'},position:'right'}},interaction:{mode:'index',intersect:false}}});
 }
-
 function renderSectors(){
   var g=document.getElementById('sector-grid');if(!g)return;
-  var html='';
-  for(var i=0;i<SECTORS.length;i++){
-    var s=SECTORS[i],up=s.chg>=0,intensity=Math.min(Math.abs(s.chg)/3,1);
+  g.innerHTML=SECTORS.map(function(s){
+    var up=s.chg>=0,intensity=Math.min(Math.abs(s.chg)/3,1);
     var bg=up?'rgba(34,197,94,'+(0.08+intensity*0.22)+')':'rgba(239,68,68,'+(0.08+intensity*0.22)+')';
     var bc=up?'rgba(34,197,94,0.2)':'rgba(239,68,68,0.2)';
-    html+='<div style="background:'+bg+';border:1px solid '+bc+';border-radius:var(--radius-md);padding:var(--space-2);text-align:center">';
-    html+='<div style="font-size:0.65rem;font-weight:600;color:var(--text-muted)">'+s.sym+'</div>';
-    html+='<div style="font-size:0.62rem;color:var(--text);margin:2px 0">'+s.name+'</div>';
-    html+='<div style="font-family:var(--font-mono);font-size:var(--text-xs);font-weight:700;color:'+(up?'var(--up)':'var(--down)')+'\">'+(up?'+':'')+s.chg.toFixed(2)+'%</div></div>';
-  }
-  g.innerHTML=html;
+    return '<div style="background:'+bg+';border:1px solid '+bc+';border-radius:var(--radius-md);padding:var(--space-2);text-align:center"><div style="font-size:0.65rem;font-weight:600;color:var(--text-muted)">'+s.sym+'</div><div style="font-size:0.62rem;color:var(--text);margin:2px 0">'+s.name+'</div><div style="font-family:var(--font-mono);font-size:var(--text-xs);font-weight:700;color:'+(up?'var(--up)':'var(--down)')+'">'+(up?'+':'')+s.chg.toFixed(2)+'%</div></div>';
+  }).join('');
 }
-
 function buildTicker(){
   var syms=['SPY','QQQ','DIA','IWM','VIX','AAPL','NVDA','MSFT','TSLA','AMZN','META'];
-  var items='';
-  for(var i=0;i<syms.length;i++){
-    var s=syms[i];var d=mdc[s]||FALLBACK[s]||{c:0,dp:0};var up=d.dp>=0;
+  var items=syms.map(function(s){
+    var d=mdc[s]||FALLBACK[s]||{c:0,dp:0};var up=d.dp>=0;
     var price=d.c>0?Number(d.c).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}):'--';
-    items+='<div class="ticker-item"><span class="ticker-name">'+s+'</span><span style="color:var(--text)">'+price+'</span><span class="ticker-chg '+(up?'up':'down')+'">'+arr(d.dp)+Math.abs(d.dp).toFixed(2)+'%</span></div>';
-  }
-  var comm=['WTI:101.14:-1.29','Gold:4649.53:-1.02','Silver:83.40:-5.20'];
-  for(var i=0;i<comm.length;i++){
-    var p=comm[i].split(':');var up2=parseFloat(p[2])>=0;
-    items+='<div class="ticker-item"><span class="ticker-name">'+p[0]+'</span><span style="color:var(--text)">'+p[1]+'</span><span class="ticker-chg '+(up2?'up':'down')+'">'+p[2]+'%</span></div>';
-  }
-  var t=document.getElementById('ticker-track');if(t)t.innerHTML=items+items;
+    return '<div class="ticker-item"><span class="ticker-name">'+s+'</span><span style="color:var(--text)">'+price+'</span><span class="ticker-chg '+(up?'up':'down')+'">'+arr(d.dp)+Math.abs(d.dp).toFixed(2)+'%</span></div>';
+  }).join('');
+  // Add commodity prices from live COMMODITIES array
+  var commItems=COMMODITIES.slice(0,3).map(function(c){
+    var up=c.pct>=0;
+    return '<div class="ticker-item"><span class="ticker-name">'+c.name.split(' ')[0]+'</span><span style="color:var(--text)">'+fmt(c.price,2)+'</span><span class="ticker-chg '+(up?'up':'down')+'">'+arr(c.pct)+Math.abs(c.pct).toFixed(2)+'%</span></div>';
+  }).join('');
+  var t=document.getElementById('ticker-track');if(t)t.innerHTML=items+commItems+items+commItems;
 }
-
 var wl=['AAPL','NVDA','MSFT','TSLA','AMZN','META','AMD','PLTR','PL'];
-
 async function loadWatchlist(){
   var tbody=document.getElementById('watch-body');if(!tbody)return;
   var results=await Promise.allSettled(wl.map(function(s){return yfQuote(s);}));
-  var html='';
-  for(var i=0;i<wl.length;i++){
-    var sym=wl[i];
-    var r=results[i];
-    var live=(r.status==='fulfilled'&&r.value&&r.value.c>0);
-    var fb=!live&&FALLBACK[sym]?FALLBACK[sym]:null;
-    var d=live?r.value:fb;
+  tbody.innerHTML=wl.map(function(sym,i){
+    var r=results[i],live=(r.status==='fulfilled'&&r.value&&r.value.c>0);
+    var fb=!live&&FALLBACK[sym]?FALLBACK[sym]:null,d=live?r.value:fb;
     var hasData=d&&d.c>0;
-    var isLiveOnly=!live&&!fb;
-
     var priceStr=hasData?fmtPrice(d.c):'--';
     var chgStr=hasData?(arr(d.dp)+fmtPrice(Math.abs(d.d||0))):'--';
     var pctStr=hasData?((d.dp>=0?'+':'')+Number(d.dp).toFixed(2)+'%'):'--';
     var chgClass=hasData?(d.dp>=0?'td-up':'td-down'):'td-neutral';
-
     var sourceTag=live?'':fb?'<span class="badge badge-warn" style="font-size:0.5rem;margin-left:3px">FB</span>':'';
-
-    var rsi=hasData?seedRSI(sym):null;
-    var macd=hasData?seedMACD(sym):'--';
+    var rsi=hasData?seedRSI(sym):null,macd=hasData?seedMACD(sym):'--';
     var rsiClass=rsi?(rsi>70?'td-down':rsi<30?'td-up':''):'td-neutral';
-    var rsiStr=rsi?rsi.toFixed(1):'--';
-
-    var dp=hasData?d.dp:0;
-    var trendLabel=isLiveOnly?'LIVE ONLY':(hasData?(dp>1?'BULL':dp<-1?'BEAR':'NEUTRAL'):'--');
-    var trendClass=isLiveOnly?'badge-neutral':(hasData?(dp>1?'badge-bull':dp<-1?'badge-bear':'badge-neutral'):'badge-neutral');
-
-    html+='<tr>';
-    html+='<td class="td-ticker">'+sym+sourceTag+'</td>';
-    html+='<td style="font-family:var(--font-mono)">'+priceStr+'</td>';
-    html+='<td class="'+chgClass+'">'+chgStr+'</td>';
-    html+='<td class="'+chgClass+'">'+pctStr+'</td>';
-    html+='<td class="'+rsiClass+'" style="font-family:var(--font-mono)">'+rsiStr+'</td>';
-    html+='<td><span class="badge badge-'+(macd==='Bull'?'bull':macd==='Bear'?'bear':'neutral')+'">'+macd+'</span></td>';
-    html+='<td><span class="badge '+trendClass+'">'+trendLabel+'</span></td>';
-    html+='<td><button class="btn-sm" style="padding:2px 4px;font-size:0.58rem;color:var(--down)" onclick="removeWatch(\''+sym+'\')" >&#x2715;</button></td>';
-    html+='</tr>';
-  }
-  tbody.innerHTML=html;
+    var dp=hasData?d.dp:0,trendLabel=hasData?(dp>1?'BULL':dp<-1?'BEAR':'NEUTRAL'):'--';
+    var trendClass=hasData?(dp>1?'badge-bull':dp<-1?'badge-bear':'badge-neutral'):'badge-neutral';
+    return '<tr><td class="td-ticker">'+sym+sourceTag+'</td><td style="font-family:var(--font-mono)">'+priceStr+'</td><td class="'+chgClass+'">'+chgStr+'</td><td class="'+chgClass+'">'+pctStr+'</td><td class="'+rsiClass+'" style="font-family:var(--font-mono)">'+(rsi?rsi.toFixed(1):'--')+'</td><td><span class="badge badge-'+(macd==='Bull'?'bull':macd==='Bear'?'bear':'neutral')+'">'+macd+'</span></td><td><span class="badge '+trendClass+'">'+trendLabel+'</span></td><td><button class="btn-sm" style="padding:2px 4px;font-size:0.58rem;color:var(--down)" onclick="removeWatch(\''+sym+'\')" >&#x2715;</button></td></tr>';
+  }).join('');
 }
-
-async function addWatch(){
-  var inp=document.getElementById('add-ticker');
-  var s=inp.value.trim().toUpperCase();
-  if(!s||wl.indexOf(s)>=0)return;
-  wl.push(s);inp.value='';
-  await loadWatchlist();
-}
-function removeWatch(s){
-  wl=wl.filter(function(x){return x!==s;});
-  loadWatchlist();
-}
-
+async function addWatch(){var inp=document.getElementById('add-ticker');var s=inp.value.trim().toUpperCase();if(!s||wl.indexOf(s)>=0)return;wl.push(s);inp.value='';await loadWatchlist();}
+function removeWatch(s){wl=wl.filter(function(x){return x!==s;});loadWatchlist();}
 var CAT_PRE=[
   {time:'Pre-Mkt',sym:'WALMART',note:'Earnings Q1 2026 &middot; EPS est $0.58 &middot; Rev $165.8B',color:'var(--down)',imp:'HIGH'},
   {time:'Pre-Mkt',sym:'HOME DEPOT',note:'Earnings Q1 2026 &middot; EPS est $3.67 &middot; Rev $39.1B',color:'var(--down)',imp:'HIGH'},
@@ -822,19 +656,13 @@ var EARNINGS=[
   {date:'May 21',ticker:'NVDA',co:'NVIDIA Corp',time:'AH',eps:'$0.89',rev:'$43.0B',imp:'HIGH'}
 ];
 function renderCatalysts(){
-  var p=document.getElementById('cat-pre');
-  var a=document.getElementById('cat-ah');
-  var m=document.getElementById('cat-mini');
-  var e=document.getElementById('earnings-body');
-  if(p)p.innerHTML=CAT_PRE.map(function(c){return catHTML(c);}).join('');
-  if(a)a.innerHTML=CAT_AH.map(function(c){return catHTML(c);}).join('');
+  var p=document.getElementById('cat-pre'),a=document.getElementById('cat-ah'),m=document.getElementById('cat-mini'),e=document.getElementById('earnings-body');
+  if(p)p.innerHTML=CAT_PRE.map(catHTML).join('');
+  if(a)a.innerHTML=CAT_AH.map(catHTML).join('');
   if(m)m.innerHTML=CAT_PRE.slice(0,3).map(function(c){return '<div class="cat-item"><div class="cat-dot" style="background:'+c.color+'"></div><div class="cat-content"><div class="cat-title">'+c.sym+'</div><div class="cat-sub">'+c.note+'</div></div></div>';}).join('');
   if(e)e.innerHTML=EARNINGS.map(function(ei){return '<tr><td>'+ei.date+'</td><td class="td-ticker">'+ei.ticker+'</td><td>'+ei.co+'</td><td class="td-neutral">'+ei.time+'</td><td style="font-family:var(--font-mono)">'+ei.eps+'</td><td style="font-family:var(--font-mono)">'+ei.rev+'</td><td><span class="badge badge-'+(ei.imp==='HIGH'?'bear':'warn')+'">'+ei.imp+'</span></td></tr>';}).join('');
 }
-function catHTML(c){
-  return '<div class="cat-item"><div class="cat-time">'+c.time+'</div><div class="cat-dot" style="background:'+c.color+'"></div><div class="cat-content"><div class="cat-title">'+c.sym+'</div><div class="cat-sub">'+c.note+'</div></div><div class="cat-impact" style="color:'+c.color+'">'+c.imp+'</div></div>';
-}
-
+function catHTML(c){return '<div class="cat-item"><div class="cat-time">'+c.time+'</div><div class="cat-dot" style="background:'+c.color+'"></div><div class="cat-content"><div class="cat-title">'+c.sym+'</div><div class="cat-sub">'+c.note+'</div></div><div class="cat-impact" style="color:'+c.color+'">'+c.imp+'</div></div>';}
 var ECO=[
   {time:'08:30 ET',co:'US',imp:3,ev:'Retail Sales MoM (Apr)',est:'0.2%',prev:'-0.9%'},
   {time:'09:15 ET',co:'US',imp:2,ev:'Industrial Production (Apr)',est:'0.3%',prev:'-0.3%'},
@@ -846,69 +674,18 @@ var ECO=[
 function renderCalendar(){
   var el=document.getElementById('eco-cal');if(!el)return;
   el.innerHTML=ECO.map(function(e){
-    var dots='';
-    for(var i=0;i<3;i++){
-      var on=i<e.imp;var c=e.imp===3?'var(--down)':e.imp===2?'var(--warn)':'var(--up)';
-      dots+='<div class="cal-dot" style="background:'+(on?c:'var(--border)')+'"></div>';
-    }
+    var dots='';for(var i=0;i<3;i++){var on=i<e.imp;var c=e.imp===3?'var(--down)':e.imp===2?'var(--warn)':'var(--up)';dots+='<div class="cal-dot" style="background:'+(on?c:'var(--border)')+'"></div>';}
     return '<div class="cal-item"><div class="cal-time">'+e.co+' '+e.time+'</div><div class="cal-dots">'+dots+'</div><div>'+e.ev+'</div><div style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-muted)">Est:'+e.est+' Prev:'+e.prev+'</div></div>';
   }).join('');
 }
-
-// ===================== VIX CHART — LIVE DATA =====================
 var vixChart=null;
 function renderVixChart(labels,values,isLive){
   var ctx=document.getElementById('vix-chart');if(!ctx)return;
   if(vixChart)vixChart.destroy();
-
-  // Determine color: last value vs first to pick trend color
   var trend=values[values.length-1]>=values[0];
-  var lineColor=trend?'#ef4444':'#22c55e'; // VIX rising = red, falling = green
-  var fillColor=trend?'rgba(239,68,68,0.08)':'rgba(34,197,94,0.08)';
-
-  vixChart=new Chart(ctx,{
-    type:'line',
-    data:{
-      labels:labels,
-      datasets:[{
-        data:values,
-        borderColor:lineColor,
-        borderWidth:2,
-        fill:true,
-        backgroundColor:fillColor,
-        pointRadius:3,
-        pointBackgroundColor:lineColor,
-        tension:0.3
-      }]
-    },
-    options:{
-      responsive:true,
-      maintainAspectRatio:false,
-      plugins:{
-        legend:{display:false},
-        tooltip:{
-          backgroundColor:'#1e2226',
-          titleColor:'#7a8090',
-          bodyColor:'#e2e4e8',
-          borderColor:'rgba(255,255,255,0.07)',
-          borderWidth:1,
-          callbacks:{
-            label:function(ctx){return 'VIX: '+ctx.parsed.y.toFixed(2);}
-          }
-        }
-      },
-      scales:{
-        x:{ticks:{color:'#7a8090',font:{size:9}},grid:{color:'rgba(255,255,255,0.04)'}},
-        y:{
-          ticks:{color:'#7a8090',font:{size:9},callback:function(v){return v.toFixed(1);}},
-          grid:{color:'rgba(255,255,255,0.04)'},
-          position:'right'
-        }
-      }
-    }
-  });
+  var lineColor=trend?'#ef4444':'#22c55e';
+  vixChart=new Chart(ctx,{type:'line',data:{labels:labels,datasets:[{data:values,borderColor:lineColor,borderWidth:2,fill:true,backgroundColor:lineColor.replace(')',',0.08)').replace('rgb','rgba'),pointRadius:3,pointBackgroundColor:lineColor,tension:0.3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'#1e2226',titleColor:'#7a8090',bodyColor:'#e2e4e8',borderColor:'rgba(255,255,255,0.07)',borderWidth:1,callbacks:{label:function(ctx){return 'VIX: '+ctx.parsed.y.toFixed(2);}}}},scales:{x:{ticks:{color:'#7a8090',font:{size:9}},grid:{color:'rgba(255,255,255,0.04)'}},y:{ticks:{color:'#7a8090',font:{size:9},callback:function(v){return v.toFixed(1);}},grid:{color:'rgba(255,255,255,0.04)'},position:'right'}}}});
 }
-
 var LEVELS=[
   {ticker:'SPY',levels:[{t:'R2',p:755.00,cls:'lvl-r'},{t:'R1',p:747.50,cls:'lvl-r'},{t:'Pivot',p:739.17,cls:''},{t:'S1',p:732.00,cls:'lvl-s'},{t:'S2',p:724.50,cls:'lvl-s'}]},
   {ticker:'QQQ',levels:[{t:'R2',p:722.00,cls:'lvl-r'},{t:'R1',p:715.50,cls:'lvl-r'},{t:'Pivot',p:708.93,cls:''},{t:'S1',p:701.00,cls:'lvl-s'},{t:'S2',p:694.00,cls:'lvl-s'}]},
@@ -917,10 +694,7 @@ var LEVELS=[
 function renderLevels(){
   var g=document.getElementById('lvl-grid');if(!g)return;
   g.innerHTML=LEVELS.map(function(l){
-    var rows=l.levels.map(function(r){
-      return '<div class="lvl-row"><span class="lvl-type">'+r.t+'</span><span class="lvl-price '+r.cls+'">'+fmt(r.p,r.p>1000?0:2)+'</span></div>';
-    }).join('');
-    return '<div class="lvl-card"><div class="lvl-ticker">'+l.ticker+'</div>'+rows+'</div>';
+    return '<div class="lvl-card"><div class="lvl-ticker">'+l.ticker+'</div>'+l.levels.map(function(r){return '<div class="lvl-row"><span class="lvl-type">'+r.t+'</span><span class="lvl-price '+r.cls+'">'+fmt(r.p,r.p>1000?0:2)+'</span></div>';}).join('')+'</div>';
   }).join('');
 }
 function addLevel(){
@@ -928,18 +702,12 @@ function addLevel(){
   LEVELS.push({ticker:t.toUpperCase(),levels:[{t:'R1',p:0,cls:'lvl-r'},{t:'Pivot',p:0,cls:''},{t:'S1',p:0,cls:'lvl-s'}]});
   renderLevels();
 }
-
 function renderMacro(){
   var fg=document.getElementById('fx-grid');
-  if(fg)fg.innerHTML=FX_DATA.map(function(f){
-    return '<div class="macro-item"><div class="macro-label">'+f.label+'</div><div class="macro-value">'+f.value+'</div><div class="macro-chg" style="color:'+(f.up?'var(--up)':'var(--down)')+'">'+f.chg+'</div></div>';
-  }).join('');
+  if(fg)fg.innerHTML=FX_DATA.map(function(f){return '<div class="macro-item"><div class="macro-label">'+f.label+'</div><div class="macro-value">'+f.value+'</div><div class="macro-chg" style="color:'+(f.up?'var(--up)':'var(--down)')+'">'+f.chg+'</div></div>';}).join('');
   var yg=document.getElementById('yield-grid');
-  if(yg)yg.innerHTML=YIELDS.map(function(y){
-    return '<div class="macro-item"><div class="macro-label">'+y.label+'</div><div class="macro-value">'+y.value+'</div><div class="macro-chg" style="color:'+(y.up?'var(--up)':'var(--down)')+'">'+y.chg+'</div></div>';
-  }).join('');
+  if(yg)yg.innerHTML=YIELDS.map(function(y){return '<div class="macro-item"><div class="macro-label">'+y.label+'</div><div class="macro-value">'+y.value+'</div><div class="macro-chg" style="color:var(--text-muted)">'+y.chg+'</div></div>';}).join('');
 }
-
 var trades=[];
 function logTrade(){
   var ticker=document.getElementById('j-ticker').value.trim().toUpperCase();
@@ -954,23 +722,17 @@ function logTrade(){
   var pnl=(side==='Long'?exit-entry:entry-exit)*qty;
   var pct=(exit-entry)/entry*100*(side==='Long'?1:-1);
   trades.push({time:new Date().toLocaleTimeString(),ticker:ticker,mkt:mkt,side:side,entry:entry,exit:exit,qty:qty,pnl:pnl,pct:pct,cat:cat,notes:notes});
-  document.getElementById('j-ticker').value='';
-  document.getElementById('j-entry').value='';
-  document.getElementById('j-exit').value='';
-  document.getElementById('j-qty').value='';
-  document.getElementById('j-notes').value='';
+  ['j-ticker','j-entry','j-exit','j-qty','j-notes'].forEach(function(id){document.getElementById(id).value='';});
   renderJournal();
 }
 function renderJournal(){
-  var tbody=document.getElementById('journal-body');
-  var empty=document.getElementById('j-empty');
+  var tbody=document.getElementById('journal-body'),empty=document.getElementById('j-empty');
   if(!trades.length){if(tbody)tbody.innerHTML='';if(empty)empty.style.display='block';return;}
   if(empty)empty.style.display='none';
   var total=trades.reduce(function(a,t){return a+t.pnl;},0);
   var wins=trades.filter(function(t){return t.pnl>0;}).length;
   var losses=trades.filter(function(t){return t.pnl<0;}).length;
-  var tp=document.getElementById('pnl-total');
-  if(tp){tp.textContent=(total>=0?'+$':'-$')+Math.abs(total).toFixed(2);tp.style.color=total>=0?'var(--up)':'var(--down)';}
+  var tp=document.getElementById('pnl-total');if(tp){tp.textContent=(total>=0?'+$':'-$')+Math.abs(total).toFixed(2);tp.style.color=total>=0?'var(--up)':'var(--down)';}
   var wp=document.getElementById('pnl-wins');if(wp)wp.textContent=wins;
   var lp=document.getElementById('pnl-losses');if(lp)lp.textContent=losses;
   var wr=document.getElementById('pnl-wr');if(wr)wr.textContent=trades.length?(wins/trades.length*100).toFixed(0)+'%':'0%';
@@ -986,23 +748,16 @@ function exportCSV(){
   var blob=new Blob([hdr+rows],{type:'text/csv'});
   var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='trades_'+Date.now()+'.csv';a.click();
 }
-
-async function refreshAll(){
-  await loadLive();
-  await loadWatchlist();
-}
-
+async function refreshAll(){await loadLive();await loadWatchlist();}
 initFallback();
 renderCatalysts();
 renderCalendar();
 renderLevels();
 renderJournal();
 renderMacro();
-
-setTimeout(function(){
-  loadLive();
-  loadWatchlist();
-},1000);
+setTimeout(function(){loadLive();loadWatchlist();},1000);
 </script>
+<!-- Live data: Fear & Greed (CNN), Treasury Yields (US Treasury), Commodities (Yahoo Finance) -->
+<script src="live-data.js"></script>
 </body>
 </html>
