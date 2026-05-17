@@ -159,6 +159,13 @@ body{font-family:var(--font-body);font-size:var(--text-sm);color:var(--text);bac
 canvas{max-height:200px}
 .chart-wrap{position:relative;width:100%;height:180px}
 .table-wrap{width:100%;overflow-x:auto}
+.flag-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:16px;border-radius:3px;font-size:0.55rem;font-weight:800;letter-spacing:0.02em;color:#fff;flex-shrink:0}
+.flag-hk{background:#c00}
+.flag-cn{background:#de2910}
+.flag-jp{background:#bc002d}
+.flag-kr{background:#0047a0}
+.flag-gb{background:#012169}
+.flag-us{background:#3c3b6e}
 @media(max-width:900px){.grid-4{grid-template-columns:1fr 1fr}.mkt-grid{grid-template-columns:1fr 1fr}.comm-grid{grid-template-columns:1fr 1fr}.macro-grid{grid-template-columns:1fr 1fr}.grid-2-1{grid-template-columns:1fr}.grid-2{grid-template-columns:1fr}.lvl-grid{grid-template-columns:1fr 1fr}#sector-grid{grid-template-columns:repeat(3,1fr)}.form-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.comm-grid{grid-template-columns:1fr 1fr}#sector-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
@@ -332,13 +339,11 @@ canvas{max-height:200px}
 
 <script>
 // ===================== DATA =====================
-// FALLBACK: Verified close prices May 15, 2026
-// Used ONLY when ALL live API proxies fail for a KNOWN ticker.
-// Unknown tickers always show "--" (no fake prices).
 var FALLBACK={
   SPY:{c:739.17,d:-8.98,dp:-1.20},
   QQQ:{c:708.93,d:-10.87,dp:-1.51},
   DIA:{c:424.50,d:-4.57,dp:-1.07},
+  IWM:{c:204.35,d:-2.18,dp:-1.06},
   AAPL:{c:207.85,d:1.56,dp:0.76},
   MSFT:{c:449.26,d:-3.64,dp:-0.80},
   NVDA:{c:131.38,d:2.58,dp:2.00},
@@ -371,11 +376,6 @@ var FALLBACK={
 };
 
 // ===================== COMMODITIES =====================
-// All prices verified from May 15, 2026 closes:
-// WTI: Twelve Data $101.14 | Brent: Investing.com $109.26
-// Gold/Silver: GoldPrice.org close May 15 2026
-// Copper/Platinum/Palladium: Panorama Minero May 16 2026
-// Aluminum: LME ~$2,890/t converted
 var COMMODITIES=[
   {icon:'&#9981;',name:'WTI Crude',price:101.14,pct:-1.29,unit:'USD/bbl'},
   {icon:'&#9981;',name:'Brent Crude',price:109.26,pct:3.44,unit:'USD/bbl'},
@@ -387,16 +387,23 @@ var COMMODITIES=[
   {icon:'&#128295;',name:'Aluminum',price:2890,pct:0.77,unit:'USD/t'}
 ];
 
+// Flag badges using CSS classes (avoids iOS emoji rendering bugs for HK/regional flags)
+// flagHtml(cls, label) returns a small coloured badge
+function flagHtml(cls, label){
+  return '<span class="flag-badge '+cls+'">'+label+'</span>';
+}
+
 var MARKETS=[
-  {flag:'&#127464;&#127472;',name:'HSI',sym:'HSI'},
-  {flag:'&#127464;&#127472;',name:'HSTECH',sym:'HSTECH'},
-  {flag:'&#127464;&#127475;',name:'CSI 300',sym:'CSI300'},
-  {flag:'&#127471;&#127477;',name:'Nikkei',sym:'NI225'},
-  {flag:'&#127472;&#127479;',name:'KOSPI',sym:'KOSPI'},
-  {flag:'&#127468;&#127463;',name:'FTSE',sym:'FTSE'},
-  {flag:'&#127482;&#127480;',name:'SPY',sym:'SPY'},
-  {flag:'&#127482;&#127480;',name:'QQQ',sym:'QQQ'},
-  {flag:'&#127482;&#127480;',name:'DIA',sym:'DIA'}
+  {flagCls:'flag-hk',flagLbl:'HK',name:'HSI',sym:'HSI'},
+  {flagCls:'flag-hk',flagLbl:'HK',name:'HSTECH',sym:'HSTECH'},
+  {flagCls:'flag-cn',flagLbl:'CN',name:'CSI 300',sym:'CSI300'},
+  {flagCls:'flag-jp',flagLbl:'JP',name:'Nikkei',sym:'NI225'},
+  {flagCls:'flag-kr',flagLbl:'KR',name:'KOSPI',sym:'KOSPI'},
+  {flagCls:'flag-gb',flagLbl:'GB',name:'FTSE',sym:'FTSE'},
+  {flagCls:'flag-us',flagLbl:'US',name:'SPY',sym:'SPY'},
+  {flagCls:'flag-us',flagLbl:'US',name:'QQQ',sym:'QQQ'},
+  {flagCls:'flag-us',flagLbl:'US',name:'DIA',sym:'DIA'},
+  {flagCls:'flag-us',flagLbl:'US',name:'IWM (RUT)',sym:'IWM'}
 ];
 
 var FALLBACK_EXTRA={CSI300:{c:3912,d:-18,dp:-0.47}};
@@ -414,7 +421,6 @@ var FX_DATA=[
 
 // ===================== US TREASURY YIELDS =====================
 // Source: US Treasury Daily Par Yield Curve — May 15, 2026 close
-// 2Y: 4.14% | 5Y: 4.43% | 10Y: 4.59% | 30Y: 5.12%
 var YIELDS=[
   {label:'2Y',value:'4.14%',chg:'+0.05%',up:false},
   {label:'5Y',value:'4.43%',chg:'+0.08%',up:false},
@@ -459,7 +465,7 @@ var YF_PROXIES=[
 var YF_SYMBOL_MAP={
   HSI:'^HSI', HSTECH:'^HSTECH', NI225:'^N225', KOSPI:'^KS11',
   FTSE:'^FTSE', VIX:'^VIX', CSI300:'000300.SS',
-  DIA:'DIA', SPY:'SPY', QQQ:'QQQ'
+  DIA:'DIA', SPY:'SPY', QQQ:'QQQ', IWM:'IWM'
 };
 
 function yfSymbol(sym){
@@ -495,7 +501,7 @@ async function yfQuote(sym){
 }
 
 async function loadLive(){
-  var syms=['SPY','QQQ','DIA','HSI','NI225','KOSPI','FTSE','AAPL','NVDA','MSFT','TSLA','AMZN','META','AMD','VIX'];
+  var syms=['SPY','QQQ','DIA','IWM','HSI','NI225','KOSPI','FTSE','AAPL','NVDA','MSFT','TSLA','AMZN','META','AMD','VIX'];
   var anyLive=false;
   var results=await Promise.allSettled(syms.map(function(s){return yfQuote(s);}));
   results.forEach(function(r,i){
@@ -593,7 +599,7 @@ function renderMktGrid(){
   for(var i=0;i<MARKETS.length;i++){
     var m=MARKETS[i];
     var d=mdc[m.sym]||FALLBACK_EXTRA[m.sym]||{c:0,d:0,dp:0};
-    html+='<div class="mkt-card"><div style="display:flex;justify-content:space-between"><span style="font-size:1rem">'+m.flag+'</span><span class="mkt-name">'+m.name+'</span></div>';
+    html+='<div class="mkt-card"><div style="display:flex;justify-content:space-between;align-items:center">'+flagHtml(m.flagCls,m.flagLbl)+'<span class="mkt-name">'+m.name+'</span></div>';
     html+='<div class="mkt-price">'+(d.c>0?fmt(d.c):'--')+'</div>';
     html+='<div class="mkt-chg '+(d.dp>=0?'up':'down')+'">'+arr(d.dp)+' '+Math.abs(d.dp).toFixed(2)+'%</div></div>';
   }
@@ -661,14 +667,13 @@ function renderSectors(){
 }
 
 function buildTicker(){
-  var syms=['SPY','QQQ','DIA','VIX','AAPL','NVDA','MSFT','TSLA','AMZN','META'];
+  var syms=['SPY','QQQ','DIA','IWM','VIX','AAPL','NVDA','MSFT','TSLA','AMZN','META'];
   var items='';
   for(var i=0;i<syms.length;i++){
     var s=syms[i];var d=mdc[s]||FALLBACK[s]||{c:0,dp:0};var up=d.dp>=0;
     var price=d.c>0?Number(d.c).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}):'--';
     items+='<div class="ticker-item"><span class="ticker-name">'+s+'</span><span style="color:var(--text)">'+price+'</span><span class="ticker-chg '+(up?'up':'down')+'">'+arr(d.dp)+Math.abs(d.dp).toFixed(2)+'%</span></div>';
   }
-  // Updated commodity ticker strip with May 15 2026 verified prices
   var comm=['WTI:101.14:-1.29','Gold:4649.53:-1.02','Silver:83.40:-5.20'];
   for(var i=0;i<comm.length;i++){
     var p=comm[i].split(':');var up2=parseFloat(p[2])>=0;
