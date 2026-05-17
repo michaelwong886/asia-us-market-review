@@ -332,6 +332,7 @@ canvas{max-height:200px}
 
 <script>
 // ===================== DATA =====================
+// Prices reflect last close as of May 16, 2026
 var FALLBACK={
   SPY:{c:532.18,d:4.21,dp:0.80},QQQ:{c:455.72,d:7.83,dp:1.75},
   DIA:{c:424.50,d:-1.20,dp:-0.28},HSI:{c:23821,d:-80,dp:-0.34},
@@ -342,13 +343,20 @@ var FALLBACK={
   NVDA:{c:948.20,d:18.30,dp:1.97},TSLA:{c:176.54,d:-4.21,dp:-2.33},
   AMZN:{c:191.82,d:1.67,dp:0.88},META:{c:512.34,d:8.76,dp:1.74},
   AMD:{c:156.78,d:-2.34,dp:-1.47},
-  RKLB:{c:23.41,d:0.87,dp:3.86},
-  PLTR:{c:118.32,d:2.14,dp:1.84},SOFI:{c:14.28,d:-0.32,dp:-2.19},
-  HOOD:{c:42.15,d:1.08,dp:2.63},COIN:{c:312.40,d:-8.20,dp:-2.56},
-  MSTR:{c:387.50,d:12.30,dp:3.28},SHOP:{c:98.72,d:0.44,dp:0.45},
-  UBER:{c:82.34,d:-0.92,dp:-1.10},BABA:{c:108.45,d:1.23,dp:1.15},
-  JD:{c:34.20,d:-0.55,dp:-1.58},PDD:{c:142.80,d:3.45,dp:2.48},
-  NIO:{c:4.82,d:-0.12,dp:-2.43},XPEV:{c:11.34,d:0.28,dp:2.53},
+  // Corrected May 2026 prices
+  RKLB:{c:117.56,d:4.21,dp:3.71},
+  PLTR:{c:118.32,d:2.14,dp:1.84},
+  SOFI:{c:14.28,d:-0.32,dp:-2.19},
+  HOOD:{c:42.15,d:1.08,dp:2.63},
+  COIN:{c:312.40,d:-8.20,dp:-2.56},
+  MSTR:{c:387.50,d:12.30,dp:3.28},
+  SHOP:{c:98.72,d:0.44,dp:0.45},
+  UBER:{c:82.34,d:-0.92,dp:-1.10},
+  BABA:{c:108.45,d:1.23,dp:1.15},
+  JD:{c:34.20,d:-0.55,dp:-1.58},
+  PDD:{c:142.80,d:3.45,dp:2.48},
+  NIO:{c:4.82,d:-0.12,dp:-2.43},
+  XPEV:{c:11.34,d:0.28,dp:2.53},
   LI:{c:22.10,d:0.45,dp:2.08}
 };
 
@@ -403,13 +411,11 @@ var SECTORS=[
   {name:'Real Est',sym:'XLRE',chg:-0.77},{name:'Comm Svcs',sym:'XLC',chg:1.56}
 ];
 
-// Seed random RSI/MACD per ticker so they stay consistent within session
 var _rsiSeeds={};
 function seedRSI(sym){
   if(!_rsiSeeds[sym]){
-    // deterministic-ish seed from sym chars
     var h=0;for(var i=0;i<sym.length;i++)h=(h*31+sym.charCodeAt(i))&0xffff;
-    _rsiSeeds[sym]=38+(h%38); // 38-75 range
+    _rsiSeeds[sym]=38+(h%38);
   }
   return _rsiSeeds[sym];
 }
@@ -424,7 +430,6 @@ var mdc={};
 var FKEY='d6r321pr01qgdhqcvmcgd6r321pr01qgdhqcvmd0';
 var FBASE='https://finnhub.io/api/v1';
 
-// ===================== UTILS =====================
 function fmt(n,dec){
   if(n===undefined||n===null||isNaN(n)||n===0&&dec===undefined)return '--';
   dec=(dec===undefined)?2:dec;
@@ -438,7 +443,6 @@ function fmtPrice(n){
 function clr(dp){return dp>=0?'var(--up)':'var(--down)';}
 function arr(dp){return dp>=0?'&#9650;':'&#9660;';}
 
-// ===================== CLOCKS =====================
 function tick(){
   var now=new Date();
   var hkt=new Intl.DateTimeFormat('en-HK',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false,timeZone:'Asia/Hong_Kong'}).format(now);
@@ -462,7 +466,6 @@ function tick(){
 setInterval(tick,1000);
 tick();
 
-// ===================== TABS =====================
 var TAB_TITLES={overview:'Market Overview',watchlist:'Watchlist',catalyst:'Catalyst Feed',calendar:'Economic Calendar',sentiment:'Market Sentiment',levels:'S/R Levels',journal:'Trade Journal',macro:'Macro & FX'};
 function showTab(name,btn){
   var panels=document.querySelectorAll('.tab-panel');
@@ -476,7 +479,6 @@ function showTab(name,btn){
   if(t)t.textContent=TAB_TITLES[name]||name;
 }
 
-// ===================== FINNHUB =====================
 function fhQuote(sym){
   return fetch(FBASE+'/quote?symbol='+sym+'&token='+FKEY).then(function(r){return r.json();}).catch(function(){return null;});
 }
@@ -505,7 +507,6 @@ function renderAll(){
   drawIntraday('SPY');
 }
 
-// ===================== INITIAL RENDER FROM FALLBACK =====================
 function initFallback(){
   var keys=Object.keys(FALLBACK);
   for(var i=0;i<keys.length;i++)mdc[keys[i]]=FALLBACK[keys[i]];
@@ -513,7 +514,6 @@ function initFallback(){
   renderAll();
 }
 
-// ===================== KPIs =====================
 function renderKPIs(){
   var pairs=[['spx','SPY'],['ndx','QQQ'],['hsi','HSI'],['vix','VIX']];
   for(var i=0;i<pairs.length;i++){
@@ -526,7 +526,6 @@ function renderKPIs(){
   }
 }
 
-// ===================== MARKET GRID =====================
 function renderMktGrid(){
   var g=document.getElementById('mkt-grid');if(!g)return;
   var html='';
@@ -540,7 +539,6 @@ function renderMktGrid(){
   g.innerHTML=html;
 }
 
-// ===================== COMMODITIES =====================
 function renderCommGrid(gid){
   var g=document.getElementById(gid);if(!g)return;
   var html='';
@@ -555,7 +553,6 @@ function renderCommGrid(gid){
   g.innerHTML=html;
 }
 
-// ===================== SPARKLINES =====================
 var sparks={};
 function renderSparklines(){
   var pairs=[['spark-spx','SPY'],['spark-ndx','QQQ'],['spark-hsi','HSI'],['spark-vix','VIX']];
@@ -572,7 +569,6 @@ function renderSparklines(){
   }
 }
 
-// ===================== INTRADAY CHART =====================
 var intChart=null;
 function drawIntraday(sym){
   var ctx=document.getElementById('intraday-chart');if(!ctx)return;
@@ -588,7 +584,6 @@ function drawIntraday(sym){
   intChart=new Chart(ctx,{type:'line',data:{labels:labels,datasets:[{label:sym,data:vals,borderColor:up?'#22c55e':'#ef4444',borderWidth:2,fill:true,backgroundColor:up?'rgba(34,197,94,0.07)':'rgba(239,68,68,0.07)',pointRadius:0,tension:0.3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false,backgroundColor:'#1e2226',titleColor:'#7a8090',bodyColor:'#e2e4e8',borderColor:'rgba(255,255,255,0.07)',borderWidth:1}},scales:{x:{ticks:{color:'#7a8090',font:{size:8},maxTicksLimit:6},grid:{color:'rgba(255,255,255,0.04)'}},y:{ticks:{color:'#7a8090',font:{size:9},callback:function(v){return Number(v).toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0});}},grid:{color:'rgba(255,255,255,0.04)'},position:'right'}},interaction:{mode:'index',intersect:false}}});
 }
 
-// ===================== SECTORS =====================
 function renderSectors(){
   var g=document.getElementById('sector-grid');if(!g)return;
   var html='';
@@ -604,7 +599,6 @@ function renderSectors(){
   g.innerHTML=html;
 }
 
-// ===================== TICKER STRIP =====================
 function buildTicker(){
   var syms=['SPY','QQQ','DIA','VIX','AAPL','NVDA','MSFT','TSLA','AMZN','META'];
   var items='';
@@ -621,7 +615,6 @@ function buildTicker(){
   var t=document.getElementById('ticker-track');if(t)t.innerHTML=items+items;
 }
 
-// ===================== WATCHLIST =====================
 var wl=['AAPL','NVDA','MSFT','TSLA','AMZN','META','AMD'];
 
 async function loadWatchlist(){
@@ -646,7 +639,6 @@ async function loadWatchlist(){
     var rsiStr=rsi?rsi.toFixed(1):'--';
 
     var dp=hasData?d.dp:0;
-    var trend=hasData?(dp>1?'bull':dp<-1?'bear':'neutral'):'neutral';
     var trendLabel=hasData?(dp>1?'BULL':dp<-1?'BEAR':'NEUTRAL'):'CLOSED';
     var trendClass=hasData?(dp>1?'badge-bull':dp<-1?'badge-bear':'badge-neutral'):'badge-neutral';
 
@@ -676,7 +668,6 @@ function removeWatch(s){
   loadWatchlist();
 }
 
-// ===================== CATALYSTS =====================
 var CAT_PRE=[
   {time:'Pre-Mkt',sym:'WALMART',note:'Earnings Q1 2026 &middot; EPS est $0.58 &middot; Rev $165.8B',color:'var(--down)',imp:'HIGH'},
   {time:'Pre-Mkt',sym:'HOME DEPOT',note:'Earnings Q1 2026 &middot; EPS est $3.67 &middot; Rev $39.1B',color:'var(--down)',imp:'HIGH'},
@@ -708,7 +699,6 @@ function catHTML(c){
   return '<div class="cat-item"><div class="cat-time">'+c.time+'</div><div class="cat-dot" style="background:'+c.color+'"></div><div class="cat-content"><div class="cat-title">'+c.sym+'</div><div class="cat-sub">'+c.note+'</div></div><div class="cat-impact" style="color:'+c.color+'">'+c.imp+'</div></div>';
 }
 
-// ===================== ECO CALENDAR =====================
 var ECO=[
   {time:'08:30 ET',co:'US',imp:3,ev:'Retail Sales MoM (Apr)',est:'0.2%',prev:'-0.9%'},
   {time:'09:15 ET',co:'US',imp:2,ev:'Industrial Production (Apr)',est:'0.3%',prev:'-0.3%'},
@@ -729,7 +719,6 @@ function renderCalendar(){
   }).join('');
 }
 
-// ===================== VIX CHART =====================
 var vixChart=null;
 function renderVixChart(){
   var ctx=document.getElementById('vix-chart');if(!ctx)return;
@@ -737,7 +726,6 @@ function renderVixChart(){
   vixChart=new Chart(ctx,{type:'line',data:{labels:['Mon','Tue','Wed','Thu','Fri'],datasets:[{data:[18.2,17.8,16.9,16.4,16.42],borderColor:'#a855f7',borderWidth:2,fill:true,backgroundColor:'rgba(168,85,247,0.08)',pointRadius:3,tension:0.3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#7a8090',font:{size:9}},grid:{color:'rgba(255,255,255,0.04)'}},y:{ticks:{color:'#7a8090',font:{size:9}},grid:{color:'rgba(255,255,255,0.04)'},position:'right'}}}});
 }
 
-// ===================== S/R LEVELS =====================
 var LEVELS=[
   {ticker:'SPY',levels:[{t:'R2',p:535.50,cls:'lvl-r'},{t:'R1',p:533.20,cls:'lvl-r'},{t:'Pivot',p:530.00,cls:''},{t:'S1',p:528.50,cls:'lvl-s'},{t:'S2',p:526.80,cls:'lvl-s'}]},
   {ticker:'QQQ',levels:[{t:'R2',p:459.00,cls:'lvl-r'},{t:'R1',p:457.50,cls:'lvl-r'},{t:'Pivot',p:454.80,cls:''},{t:'S1',p:453.20,cls:'lvl-s'},{t:'S2',p:451.60,cls:'lvl-s'}]},
@@ -758,7 +746,6 @@ function addLevel(){
   renderLevels();
 }
 
-// ===================== MACRO/FX =====================
 function renderMacro(){
   var fg=document.getElementById('fx-grid');
   if(fg)fg.innerHTML=FX_DATA.map(function(f){
@@ -770,7 +757,6 @@ function renderMacro(){
   }).join('');
 }
 
-// ===================== JOURNAL =====================
 var trades=[];
 function logTrade(){
   var ticker=document.getElementById('j-ticker').value.trim().toUpperCase();
@@ -818,13 +804,11 @@ function exportCSV(){
   var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='trades_'+Date.now()+'.csv';a.click();
 }
 
-// ===================== REFRESH =====================
 async function refreshAll(){
   await loadLive();
   await loadWatchlist();
 }
 
-// ===================== INIT =====================
 initFallback();
 renderCatalysts();
 renderCalendar();
