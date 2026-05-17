@@ -341,7 +341,15 @@ var FALLBACK={
   AAPL:{c:195.23,d:1.45,dp:0.75},MSFT:{c:421.67,d:-3.42,dp:-0.81},
   NVDA:{c:948.20,d:18.30,dp:1.97},TSLA:{c:176.54,d:-4.21,dp:-2.33},
   AMZN:{c:191.82,d:1.67,dp:0.88},META:{c:512.34,d:8.76,dp:1.74},
-  AMD:{c:156.78,d:-2.34,dp:-1.47}
+  AMD:{c:156.78,d:-2.34,dp:-1.47},
+  RKLB:{c:23.41,d:0.87,dp:3.86},
+  PLTR:{c:118.32,d:2.14,dp:1.84},SOFI:{c:14.28,d:-0.32,dp:-2.19},
+  HOOD:{c:42.15,d:1.08,dp:2.63},COIN:{c:312.40,d:-8.20,dp:-2.56},
+  MSTR:{c:387.50,d:12.30,dp:3.28},SHOP:{c:98.72,d:0.44,dp:0.45},
+  UBER:{c:82.34,d:-0.92,dp:-1.10},BABA:{c:108.45,d:1.23,dp:1.15},
+  JD:{c:34.20,d:-0.55,dp:-1.58},PDD:{c:142.80,d:3.45,dp:2.48},
+  NIO:{c:4.82,d:-0.12,dp:-2.43},XPEV:{c:11.34,d:0.28,dp:2.53},
+  LI:{c:22.10,d:0.45,dp:2.08}
 };
 
 var COMMODITIES=[
@@ -395,19 +403,40 @@ var SECTORS=[
   {name:'Real Est',sym:'XLRE',chg:-0.77},{name:'Comm Svcs',sym:'XLC',chg:1.56}
 ];
 
+// Seed random RSI/MACD per ticker so they stay consistent within session
+var _rsiSeeds={};
+function seedRSI(sym){
+  if(!_rsiSeeds[sym]){
+    // deterministic-ish seed from sym chars
+    var h=0;for(var i=0;i<sym.length;i++)h=(h*31+sym.charCodeAt(i))&0xffff;
+    _rsiSeeds[sym]=38+(h%38); // 38-75 range
+  }
+  return _rsiSeeds[sym];
+}
+function seedMACD(sym){
+  var r=seedRSI(sym);
+  if(r>65)return 'Bull';
+  if(r<45)return 'Bear';
+  return 'Neutral';
+}
+
 var mdc={};
 var FKEY='d6r321pr01qgdhqcvmcgd6r321pr01qgdhqcvmd0';
 var FBASE='https://finnhub.io/api/v1';
 
 // ===================== UTILS =====================
 function fmt(n,dec){
-  if(n===undefined||n===null||isNaN(n))return '--';
+  if(n===undefined||n===null||isNaN(n)||n===0&&dec===undefined)return '--';
   dec=(dec===undefined)?2:dec;
+  if(n===0)return '--';
   return Number(n).toLocaleString('en-US',{minimumFractionDigits:dec,maximumFractionDigits:dec});
+}
+function fmtPrice(n){
+  if(n===undefined||n===null||isNaN(n)||n===0)return '--';
+  return Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
 }
 function clr(dp){return dp>=0?'var(--up)':'var(--down)';}
 function arr(dp){return dp>=0?'&#9650;':'&#9660;';}
-function badge(dp){return dp>=0?'up':'down';}
 
 // ===================== CLOCKS =====================
 function tick(){
@@ -418,8 +447,6 @@ function tick(){
   var nye=document.getElementById('clock-ny');
   if(hke)hke.innerHTML='&#127464;&#127472; HKT '+hkt;
   if(nye)nye.innerHTML='&#127482;&#127480; ET '+et;
-  var sbt=document.getElementById('sidebar-time');
-  if(sbt)sbt.textContent=hkt;
   var etH=parseInt(et.split(':')[0]),etM=parseInt(et.split(':')[1]);
   var etMin=etH*60+etM,hktH=parseInt(hkt.split(':')[0]);
   var chips=document.getElementById('session-chips');
@@ -480,7 +507,6 @@ function renderAll(){
 
 // ===================== INITIAL RENDER FROM FALLBACK =====================
 function initFallback(){
-  // Pre-populate mdc from fallback
   var keys=Object.keys(FALLBACK);
   for(var i=0;i<keys.length;i++)mdc[keys[i]]=FALLBACK[keys[i]];
   mdc.CSI300=FALLBACK_EXTRA.CSI300;
@@ -495,7 +521,7 @@ function renderKPIs(){
     var d=mdc[sym];if(!d)continue;
     var ve=document.getElementById('kpi-'+id);
     var de=document.getElementById('kpi-'+id+'-d');
-    if(ve)ve.textContent=fmt(d.c);
+    if(ve)ve.textContent=d.c>0?fmt(d.c):'--';
     if(de){de.className='kpi-delta '+(d.dp>=0?'up':'down');de.innerHTML=arr(d.dp)+' '+Math.abs(d.dp).toFixed(2)+'%';}
   }
 }
@@ -508,7 +534,7 @@ function renderMktGrid(){
     var m=MARKETS[i];
     var d=mdc[m.sym]||FALLBACK_EXTRA[m.sym]||{c:0,d:0,dp:0};
     html+='<div class="mkt-card"><div style="display:flex;justify-content:space-between"><span style="font-size:1rem">'+m.flag+'</span><span class="mkt-name">'+m.name+'</span></div>';
-    html+='<div class="mkt-price">'+fmt(d.c)+'</div>';
+    html+='<div class="mkt-price">'+(d.c>0?fmt(d.c):'--')+'</div>';
     html+='<div class="mkt-chg '+(d.dp>=0?'up':'down')+'">'+arr(d.dp)+' '+Math.abs(d.dp).toFixed(2)+'%</div></div>';
   }
   g.innerHTML=html;
@@ -538,7 +564,7 @@ function renderSparklines(){
     var ctx=document.getElementById(id);if(!ctx)continue;
     var d=mdc[sym]||{c:100,dp:0.5};
     var dir=d.dp>=0?1:-1;
-    var data=[],base=d.c;
+    var data=[],base=d.c>0?d.c:100;
     for(var j=0;j<12;j++)data.push(base+dir*Math.random()*base*0.005*j);
     var color=d.dp>=0?'#22c55e':'#ef4444';
     if(sparks[id])sparks[id].destroy();
@@ -550,7 +576,7 @@ function renderSparklines(){
 var intChart=null;
 function drawIntraday(sym){
   var ctx=document.getElementById('intraday-chart');if(!ctx)return;
-  var d=mdc[sym]||{c:530,dp:0.8};var base=d.c*0.994;
+  var d=mdc[sym]||FALLBACK[sym]||{c:530,dp:0.8};var base=d.c*0.994;
   var labels=[],vals=[];
   for(var i=0;i<78;i++){
     labels.push((9+Math.floor((i*5+30)/60))+':'+(('0'+((i*5+30)%60)).slice(-2)));
@@ -559,7 +585,7 @@ function drawIntraday(sym){
   vals[77]=d.c;
   var up=d.dp>=0;
   if(intChart)intChart.destroy();
-  intChart=new Chart(ctx,{type:'line',data:{labels:labels,datasets:[{label:sym,data:vals,borderColor:up?'#22c55e':'#ef4444',borderWidth:2,fill:true,backgroundColor:up?'rgba(34,197,94,0.07)':'rgba(239,68,68,0.07)',pointRadius:0,tension:0.3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false,backgroundColor:'#1e2226',titleColor:'#7a8090',bodyColor:'#e2e4e8',borderColor:'rgba(255,255,255,0.07)',borderWidth:1}},scales:{x:{ticks:{color:'#7a8090',font:{size:8},maxTicksLimit:6},grid:{color:'rgba(255,255,255,0.04)'}},y:{ticks:{color:'#7a8090',font:{size:9},callback:function(v){return fmt(v,0);}},grid:{color:'rgba(255,255,255,0.04)'},position:'right'}},interaction:{mode:'index',intersect:false}}});
+  intChart=new Chart(ctx,{type:'line',data:{labels:labels,datasets:[{label:sym,data:vals,borderColor:up?'#22c55e':'#ef4444',borderWidth:2,fill:true,backgroundColor:up?'rgba(34,197,94,0.07)':'rgba(239,68,68,0.07)',pointRadius:0,tension:0.3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false,backgroundColor:'#1e2226',titleColor:'#7a8090',bodyColor:'#e2e4e8',borderColor:'rgba(255,255,255,0.07)',borderWidth:1}},scales:{x:{ticks:{color:'#7a8090',font:{size:8},maxTicksLimit:6},grid:{color:'rgba(255,255,255,0.04)'}},y:{ticks:{color:'#7a8090',font:{size:9},callback:function(v){return Number(v).toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0});}},grid:{color:'rgba(255,255,255,0.04)'},position:'right'}},interaction:{mode:'index',intersect:false}}});
 }
 
 // ===================== SECTORS =====================
@@ -584,7 +610,8 @@ function buildTicker(){
   var items='';
   for(var i=0;i<syms.length;i++){
     var s=syms[i];var d=mdc[s]||FALLBACK[s]||{c:0,dp:0};var up=d.dp>=0;
-    items+='<div class="ticker-item"><span class="ticker-name">'+s+'</span><span style="color:var(--text)">'+fmt(d.c)+'</span><span class="ticker-chg '+(up?'up':'down')+'">'+arr(d.dp)+Math.abs(d.dp).toFixed(2)+'%</span></div>';
+    var price=d.c>0?Number(d.c).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}):'--';
+    items+='<div class="ticker-item"><span class="ticker-name">'+s+'</span><span style="color:var(--text)">'+price+'</span><span class="ticker-chg '+(up?'up':'down')+'">'+arr(d.dp)+Math.abs(d.dp).toFixed(2)+'%</span></div>';
   }
   var comm=['WTI:79.42:-1.08','Gold:3245.80:+0.38','Silver:32.64:+0.87'];
   for(var i=0;i<comm.length;i++){
@@ -596,8 +623,7 @@ function buildTicker(){
 
 // ===================== WATCHLIST =====================
 var wl=['AAPL','NVDA','MSFT','TSLA','AMZN','META','AMD'];
-var RSI_DATA={AAPL:62.3,NVDA:71.8,MSFT:55.4,TSLA:44.2,AMZN:58.9,META:68.1,AMD:48.7};
-var MACD_DATA={AAPL:'Bull',NVDA:'Bull',MSFT:'Neutral',TSLA:'Bear',AMZN:'Bull',META:'Bull',AMD:'Bear'};
+
 async function loadWatchlist(){
   var tbody=document.getElementById('watch-body');if(!tbody)return;
   var results=await Promise.allSettled(wl.map(function(s){return fhQuote(s);}));
@@ -605,21 +631,39 @@ async function loadWatchlist(){
   for(var i=0;i<wl.length;i++){
     var sym=wl[i];
     var r=results[i];
-    var d=(r.status==='fulfilled'&&r.value&&r.value.c>0)?r.value:(FALLBACK[sym]||{c:0,d:0,dp:0});
-    var rsi=RSI_DATA[sym]||(45+Math.random()*25).toFixed(1);
-    var macd=MACD_DATA[sym]||'Neutral';
-    var rsiClass=rsi>70?'td-down':rsi<30?'td-up':'';
-    var trend=d.dp>1?'bull':d.dp<-1?'bear':'neutral';
-    html+='<tr><td class="td-ticker">'+sym+'</td><td style="font-family:var(--font-mono)">'+fmt(d.c)+'</td>';
-    html+='<td class="'+(d.dp>=0?'td-up':'td-down')+'">'+arr(d.dp)+fmt(Math.abs(d.d))+'</td>';
-    html+='<td class="'+(d.dp>=0?'td-up':'td-down')+'">'+(d.dp>=0?'+':'')+fmt(d.dp)+'%</td>';
-    html+='<td class="'+rsiClass+'" style="font-family:var(--font-mono)">'+parseFloat(rsi).toFixed(1)+'</td>';
+    var live=(r.status==='fulfilled'&&r.value&&r.value.c>0);
+    var d=live?r.value:(FALLBACK[sym]||null);
+    var hasData=d&&d.c>0;
+
+    var priceStr=hasData?fmtPrice(d.c):'--';
+    var chgStr=hasData?(arr(d.dp)+fmtPrice(Math.abs(d.d||0))):'--';
+    var pctStr=hasData?((d.dp>=0?'+':'')+Number(d.dp).toFixed(2)+'%'):'--';
+    var chgClass=hasData?(d.dp>=0?'td-up':'td-down'):'td-neutral';
+
+    var rsi=hasData?seedRSI(sym):null;
+    var macd=hasData?seedMACD(sym):'--';
+    var rsiClass=rsi?(rsi>70?'td-down':rsi<30?'td-up':''):'td-neutral';
+    var rsiStr=rsi?rsi.toFixed(1):'--';
+
+    var dp=hasData?d.dp:0;
+    var trend=hasData?(dp>1?'bull':dp<-1?'bear':'neutral'):'neutral';
+    var trendLabel=hasData?(dp>1?'BULL':dp<-1?'BEAR':'NEUTRAL'):'CLOSED';
+    var trendClass=hasData?(dp>1?'badge-bull':dp<-1?'badge-bear':'badge-neutral'):'badge-neutral';
+
+    html+='<tr>';
+    html+='<td class="td-ticker">'+sym+'</td>';
+    html+='<td style="font-family:var(--font-mono)">'+priceStr+'</td>';
+    html+='<td class="'+chgClass+'">'+chgStr+'</td>';
+    html+='<td class="'+chgClass+'">'+pctStr+'</td>';
+    html+='<td class="'+rsiClass+'" style="font-family:var(--font-mono)">'+rsiStr+'</td>';
     html+='<td><span class="badge badge-'+(macd==='Bull'?'bull':macd==='Bear'?'bear':'neutral')+'">'+macd+'</span></td>';
-    html+='<td><span class="badge badge-'+trend+'">'+trend.toUpperCase()+'</span></td>';
-    html+='<td><button class="btn-sm" style="padding:2px 4px;font-size:0.58rem;color:var(--down)" onclick="removeWatch(\'' +sym+ '\')" >&#x2715;</button></td></tr>';
+    html+='<td><span class="badge '+trendClass+'">'+trendLabel+'</span></td>';
+    html+='<td><button class="btn-sm" style="padding:2px 4px;font-size:0.58rem;color:var(--down)" onclick="removeWatch(\''+sym+'\')" >&#x2715;</button></td>';
+    html+='</tr>';
   }
   tbody.innerHTML=html;
 }
+
 async function addWatch(){
   var inp=document.getElementById('add-ticker');
   var s=inp.value.trim().toUpperCase();
@@ -657,8 +701,8 @@ function renderCatalysts(){
   var e=document.getElementById('earnings-body');
   if(p)p.innerHTML=CAT_PRE.map(function(c){return catHTML(c);}).join('');
   if(a)a.innerHTML=CAT_AH.map(function(c){return catHTML(c);}).join('');
-  if(m)m.innerHTML=CAT_PRE.slice(0,3).map(function(c){'<div class="cat-item"><div class="cat-dot" style="background:'+c.color+'"></div><div class="cat-content"><div class="cat-title">'+c.sym+'</div><div class="cat-sub">'+c.note+'</div></div></div>';return '<div class="cat-item"><div class="cat-dot" style="background:'+c.color+'"></div><div class="cat-content"><div class="cat-title">'+c.sym+'</div><div class="cat-sub">'+c.note+'</div></div></div>';}).join('');
-  if(e)e.innerHTML=EARNINGS.map(function(e){return '<tr><td>'+e.date+'</td><td class="td-ticker">'+e.ticker+'</td><td>'+e.co+'</td><td class="td-neutral">'+e.time+'</td><td style="font-family:var(--font-mono)">'+e.eps+'</td><td style="font-family:var(--font-mono)">'+e.rev+'</td><td><span class="badge badge-'+(e.imp==='HIGH'?'bear':'warn')+'">'+e.imp+'</span></td></tr>';}).join('');
+  if(m)m.innerHTML=CAT_PRE.slice(0,3).map(function(c){return '<div class="cat-item"><div class="cat-dot" style="background:'+c.color+'"></div><div class="cat-content"><div class="cat-title">'+c.sym+'</div><div class="cat-sub">'+c.note+'</div></div></div>';}).join('');
+  if(e)e.innerHTML=EARNINGS.map(function(ei){return '<tr><td>'+ei.date+'</td><td class="td-ticker">'+ei.ticker+'</td><td>'+ei.co+'</td><td class="td-neutral">'+ei.time+'</td><td style="font-family:var(--font-mono)">'+ei.eps+'</td><td style="font-family:var(--font-mono)">'+ei.rev+'</td><td><span class="badge badge-'+(ei.imp==='HIGH'?'bear':'warn')+'">'+ei.imp+'</span></td></tr>';}).join('');
 }
 function catHTML(c){
   return '<div class="cat-item"><div class="cat-time">'+c.time+'</div><div class="cat-dot" style="background:'+c.color+'"></div><div class="cat-content"><div class="cat-title">'+c.sym+'</div><div class="cat-sub">'+c.note+'</div></div><div class="cat-impact" style="color:'+c.color+'">'+c.imp+'</div></div>';
@@ -762,7 +806,7 @@ function renderJournal(){
   var lp=document.getElementById('pnl-losses');if(lp)lp.textContent=losses;
   var wr=document.getElementById('pnl-wr');if(wr)wr.textContent=trades.length?(wins/trades.length*100).toFixed(0)+'%':'0%';
   if(tbody)tbody.innerHTML=trades.map(function(t,i){
-    return '<tr><td class="td-neutral">'+t.time+'</td><td class="td-ticker">'+t.ticker+'</td><td class="td-neutral">'+t.mkt+'</td><td><span class="badge badge-'+(t.side==='Long'?'bull':'bear')+'">'+t.side+'</span></td><td style="font-family:var(--font-mono)">'+fmt(t.entry)+'</td><td style="font-family:var(--font-mono)">'+fmt(t.exit)+'</td><td style="font-family:var(--font-mono)">'+t.qty+'</td><td class="'+(t.pnl>=0?'td-up':'td-down')+'">'+(t.pnl>=0?'+$':'-$')+Math.abs(t.pnl).toFixed(2)+'</td><td class="'+(t.pct>=0?'td-up':'td-down')+'">'+(t.pct>=0?'+':'')+t.pct.toFixed(2)+'%</td><td class="td-neutral">'+t.cat+'</td><td class="td-neutral">'+t.notes+'</td><td><button class="btn-sm" style="padding:2px 4px;font-size:0.58rem;color:var(--down)" onclick="removeTrade('+i+')">&#x2715;</button></td></tr>';
+    return '<tr><td class="td-neutral">'+t.time+'</td><td class="td-ticker">'+t.ticker+'</td><td class="td-neutral">'+t.mkt+'</td><td><span class="badge badge-'+(t.side==='Long'?'bull':'bear')+'">'+t.side+'</span></td><td style="font-family:var(--font-mono)">'+fmtPrice(t.entry)+'</td><td style="font-family:var(--font-mono)">'+fmtPrice(t.exit)+'</td><td style="font-family:var(--font-mono)">'+t.qty+'</td><td class="'+(t.pnl>=0?'td-up':'td-down')+'">'+(t.pnl>=0?'+$':'-$')+Math.abs(t.pnl).toFixed(2)+'</td><td class="'+(t.pct>=0?'td-up':'td-down')+'">'+(t.pct>=0?'+':'')+t.pct.toFixed(2)+'%</td><td class="td-neutral">'+t.cat+'</td><td class="td-neutral">'+t.notes+'</td><td><button class="btn-sm" style="padding:2px 4px;font-size:0.58rem;color:var(--down)" onclick="removeTrade('+i+')">&#x2715;</button></td></tr>';
   }).join('');
 }
 function removeTrade(i){trades.splice(i,1);renderJournal();}
@@ -781,7 +825,6 @@ async function refreshAll(){
 }
 
 // ===================== INIT =====================
-// Run synchronously on script execute (no DOMContentLoaded wait needed since script is at end of body)
 initFallback();
 renderCatalysts();
 renderCalendar();
@@ -790,7 +833,6 @@ renderJournal();
 renderMacro();
 renderVixChart();
 
-// Load live data after short delay
 setTimeout(function(){
   loadLive();
   loadWatchlist();
