@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-23T11:44:53.367700+00:00",
-  "generated_at_hkt": "2026-06-23 19:44 HKT",
+  "generated_at": "2026-06-23T15:43:33.921799+00:00",
+  "generated_at_hkt": "2026-06-23 23:43 HKT",
   "indices": {
     "HK": {
       "label": "Hong Kong",
@@ -57,15 +57,15 @@
       "primary": {
         "name": "KOSPI",
         "ticker": "^KS11",
-        "close": 8203.84,
-        "pct_change": -9.99,
+        "close": NaN,
+        "pct_change": NaN,
         "volume_fmt": "₩0.0T"
       },
       "secondary": {
         "name": "KOSDAQ",
         "ticker": "^KQ11",
-        "close": 891.52,
-        "pct_change": -7.94,
+        "close": NaN,
+        "pct_change": NaN,
         "volume_fmt": "₩0.0T"
       },
       "sparkline": [
@@ -73,7 +73,7 @@
         9063.84,
         9052.42,
         9114.55,
-        8203.84
+        NaN
       ]
     },
     "JP": {
@@ -82,8 +82,8 @@
       "primary": {
         "name": "Nikkei 225",
         "ticker": "^N225",
-        "close": 69788.38,
-        "pct_change": -3.55,
+        "close": 72353.96,
+        "pct_change": 1.55,
         "volume_fmt": "¥0.0T"
       },
       "secondary": {
@@ -97,8 +97,7 @@
         69902.25,
         71053.49,
         71250.06,
-        72353.96,
-        69788.38
+        72353.96
       ]
     },
     "US": {
@@ -107,30 +106,30 @@
       "primary": {
         "name": "S&P 500",
         "ticker": "^GSPC",
-        "close": 7472.79,
-        "pct_change": -0.37,
-        "volume_fmt": "$6.0B"
+        "close": 7378.01,
+        "pct_change": -1.27,
+        "volume_fmt": "$1.1B"
       },
       "secondary": {
         "name": "NASDAQ",
         "ticker": "^IXIC",
-        "close": 26166.6,
-        "pct_change": -1.32,
-        "volume_fmt": "$12.8B"
+        "close": 25667.37,
+        "pct_change": -1.91,
+        "volume_fmt": "$5.3B"
       },
       "tertiary": {
         "name": "Dow Jones",
         "ticker": "^DJI",
-        "close": 51712.71,
-        "pct_change": 0.29,
-        "volume_fmt": "$0.5B"
+        "close": 51686.39,
+        "pct_change": -0.05,
+        "volume_fmt": "$0.2B"
       },
       "sparkline": [
-        7554.29,
         7511.35,
         7420.1,
         7500.58,
-        7472.79
+        7472.79,
+        7378.01
       ]
     }
   },
@@ -138,76 +137,76 @@
     "AI / Chips": {
       "anchor": "SOXX",
       "markets": "US/HK/KR",
-      "close": 655.01,
-      "pct_change": 2.43
+      "close": 605.15,
+      "pct_change": -7.61
     },
     "CN Internet": {
       "anchor": "KWEB",
       "markets": "HK/CN",
-      "close": 25.05,
-      "pct_change": -0.75
+      "close": 24.4,
+      "pct_change": -2.58
     },
     "EV / Battery": {
       "anchor": "LIT",
       "markets": "CN/US",
-      "close": 82.57,
-      "pct_change": 0.51
+      "close": 78.65,
+      "pct_change": -4.75
     },
     "Robotics": {
       "anchor": "ROBO",
       "markets": "JP/CN",
-      "close": 86.65,
-      "pct_change": 0.76
+      "close": 82.91,
+      "pct_change": -4.32
     },
     "Clean Energy": {
       "anchor": "ICLN",
       "markets": "US/CN",
-      "close": 21.63,
-      "pct_change": 2.51
+      "close": 20.81,
+      "pct_change": -3.81
     },
     "Biotech": {
       "anchor": "XBI",
       "markets": "US/HK/KR",
-      "close": 145.86,
-      "pct_change": 3.75
+      "close": 147.4,
+      "pct_change": 1.06
     },
     "Financials": {
       "anchor": "XLF",
       "markets": "US/HK/KR",
-      "close": 53.7,
-      "pct_change": 0.59
+      "close": 53.92,
+      "pct_change": 0.4
     },
     "Defence": {
       "anchor": "ITA",
       "markets": "US/KR",
-      "close": 235.51,
-      "pct_change": -1.46
+      "close": 235.75,
+      "pct_change": 0.1
     }
   },
   "fx": {
     "USD/HKD": {
       "rate": 7.84,
-      "pct_change": 0.04
+      "pct_change": 0.05
     },
     "USD/CNY": {
-      "rate": 6.77,
-      "pct_change": 0.07
+      "rate": 6.79,
+      "pct_change": 0.31
     },
     "USD/KRW": {
-      "rate": 1535.72,
-      "pct_change": 0.29
+      "rate": 1532.38,
+      "pct_change": 0.07
     },
     "USD/JPY": {
-      "rate": 161.57,
-      "pct_change": 0.09
+      "rate": 161.53,
+      "pct_change": 0.06
     },
     "EUR/USD": {
       "rate": 1.14,
-      "pct_change": -0.58
+      "pct_change": -0.71
     },
     "DXY": {
-      "rate": 101.27,
-      "pct_change": 0.24
+      "rate": 101.34,
+      "pct_change": 0.32
     }
   },
   "movers": {
@@ -312,96 +311,96 @@
     "US": {
       "gainers": [
         {
-          "ticker": "SMCI",
-          "close": 35.46,
-          "pct_change": 15.66,
-          "volume": 127685700,
-          "volume_fmt": "$128M",
-          "longName": "Super Micro Computer, Inc.",
-          "industry": "Computer Hardware"
+          "ticker": "IBM",
+          "close": 263.65,
+          "pct_change": 4.53,
+          "volume": 7956095,
+          "volume_fmt": "$8M",
+          "longName": "International Business Machines Corporation",
+          "industry": "Information Technology Services"
         },
         {
-          "ticker": "MU",
-          "close": 1211.38,
-          "pct_change": 6.82,
-          "volume": 52572500,
-          "volume_fmt": "$53M",
-          "longName": "Micron Technology, Inc.",
-          "industry": "Semiconductors"
+          "ticker": "NOW",
+          "close": 96.43,
+          "pct_change": 3.68,
+          "volume": 13831994,
+          "volume_fmt": "$14M",
+          "longName": "ServiceNow, Inc.",
+          "industry": "Software - Application"
         },
         {
-          "ticker": "ABBV",
-          "close": 230.01,
-          "pct_change": 6.25,
-          "volume": 9911500,
-          "volume_fmt": "$10M",
-          "longName": "AbbVie Inc.",
-          "industry": "Drug Manufacturers - General"
+          "ticker": "PM",
+          "close": 178.49,
+          "pct_change": 3.07,
+          "volume": 1011421,
+          "volume_fmt": "$1M",
+          "longName": "Philip Morris International Inc.",
+          "industry": "Tobacco"
         },
         {
-          "ticker": "LRCX",
-          "close": 409.54,
-          "pct_change": 5.27,
-          "volume": 14614200,
-          "volume_fmt": "$15M",
-          "longName": "Lam Research Corporation",
-          "industry": "Semiconductor Equipment & Materials"
+          "ticker": "ABT",
+          "close": 90.32,
+          "pct_change": 2.84,
+          "volume": 3781165,
+          "volume_fmt": "$4M",
+          "longName": "Abbott Laboratories",
+          "industry": "Medical Devices"
         },
         {
-          "ticker": "INTC",
-          "close": 140.94,
-          "pct_change": 5.19,
-          "volume": 126473800,
-          "volume_fmt": "$126M",
-          "longName": "Intel Corporation",
-          "industry": "Semiconductors"
+          "ticker": "WMT",
+          "close": 119.98,
+          "pct_change": 2.39,
+          "volume": 7434144,
+          "volume_fmt": "$7M",
+          "longName": "Walmart Inc.",
+          "industry": "Discount Stores"
         }
       ],
       "losers": [
         {
+          "ticker": "MU",
+          "close": 1076.92,
+          "pct_change": -11.1,
+          "volume": 28061246,
+          "volume_fmt": "$28M",
+          "longName": "Micron Technology, Inc.",
+          "industry": "Semiconductors"
+        },
+        {
+          "ticker": "KLAC",
+          "close": 241.75,
+          "pct_change": -10.18,
+          "volume": 4320283,
+          "volume_fmt": "$4M",
+          "longName": "KLA Corporation",
+          "industry": "Semiconductor Equipment & Materials"
+        },
+        {
+          "ticker": "LRCX",
+          "close": 368.01,
+          "pct_change": -10.14,
+          "volume": 4989614,
+          "volume_fmt": "$5M",
+          "longName": "Lam Research Corporation",
+          "industry": "Semiconductor Equipment & Materials"
+        },
+        {
           "ticker": "ARM",
-          "close": 407.72,
-          "pct_change": -7.22,
-          "volume": 9376400,
-          "volume_fmt": "$9M",
+          "close": 368.75,
+          "pct_change": -9.56,
+          "volume": 5252902,
+          "volume_fmt": "$5M",
           "longName": "Arm Holdings plc",
           "industry": "Semiconductors"
         },
         {
-          "ticker": "PLTR",
-          "close": 119.5,
-          "pct_change": -6.98,
-          "volume": 56647200,
-          "volume_fmt": "$57M",
-          "longName": "Palantir Technologies Inc.",
-          "industry": "Software - Infrastructure"
-        },
-        {
-          "ticker": "NFLX",
-          "close": 72.88,
-          "pct_change": -5.82,
-          "volume": 82049500,
-          "volume_fmt": "$82M",
-          "longName": "Netflix, Inc.",
-          "industry": "Entertainment"
-        },
-        {
-          "ticker": "ORCL",
-          "close": 175.07,
-          "pct_change": -5.0,
-          "volume": 22886900,
-          "volume_fmt": "$23M",
-          "longName": "Oracle Corporation",
-          "industry": "Software - Infrastructure"
-        },
-        {
-          "ticker": "GOOGL",
-          "close": 349.68,
-          "pct_change": -4.99,
-          "volume": 52644300,
-          "volume_fmt": "$53M",
-          "longName": "Alphabet Inc.",
-          "industry": "Internet Content & Information"
+          "ticker": "QCOM",
+          "close": 201.15,
+          "pct_change": -9.35,
+          "volume": 10659994,
+          "volume_fmt": "$11M",
+          "longName": "QUALCOMM Incorporated",
+          "industry": "Semiconductors"
         }
       ],
       "is_friday_fallback": false,
@@ -410,101 +409,101 @@
   },
   "news": [
     {
-      "title": "I'm No Longer Interested in SpaceX, and Elon Musk Is the Reason",
-      "url": "https://www.fool.com/investing/2026/06/23/im-no-longer-interested-in-spacex-and-elon-musk-is/?.tsrc=rss",
+      "title": "Top Midday Stories: Energy Department to Provide $17.5 Billion in Loans for Nuclear Reactors; Oracle Shrank Workforce by 13% in Fiscal 2026",
+      "url": "https://finance.yahoo.com/energy/articles/top-midday-stories-energy-department-153941608.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-06-23 23:39 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Will Snap's Augmented Reality Glasses Help or Hurt the Company?",
+      "url": "https://www.fool.com/investing/2026/06/23/will-snaps-augmented-reality-glasses-help-or-hurt/?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-06-23 19:27 HKT",
+      "published_hkt": "2026-06-23 23:31 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "SpaceX Will Surpass Nvidia and Become Wall Street's Most-Valuable Public Company by the End of Next Year, According to One Wall Street Analyst",
-      "url": "https://www.fool.com/investing/2026/06/23/spacex-surpass-nvda-most-valuable-company-wall-st/?.tsrc=rss",
+      "title": "Famous Short-Seller Says We’re In an AI Energy Bubble. Will Bloom Energy Prove Him Wrong?",
+      "url": "https://247wallst.com/investing/2026/06/23/famous-short-seller-says-were-in-an-ai-energy-bubble-will-bloom-energy-prove-him-wrong/?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-06-23 19:26 HKT",
+      "published_hkt": "2026-06-23 23:29 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "Stock Market Today: Techs Dive As South Korea Leads Global Rout; Sandisk, Micron Dive As SpaceX Nears Lows",
-      "url": "https://finance.yahoo.com/m/e6cebccd-59fd-3dd8-b4aa-47dbaba0ee63/stock-market-today%3A-techs.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-06-23 19:25 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "The Biggest IPO in History Is Unraveling. Why SpaceX Stock Hasn’t Hit Bottom Yet",
-      "url": "https://247wallst.com/investing/2026/06/23/the-biggest-ipo-in-history-is-unraveling-why-spacex-stock-hasnt-hit-bottom-yet/?.tsrc=rss",
+      "title": "Cathie Wood Goes Bargain Hunting: 3 Stocks She Just Bought",
+      "url": "https://www.fool.com/investing/2026/06/23/cathie-wood-goes-bargain-hunting-3-stocks-she-just/?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-06-23 19:22 HKT",
+      "published_hkt": "2026-06-23 23:27 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "SpaceX Stock Has Plunged 3 Days in a Row. Is This a Red Flag or a Buying Opportunity?",
-      "url": "https://www.fool.com/investing/2026/06/23/spacex-stock-has-plunged-3-days-in-a-row-is-this-a/?.tsrc=rss",
+      "title": "The Ultimate Passive Income ETF Portfolio That Gets You Paid Every Weekday",
+      "url": "https://247wallst.com/investing/2026/06/23/the-ultimate-passive-income-etf-portfolio-that-gets-you-paid-every-weekday/?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-06-23 19:16 HKT",
+      "published_hkt": "2026-06-23 23:25 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "Here's How to Build a Passive Income Portfolio With ETFs",
-      "url": "https://www.fool.com/investing/2026/06/23/heres-how-to-build-a-passive-income-portfolio-with/?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-06-23 19:16 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "How Much Yield Could You Make Selling Covered Calls On The Magnificent Seven?",
-      "url": "https://247wallst.com/investing/2026/06/23/how-much-yield-could-you-make-selling-covered-calls-on-the-magnificent-seven/?.tsrc=rss",
+      "title": "SpaceX Rises After Three Brutal Days as Susquehanna Sees “Quite a Bit of Risk” in SPCX Stock",
+      "url": "https://247wallst.com/investing/2026/06/23/spacex-rises-after-three-brutal-days-as-susquehanna-sees-quite-a-bit-of-risk-in-spcx-stock/?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-06-23 19:15 HKT",
+      "published_hkt": "2026-06-23 23:24 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "Which High Dividend ETF Is Better, Vanguard's VYM or Fidelity's FDVV?",
-      "url": "https://www.fool.com/coverage/etfs/2026/06/23/which-high-dividend-etf-is-better-vanguard-s-vym-or-fidelity-s-fdvv/?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-06-23 19:13 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Tech Selloff Blunts Wall Street Pre-Bell; Asia, Europe Down",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/tech-selloff-blunts-wall-street-111023076.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-06-23 19:10 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Baseten secures $1.5bn in Series F funding for AI inference platform",
-      "url": "https://www.verdict.co.uk/baseten-secures-1-5bn-series-f/?.tsrc=rss",
+      "title": "Why Sandisk Stock Suddenly Crashed Today",
+      "url": "https://www.fool.com/investing/2026/06/23/why-sandisk-stock-suddenly-crashed-today/?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-06-23 19:09 HKT",
+      "published_hkt": "2026-06-23 23:23 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "VTES vs. VGSH: Which Vanguard Bond ETF Is the Better Buy?",
-      "url": "https://www.fool.com/coverage/etfs/2026/06/23/vtes-vs-vgsh-which-vanguard-bond-etf-is-the-better-buy/?.tsrc=rss",
+      "title": "Welltower CFO Timothy McHugh sets U.S. pay record at $167M",
+      "url": "https://qz.com/welltower-cfo-pay-record-167-million-062326?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-06-23 19:07 HKT",
+      "published_hkt": "2026-06-23 23:13 HKT",
       "label": "US Markets"
     },
     {
-      "title": "2 High-Dividend ETFs I'd Buy Right Now Without Hesitation",
-      "url": "https://www.fool.com/investing/2026/06/23/2-high-dividend-etfs-id-buy-right-now-without-hesi/?.tsrc=rss",
+      "title": "The June Tech Wreck Arrives—and the Stock Market Is Shaking In Its Boots",
+      "url": "https://finance.yahoo.com/m/b94e51e8-39e0-34dd-9b39-7905e4c479bc/the-june-tech-wreck.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-06-23 19:07 HKT",
+      "published_hkt": "2026-06-23 23:12 HKT",
       "label": "US Markets"
     },
     {
-      "title": "AI bubble fears have advisors looking to European markets. Is making the same move with beneficial to you?",
-      "url": "https://finance.yahoo.com/markets/world-indices/articles/ai-bubble-fears-advisors-looking-110000827.html?.tsrc=rss",
+      "title": "Why South Korea’s Massive Market Crash Could Happen in the U.S. Next",
+      "url": "https://finance.yahoo.com/m/977ec5d8-82a2-3860-a24b-4b9ed5b0c932/why-south-korea%E2%80%99s-massive.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-06-23 19:00 HKT",
+      "published_hkt": "2026-06-23 23:00 HKT",
       "label": "US Markets"
     },
     {
-      "title": "SpaceX Extends Decline as Tech Stocks Retreat and Investors Reassess AI Spending: Dow Jones, S&P, Nasdaq, Wall Street Futures",
-      "url": "https://investorshub.advfn.com/market-news/article/30892/spacex-extends-decline-as-tech-stocks-retreat-and-investors-reassess-ai-spending-dow-jones-sp-nasdaq-wall-street-futures?.tsrc=rss",
+      "title": "SpaceX Lockup Expiration: Will Insider Selling Sink the Stock?",
+      "url": "https://www.fool.com/investing/2026/06/23/spacex-lockup-expiration-will-insider-selling-sink/?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-06-23 18:47 HKT",
+      "published_hkt": "2026-06-23 22:40 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Inspired (INSE): Buy, Sell, or Hold Post Q1 Earnings?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/inspired-inse-buy-sell-hold-143246869.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-06-23 22:32 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Tech Is Plummeting. Why the Dow Is Actually Rising Today.",
+      "url": "https://finance.yahoo.com/m/aed96bb5-276e-311c-96f0-e49d77405f88/tech-is-plummeting.-why-the.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-06-23 22:27 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "AI Selling Overseas Reaches Pre-Market Futures",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/ai-selling-overseas-reaches-pre-142500862.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-06-23 22:25 HKT",
       "label": "US Markets"
     },
     {
