@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-06T20:19:28.560272+00:00",
-  "generated_at_hkt": "2026-07-07 04:19 HKT",
+  "generated_at": "2026-07-06T21:52:11.881704+00:00",
+  "generated_at_hkt": "2026-07-07 05:52 HKT",
   "indices": {
     "HK": {
       "label": "Hong Kong",
@@ -114,7 +114,7 @@
         "ticker": "^IXIC",
         "close": 26121.16,
         "pct_change": 1.12,
-        "volume_fmt": "$6.8B"
+        "volume_fmt": "$6.9B"
       },
       "tertiary": {
         "name": "Dow Jones",
@@ -172,8 +172,8 @@
     "Financials": {
       "anchor": "XLF",
       "markets": "US/HK/KR",
-      "close": 56.16,
-      "pct_change": 0.97
+      "close": 56.14,
+      "pct_change": 0.93
     },
     "Defence": {
       "anchor": "ITA",
@@ -185,33 +185,125 @@
   "fx": {
     "USD/HKD": {
       "rate": 7.84,
-      "pct_change": -0.0
+      "pct_change": -0.01
     },
     "USD/CNY": {
-      "rate": 6.8,
-      "pct_change": 0.1
+      "rate": 6.79,
+      "pct_change": -0.05
     },
     "USD/KRW": {
-      "rate": 1528.77,
-      "pct_change": -0.87
+      "rate": 1528.06,
+      "pct_change": -0.91
     },
     "USD/JPY": {
-      "rate": 162.08,
-      "pct_change": 0.39
+      "rate": 162.06,
+      "pct_change": 0.38
     },
     "EUR/USD": {
       "rate": 1.14,
-      "pct_change": 0.19
+      "pct_change": 0.2
     },
     "DXY": {
-      "rate": 100.86,
-      "pct_change": 0.0
+      "rate": 100.87,
+      "pct_change": 0.01
     }
   },
   "movers": {
     "HK": {
-      "gainers": [],
-      "losers": [],
+      "gainers": [
+        {
+          "ticker": "1177.HK",
+          "close": 5.05,
+          "pct_change": 6.54,
+          "volume": 249396352,
+          "volume_fmt": "HK$249M",
+          "longName": "Sino Biopharmaceutical Limited",
+          "industry": "Biotechnology"
+        },
+        {
+          "ticker": "0700.HK",
+          "close": 452.0,
+          "pct_change": 4.82,
+          "volume": 41502083,
+          "volume_fmt": "HK$42M",
+          "longName": "Tencent Holdings Limited",
+          "industry": "Internet Content & Information"
+        },
+        {
+          "ticker": "3690.HK",
+          "close": 74.95,
+          "pct_change": 4.68,
+          "volume": 50530384,
+          "volume_fmt": "HK$51M",
+          "longName": "Meituan",
+          "industry": "Internet Retail"
+        },
+        {
+          "ticker": "2628.HK",
+          "close": 29.52,
+          "pct_change": 3.94,
+          "volume": 58692984,
+          "volume_fmt": "HK$59M",
+          "longName": "China Life Insurance Company Limited",
+          "industry": "Insurance - Life"
+        },
+        {
+          "ticker": "2020.HK",
+          "close": 74.5,
+          "pct_change": 2.41,
+          "volume": 5570994,
+          "volume_fmt": "HK$6M",
+          "longName": "ANTA Sports Products Limited",
+          "industry": "Leisure"
+        }
+      ],
+      "losers": [
+        {
+          "ticker": "1038.HK",
+          "close": 59.25,
+          "pct_change": -2.07,
+          "volume": 1353703,
+          "volume_fmt": "HK$1M",
+          "longName": "CK Infrastructure Holdings Limited",
+          "industry": "Utilities - Regulated Electric"
+        },
+        {
+          "ticker": "0883.HK",
+          "close": 21.04,
+          "pct_change": -0.66,
+          "volume": 72475046,
+          "volume_fmt": "HK$72M",
+          "longName": "CNOOC Limited",
+          "industry": "Oil & Gas E&P"
+        },
+        {
+          "ticker": "0003.HK",
+          "close": 6.49,
+          "pct_change": -0.46,
+          "volume": 22424585,
+          "volume_fmt": "HK$22M",
+          "longName": "The Hong Kong and China Gas Company Limited",
+          "industry": "Utilities - Regulated Gas"
+        },
+        {
+          "ticker": "1211.HK",
+          "close": 83.8,
+          "pct_change": -0.36,
+          "volume": 36019301,
+          "volume_fmt": "HK$36M",
+          "longName": "BYD Company Limited",
+          "industry": "Auto Manufacturers"
+        },
+        {
+          "ticker": "0016.HK",
+          "close": 115.1,
+          "pct_change": -0.17,
+          "volume": 2954992,
+          "volume_fmt": "HK$3M",
+          "longName": "Sun Hung Kai Properties Limited",
+          "industry": "Real Estate - Development"
+        }
+      ],
       "is_friday_fallback": false,
       "screener_note": "Last trading day data"
     },
@@ -239,7 +331,7 @@
           "ticker": "QCOM",
           "close": 186.48,
           "pct_change": 5.8,
-          "volume": 15345235,
+          "volume": 15479353,
           "volume_fmt": "$15M",
           "longName": "QUALCOMM Incorporated",
           "industry": "Semiconductors"
@@ -257,7 +349,7 @@
           "ticker": "FTNT",
           "close": 162.35,
           "pct_change": 3.9,
-          "volume": 5124346,
+          "volume": 5160942,
           "volume_fmt": "$5M",
           "longName": "Fortinet, Inc.",
           "industry": "Software - Infrastructure"
@@ -277,8 +369,8 @@
           "ticker": "PFE",
           "close": 23.72,
           "pct_change": -2.47,
-          "volume": 56618409,
-          "volume_fmt": "$57M",
+          "volume": 50768544,
+          "volume_fmt": "$51M",
           "longName": "Pfizer Inc.",
           "industry": "Drug Manufacturers - General"
         },
@@ -304,8 +396,8 @@
           "ticker": "MRK",
           "close": 126.78,
           "pct_change": -2.15,
-          "volume": 8439072,
-          "volume_fmt": "$8M",
+          "volume": 9219156,
+          "volume_fmt": "$9M",
           "longName": "Merck & Co., Inc.",
           "industry": "Drug Manufacturers - General"
         }
@@ -316,101 +408,101 @@
   },
   "news": [
     {
-      "title": "The Russell 2000 Just Did Something for the First Time Since 1991. Here's Why Investors Should Pay Attention.",
-      "url": "https://www.fool.com/investing/2026/07/06/the-russell-2000-just-did-something-for-the-first/?.tsrc=rss",
+      "title": "Why Abacus Global Management Stock Inched Higher Today",
+      "url": "https://www.fool.com/investing/2026/07/06/why-abacus-global-management-stock-inched-higher-t/?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-07 04:05 HKT",
+      "published_hkt": "2026-07-07 05:42 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "How to Use the Summer Months to Build a Stronger Retirement Income Strategy",
-      "url": "https://www.fool.com/retirement/2026/07/06/how-to-use-the-summer-months-to-build-a-stronger-r/?.tsrc=rss",
+      "title": "Nvidia rivals get a rare break in AI race",
+      "url": "https://www.thestreet.com/technology/nvidia-rivals-get-a-rare-break-in-ai-race?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-07 05:33 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "VTES vs. VCSH: Which Vanguard Bond ETF Is the Better Fit for Your Portfolio?",
+      "url": "https://www.fool.com/coverage/etfs/2026/07/06/vtes-vs-vcsh-which-vanguard-bond-etf-is-the-better-fit-for-your-portfolio/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-07 05:26 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Why Dan Ives Sees NVDA And Korea Memory Stocks Driving AI Demand",
+      "url": "https://stocktwits.com/news-articles/markets/equity/why-dan-ives-sees-nvda-korean-memory-stocks-driving-ai-demand/cZm1YQ1R7ly?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-07 04:03 HKT",
+      "published_hkt": "2026-07-07 05:25 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "Top Cryptocurrencies Mixed; Bitcoin Tops $63,000",
-      "url": "https://finance.yahoo.com/markets/crypto/articles/top-cryptocurrencies-mixed-bitcoin-tops-200021060.html?.tsrc=rss",
+      "title": "S&P 500, Nasdaq End Higher On Support From Strong Tech Gains Led By Nvidia, Dow Hits Record Highs — MSFT, NVDA, LMT, AVGO, SPCX In Focus",
+      "url": "https://stocktwits.com/news-articles/markets/equity/s-and-p-500-nasdaq-end-higher-on-support-from-strong-tech-gains-led-by-nvidia-dow-hits-record-highs-msft-nvda-lmt-avgo-spcx-in-focus/cZm1YfaR7lU?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-07 04:00 HKT",
+      "published_hkt": "2026-07-07 05:24 HKT",
       "label": "US Markets"
     },
     {
-      "title": "Microsoft Is Cutting 4,800 Jobs to Feed the AI Machine. Should You Still Own It?",
-      "url": "https://247wallst.com/investing/2026/07/06/microsoft-is-cutting-4800-jobs-to-feed-the-ai-machine-should-you-still-own-it/?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-07 03:58 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Was Michael Burry Right About Palantir? PLTR Is Still Down Over the Past Year",
-      "url": "https://247wallst.com/investing/2026/07/06/was-michael-burry-right-about-palantir-pltr-is-still-down-over-the-past-year/?.tsrc=rss",
+      "title": "SpaceX Shares Are Sliding: A Contrarian Buying Opportunity Worth Considering",
+      "url": "https://www.fool.com/investing/2026/07/06/spacex-shares-are-sliding-a-contrarian-buying-oppo/?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-07 03:55 HKT",
+      "published_hkt": "2026-07-07 05:20 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "Update: US Equity Indexes Rise as Growth Areas Top Sector Charts",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-rise-growth-195308598.html?.tsrc=rss",
+      "title": "Update: US Equity Indexes Advance as Communication Services, Technology Top Sector Charts While Crude Oil Trades Steady",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-advance-communication-211809818.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-07 03:53 HKT",
+      "published_hkt": "2026-07-07 05:18 HKT",
       "label": "US Markets"
     },
     {
-      "title": "Nvidia vs. Palantir: Which Artificial Intelligence (AI) Stock Is the Better Buy Right Now?",
-      "url": "https://www.fool.com/investing/2026/07/06/nvidia-vs-palantir-which-ai-stock-better-buy/?.tsrc=rss",
+      "title": "Why this AI chip startup could rival Nvidia",
+      "url": "https://finance.yahoo.com/video/why-this-ai-chip-startup-could-rival-nvidia-211438725.html?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-07 03:50 HKT",
+      "published_hkt": "2026-07-07 05:14 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "Marvell Is Quietly Chasing Broadcom’s AI Jackpot, and Wall Street Is Finally Waking Up",
-      "url": "https://247wallst.com/investing/2026/07/06/marvell-is-quietly-chasing-broadcoms-ai-jackpot-and-wall-street-is-finally-waking-up/?.tsrc=rss",
+      "title": "Stock Market Today, July 6: TeraWulf Gains on $19 Billion Anthropic AI Lease Deal",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/06/stock-market-today-july-6-terawulf-gains-on-usd19-billion-anthropic-ai-lease-deal/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-07 05:14 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Stock Market Today, July 6: Southeast Asian Mobility Upstart Grab Falls as Uber CEO Exits Board",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/06/stock-market-today-july-6-southeast-asian-mobility-upstart-grab-falls-as-uber-ceo-exits-board/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-07 05:13 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Dow Jones Futures: AI Stocks Astera, Bloom, Tesla Rebound; SpaceX Slides Ahead Of Nasdaq-100 Inclusion",
+      "url": "https://finance.yahoo.com/m/c71a3345-6ae6-3d18-95eb-134519da74ab/dow-jones-futures%3A-ai-stocks.html?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-07 03:48 HKT",
+      "published_hkt": "2026-07-07 05:12 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "AI Crushed Software Stocks. IGV Is Betting the ‘SaaSpocalypse’ Is Overblown",
-      "url": "https://247wallst.com/personal-finance/2026/07/06/ai-crushed-software-stocks-igv-is-betting-the-saaspocalypse-is-overblown/?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-07 03:45 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Can NVIDIA’s (NVDA) New Indonesia AI Campus Deal Unlock $30 Billion for a Partner?",
-      "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-nvda-indonesia-ai-campus-194505420.html?.tsrc=rss",
+      "title": "Why Hycroft Mining Was a Tarnished Stock Last Month",
+      "url": "https://www.fool.com/investing/2026/07/06/why-hycroft-mining-was-a-tarnished-stock-last-mont/?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-07 03:45 HKT",
+      "published_hkt": "2026-07-07 05:10 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "Which Is the Better Long-Term Buy: iShares' Small-Cap IWM or Invesco's Tech-Heavy QQQ?",
-      "url": "https://www.fool.com/coverage/etfs/2026/07/06/which-is-the-better-long-term-buy-ishares-small-cap-iwm-or-invesco-s-tech-heavy-qqq/?.tsrc=rss",
+      "title": "2 Brilliant Stocks to Buy and Hold for 10 Years",
+      "url": "https://www.fool.com/investing/2026/07/06/2-brilliant-stocks-to-buy-and-hold-for-10-years/?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-07 03:43 HKT",
+      "published_hkt": "2026-07-07 05:05 HKT",
       "label": "US Markets"
     },
     {
-      "title": "Vertex Pharmaceuticals Stock Is Soaring and at a New All-Time High. Could It Still Be Heading Even Higher?",
-      "url": "https://www.fool.com/investing/2026/07/06/vertex-pharmaceuticals-stock-is-soaring-and-at-a-n/?.tsrc=rss",
+      "title": "Which Is the Better Consumer Staples ETF, Vanguard's VDC or iShares' KXI?",
+      "url": "https://www.fool.com/coverage/etfs/2026/07/06/which-is-the-better-consumer-staples-etf-vanguard-s-vdc-or-ishares-kxi/?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-07 03:30 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "A 2.86% Yield, 0.08% Fee, and 75 Stocks: Is HDV the Anti-Hype ETF?",
-      "url": "https://247wallst.com/personal-finance/2026/07/06/a-2-86-yield-0-08-fee-and-75-stocks-is-hdv-the-anti-hype-etf/?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-07 03:05 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "The Dow Couldn't Keep Up With Chip Stocks on Monday",
-      "url": "https://www.fool.com/investing/2026/07/06/the-dow-couldnt-keep-up-with-chip-stocks-on-monday/?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-07 02:49 HKT",
+      "published_hkt": "2026-07-07 05:04 HKT",
       "label": "US Markets"
     },
     {
