@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-07T21:01:13.987376+00:00",
-  "generated_at_hkt": "2026-07-08 05:01 HKT",
+  "generated_at": "2026-07-07T22:21:00.549231+00:00",
+  "generated_at_hkt": "2026-07-08 06:21 HKT",
   "indices": {
     "HK": {
       "label": "Hong Kong",
@@ -188,29 +188,121 @@
     },
     "USD/CNY": {
       "rate": 6.79,
-      "pct_change": 0.06
+      "pct_change": -0.03
     },
     "USD/KRW": {
-      "rate": 1513.76,
-      "pct_change": -1.13
+      "rate": 1515.12,
+      "pct_change": -1.04
     },
     "USD/JPY": {
-      "rate": 161.99,
-      "pct_change": 0.34
+      "rate": 162.12,
+      "pct_change": 0.41
     },
     "EUR/USD": {
       "rate": 1.14,
-      "pct_change": -0.13
+      "pct_change": -0.25
     },
     "DXY": {
-      "rate": 101.09,
-      "pct_change": 0.24
+      "rate": 101.12,
+      "pct_change": 0.27
     }
   },
   "movers": {
     "HK": {
-      "gainers": [],
-      "losers": [],
+      "gainers": [
+        {
+          "ticker": "3690.HK",
+          "close": 78.35,
+          "pct_change": 4.54,
+          "volume": 117135979,
+          "volume_fmt": "HK$117M",
+          "longName": "Meituan",
+          "industry": "Internet Retail"
+        },
+        {
+          "ticker": "0700.HK",
+          "close": 461.2,
+          "pct_change": 2.04,
+          "volume": 55418434,
+          "volume_fmt": "HK$55M",
+          "longName": "Tencent Holdings Limited",
+          "industry": "Internet Content & Information"
+        },
+        {
+          "ticker": "1398.HK",
+          "close": 6.49,
+          "pct_change": 0.93,
+          "volume": 171809348,
+          "volume_fmt": "HK$172M",
+          "longName": "Industrial and Commercial Bank of China Limited",
+          "industry": "Banks - Diversified"
+        },
+        {
+          "ticker": "0005.HK",
+          "close": 153.3,
+          "pct_change": 0.86,
+          "volume": 13801029,
+          "volume_fmt": "HK$14M",
+          "longName": "HSBC Holdings plc",
+          "industry": "Banks - Diversified"
+        },
+        {
+          "ticker": "0857.HK",
+          "close": 8.94,
+          "pct_change": 0.34,
+          "volume": 84938813,
+          "volume_fmt": "HK$85M",
+          "longName": "PetroChina Company Limited",
+          "industry": "Oil & Gas Integrated"
+        }
+      ],
+      "losers": [
+        {
+          "ticker": "1177.HK",
+          "close": 4.82,
+          "pct_change": -4.55,
+          "volume": 88072287,
+          "volume_fmt": "HK$88M",
+          "longName": "Sino Biopharmaceutical Limited",
+          "industry": "Biotechnology"
+        },
+        {
+          "ticker": "2628.HK",
+          "close": 28.3,
+          "pct_change": -4.13,
+          "volume": 46182348,
+          "volume_fmt": "HK$46M",
+          "longName": "China Life Insurance Company Limited",
+          "industry": "Insurance - Life"
+        },
+        {
+          "ticker": "2269.HK",
+          "close": 36.78,
+          "pct_change": -2.7,
+          "volume": 30500188,
+          "volume_fmt": "HK$31M",
+          "longName": "WuXi Biologics (Cayman) Inc.",
+          "industry": "Biotechnology"
+        },
+        {
+          "ticker": "6098.HK",
+          "close": 5.13,
+          "pct_change": -2.29,
+          "volume": 5061004,
+          "volume_fmt": "HK$5M",
+          "longName": "Country Garden Services Holdings Company Limited",
+          "industry": "Real Estate Services"
+        },
+        {
+          "ticker": "1299.HK",
+          "close": 72.6,
+          "pct_change": -1.89,
+          "volume": 22053951,
+          "volume_fmt": "HK$22M",
+          "longName": "AIA Group Limited",
+          "industry": "Insurance - Life"
+        }
+      ],
       "is_friday_fallback": false,
       "screener_note": "Last trading day data"
     },
@@ -315,101 +407,101 @@
   },
   "news": [
     {
+      "title": "US stocks end lower as AI worries hit chipmakers",
+      "url": "https://finance.yahoo.com/video/us-stocks-end-lower-ai-220834332.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-08 06:08 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Why Sandisk Stock Jumped 34% in June",
+      "url": "https://www.fool.com/investing/2026/07/07/why-sandisk-stock-jumped-34-in-june/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-08 06:05 HKT",
+      "label": "Semiconductors"
+    },
+    {
       "title": "Dow Jones Futures: Nasdaq Slumps As Samsung Fans AI Fears, Oil Prices Jump On Iran News",
       "url": "https://finance.yahoo.com/m/066551de-6a59-3094-97bf-62396c58c1ae/dow-jones-futures%3A-nasdaq.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-08 06:04 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Micron's Upbeat Forecast Lifts SPMO's Outlook",
+      "url": "https://www.trefis.com/articles/605939/microns-upbeat-forecast-lifts-spmos-outlook/2026-07-07?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-08 05:52 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Microsoft Looks to Make a Major Reset as It Says This Area of Its Business \"Is Not Healthy\"",
+      "url": "https://www.fool.com/investing/2026/07/07/microsoft-looks-to-make-a-major-reset-as-it-says-t/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-08 05:51 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Nasdaq Slides Nearly 2% As Higher Treasury Yields, Soaring Oil Prices Pressure Tech And Chip Stocks — META, AMZN, SPCX, MSFT In Focus",
+      "url": "https://stocktwits.com/news-articles/markets/equity/nasdaq-slides-nearly-2-as-higher-treasury-yields-soaring-oil-prices-pressure-tech-and-chip-stocks-meta-amzn-spcx-msft-in-focus/cZmlDzSR7ZV?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-08 05:43 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Nervous About the Stock Market? These 7 Words From Warren Buffett Might Change Your Mind.",
+      "url": "https://www.fool.com/investing/2026/07/07/nervous-about-stock-market-7-words-warren-buffett/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-08 05:35 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Hormuz Tolls Are Just the Beginning: The World’s Busiest Shipping Route Could Be Next",
+      "url": "https://247wallst.com/investing/2026/07/07/hormuz-tolls-are-just-the-beginning-the-worlds-busiest-shipping-route-could-be-next/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-08 05:32 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Amazon Stocks Climbs As AI Push Drives $25 Billion Bond Sale",
+      "url": "https://finance.yahoo.com/m/b6471109-2c46-303a-99fb-f7279d063adb/amazon-stocks-climbs-as-ai.html?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-08 05:29 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Stock Market Today, July 7: Eos Energy Slides After Power Project Selection News",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/07/stock-market-today-july-7-eos-energy-slides-after-power-project-selection-news/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-08 05:25 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Robinhood Is Making a Comeback. Should You Buy the Stock?",
+      "url": "https://www.fool.com/investing/2026/07/07/robinhood-is-making-a-comeback-should-you-buy-the/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-08 05:25 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Update: US Equity Indexes Drop as Mega-Cap Chipmakers Slump, Treasury Revokes Iran Oil General License",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-drop-mega-211205369.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-08 05:12 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "The $1.50 Costco Hot Dog Is Made Possible Thanks to This Little Company",
+      "url": "https://finance.yahoo.com/m/27cbcffd-ed0e-3646-a0d3-ec5938625854/the-%241.50-costco-hot-dog-is.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
       "published_hkt": "2026-07-08 04:38 HKT",
       "label": "US Markets"
     },
     {
-      "title": "Stock Market Today: Nasdaq Is Day's Biggest Loser; Sandisk, Micron Tumble, Eli Lilly Shines",
-      "url": "https://finance.yahoo.com/m/110b2049-5932-3626-b8a1-7e911ed6df13/stock-market-today%3A-nasdaq-is.html?.tsrc=rss",
+      "title": "When It Comes to Analyst Ratings, Tesla Stock Is No SpaceX",
+      "url": "https://finance.yahoo.com/m/9a41f341-cb30-3212-91d1-19e411727331/when-it-comes-to-analyst.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-08 04:35 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Should You Buy Tilray Stock Before July 15?",
-      "url": "https://www.fool.com/investing/2026/07/07/should-you-buy-tilray-stock-before-july-15/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-08 04:35 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "DeepSeek looks to reduce reliance on Nvidia with own AI chip",
-      "url": "https://finance.yahoo.com/video/deepseek-looks-to-reduce-reliance-on-nvidia-with-own-ai-chip-203313261.html?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-08 04:33 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Could Buying SpaceX Stock Today Set You Up for Life?",
-      "url": "https://www.fool.com/investing/2026/07/07/could-buying-spacex-stock-today-set-you-up-for-lif/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-08 04:25 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Update: Dow Snaps Record Run Amid Tech Sell-Off, Oil Price Jump",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/dow-snaps-record-run-amid-202322498.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-08 04:23 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "3 Reasons to Buy Novo Nordisk Stock",
-      "url": "https://www.fool.com/investing/2026/07/07/3-reasons-to-buy-novo-nordisk-stock/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-08 04:20 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Meta’s Legal War Just Escalated to $1.4 Trillion. The Stock Hasn’t Noticed Yet.",
-      "url": "https://247wallst.com/investing/2026/07/07/metas-legal-war-just-escalated-to-1-4-trillion-the-stock-hasnt-noticed-yet/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-08 04:17 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "US Equity Markets Lower as Semiconductor Stocks Fall, Crude Oil Prices Rise",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/us-equity-markets-lower-semiconductor-200946448.html?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-08 04:09 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Berkshire’s $400B cash pile is now a serious defensive weapon",
-      "url": "https://www.thestreet.com/investing/warren-buffett-berkshire-400-billion-cash-signal?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-08 04:07 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "This ETF Would Have Tripled Your Money Over the Past 10 Years -- and It's Still Soaring",
-      "url": "https://www.fool.com/investing/2026/07/07/this-etf-would-have-tripled-your-money-over-the/?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-08 04:05 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Chip Rebound Fizzles, Hammers Nasdaq",
-      "url": "https://finance.yahoo.com/m/0f814e87-bfa6-389f-8ce8-b4fb65882cc5/chip-rebound-fizzles%2C-hammers.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-08 04:02 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Top Cryptocurrencies Lower; Bitcoin Holds Above $63,000 Level",
-      "url": "https://finance.yahoo.com/markets/crypto/articles/top-cryptocurrencies-lower-bitcoin-holds-200157537.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-08 04:01 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Update: US Equity Indexes Dive After Sell-Off in Mega-Cap Chipmakers, Revocation of Iran's Authorization to Sell Crude Oil",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-dive-sell-195957302.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-08 03:59 HKT",
+      "published_hkt": "2026-07-08 04:36 HKT",
       "label": "US Markets"
     },
     {
