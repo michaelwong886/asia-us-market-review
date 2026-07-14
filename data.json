@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-14T20:51:56.989976+00:00",
-  "generated_at_hkt": "2026-07-15 04:51 HKT",
+  "generated_at": "2026-07-14T21:45:19.768538+00:00",
+  "generated_at_hkt": "2026-07-15 05:45 HKT",
   "indices": {
     "HK": {
       "label": "Hong Kong",
@@ -113,7 +113,7 @@
         "ticker": "^IXIC",
         "close": 26107.01,
         "pct_change": 0.9,
-        "volume_fmt": "$6.1B"
+        "volume_fmt": "$6.2B"
       },
       "tertiary": {
         "name": "Dow Jones",
@@ -187,16 +187,16 @@
       "pct_change": -0.03
     },
     "USD/CNY": {
-      "rate": 6.77,
-      "pct_change": -0.1
+      "rate": 6.76,
+      "pct_change": -0.21
     },
     "USD/KRW": {
-      "rate": 1488.62,
-      "pct_change": -0.66
+      "rate": 1488.19,
+      "pct_change": -0.69
     },
     "USD/JPY": {
-      "rate": 162.24,
-      "pct_change": 0.22
+      "rate": 162.18,
+      "pct_change": 0.18
     },
     "EUR/USD": {
       "rate": 1.14,
@@ -209,8 +209,100 @@
   },
   "movers": {
     "HK": {
-      "gainers": [],
-      "losers": [],
+      "gainers": [
+        {
+          "ticker": "2628.HK",
+          "close": 28.62,
+          "pct_change": 4.0,
+          "volume": 77393829,
+          "volume_fmt": "HK$77M",
+          "longName": "China Life Insurance Company Limited",
+          "industry": "Insurance - Life"
+        },
+        {
+          "ticker": "0857.HK",
+          "close": 9.57,
+          "pct_change": 3.46,
+          "volume": 125027407,
+          "volume_fmt": "HK$125M",
+          "longName": "PetroChina Company Limited",
+          "industry": "Oil & Gas Integrated"
+        },
+        {
+          "ticker": "1211.HK",
+          "close": 86.15,
+          "pct_change": 2.62,
+          "volume": 23041874,
+          "volume_fmt": "HK$23M",
+          "longName": "BYD Company Limited",
+          "industry": "Auto Manufacturers"
+        },
+        {
+          "ticker": "0883.HK",
+          "close": 22.8,
+          "pct_change": 2.43,
+          "volume": 87387288,
+          "volume_fmt": "HK$87M",
+          "longName": "CNOOC Limited",
+          "industry": "Oil & Gas E&P"
+        },
+        {
+          "ticker": "2269.HK",
+          "close": 38.2,
+          "pct_change": 2.36,
+          "volume": 32220782,
+          "volume_fmt": "HK$32M",
+          "longName": "WuXi Biologics (Cayman) Inc.",
+          "industry": "Biotechnology"
+        }
+      ],
+      "losers": [
+        {
+          "ticker": "9999.HK",
+          "close": 201.8,
+          "pct_change": -2.51,
+          "volume": 28933381,
+          "volume_fmt": "HK$29M",
+          "longName": "NetEase, Inc.",
+          "industry": "Electronic Gaming & Multimedia"
+        },
+        {
+          "ticker": "0688.HK",
+          "close": 12.92,
+          "pct_change": -1.37,
+          "volume": 12626995,
+          "volume_fmt": "HK$13M",
+          "longName": "China Overseas Land & Investment Limited",
+          "industry": "Real Estate - Development"
+        },
+        {
+          "ticker": "0762.HK",
+          "close": 6.41,
+          "pct_change": -1.08,
+          "volume": 19450411,
+          "volume_fmt": "HK$19M",
+          "longName": "China Unicom (Hong Kong) Limited",
+          "industry": "Telecom Services"
+        },
+        {
+          "ticker": "1177.HK",
+          "close": 5.11,
+          "pct_change": -0.97,
+          "volume": 131072709,
+          "volume_fmt": "HK$131M",
+          "longName": "Sino Biopharmaceutical Limited",
+          "industry": "Biotechnology"
+        },
+        {
+          "ticker": "0005.HK",
+          "close": 152.6,
+          "pct_change": -0.78,
+          "volume": 10672156,
+          "volume_fmt": "HK$11M",
+          "longName": "HSBC Holdings plc",
+          "industry": "Banks - Diversified"
+        }
+      ],
       "is_friday_fallback": false,
       "screener_note": "Last trading day data"
     },
@@ -220,7 +312,7 @@
           "ticker": "CRWD",
           "close": 210.73,
           "pct_change": 12.14,
-          "volume": 11636383,
+          "volume": 11893962,
           "volume_fmt": "$12M",
           "longName": "CrowdStrike Holdings, Inc.",
           "industry": "Software - Infrastructure"
@@ -238,7 +330,7 @@
           "ticker": "ZS",
           "close": 152.09,
           "pct_change": 7.24,
-          "volume": 3554414,
+          "volume": 3657861,
           "volume_fmt": "$4M",
           "longName": "Zscaler, Inc.",
           "industry": "Software - Infrastructure"
@@ -256,7 +348,7 @@
           "ticker": "MU",
           "close": 983.12,
           "pct_change": 4.92,
-          "volume": 30387447,
+          "volume": 30470097,
           "volume_fmt": "$30M",
           "longName": "Micron Technology, Inc.",
           "industry": "Semiconductors"
@@ -285,7 +377,7 @@
           "ticker": "NOW",
           "close": 104.85,
           "pct_change": -5.76,
-          "volume": 22825972,
+          "volume": 23139506,
           "volume_fmt": "$23M",
           "longName": "ServiceNow, Inc.",
           "industry": "Software - Application"
@@ -294,7 +386,7 @@
           "ticker": "ADBE",
           "close": 220.78,
           "pct_change": -4.26,
-          "volume": 5691704,
+          "volume": 5794310,
           "volume_fmt": "$6M",
           "longName": "Adobe Inc.",
           "industry": "Software - Application"
@@ -315,10 +407,94 @@
   },
   "news": [
     {
+      "title": "Stock Market Today, July 14: Lucid Group Plunges but Denies Reports About Bankruptcy Filing",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/14/stock-market-today-july-14-lucid-group-plunges-but-denies-reports-about-bankruptcy-filing/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-15 05:41 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Why CleanSpark Stock Climbed Today",
+      "url": "https://www.fool.com/investing/2026/07/14/why-cleanspark-stock-climbed-today/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-15 05:40 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Palantir Trades at 64X Sales. Here's Whether That Premium Is Justified.",
+      "url": "https://www.fool.com/investing/2026/07/14/palantir-trades-at-64x-sales-heres-whether-that-pr/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-15 05:20 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Update: US Equity Indexes Rise as Cooling Inflation Eases Interest-Rate Pressure on Tech While IBM Sell-Off Restrains Dow",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-rise-cooling-211132501.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-15 05:11 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "NVIDIA Stock Amplifies Your Market Ride",
+      "url": "https://www.trefis.com/articles/607056/nvidia-stock-amplifies-your-market-ride/2026-07-14?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-15 05:11 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "New York enacts statewide moratorium on AI data center construction: A closer look",
+      "url": "https://finance.yahoo.com/video/new-york-enacts-statewide-moratorium-on-ai-data-center-construction-a-closer-look-210912459.html?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-15 05:09 HKT",
+      "label": "Semiconductors"
+    },
+    {
       "title": "Stock Market Today: Nasdaq Leads The Day; Yum Brands Falls On Report Of Taco Bell Investigation (Live Coverage)",
       "url": "https://finance.yahoo.com/m/5d020334-7a7d-3075-adc2-c428ddde2504/stock-market-today%3A-nasdaq.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-15 04:39 HKT",
+      "published_hkt": "2026-07-15 05:06 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Nvidia Slashes AI Chip Buyer List as China Crackdown Intensifies",
+      "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-slashes-ai-chip-buyer-210303473.html?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-15 05:03 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Nvidia's China Compliance Push Gets Tougher",
+      "url": "https://finance.yahoo.com/technology/ai/articles/nvidias-china-compliance-push-gets-210158864.html?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-15 05:01 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Nvidia, Intel and Micron Rebound as Chip Stocks Shake Off War Fears",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-intel-micron-rebound-chip-210146757.html?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-15 05:01 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Dow Jones Futures: Goldman, CrowdStrike Jump, AI Stocks Need To Do This; ASML, Morgan Stanley Due",
+      "url": "https://finance.yahoo.com/m/ff2fea6d-f6fc-389f-b0c6-62b745afe36d/dow-jones-futures%3A-goldman%2C.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-15 04:59 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "QCOM: A Cash Gusher At A Marked-Down Price",
+      "url": "https://www.trefis.com/articles/607054/qcom-a-cash-gusher-at-a-marked-down-price/2026-07-14?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-15 04:58 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "CRWD, PANW, ZS, OKTA In Focus — Cybersecurity Stocks Get Boost As IBM CEO Flags Rising Concerns",
+      "url": "https://stocktwits.com/news-articles/markets/equity/cybersecurity-stocks-get-boost-as-ibm-ceo-flags-rising-concerns/cZZR7XiR7qY?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-15 04:42 HKT",
       "label": "US Markets"
     },
     {
@@ -326,90 +502,6 @@
       "url": "https://finance.yahoo.com/markets/stocks/articles/equities-rise-following-cpi-data-203856763.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
       "published_hkt": "2026-07-15 04:38 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Jim Cramer Still Can’t Believe NVIDIA Corporation (NVDA)’s Share Price Performance",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-still-t-believe-203825844.html?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-15 04:38 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "The Chip Stock Behind Nvidia's AI Servers Just Landed on the Nasdaq",
-      "url": "https://www.fool.com/investing/2026/07/14/the-chip-behind-nvidias-ai-servers-just-landed-on/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-15 04:36 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Here's Exactly Why Intuitive Surgical Stock Is Floundering in 2026",
-      "url": "https://www.fool.com/investing/2026/07/14/heres-exactly-why-intuitive-surgical-stock-is-flou/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-15 04:35 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "SpaceX Joins the Nasdaq-100. Has the Index Become Too Risky to Track?",
-      "url": "https://www.fool.com/investing/2026/07/14/spacex-joins-the-nasdaq-100-has-the-index-become-t/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-15 04:35 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Why Core Scientific Stock Was Up 75.8% In The First Half of 2026",
-      "url": "https://www.fool.com/investing/2026/07/14/why-core-scientific-stock-was-up-758-in-the-first/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-15 04:30 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Why Lucid Group Plunged Today",
-      "url": "https://www.fool.com/investing/2026/07/14/why-lucid-motors-plunged-today/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-15 04:26 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Prediction: This Will Be Nvidia's Stock Price Next Year (Hint: The Time to Buy Is Now)",
-      "url": "https://www.fool.com/investing/2026/07/14/prediction-this-will-be-nvidias-stock-price-next-y/?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-15 04:25 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Wells Fargo Says Disney Could Rally 40%",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/wells-fargo-says-disney-could-201710025.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-15 04:17 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Top Cryptocurrencies Rise; Bitcoin Tops $64,000",
-      "url": "https://finance.yahoo.com/markets/crypto/articles/top-cryptocurrencies-rise-bitcoin-tops-200119298.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-15 04:01 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Invesco Healthcare ETF vs VanEck Biotech: Which ETF Will Deliver the Healthiest Returns for 2026?",
-      "url": "https://www.fool.com/coverage/etfs/2026/07/14/invesco-healthcare-etf-vs-vaneck-biotech-which-etf-will-deliver-the-healthiest-returns-for-2026/?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-15 04:01 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Update: US Equity Indexes Mixed as IBM Sell-Off Hits Dow, Cooling Inflation Eases Interest-Rate Pressure",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-mixed-ibm-195150704.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-15 03:51 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Microsoft Is Cheaper Than the S&P 500. Now Is the Perfect Time to Load Up on the Stock.",
-      "url": "https://www.fool.com/investing/2026/07/14/microsoft-is-cheaper-than-the-sp-500-now-is-the-pe/?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-15 03:35 HKT",
       "label": "US Markets"
     },
     {
