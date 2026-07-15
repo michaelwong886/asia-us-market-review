@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-15T20:48:47.923481+00:00",
-  "generated_at_hkt": "2026-07-16 04:48 HKT",
+  "generated_at": "2026-07-15T21:46:33.045353+00:00",
+  "generated_at_hkt": "2026-07-16 05:46 HKT",
   "indices": {
     "HK": {
       "label": "Hong Kong",
@@ -190,26 +190,118 @@
       "pct_change": -0.32
     },
     "USD/KRW": {
-      "rate": 1485.11,
-      "pct_change": -0.84
+      "rate": 1486.01,
+      "pct_change": -0.78
     },
     "USD/JPY": {
-      "rate": 162.2,
-      "pct_change": -0.14
+      "rate": 162.14,
+      "pct_change": -0.18
     },
     "EUR/USD": {
       "rate": 1.15,
-      "pct_change": 0.72
+      "pct_change": 0.77
     },
     "DXY": {
-      "rate": 100.53,
-      "pct_change": -0.41
+      "rate": 100.5,
+      "pct_change": -0.44
     }
   },
   "movers": {
     "HK": {
-      "gainers": [],
-      "losers": [],
+      "gainers": [
+        {
+          "ticker": "3690.HK",
+          "close": 83.4,
+          "pct_change": 5.3,
+          "volume": 88085818,
+          "volume_fmt": "HK$88M",
+          "longName": "Meituan",
+          "industry": "Internet Retail"
+        },
+        {
+          "ticker": "0016.HK",
+          "close": 122.3,
+          "pct_change": 4.17,
+          "volume": 7396764,
+          "volume_fmt": "HK$7M",
+          "longName": "Sun Hung Kai Properties Limited",
+          "industry": "Real Estate - Development"
+        },
+        {
+          "ticker": "0700.HK",
+          "close": 474.0,
+          "pct_change": 3.9,
+          "volume": 33780856,
+          "volume_fmt": "HK$34M",
+          "longName": "Tencent Holdings Limited",
+          "industry": "Internet Content & Information"
+        },
+        {
+          "ticker": "2269.HK",
+          "close": 39.54,
+          "pct_change": 3.51,
+          "volume": 54793719,
+          "volume_fmt": "HK$55M",
+          "longName": "WuXi Biologics (Cayman) Inc.",
+          "industry": "Biotechnology"
+        },
+        {
+          "ticker": "1299.HK",
+          "close": 76.2,
+          "pct_change": 2.83,
+          "volume": 37897394,
+          "volume_fmt": "HK$38M",
+          "longName": "AIA Group Limited",
+          "industry": "Insurance - Life"
+        }
+      ],
+      "losers": [
+        {
+          "ticker": "2628.HK",
+          "close": 28.0,
+          "pct_change": -2.17,
+          "volume": 151941997,
+          "volume_fmt": "HK$152M",
+          "longName": "China Life Insurance Company Limited",
+          "industry": "Insurance - Life"
+        },
+        {
+          "ticker": "1810.HK",
+          "close": 25.86,
+          "pct_change": -0.69,
+          "volume": 151795185,
+          "volume_fmt": "HK$152M",
+          "longName": "Xiaomi Corporation",
+          "industry": "Consumer Electronics"
+        },
+        {
+          "ticker": "0003.HK",
+          "close": 6.66,
+          "pct_change": -0.45,
+          "volume": 19485775,
+          "volume_fmt": "HK$19M",
+          "longName": "The Hong Kong and China Gas Company Limited",
+          "industry": "Utilities - Regulated Gas"
+        },
+        {
+          "ticker": "1398.HK",
+          "close": 6.79,
+          "pct_change": -0.44,
+          "volume": 122381464,
+          "volume_fmt": "HK$122M",
+          "longName": "Industrial and Commercial Bank of China Limited",
+          "industry": "Banks - Diversified"
+        },
+        {
+          "ticker": "0857.HK",
+          "close": 9.54,
+          "pct_change": -0.31,
+          "volume": 54779336,
+          "volume_fmt": "HK$55M",
+          "longName": "PetroChina Company Limited",
+          "industry": "Oil & Gas Integrated"
+        }
+      ],
       "is_friday_fallback": false,
       "screener_note": "Last trading day data"
     },
@@ -237,8 +329,8 @@
           "ticker": "AAPL",
           "close": 327.5,
           "pct_change": 4.01,
-          "volume": 58741821,
-          "volume_fmt": "$59M",
+          "volume": 60780931,
+          "volume_fmt": "$61M",
           "longName": "Apple Inc.",
           "industry": "Consumer Electronics"
         },
@@ -246,7 +338,7 @@
           "ticker": "ORCL",
           "close": 132.49,
           "pct_change": 3.56,
-          "volume": 48197038,
+          "volume": 48263565,
           "volume_fmt": "$48M",
           "longName": "Oracle Corporation",
           "industry": "Software - Infrastructure"
@@ -266,7 +358,7 @@
           "ticker": "MU",
           "close": 904.28,
           "pct_change": -8.02,
-          "volume": 53824089,
+          "volume": 54188069,
           "volume_fmt": "$54M",
           "longName": "Micron Technology, Inc.",
           "industry": "Semiconductors"
@@ -284,7 +376,7 @@
           "ticker": "CSCO",
           "close": 111.77,
           "pct_change": -4.54,
-          "volume": 22670529,
+          "volume": 22674006,
           "volume_fmt": "$23M",
           "longName": "Cisco Systems, Inc.",
           "industry": "Communication Equipment"
@@ -302,8 +394,8 @@
           "ticker": "AMD",
           "close": 529.14,
           "pct_change": -3.46,
-          "volume": 26618929,
-          "volume_fmt": "$27M",
+          "volume": 27727468,
+          "volume_fmt": "$28M",
           "longName": "Advanced Micro Devices, Inc.",
           "industry": "Semiconductors"
         }
@@ -314,18 +406,102 @@
   },
   "news": [
     {
-      "title": "Invesco Aerospace & Defense ETF vs U.S. Global Jets ETF: Is PPA or JETS the Better Buy in 2026?",
-      "url": "https://www.fool.com/coverage/etfs/2026/07/15/invesco-aerospace-and-defense-etf-vs-u-s-global-jets-etf-is-ppa-or-jets-the-better-buy-in-2026/?.tsrc=rss",
+      "title": "Dow Jones Futures: Apple, Google Mask Dell, Sandisk, Micron Sell-Off; J.B. Hunt Jumps Late",
+      "url": "https://finance.yahoo.com/m/9b2a3551-5bcd-34f5-9f61-00ac74d553c1/dow-jones-futures%3A-apple%2C.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-16 04:29 HKT",
+      "published_hkt": "2026-07-16 05:39 HKT",
       "label": "US Markets"
     },
     {
-      "title": "US Equity Markets End Higher After Unexpected Decline in Producer Price Index",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/us-equity-markets-end-higher-202342152.html?.tsrc=rss",
+      "title": "Stripe and Advent Reportedly Bid $60.50 a Share for PayPal. Here's the Real Prize: Venmo.",
+      "url": "https://www.fool.com/investing/2026/07/15/stripe-and-advent-reportedly-bid-6050-a-share-for-paypal-heres-the-real-prize-venmo/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-16 05:35 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Vanguard Financials ETF vs iShares Regional Banks ETF. Which Fund Is the Best  Bet to Play Banking Trends in 2026?",
+      "url": "https://www.fool.com/coverage/etfs/2026/07/15/vanguard-financials-etf-vs-ishares-regional-banks-etf-which-fund-is-the-best-bet-to-play-banking-trends-in-2026/?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-16 04:23 HKT",
+      "published_hkt": "2026-07-16 05:26 HKT",
       "label": "US Markets"
+    },
+    {
+      "title": "Stock Market Today, July 15: American Airlines Is About to Announce Earnings: Here's What Investors Are Watching",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/15/stock-market-today-july-15-american-airlines-is-about-to-announce-earnings-here-s-what-investors-are-watching/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-16 05:24 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "If You Invest $5,000 in the Vanguard Information Technology ETF Today, Here's What You Might Have in 20 Years",
+      "url": "https://www.fool.com/investing/2026/07/15/if-you-invest-in-vgt-how-much-in-20-years/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-16 05:20 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Update: US Equity Indexes Climb as Unexpected Decline in Inflation Helps Counter Sharp Deterioration in Iran Geopolitics",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-climb-unexpected-211946378.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-16 05:19 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Stock Market Today, July 15: Markets Rise on Cooler Inflation and Strong Earnings Start",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/15/stock-market-today-july-15-markets-rise-on-cooler-inflation-and-strong-earnings-start/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-16 05:16 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Coherent (COHR) Stock May Be 11% Undervalued Despite Fresh AI Infrastructure News",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/coherent-cohr-stock-may-11-211015008.html?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-16 05:10 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "SPDR Gold Shares vs Sprott Gold Miners ETF. Should Investors Go For Bullion or Mining Stocks to Play the Comnmodity Boom?",
+      "url": "https://www.fool.com/coverage/etfs/2026/07/15/spdr-gold-shares-vs-sprott-gold-miners-etf-should-investors-go-for-bullion-or-mining-stocks-to-play-the-comnmodity-boom/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-16 04:58 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Pentair Stock Tanked on an Alarming Update. It Took These Stocks With It.",
+      "url": "https://finance.yahoo.com/m/8cfee09c-595e-3e1e-b712-fa92dac63045/pentair-stock-tanked-on-an.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-16 04:52 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Nvidia Stock Nears Buy Point On These Positive Signs",
+      "url": "https://finance.yahoo.com/m/e2a4a086-5447-353d-b841-39e3dd03e77e/nvidia-stock-nears-buy-point.html?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-16 04:44 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "M&T Bank Corporation Q2 2026 Earnings Call Summary",
+      "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-mt-bank-corporation-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-16 04:43 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "BlackRock, Inc. Q2 2026 Earnings Call Summary",
+      "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-blackrock-inc-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-16 04:43 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Hardware Bears Are Wrong and That’s Why I Keep Buying Apple on Repeat",
+      "url": "https://247wallst.com/investing/2026/07/15/hardware-bears-are-wrong-and-thats-why-i-keep-buying-apple-on-repeat/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-16 04:42 HKT",
+      "label": "Semiconductors"
     },
     {
       "title": "Apple clears key hurdle for iPhone AI launch in China",
@@ -333,90 +509,6 @@
       "source": "Yahoo! Finance: 9988.HK News",
       "published_hkt": "2026-07-16 04:18 HKT",
       "label": "China Tech"
-    },
-    {
-      "title": "YieldMax launches a new SpaceX options ETF: What investors should know",
-      "url": "https://finance.yahoo.com/video/yieldmax-launches-spacex-options-etf-201500551.html?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-16 04:15 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Why Progressive Insurance Fell Today",
-      "url": "https://www.fool.com/investing/2026/07/15/why-progressive-insurance-fell-today/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-16 03:59 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Top Cryptocurrencies Mixed; Bitcoin Holds Above $64,000",
-      "url": "https://finance.yahoo.com/markets/crypto/articles/top-cryptocurrencies-mixed-bitcoin-holds-195840243.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-16 03:58 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Update: US Equity Indexes Climb After Inflation Unexpectedly Drops, Strikes on Iran Prepping Groundwork for Tedious Operations",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-climb-inflation-195636327.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-16 03:56 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "IonQ: This Quantum Computing Pioneer Is a No-Brainer Buy (NYSE: IONQ)",
-      "url": "https://www.fool.com/investing/2026/07/15/ionq-this-quantum-computing-pioneer-is-a-no-braine/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-16 03:52 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Why Sandisk Stock Dropped Again Today",
-      "url": "https://www.fool.com/investing/2026/07/15/why-sandisk-stock-dropped-again-today/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-16 03:51 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Investing $1,000 in SpaceX: Could It Deliver Life-Changing Returns?",
-      "url": "https://www.fool.com/investing/2026/07/15/investing-1000-in-spacex-could-it-deliver-life-cha/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-16 03:50 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Prediction: This Will Be Nvidia's Stock Price by 2028",
-      "url": "https://www.fool.com/investing/2026/07/15/prediction-this-will-be-nvidias-stock-price-by-202/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-16 03:50 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Tech trade check-in: What's behind all the recent rotation?",
-      "url": "https://finance.yahoo.com/video/tech-trade-check-in-whats-behind-all-the-recent-rotation-192840899.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-16 03:28 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "VB vs. SCHA: Which Small-Cap ETF Is the Better Buy for Investors?",
-      "url": "https://www.fool.com/coverage/etfs/2026/07/15/vb-vs-scha-which-small-cap-etf-is-the-better-buy-for-investors/?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-16 03:24 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Banks’ Blowout Earnings Steal the Spotlight from Big Tech—for Now",
-      "url": "https://finance.yahoo.com/m/8563242d-2fa4-3380-80ce-21e3a5ab3308/banks%E2%80%99-blowout-earnings-steal.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-16 03:02 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "The SOX Index Fell 16% in Less Than a Month",
-      "url": "https://finance.yahoo.com/m/e7233e45-9906-336f-8f6e-f4abe311db2e/the-sox-index-fell-16%25-in.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-16 02:50 HKT",
-      "label": "US Markets"
     },
     {
       "title": "阿里千問將作為 AI 能力集成至 Apple 智能",
