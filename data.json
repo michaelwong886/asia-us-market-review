@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-16T20:44:32.366792+00:00",
-  "generated_at_hkt": "2026-07-17 04:44 HKT",
+  "generated_at": "2026-07-16T21:45:56.678280+00:00",
+  "generated_at_hkt": "2026-07-17 05:45 HKT",
   "indices": {
     "HK": {
       "label": "Hong Kong",
@@ -112,7 +112,7 @@
         "ticker": "^IXIC",
         "close": 25881.95,
         "pct_change": -1.47,
-        "volume_fmt": "$7.1B"
+        "volume_fmt": "$7.2B"
       },
       "tertiary": {
         "name": "Dow Jones",
@@ -183,23 +183,23 @@
   "fx": {
     "USD/HKD": {
       "rate": 7.84,
-      "pct_change": 0.03
+      "pct_change": 0.02
     },
     "USD/CNY": {
-      "rate": 6.77,
-      "pct_change": 0.04
+      "rate": 6.76,
+      "pct_change": -0.1
     },
     "USD/KRW": {
-      "rate": 1477.88,
-      "pct_change": -0.67
+      "rate": 1479.39,
+      "pct_change": -0.57
     },
     "USD/JPY": {
-      "rate": 162.37,
+      "rate": 162.36,
       "pct_change": 0.11
     },
     "EUR/USD": {
       "rate": 1.14,
-      "pct_change": 0.19
+      "pct_change": 0.18
     },
     "DXY": {
       "rate": 100.73,
@@ -208,8 +208,100 @@
   },
   "movers": {
     "HK": {
-      "gainers": [],
-      "losers": [],
+      "gainers": [
+        {
+          "ticker": "1810.HK",
+          "close": 27.5,
+          "pct_change": 6.34,
+          "volume": 319311311,
+          "volume_fmt": "HK$319M",
+          "longName": "Xiaomi Corporation",
+          "industry": "Consumer Electronics"
+        },
+        {
+          "ticker": "1211.HK",
+          "close": 90.95,
+          "pct_change": 4.6,
+          "volume": 34549021,
+          "volume_fmt": "HK$35M",
+          "longName": "BYD Company Limited",
+          "industry": "Auto Manufacturers"
+        },
+        {
+          "ticker": "3690.HK",
+          "close": 87.2,
+          "pct_change": 4.56,
+          "volume": 100388858,
+          "volume_fmt": "HK$100M",
+          "longName": "Meituan",
+          "industry": "Internet Retail"
+        },
+        {
+          "ticker": "0688.HK",
+          "close": 13.56,
+          "pct_change": 3.67,
+          "volume": 29309763,
+          "volume_fmt": "HK$29M",
+          "longName": "China Overseas Land & Investment Limited",
+          "industry": "Real Estate - Development"
+        },
+        {
+          "ticker": "6098.HK",
+          "close": 5.72,
+          "pct_change": 3.62,
+          "volume": 10498368,
+          "volume_fmt": "HK$10M",
+          "longName": "Country Garden Services Holdings Company Limited",
+          "industry": "Real Estate Services"
+        }
+      ],
+      "losers": [
+        {
+          "ticker": "2628.HK",
+          "close": 27.7,
+          "pct_change": -1.07,
+          "volume": 66746008,
+          "volume_fmt": "HK$67M",
+          "longName": "China Life Insurance Company Limited",
+          "industry": "Insurance - Life"
+        },
+        {
+          "ticker": "0857.HK",
+          "close": 9.47,
+          "pct_change": -0.73,
+          "volume": 46953383,
+          "volume_fmt": "HK$47M",
+          "longName": "PetroChina Company Limited",
+          "industry": "Oil & Gas Integrated"
+        },
+        {
+          "ticker": "2269.HK",
+          "close": 39.32,
+          "pct_change": -0.56,
+          "volume": 31303416,
+          "volume_fmt": "HK$31M",
+          "longName": "WuXi Biologics (Cayman) Inc.",
+          "industry": "Biotechnology"
+        },
+        {
+          "ticker": "1299.HK",
+          "close": 76.1,
+          "pct_change": -0.13,
+          "volume": 28518556,
+          "volume_fmt": "HK$29M",
+          "longName": "AIA Group Limited",
+          "industry": "Insurance - Life"
+        },
+        {
+          "ticker": "0883.HK",
+          "close": 22.88,
+          "pct_change": -0.09,
+          "volume": 54298555,
+          "volume_fmt": "HK$54M",
+          "longName": "CNOOC Limited",
+          "industry": "Oil & Gas E&P"
+        }
+      ],
       "is_friday_fallback": false,
       "screener_note": "Last trading day data"
     },
@@ -266,8 +358,8 @@
           "ticker": "MRVL",
           "close": 188.3,
           "pct_change": -8.71,
-          "volume": 34472698,
-          "volume_fmt": "$34M",
+          "volume": 34563237,
+          "volume_fmt": "$35M",
           "longName": "Marvell Technology, Inc.",
           "industry": "Semiconductors"
         },
@@ -275,8 +367,8 @@
           "ticker": "SMCI",
           "close": 24.68,
           "pct_change": -8.22,
-          "volume": 34034735,
-          "volume_fmt": "$34M",
+          "volume": 35290109,
+          "volume_fmt": "$35M",
           "longName": "Super Micro Computer, Inc.",
           "industry": "Computer Hardware"
         },
@@ -284,7 +376,7 @@
           "ticker": "ORCL",
           "close": 124.21,
           "pct_change": -6.25,
-          "volume": 54171067,
+          "volume": 54322695,
           "volume_fmt": "$54M",
           "longName": "Oracle Corporation",
           "industry": "Software - Infrastructure"
@@ -302,7 +394,7 @@
           "ticker": "MU",
           "close": 853.2,
           "pct_change": -5.65,
-          "volume": 45625971,
+          "volume": 45784925,
           "volume_fmt": "$46M",
           "longName": "Micron Technology, Inc.",
           "industry": "Semiconductors"
@@ -317,98 +409,98 @@
       "title": "Dow Jones Futures: Micron, Sandisk, Google Lead AI Sell-Off, But These Groups Are Strong; SpaceX Starship Launch Due",
       "url": "https://finance.yahoo.com/m/b5c1ad7a-e72b-3a9b-bb20-11f0979acb67/dow-jones-futures%3A-micron%2C.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-17 04:36 HKT",
+      "published_hkt": "2026-07-17 05:31 HKT",
       "label": "US Markets"
     },
     {
-      "title": "Better Aviation ETF: State Street's Aerospace-Focused XAR vs. U.S. Global's JETS Targeting Airlines",
-      "url": "https://www.fool.com/coverage/etfs/2026/07/16/better-aviation-etf-state-street-s-aerospace-focused-xar-vs-u-s-global-s-jets-targeting-airlines/?.tsrc=rss",
+      "title": "Stock Market Today, July 16: Lucid Group Surges on CEO's Denial of Bankruptcy and Take-Private Rumors",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/16/stock-market-today-july-16-lucid-group-surges-on-ceos-denial-of-bankruptcy-and-take-private-rumors/?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-17 04:36 HKT",
+      "published_hkt": "2026-07-17 05:28 HKT",
       "label": "US Markets"
     },
     {
-      "title": "The \"Magnificent Seven\" Are at Their Lowest Relative Valuations in a Decade. My 3 Favorite Mag 7 Stocks to Buy.",
-      "url": "https://www.fool.com/investing/2026/07/16/magnificent-seven-low-valuation-mag-7-stock/?.tsrc=rss",
+      "title": "Stock Market Today, July 16: Micron Plunges as Tech Stocks Extend Sell-Off",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/16/stock-market-today-july-16-micron-plunges-as-tech-stocks-extend-sell-off/?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-17 04:35 HKT",
+      "published_hkt": "2026-07-17 05:23 HKT",
       "label": "US Markets"
     },
     {
-      "title": "Stock Market Today: Nasdaq Drops While TSMC Hits Sell Rule; Oil Shipper Steers Into Entry Point",
-      "url": "https://finance.yahoo.com/m/c5561775-6f2a-30c3-8319-d6feaa5d3578/stock-market-today%3A-nasdaq.html?.tsrc=rss",
+      "title": "Better Growth ETF: Vanguard's VOOG Targeting the S&P 500 vs. State Street's Small Cap-Focused SLYG",
+      "url": "https://www.fool.com/coverage/etfs/2026/07/16/better-growth-etf-vanguard-s-voog-targeting-the-s-and-p-500-vs-state-street-s-small-cap-focused-slyg/?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-17 04:27 HKT",
+      "published_hkt": "2026-07-17 05:22 HKT",
       "label": "US Markets"
     },
     {
-      "title": "This GLP-1 Stock Could Double by 2030. Here's Why",
-      "url": "https://www.fool.com/investing/2026/07/16/this-glp-1-stock-could-double-by-2030-heres-why/?.tsrc=rss",
+      "title": "Lemonade Is Keeping More of Its Own Insurance Risk. Is That a Sign of Confidence or a Red Flag?",
+      "url": "https://www.fool.com/investing/2026/07/16/lemonade-keep-more-own-insurance-risk-red-flag/?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-17 04:20 HKT",
+      "published_hkt": "2026-07-17 05:22 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "AI Data-Center Play Prologis Hiked Its Outlook Again; Shares Jump",
-      "url": "https://finance.yahoo.com/m/8ba57fab-b602-3548-a8fa-b62e86c1edf2/ai-data-center-play-prologis.html?.tsrc=rss",
+      "title": "Stock Market Today, July 16: AtaiBeckley Surges on Eli Lilly Acquisition Worth Up To $3.8 Billion",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/16/stock-market-today-july-16-ataibeckley-surges-on-eli-lilly-acquisition-worth-up-to-usd3-8-billion/?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-17 04:17 HKT",
+      "published_hkt": "2026-07-17 05:19 HKT",
       "label": "US Markets"
     },
     {
-      "title": "Which Financial ETF Is the Better Investment?",
-      "url": "https://www.fool.com/coverage/etfs/2026/07/16/which-financial-etf-is-the-better-investment/?.tsrc=rss",
+      "title": "Taiwan Semiconductor Commits To Investing Another $100 Billion In The United States",
+      "url": "https://www.fool.com/investing/2026/07/16/taiwan-semiconductor-commits-to-investing-another-100-billion-in-the-united-states/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-17 05:16 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Alex Karp Grouped Palantir With These 3 Unstoppable Stocks as the Only True Artificial Intelligence (AI) Infrastructure Winners",
+      "url": "https://www.fool.com/investing/2026/07/16/alex-karp-grouped-palantir-with-these-3-unstoppabl/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-17 05:05 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Update: US Equity Indexes Drop as Chipmakers Push Technology Lower, Iran Warns on Red Sea Chokepoint",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-drop-chipmakers-210443412.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-17 04:10 HKT",
+      "published_hkt": "2026-07-17 05:04 HKT",
       "label": "US Markets"
     },
     {
-      "title": "SK Hynix Makes Up Over a Quarter of South Korea's Stock Market. If You'd Invested $5,000 in the Memory Giant 5 Years Ago, Here's How Much It Would Be Worth Today.",
-      "url": "https://www.fool.com/investing/2026/07/16/sk-hynix-south-korea-market-memory-giant/?.tsrc=rss",
+      "title": "JPMorgan Just Reported $21.2 Billion in Q2 Net Income -- Up 41% -- and CEO Jamie Dimon Said the Economy Is \"Close to as Good as It Gets.\"",
+      "url": "https://www.fool.com/investing/2026/07/16/jpmorgan-ceo-jamie-dimon-q2-income-economy/?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-17 04:10 HKT",
+      "published_hkt": "2026-07-17 05:04 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "3 AI Stocks Poised to Rebound After Slow Starts to the Year",
-      "url": "https://www.fool.com/investing/2026/07/16/3-ai-stocks-poised-to-rebound-after-slow-starts-to/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-17 04:05 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Most Stocks Gained, but Chip Selloff Drags Market",
-      "url": "https://finance.yahoo.com/m/b2df7f76-1cea-3fe3-a952-d6fa0b724a41/most-stocks-gained%2C-but-chip.html?.tsrc=rss",
+      "title": "Adams Natural Resources Fund Announces First Half 2026 Performance",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/adams-natural-resources-fund-announces-205700854.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-17 04:01 HKT",
+      "published_hkt": "2026-07-17 04:57 HKT",
       "label": "US Markets"
     },
     {
-      "title": "Apple's New iPhone Is Going to Cost Significantly More Than Last Year. That's Great News for These 2 Potential Millionaire-Maker Stocks.",
-      "url": "https://www.fool.com/investing/2026/07/16/apples-new-iphone-is-going-to-cost-significantly-m/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-17 03:59 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "New HarbourVest Private Equity Sector Benchmarks: Financials Outperformed in US while Information Technology Led in Europe",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/harbourvest-private-equity-sector-benchmarks-195700096.html?.tsrc=rss",
+      "title": "Adams Diversified Equity Fund Announces First Half 2026 Performance",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/adams-diversified-equity-fund-announces-205700355.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-17 03:57 HKT",
+      "published_hkt": "2026-07-17 04:57 HKT",
       "label": "US Markets"
     },
     {
-      "title": "AI Has Upended Chip Stocks. This Chart Shows How Much.",
-      "url": "https://finance.yahoo.com/m/f52ae25b-cf16-37ee-9425-018a96ec9461/ai-has-upended-chip-stocks..html?.tsrc=rss",
+      "title": "Michael Burry Says PayPal's $60.50 Buyout Offer Is \"Simply Too Low.\" Here's the Case for a Higher Bid.",
+      "url": "https://www.fool.com/investing/2026/07/16/michael-burry-says-paypals-6050-buyout-offer-is-si/?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-17 03:49 HKT",
+      "published_hkt": "2026-07-17 04:57 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "NVIDIA CEO Courts Japan Suppliers as $5.1 Trillion AI Push Expands",
-      "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-ceo-courts-japan-suppliers-194801151.html?.tsrc=rss",
+      "title": "Should You Buy Tesla Stock Before July 22?",
+      "url": "https://www.fool.com/investing/2026/07/16/should-you-buy-tesla-stock-before-july-22/?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-17 03:48 HKT",
+      "published_hkt": "2026-07-17 04:50 HKT",
       "label": "Semiconductors"
     },
     {
