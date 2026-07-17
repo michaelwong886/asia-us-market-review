@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-17T21:13:46.342192+00:00",
-  "generated_at_hkt": "2026-07-18 05:13 HKT",
+  "generated_at": "2026-07-17T22:06:08.289979+00:00",
+  "generated_at_hkt": "2026-07-18 06:06 HKT",
   "indices": {
     "HK": {
       "label": "Hong Kong",
@@ -111,7 +111,7 @@
         "ticker": "^IXIC",
         "close": 25520.24,
         "pct_change": -1.4,
-        "volume_fmt": "$6.5B"
+        "volume_fmt": "$6.6B"
       },
       "tertiary": {
         "name": "Dow Jones",
@@ -207,8 +207,100 @@
   },
   "movers": {
     "HK": {
-      "gainers": [],
-      "losers": [],
+      "gainers": [
+        {
+          "ticker": "0003.HK",
+          "close": 6.8,
+          "pct_change": 1.64,
+          "volume": 37343717,
+          "volume_fmt": "HK$37M",
+          "longName": "The Hong Kong and China Gas Company Limited",
+          "industry": "Utilities - Regulated Gas"
+        },
+        {
+          "ticker": "1038.HK",
+          "close": 62.25,
+          "pct_change": 1.63,
+          "volume": 2195290,
+          "volume_fmt": "HK$2M",
+          "longName": "CK Infrastructure Holdings Limited",
+          "industry": "Utilities - Regulated Electric"
+        },
+        {
+          "ticker": "0857.HK",
+          "close": 9.59,
+          "pct_change": 1.27,
+          "volume": 121800564,
+          "volume_fmt": "HK$122M",
+          "longName": "PetroChina Company Limited",
+          "industry": "Oil & Gas Integrated"
+        },
+        {
+          "ticker": "0939.HK",
+          "close": 8.29,
+          "pct_change": 1.22,
+          "volume": 245973201,
+          "volume_fmt": "HK$246M",
+          "longName": "China Construction Bank Corporation",
+          "industry": "Banks - Diversified"
+        },
+        {
+          "ticker": "0002.HK",
+          "close": 77.7,
+          "pct_change": 1.11,
+          "volume": 4150316,
+          "volume_fmt": "HK$4M",
+          "longName": "CLP Holdings Limited",
+          "industry": "Utilities - Regulated Electric"
+        }
+      ],
+      "losers": [
+        {
+          "ticker": "2269.HK",
+          "close": 36.98,
+          "pct_change": -5.95,
+          "volume": 51347127,
+          "volume_fmt": "HK$51M",
+          "longName": "WuXi Biologics (Cayman) Inc.",
+          "industry": "Biotechnology"
+        },
+        {
+          "ticker": "1177.HK",
+          "close": 4.98,
+          "pct_change": -5.32,
+          "volume": 152016436,
+          "volume_fmt": "HK$152M",
+          "longName": "Sino Biopharmaceutical Limited",
+          "industry": "Biotechnology"
+        },
+        {
+          "ticker": "0700.HK",
+          "close": 461.6,
+          "pct_change": -4.63,
+          "volume": 36237657,
+          "volume_fmt": "HK$36M",
+          "longName": "Tencent Holdings Limited",
+          "industry": "Internet Content & Information"
+        },
+        {
+          "ticker": "2628.HK",
+          "close": 26.48,
+          "pct_change": -4.4,
+          "volume": 80013985,
+          "volume_fmt": "HK$80M",
+          "longName": "China Life Insurance Company Limited",
+          "industry": "Insurance - Life"
+        },
+        {
+          "ticker": "3690.HK",
+          "close": 83.65,
+          "pct_change": -4.07,
+          "volume": 79212029,
+          "volume_fmt": "HK$79M",
+          "longName": "Meituan",
+          "industry": "Internet Retail"
+        }
+      ],
       "is_friday_fallback": true,
       "screener_note": "Last trading day data  (Fri fallback)"
     },
@@ -313,6 +405,76 @@
   },
   "news": [
     {
+      "title": "UiPath Vs. ServiceNow: Which Agentic AI Stock Is the Better Buy?",
+      "url": "https://www.fool.com/investing/2026/07/17/uipath-vs-servicenow-which-agentic-ai-stock-is-the/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-18 05:44 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Stock Market Today, July 17: Stocks Slide as Semiconductor Rout Deepens",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/17/stock-market-today-july-17-stocks-slide-as-semiconductor-rout-deepens/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-18 05:33 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Fanatics Fest traders on sports cards vs. stocks",
+      "url": "https://finance.yahoo.com/video/fanatics-fest-traders-on-sports-cards-vs-stocks-212906436.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-18 05:29 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Dell Technologies vs. NVIDIA: Which Artificial Intelligence Stock Is a Better Buy in 2026?",
+      "url": "https://www.fool.com/coverage/better-buy/2026/07/17/dell-technologies-vs-nvidia-which-artificial-intelligence-stock-is-a-better-buy-in-2026/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-18 05:24 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "ETFs Offer an Easier Way to Hold Physical Metal. Is Buying Gold or Silver the Better Bet in 2026?",
+      "url": "https://www.fool.com/coverage/etfs/2026/07/17/etfs-offer-an-easier-way-to-hold-physical-metal-is-buying-gold-or-silver-the-better-bet-in-2026/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-18 05:22 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Stock Market Today, July 17: Netflix Plunges, but Are Investors Missing the Point?",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/17/stock-market-today-july-17-netflix-plunges-but-are-investors-missing-the-point/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-18 05:18 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Jim Cramer Says Semiconductor Stocks Are “Going Down.” Buy These 2 Dividend Stocks Instead",
+      "url": "https://247wallst.com/investing/2026/07/17/jim-cramer-says-semiconductor-stocks-are-going-down-buy-these-2-dividend-stocks-instead/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-18 05:17 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Why AST SpaceMobile Stock Raced Higher Today",
+      "url": "https://www.fool.com/investing/2026/07/17/why-ast-spacemobile-stock-is-racing-higher-today/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-18 05:17 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Jim Cramer Says the Market Is “Dead Wrong” About These 5 Oversold Stocks",
+      "url": "https://247wallst.com/investing/2026/07/17/jim-cramer-says-the-market-is-dead-wrong-about-these-5-oversold-stocks/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-18 05:14 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Jim Cramer Says Oracle Is “Going Down” and Avoid Every Liquor Stock. Here’s What He’d Buy Instead",
+      "url": "https://247wallst.com/investing/2026/07/17/jim-cramer-says-oracle-is-going-down-and-avoid-every-liquor-stock-heres-what-hed-buy-instead/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-18 05:13 HKT",
+      "label": "Semiconductors"
+    },
+    {
       "title": "Dow Jones Futures: Google, Tesla, AMD Loom After AI Stock Sell-Off",
       "url": "https://finance.yahoo.com/m/6c8dacfc-1037-32fc-a343-353600ff0076/dow-jones-futures%3A-google%2C.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
@@ -341,80 +503,10 @@
       "label": "US Markets"
     },
     {
-      "title": "Tech share selloff rolls on, oil prices jump on Mideast clashes",
-      "url": "https://finance.yahoo.com/markets/world-indices/articles/tokyo-taipei-lead-tech-losses-022548774.html?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-18 04:43 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Why Pentair Stock Suddenly Plunged to a 52-Week Low This Week",
-      "url": "https://www.fool.com/investing/2026/07/17/why-pentair-stock-suddenly-plunged-to-52-week-low/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-18 04:39 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Meta Platforms: AI Return on Invested Capital Is Uncertain (NASDAQ:META)",
-      "url": "https://www.fool.com/investing/2026/07/17/meta-ai-return-on-invested-capital-uncertain/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-18 04:29 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Stock Market Today: Dow Drops 400 Points Amid Iran War News; Netflix Tumbles (Live Coverage)",
-      "url": "https://finance.yahoo.com/m/321db8d1-ca56-378a-a99c-0f73b9c90d9b/stock-market-today%3A-dow-drops.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-18 04:28 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "US Equity Indexes Decline This Week as Sell-Off in Chipmakers, Heavy Iran Strikes Fail to Outweigh Inflation Tailwind",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-decline-week-202717642.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-18 04:27 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "US Equity Markets End Lower as Oil Prices Climb on US-Iran Escalation",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/us-equity-markets-end-lower-201848949.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-18 04:18 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Michael Burry Is Skeptical Of NVDA, ORCL And NFLX — But Bullish On This Sports Betting Stock",
-      "url": "https://stocktwits.com/news-articles/markets/equity/michael-burry-adds-nvidia-puts-cuts-oracle-position-bullish-on-draftkings-questions-netflix-content-value/cZZ7M5dR7Mf?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-18 04:16 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Nasdaq, S&P 500 drop 1% after China’s latest AI breakthrough rattles tech stocks",
-      "url": "https://www.cnn.com/2026/07/17/investing/us-stocks-asia?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-18 04:14 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Jensen Huang Denied Delay Reports for Nvidia's Vera Rubin AI Systems",
-      "url": "https://www.fool.com/investing/2026/07/17/jensen-huang-denied-delay-reports-for-nvidias-vera/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-18 04:08 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "The Hidden Danger in Leveraged Gold ETFs Like UGL and GLL",
-      "url": "https://247wallst.com/investing/etf/2026/07/17/the-hidden-danger-in-leveraged-gold-etfs-like-ugl-and-gll/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-18 04:05 HKT",
-      "label": "Semiconductors"
-    },
-    {
       "title": "Moonshot AI’s Latest Model Dings Tech Stocks. We’ve Seen This Story Before.",
       "url": "https://finance.yahoo.com/m/52af023c-61c1-3975-9ce5-f559378b6e59/moonshot-ai%E2%80%99s-latest-model.html?.tsrc=rss",
       "source": "Yahoo! Finance: 9988.HK News",
-      "published_hkt": "2026-07-18 00:55 HKT",
+      "published_hkt": "2026-07-18 03:37 HKT",
       "label": "China Tech"
     },
     {
