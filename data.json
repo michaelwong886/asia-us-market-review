@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-16T21:45:56.678280+00:00",
-  "generated_at_hkt": "2026-07-17 05:45 HKT",
+  "generated_at": "2026-07-17T04:06:12.445191+00:00",
+  "generated_at_hkt": "2026-07-17 12:06 HKT",
   "indices": {
     "HK": {
       "label": "Hong Kong",
@@ -8,22 +8,23 @@
       "primary": {
         "name": "HSI",
         "ticker": "^HSI",
-        "close": 24681.1,
-        "pct_change": 1.4,
-        "volume_fmt": "HK$3.2B"
+        "close": 24524.51,
+        "pct_change": -1.94,
+        "volume_fmt": "HK$0.0B"
       },
       "secondary": {
         "name": "HSCEI",
         "ticker": "^HSCE",
-        "close": 8184.38,
-        "pct_change": 1.0,
+        "close": 8118.69,
+        "pct_change": -2.4,
         "volume_fmt": "HK$0.0B"
       },
       "sparkline": [
-        24175.12,
         24213.72,
         24340.73,
-        24681.1
+        24681.1,
+        25008.6,
+        24524.51
       ]
     },
     "CN": {
@@ -32,20 +33,19 @@
       "primary": {
         "name": "CSI 300",
         "ticker": "000300.SS",
-        "close": NaN,
-        "pct_change": NaN,
+        "close": 4583.23,
+        "pct_change": null,
         "volume_fmt": "¥0.0T"
       },
       "secondary": {
         "name": "SSE Composite",
         "ticker": "000001.SS",
-        "close": NaN,
-        "pct_change": NaN,
+        "close": 3818.59,
+        "pct_change": -1.64,
         "volume_fmt": "¥0.0T"
       },
       "sparkline": [
-        4780.79,
-        NaN
+        4583.23
       ]
     },
     "KR": {
@@ -54,15 +54,15 @@
       "primary": {
         "name": "KOSPI",
         "ticker": "^KS11",
-        "close": NaN,
-        "pct_change": NaN,
+        "close": 6820.6,
+        "pct_change": -6.37,
         "volume_fmt": "₩0.0T"
       },
       "secondary": {
         "name": "KOSDAQ",
         "ticker": "^KQ11",
-        "close": 829.43,
-        "pct_change": 5.8,
+        "close": 791.84,
+        "pct_change": -4.53,
         "volume_fmt": "₩0.0T"
       },
       "sparkline": [
@@ -70,7 +70,7 @@
         6806.93,
         6856.83,
         7284.41,
-        NaN
+        6820.6
       ]
     },
     "JP": {
@@ -79,8 +79,8 @@
       "primary": {
         "name": "Nikkei 225",
         "ticker": "^N225",
-        "close": 68751.51,
-        "pct_change": 1.49,
+        "close": 63834.76,
+        "pct_change": -4.49,
         "volume_fmt": "¥0.0T"
       },
       "secondary": {
@@ -91,10 +91,11 @@
         "volume_fmt": "¥0.0T"
       },
       "sparkline": [
-        68557.73,
         67242.73,
         67743.5,
-        68751.51
+        68751.51,
+        66835.54,
+        63834.76
       ]
     },
     "US": {
@@ -105,14 +106,14 @@
         "ticker": "^GSPC",
         "close": 7533.77,
         "pct_change": -0.51,
-        "volume_fmt": "$3.2B"
+        "volume_fmt": "$5.4B"
       },
       "secondary": {
         "name": "NASDAQ",
         "ticker": "^IXIC",
         "close": 25881.95,
         "pct_change": -1.47,
-        "volume_fmt": "$7.2B"
+        "volume_fmt": "$8.3B"
       },
       "tertiary": {
         "name": "Dow Jones",
@@ -183,23 +184,23 @@
   "fx": {
     "USD/HKD": {
       "rate": 7.84,
-      "pct_change": 0.02
+      "pct_change": 0.03
     },
     "USD/CNY": {
-      "rate": 6.76,
-      "pct_change": -0.1
+      "rate": 6.77,
+      "pct_change": 0.08
     },
     "USD/KRW": {
-      "rate": 1479.39,
-      "pct_change": -0.57
+      "rate": 1480.52,
+      "pct_change": -0.38
     },
     "USD/JPY": {
-      "rate": 162.36,
-      "pct_change": 0.11
+      "rate": 162.4,
+      "pct_change": 0.2
     },
     "EUR/USD": {
       "rate": 1.14,
-      "pct_change": 0.18
+      "pct_change": -0.25
     },
     "DXY": {
       "rate": 100.73,
@@ -210,96 +211,96 @@
     "HK": {
       "gainers": [
         {
-          "ticker": "1810.HK",
-          "close": 27.5,
-          "pct_change": 6.34,
-          "volume": 319311311,
-          "volume_fmt": "HK$319M",
-          "longName": "Xiaomi Corporation",
-          "industry": "Consumer Electronics"
+          "ticker": "1038.HK",
+          "close": 62.0,
+          "pct_change": 1.22,
+          "volume": 1261397,
+          "volume_fmt": "HK$1M",
+          "longName": "CK Infrastructure Holdings Limited",
+          "industry": "Utilities - Regulated Electric"
         },
         {
-          "ticker": "1211.HK",
-          "close": 90.95,
-          "pct_change": 4.6,
-          "volume": 34549021,
-          "volume_fmt": "HK$35M",
-          "longName": "BYD Company Limited",
-          "industry": "Auto Manufacturers"
+          "ticker": "0003.HK",
+          "close": 6.75,
+          "pct_change": 0.9,
+          "volume": 18562111,
+          "volume_fmt": "HK$19M",
+          "longName": "The Hong Kong and China Gas Company Limited",
+          "industry": "Utilities - Regulated Gas"
         },
         {
-          "ticker": "3690.HK",
-          "close": 87.2,
-          "pct_change": 4.56,
-          "volume": 100388858,
-          "volume_fmt": "HK$100M",
-          "longName": "Meituan",
-          "industry": "Internet Retail"
+          "ticker": "0002.HK",
+          "close": 77.45,
+          "pct_change": 0.78,
+          "volume": 2192948,
+          "volume_fmt": "HK$2M",
+          "longName": "CLP Holdings Limited",
+          "industry": "Utilities - Regulated Electric"
         },
         {
-          "ticker": "0688.HK",
-          "close": 13.56,
-          "pct_change": 3.67,
-          "volume": 29309763,
-          "volume_fmt": "HK$29M",
-          "longName": "China Overseas Land & Investment Limited",
-          "industry": "Real Estate - Development"
+          "ticker": "0939.HK",
+          "close": 8.23,
+          "pct_change": 0.49,
+          "volume": 80267929,
+          "volume_fmt": "HK$80M",
+          "longName": "China Construction Bank Corporation",
+          "industry": "Banks - Diversified"
         },
         {
-          "ticker": "6098.HK",
-          "close": 5.72,
-          "pct_change": 3.62,
-          "volume": 10498368,
-          "volume_fmt": "HK$10M",
-          "longName": "Country Garden Services Holdings Company Limited",
-          "industry": "Real Estate Services"
+          "ticker": "0005.HK",
+          "close": 157.3,
+          "pct_change": 0.25,
+          "volume": 6227375,
+          "volume_fmt": "HK$6M",
+          "longName": "HSBC Holdings plc",
+          "industry": "Banks - Diversified"
         }
       ],
       "losers": [
         {
-          "ticker": "2628.HK",
-          "close": 27.7,
-          "pct_change": -1.07,
-          "volume": 66746008,
-          "volume_fmt": "HK$67M",
-          "longName": "China Life Insurance Company Limited",
-          "industry": "Insurance - Life"
-        },
-        {
-          "ticker": "0857.HK",
-          "close": 9.47,
-          "pct_change": -0.73,
-          "volume": 46953383,
-          "volume_fmt": "HK$47M",
-          "longName": "PetroChina Company Limited",
-          "industry": "Oil & Gas Integrated"
+          "ticker": "1177.HK",
+          "close": 4.92,
+          "pct_change": -6.46,
+          "volume": 68067070,
+          "volume_fmt": "HK$68M",
+          "longName": "Sino Biopharmaceutical Limited",
+          "industry": "Biotechnology"
         },
         {
           "ticker": "2269.HK",
-          "close": 39.32,
-          "pct_change": -0.56,
-          "volume": 31303416,
-          "volume_fmt": "HK$31M",
+          "close": 36.84,
+          "pct_change": -6.31,
+          "volume": 27724030,
+          "volume_fmt": "HK$28M",
           "longName": "WuXi Biologics (Cayman) Inc.",
           "industry": "Biotechnology"
         },
         {
-          "ticker": "1299.HK",
-          "close": 76.1,
-          "pct_change": -0.13,
-          "volume": 28518556,
-          "volume_fmt": "HK$29M",
-          "longName": "AIA Group Limited",
-          "industry": "Insurance - Life"
+          "ticker": "3690.HK",
+          "close": 82.0,
+          "pct_change": -5.96,
+          "volume": 51025624,
+          "volume_fmt": "HK$51M",
+          "longName": "Meituan",
+          "industry": "Internet Retail"
         },
         {
-          "ticker": "0883.HK",
-          "close": 22.88,
-          "pct_change": -0.09,
-          "volume": 54298555,
-          "volume_fmt": "HK$54M",
-          "longName": "CNOOC Limited",
-          "industry": "Oil & Gas E&P"
+          "ticker": "0700.HK",
+          "close": 465.2,
+          "pct_change": -3.88,
+          "volume": 18745790,
+          "volume_fmt": "HK$19M",
+          "longName": "Tencent Holdings Limited",
+          "industry": "Internet Content & Information"
+        },
+        {
+          "ticker": "9988.HK",
+          "close": 112.7,
+          "pct_change": -3.59,
+          "volume": 65593150,
+          "volume_fmt": "HK$66M",
+          "longName": "Alibaba Group Holding Limited",
+          "industry": "Internet Retail"
         }
       ],
       "is_friday_fallback": false,
@@ -311,8 +312,8 @@
           "ticker": "ABT",
           "close": 98.83,
           "pct_change": 10.71,
-          "volume": 27851980,
-          "volume_fmt": "$28M",
+          "volume": 32747600,
+          "volume_fmt": "$33M",
           "longName": "Abbott Laboratories",
           "industry": "Medical Devices"
         },
@@ -320,8 +321,8 @@
           "ticker": "ACN",
           "close": 144.61,
           "pct_change": 5.54,
-          "volume": 8812540,
-          "volume_fmt": "$9M",
+          "volume": 9512600,
+          "volume_fmt": "$10M",
           "longName": "Accenture plc",
           "industry": "Information Technology Services"
         },
@@ -329,8 +330,8 @@
           "ticker": "PM",
           "close": 189.84,
           "pct_change": 4.95,
-          "volume": 3892831,
-          "volume_fmt": "$4M",
+          "volume": 5851000,
+          "volume_fmt": "$6M",
           "longName": "Philip Morris International Inc.",
           "industry": "Tobacco"
         },
@@ -338,7 +339,7 @@
           "ticker": "ADBE",
           "close": 235.31,
           "pct_change": 4.79,
-          "volume": 5756503,
+          "volume": 5780100,
           "volume_fmt": "$6M",
           "longName": "Adobe Inc.",
           "industry": "Software - Application"
@@ -347,8 +348,8 @@
           "ticker": "ABBV",
           "close": 254.39,
           "pct_change": 4.21,
-          "volume": 4492413,
-          "volume_fmt": "$4M",
+          "volume": 6552900,
+          "volume_fmt": "$7M",
           "longName": "AbbVie Inc.",
           "industry": "Drug Manufacturers - General"
         }
@@ -358,7 +359,7 @@
           "ticker": "MRVL",
           "close": 188.3,
           "pct_change": -8.71,
-          "volume": 34563237,
+          "volume": 34642300,
           "volume_fmt": "$35M",
           "longName": "Marvell Technology, Inc.",
           "industry": "Semiconductors"
@@ -367,8 +368,8 @@
           "ticker": "SMCI",
           "close": 24.68,
           "pct_change": -8.22,
-          "volume": 35290109,
-          "volume_fmt": "$35M",
+          "volume": 35834800,
+          "volume_fmt": "$36M",
           "longName": "Super Micro Computer, Inc.",
           "industry": "Computer Hardware"
         },
@@ -376,7 +377,7 @@
           "ticker": "ORCL",
           "close": 124.21,
           "pct_change": -6.25,
-          "volume": 54322695,
+          "volume": 54474300,
           "volume_fmt": "$54M",
           "longName": "Oracle Corporation",
           "industry": "Software - Infrastructure"
@@ -385,8 +386,8 @@
           "ticker": "INTC",
           "close": 96.98,
           "pct_change": -5.84,
-          "volume": 105837548,
-          "volume_fmt": "$106M",
+          "volume": 106938500,
+          "volume_fmt": "$107M",
           "longName": "Intel Corporation",
           "industry": "Semiconductors"
         },
@@ -394,7 +395,7 @@
           "ticker": "MU",
           "close": 853.2,
           "pct_change": -5.65,
-          "volume": 45784925,
+          "volume": 45957500,
           "volume_fmt": "$46M",
           "longName": "Micron Technology, Inc.",
           "industry": "Semiconductors"
@@ -406,102 +407,137 @@
   },
   "news": [
     {
-      "title": "Dow Jones Futures: Micron, Sandisk, Google Lead AI Sell-Off, But These Groups Are Strong; SpaceX Starship Launch Due",
-      "url": "https://finance.yahoo.com/m/b5c1ad7a-e72b-3a9b-bb20-11f0979acb67/dow-jones-futures%3A-micron%2C.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-17 05:31 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Stock Market Today, July 16: Lucid Group Surges on CEO's Denial of Bankruptcy and Take-Private Rumors",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/16/stock-market-today-july-16-lucid-group-surges-on-ceos-denial-of-bankruptcy-and-take-private-rumors/?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-17 05:28 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Stock Market Today, July 16: Micron Plunges as Tech Stocks Extend Sell-Off",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/16/stock-market-today-july-16-micron-plunges-as-tech-stocks-extend-sell-off/?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-17 05:23 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Better Growth ETF: Vanguard's VOOG Targeting the S&P 500 vs. State Street's Small Cap-Focused SLYG",
-      "url": "https://www.fool.com/coverage/etfs/2026/07/16/better-growth-etf-vanguard-s-voog-targeting-the-s-and-p-500-vs-state-street-s-small-cap-focused-slyg/?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-17 05:22 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Lemonade Is Keeping More of Its Own Insurance Risk. Is That a Sign of Confidence or a Red Flag?",
-      "url": "https://www.fool.com/investing/2026/07/16/lemonade-keep-more-own-insurance-risk-red-flag/?.tsrc=rss",
+      "title": "Netflix Reported Record Quarterly Revenue of $12.6 Billion, but Guidance Came in Below Expectations. Here’s What It Means for Investors.",
+      "url": "https://www.fool.com/investing/2026/07/16/netflix-reported-record-quarterly-revenue-of-126-billion-but-guidance-came-in-below-expectations-heres-what-it-means-for-investors/?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-17 05:22 HKT",
+      "published_hkt": "2026-07-17 11:49 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "Stock Market Today, July 16: AtaiBeckley Surges on Eli Lilly Acquisition Worth Up To $3.8 Billion",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/16/stock-market-today-july-16-ataibeckley-surges-on-eli-lilly-acquisition-worth-up-to-usd3-8-billion/?.tsrc=rss",
+      "title": "2 Stocks Down 44% and 30% to Buy Right Now and Hold for the Next Decade",
+      "url": "https://www.fool.com/investing/2026/07/16/2-stocks-down-44-and-30-to-buy-right-now-and-hold/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-17 11:20 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Dow Jones Futures Fall, Netflix Dives, SpaceX Scrubs Launch After Latest AI Sell-Off",
+      "url": "https://finance.yahoo.com/m/b5c1ad7a-e72b-3a9b-bb20-11f0979acb67/dow-jones-futures-fall%2C.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-17 05:19 HKT",
+      "published_hkt": "2026-07-17 11:07 HKT",
       "label": "US Markets"
     },
     {
-      "title": "Taiwan Semiconductor Commits To Investing Another $100 Billion In The United States",
-      "url": "https://www.fool.com/investing/2026/07/16/taiwan-semiconductor-commits-to-investing-another-100-billion-in-the-united-states/?.tsrc=rss",
+      "title": "Why Abbott Stock Jumped Today",
+      "url": "https://www.fool.com/investing/2026/07/16/why-abbott-stock-is-up-today/?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-17 05:16 HKT",
+      "published_hkt": "2026-07-17 10:40 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "Alex Karp Grouped Palantir With These 3 Unstoppable Stocks as the Only True Artificial Intelligence (AI) Infrastructure Winners",
-      "url": "https://www.fool.com/investing/2026/07/16/alex-karp-grouped-palantir-with-these-3-unstoppabl/?.tsrc=rss",
+      "title": "Should You Buy Intuitive Surgical With the Stock Down 35%? Here's What History Says.",
+      "url": "https://www.fool.com/investing/2026/07/16/should-you-buy-intuitive-surgical-with-the-stock-d/?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-17 05:05 HKT",
+      "published_hkt": "2026-07-17 10:35 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "Update: US Equity Indexes Drop as Chipmakers Push Technology Lower, Iran Warns on Red Sea Chokepoint",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-drop-chipmakers-210443412.html?.tsrc=rss",
+      "title": "Cathie Wood buys $36.1 million of tumbling tech stock",
+      "url": "https://www.thestreet.com/investing/cathie-wood-buys-spacex-spcx-36-million-tumbling-tech-stock?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-17 05:04 HKT",
+      "published_hkt": "2026-07-17 10:33 HKT",
       "label": "US Markets"
     },
     {
-      "title": "JPMorgan Just Reported $21.2 Billion in Q2 Net Income -- Up 41% -- and CEO Jamie Dimon Said the Economy Is \"Close to as Good as It Gets.\"",
-      "url": "https://www.fool.com/investing/2026/07/16/jpmorgan-ceo-jamie-dimon-q2-income-economy/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-17 05:04 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Adams Natural Resources Fund Announces First Half 2026 Performance",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/adams-natural-resources-fund-announces-205700854.html?.tsrc=rss",
+      "title": "IGLB vs SCHQ: Corporate Bonds Beat Treasuries on Yield and Trailing Returns",
+      "url": "https://www.fool.com/coverage/etfs/2026/07/16/iglb-vs-schq-corporate-bonds-beat-treasuries-on-yield-and-trailing-returns/?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-17 04:57 HKT",
+      "published_hkt": "2026-07-17 10:25 HKT",
       "label": "US Markets"
     },
     {
-      "title": "Adams Diversified Equity Fund Announces First Half 2026 Performance",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/adams-diversified-equity-fund-announces-205700355.html?.tsrc=rss",
+      "title": "郭思治：大市月內反彈之幅度該已不算少",
+      "url": "https://hk.finance.yahoo.com/news/%E9%83%AD%E6%80%9D%E6%B2%BB-%E5%A4%A7%E5%B8%82%E6%9C%88%E5%85%A7%E5%8F%8D%E5%BD%88%E4%B9%8B%E5%B9%85%E5%BA%A6%E8%A9%B2%E5%B7%B2%E4%B8%8D%E7%AE%97%E5%B0%91-020611532.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^HSI News",
+      "published_hkt": "2026-07-17 10:06 HKT",
+      "label": "Asia Markets"
+    },
+    {
+      "title": "UBS doubles down on its S&P 500 target",
+      "url": "https://www.thestreet.com/investing/stocks/ubs-doubles-down-on-sp-500-target?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-17 04:57 HKT",
+      "published_hkt": "2026-07-17 10:03 HKT",
       "label": "US Markets"
     },
     {
-      "title": "Michael Burry Says PayPal's $60.50 Buyout Offer Is \"Simply Too Low.\" Here's the Case for a Higher Bid.",
-      "url": "https://www.fool.com/investing/2026/07/16/michael-burry-says-paypals-6050-buyout-offer-is-si/?.tsrc=rss",
+      "title": "IBM Just Pre-Announced an Earnings Miss. The Reason Reveals Where AI Money Is Really Flowing.",
+      "url": "https://www.fool.com/investing/2026/07/16/ibm-just-pre-announced-an-earnings-miss-the-reason/?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-17 04:57 HKT",
+      "published_hkt": "2026-07-17 10:01 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "Should You Buy Tesla Stock Before July 22?",
-      "url": "https://www.fool.com/investing/2026/07/16/should-you-buy-tesla-stock-before-july-22/?.tsrc=rss",
+      "title": "What Donald Trump's Strait of Hormuz Stance Could Mean for Your Social Security Benefits in 2027",
+      "url": "https://www.fool.com/retirement/2026/07/16/what-trumps-strait-of-hormuz-stance-could-mean-for/?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-17 04:50 HKT",
+      "published_hkt": "2026-07-17 09:59 HKT",
       "label": "Semiconductors"
+    },
+    {
+      "title": "科技股回調港股盤中失守25000點       匯控強勢曾再破頂",
+      "url": "https://hk.finance.yahoo.com/news/%E7%A7%91%E6%8A%80%E8%82%A1%E5%9B%9E%E8%AA%BF%E6%B8%AF%E8%82%A1%E7%9B%A4%E4%B8%AD%E5%A4%B1%E5%AE%8825000%E9%BB%9E-%E5%8C%AF%E6%8E%A7%E5%BC%B7%E5%8B%A2%E6%9B%BE%E5%86%8D%E7%A0%B4%E9%A0%82-015455292.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^HSI News",
+      "published_hkt": "2026-07-17 09:54 HKT",
+      "label": "Asia Markets"
+    },
+    {
+      "title": "《港股》恒指開升13點 百度升逾1% 智譜挫12% 晶片股受壓",
+      "url": "https://hk.finance.yahoo.com/news/%E6%B8%AF%E8%82%A1-%E6%81%92%E6%8C%87%E9%96%8B%E5%8D%8713%E9%BB%9E-%E7%99%BE%E5%BA%A6%E5%8D%87%E9%80%BE1-%E6%99%BA%E8%AD%9C%E6%8C%AB12-%E6%99%B6%E7%89%87%E8%82%A1%E5%8F%97%E5%A3%93-014135361.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^HSI News",
+      "published_hkt": "2026-07-17 09:41 HKT",
+      "label": "Asia Markets"
+    },
+    {
+      "title": "Nasdaq, Dow, S&P 500 Futures Slip As Chip Selloff Overshadows Strong Earnings Season: NFLX, SNDK, SPCX, MRVL Stocks In Focus",
+      "url": "https://stocktwits.com/news-articles/markets/equity/nasdaq-dow-s-and-p-500-futures-slip-as-chip-selloff-overshadows-strong-earnings-season/cZZ7beBR7tP?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-17 09:36 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "恒生指數競價時段報 25023 點  升 14 點",
+      "url": "https://hk.finance.yahoo.com/news/%E6%81%92%E7%94%9F%E6%8C%87%E6%95%B8%E7%AB%B6%E5%83%B9%E6%99%82%E6%AE%B5%E5%A0%B1-25023-%E9%BB%9E-%E5%8D%87-14-012058272.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^HSI News",
+      "published_hkt": "2026-07-17 09:20 HKT",
+      "label": "Asia Markets"
+    },
+    {
+      "title": "植耀輝：港股重上兩萬五關  台積電(TSM.US)仍值得持有",
+      "url": "https://hk.finance.yahoo.com/news/%E6%A4%8D%E8%80%80%E8%BC%9D-%E6%B8%AF%E8%82%A1%E9%87%8D%E4%B8%8A%E5%85%A9%E8%90%AC%E4%BA%94%E9%97%9C-%E5%8F%B0%E7%A9%8D%E9%9B%BB-tsm-us-011218501.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^HSI News",
+      "published_hkt": "2026-07-17 09:12 HKT",
+      "label": "Asia Markets"
+    },
+    {
+      "title": "3 Big Reasons to Love Nicolet Bankshares (NIC)",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/3-big-reasons-love-nicolet-004122522.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-17 08:41 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "2 Reasons to Like BDC (and 1 Not So Much)",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/2-reasons-bdc-1-not-003322367.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-17 08:33 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "3 Reasons to Sell DECK and 1 Stock to Buy Instead",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-sell-deck-1-001722166.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-17 08:17 HKT",
+      "label": "US Markets"
     },
     {
       "title": "How Apple Is Boosting Baidu and Other Chinese Tech Stocks",
@@ -564,41 +600,6 @@
       "url": "https://hk.finance.yahoo.com/news/%E6%B8%AF%E8%82%A1-%E6%81%92%E6%8C%87%E6%94%B6%E5%8D%87327%E9%BB%9E%E9%87%8D%E4%B8%8A%E4%BA%8C%E8%90%AC%E4%BA%94%E9%97%9C-%E5%B0%8F%E7%B1%B3%E5%BD%88%E9%80%BE6-%E4%B8%89%E6%98%9F%E5%8F%8Ask%E6%B5%B7%E5%8A%9B%E5%A3%AB%E6%A7%93%E6%A1%BFetf%E8%B7%8C%E7%B4%84%E5%85%A9%E6%88%90-084405500.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^HSI News",
       "published_hkt": "2026-07-16 16:44 HKT",
-      "label": "Asia Markets"
-    },
-    {
-      "title": "〈港股盤後〉恒指重返二萬五關口 汽車與科網股強勢領漲",
-      "url": "https://hk.finance.yahoo.com/news/%E6%B8%AF%E8%82%A1%E7%9B%A4%E5%BE%8C-%E6%81%92%E6%8C%87%E9%87%8D%E8%BF%94%E4%BA%8C%E8%90%AC%E4%BA%94%E9%97%9C%E5%8F%A3-%E6%B1%BD%E8%BB%8A%E8%88%87%E7%A7%91%E7%B6%B2%E8%82%A1%E5%BC%B7%E5%8B%A2%E9%A0%98%E6%BC%B2-083919035.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^HSI News",
-      "published_hkt": "2026-07-16 16:39 HKT",
-      "label": "Asia Markets"
-    },
-    {
-      "title": "長和(00001)傳部署高層交棒 霍建寧完成剝離電訊業務後退休",
-      "url": "https://hk.finance.yahoo.com/news/%E9%95%B7%E5%92%8C-00001-%E5%82%B3%E9%83%A8%E7%BD%B2%E9%AB%98%E5%B1%A4%E4%BA%A4%E6%A3%92-%E9%9C%8D%E5%BB%BA%E5%AF%A7%E5%AE%8C%E6%88%90%E5%89%9D%E9%9B%A2%E9%9B%BB%E8%A8%8A%E6%A5%AD%E5%8B%99%E5%BE%8C%E9%80%80%E4%BC%91-082954036.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^HSI News",
-      "published_hkt": "2026-07-16 16:29 HKT",
-      "label": "Asia Markets"
-    },
-    {
-      "title": "恒指全日收報25008.60點  升 1.33%  成交3,228.92億元",
-      "url": "https://hk.finance.yahoo.com/news/%E6%81%92%E6%8C%87%E5%85%A8%E6%97%A5%E6%94%B6%E5%A0%B125008-60%E9%BB%9E-%E5%8D%87-1-33-081500467.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^HSI News",
-      "published_hkt": "2026-07-16 16:15 HKT",
-      "label": "Asia Markets"
-    },
-    {
-      "title": "《全日速報》恆指升327點; 恆生科技指數升93點 小米集團升逾6% 美團升逾4% 阿里巴巴升逾3% 匯控、卓越睿新創新高 成交暢旺",
-      "url": "https://hk.finance.yahoo.com/news/%E5%85%A8%E6%97%A5%E9%80%9F%E5%A0%B1-%E6%81%86%E6%8C%87%E5%8D%87327%E9%BB%9E-%E6%81%86%E7%94%9F%E7%A7%91%E6%8A%80%E6%8C%87%E6%95%B8%E5%8D%8793%E9%BB%9E-%E5%B0%8F%E7%B1%B3%E9%9B%86%E5%9C%98%E5%8D%87%E9%80%BE6-%E7%BE%8E%E5%9C%98%E5%8D%87%E9%80%BE4-081202698.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^HSI News",
-      "published_hkt": "2026-07-16 16:12 HKT",
-      "label": "Asia Markets"
-    },
-    {
-      "title": "《大行》高盛料港交所(00388.HK)次季多賺9%  重申「買入」評級",
-      "url": "https://hk.finance.yahoo.com/news/%E5%A4%A7%E8%A1%8C-%E9%AB%98%E7%9B%9B%E6%96%99%E6%B8%AF%E4%BA%A4%E6%89%80-00388-hk-%E6%AC%A1%E5%AD%A3%E5%A4%9A%E8%B3%BA9-050834766.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^HSI News",
-      "published_hkt": "2026-07-16 13:08 HKT",
       "label": "Asia Markets"
     }
   ]
