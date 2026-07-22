@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-22T21:20:27.200276+00:00",
-  "generated_at_hkt": "2026-07-23 05:20 HKT",
+  "generated_at": "2026-07-22T22:30:51.021401+00:00",
+  "generated_at_hkt": "2026-07-23 06:30 HKT",
   "indices": {
     "HK": {
       "label": "Hong Kong",
@@ -112,7 +112,7 @@
         "ticker": "^IXIC",
         "close": 25690.9,
         "pct_change": -0.57,
-        "volume_fmt": "$6.6B"
+        "volume_fmt": "$6.7B"
       },
       "tertiary": {
         "name": "Dow Jones",
@@ -186,30 +186,122 @@
       "pct_change": -0.0
     },
     "USD/CNY": {
-      "rate": 6.77,
-      "pct_change": -0.01
+      "rate": 6.76,
+      "pct_change": -0.13
     },
     "USD/KRW": {
-      "rate": 1477.12,
-      "pct_change": 0.14
+      "rate": 1476.34,
+      "pct_change": 0.09
     },
     "USD/JPY": {
-      "rate": 163.1,
-      "pct_change": 0.38
+      "rate": 163.09,
+      "pct_change": 0.37
     },
     "EUR/USD": {
       "rate": 1.14,
-      "pct_change": -0.06
+      "pct_change": -0.07
     },
     "DXY": {
-      "rate": 101.12,
-      "pct_change": -0.06
+      "rate": 101.14,
+      "pct_change": -0.04
     }
   },
   "movers": {
     "HK": {
-      "gainers": [],
-      "losers": [],
+      "gainers": [
+        {
+          "ticker": "1177.HK",
+          "close": 5.35,
+          "pct_change": 4.7,
+          "volume": 145803671,
+          "volume_fmt": "HK$146M",
+          "longName": "Sino Biopharmaceutical Limited",
+          "industry": "Biotechnology"
+        },
+        {
+          "ticker": "0883.HK",
+          "close": 24.1,
+          "pct_change": 2.55,
+          "volume": 79541529,
+          "volume_fmt": "HK$80M",
+          "longName": "CNOOC Limited",
+          "industry": "Oil & Gas E&P"
+        },
+        {
+          "ticker": "0857.HK",
+          "close": 10.05,
+          "pct_change": 2.34,
+          "volume": 60950292,
+          "volume_fmt": "HK$61M",
+          "longName": "PetroChina Company Limited",
+          "industry": "Oil & Gas Integrated"
+        },
+        {
+          "ticker": "0005.HK",
+          "close": 158.9,
+          "pct_change": 1.53,
+          "volume": 14270934,
+          "volume_fmt": "HK$14M",
+          "longName": "HSBC Holdings plc",
+          "industry": "Banks - Diversified"
+        },
+        {
+          "ticker": "2628.HK",
+          "close": 27.8,
+          "pct_change": 1.24,
+          "volume": 53030965,
+          "volume_fmt": "HK$53M",
+          "longName": "China Life Insurance Company Limited",
+          "industry": "Insurance - Life"
+        }
+      ],
+      "losers": [
+        {
+          "ticker": "9999.HK",
+          "close": 193.0,
+          "pct_change": -7.39,
+          "volume": 14430135,
+          "volume_fmt": "HK$14M",
+          "longName": "NetEase, Inc.",
+          "industry": "Electronic Gaming & Multimedia"
+        },
+        {
+          "ticker": "0700.HK",
+          "close": 440.6,
+          "pct_change": -7.05,
+          "volume": 66379871,
+          "volume_fmt": "HK$66M",
+          "longName": "Tencent Holdings Limited",
+          "industry": "Internet Content & Information"
+        },
+        {
+          "ticker": "9988.HK",
+          "close": 113.6,
+          "pct_change": -2.91,
+          "volume": 120611396,
+          "volume_fmt": "HK$121M",
+          "longName": "Alibaba Group Holding Limited",
+          "industry": "Internet Retail"
+        },
+        {
+          "ticker": "1810.HK",
+          "close": 26.68,
+          "pct_change": -2.7,
+          "volume": 147613446,
+          "volume_fmt": "HK$148M",
+          "longName": "Xiaomi Corporation",
+          "industry": "Consumer Electronics"
+        },
+        {
+          "ticker": "9961.HK",
+          "close": 340.2,
+          "pct_change": -2.19,
+          "volume": 3421367,
+          "volume_fmt": "HK$3M",
+          "longName": "Trip.com Group Limited",
+          "industry": "Travel Services"
+        }
+      ],
       "is_friday_fallback": false,
       "screener_note": "Last trading day data"
     },
@@ -314,24 +406,87 @@
   },
   "news": [
     {
+      "title": "Dow Jones Futures: Google, Tesla Fall On Earnings, But Strong Capex Lifts AI Stocks",
+      "url": "https://finance.yahoo.com/m/092ff924-f233-311d-95de-ed11a4dabc57/dow-jones-futures%3A-google%2C.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-23 06:16 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Intel's Foundry Just Landed Its First Named Outside Customer Under Lip-Bu Tan. The Stock Jumped More Than 8% -- 2 Days Before Earnings.",
+      "url": "https://www.fool.com/investing/2026/07/22/intels-foundry-just-landed-its-first-named-outside/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-23 06:12 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Stock Market Today, July 22: Nasdaq Slides Prior to Tesla and Alphabet's Earnings After Market Close",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/22/stock-market-today-july-22-nasdaq-slides-prior-to-tesla-and-alphabet-s-earnings-after-market-close/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-23 06:10 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Forget QQQ. This Semiconductor Fund Nearly Quintupled Its 2026 Gain",
+      "url": "https://247wallst.com/investing/2026/07/22/forget-qqq-this-semiconductor-fund-nearly-quintupled-its-2026-gain/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-23 06:00 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Why Sandisk Stock Was a Winner on Wednesday",
+      "url": "https://www.fool.com/investing/2026/07/22/why-sandisk-stock-was-a-winner-on-wednesday/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-23 05:59 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "The Ultimate Bull Run for NVIDIA, Micron, and SanDisk May Be Closer Than Investors Think",
+      "url": "https://247wallst.com/investing/2026/07/22/the-ultimate-bull-run-for-nvidia-micron-and-sandisk-could-begin-soon/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-23 05:53 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Why Metropolitan Bank Stock Sank by Nearly 9% Today",
+      "url": "https://www.fool.com/investing/2026/07/22/why-metropolitan-bank-stock-sank-by-nearly-9-today/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-23 05:40 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "VPFF: Virtus’s Latest Income Play Charges 0.80% to Beat Preferred Stock Indexes",
+      "url": "https://247wallst.com/investing/etf/2026/07/22/vpff-virtuss-latest-income-play-charges-0-80-to-beat-preferred-stock-indexes/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-23 05:39 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Rocket Lab Shares Are Sliding: What Investors Need to Know",
+      "url": "https://www.fool.com/investing/2026/07/22/rocket-lab-shares-are-sliding-whats-next/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-23 05:39 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Stock Market Today, July 22: AT&T Beats Earnings on Strong Wireless Subscriber Growth",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/22/stock-market-today-july-22-att-beats-earnings-on-strong-wireless-subscriber-growth/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-23 05:31 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Stock Market Today, July 22: Ondas Secures $70 Million in New Orders, Rises 28% Over the Last Week",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/22/stock-market-today-july-22-ondas-secures-usd70-million-in-new-orders-rises-28-over-the-last-week/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-23 05:25 HKT",
+      "label": "US Markets"
+    },
+    {
       "title": "Coinbase Wants to Be Canada's One-Stop Shop for Stocks, Crypto and Prediction Markets",
       "url": "https://decrypt.co/374110/coinbase-canada-stocks-crypto-prediction-markets?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
       "published_hkt": "2026-07-23 05:13 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Stock Market Today: Nasdaq Slides, Nvidia Can't Lift The Dow; Super Micro Shines",
-      "url": "https://finance.yahoo.com/m/1c679c39-b73f-3cc1-abf9-648d2f1a9328/stock-market-today%3A-nasdaq.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-23 05:09 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Dow Jones Futures Rise Amid Google, Tesla Earnings",
-      "url": "https://finance.yahoo.com/m/092ff924-f233-311d-95de-ed11a4dabc57/dow-jones-futures-rise-amid.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-23 05:09 HKT",
       "label": "US Markets"
     },
     {
@@ -342,73 +497,10 @@
       "label": "US Markets"
     },
     {
-      "title": "CoreWeave and Nebius Get Bullish Calls",
-      "url": "https://finance.yahoo.com/technology/ai/articles/coreweave-nebius-bullish-calls-210505107.html?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-23 05:05 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "The Risk in Apple's Stock That Nobody Is Talking About",
-      "url": "https://www.fool.com/investing/2026/07/22/the-risk-in-apples-stock-that-nobody-is-talking-ab/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-23 05:04 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "This $222 Billion Vanguard ETF Is Trailing the S&P 500. That Almost Never Happens.",
-      "url": "https://247wallst.com/investing/etf/2026/07/22/this-222-billion-vanguard-etf-is-trailing-the-sp-500-that-almost-never-happens/?.tsrc=rss",
+      "title": "Update: US Equity Indexes Fall as Treasury Yields, Crude Oil Gains Reflect Concern Over Widening Disruption to Energy Supplies",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-fall-treasury-210717450.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-23 05:02 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Why EQT Corporation Rallied Today",
-      "url": "https://www.fool.com/investing/2026/07/22/why-eqt-corporation-rallied-today/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-23 05:02 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Stock Market Today, July 22: Super Micro Computer Surges on Record Q4 Orders and Surprise Margin Beat",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/22/stock-market-today-july-22-super-micro-computer-surges-on-record-q4-orders-and-surprise-margin-beat/?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-23 04:58 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "AMD Lands Major Anthropic AI Deal",
-      "url": "https://finance.yahoo.com/technology/ai/articles/amd-lands-major-anthropic-ai-205723169.html?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-23 04:57 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Teledyne Technologies Incorporated Q2 2026 Earnings Call Summary",
-      "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-teledyne-technologies-incorporated-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-23 04:53 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Which ETF Is Healthier for Your Portfolio: Vanguard Health Care ETF or iShares Pharmaceuticals ETF?",
-      "url": "https://www.fool.com/coverage/etfs/2026/07/22/which-etf-is-healthier-for-your-portfolio-vanguard-health-care-etf-or-ishares-pharmaceuticals-etf/?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-23 04:53 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Super Micro (SMCI) Climbs 27% as Orders Surge to $60B; More Hedge Funds Buy In",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/super-micro-smci-climbs-27-204833845.html?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-23 04:48 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "United Rentals Declares Quarterly Cash Dividend",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/united-rentals-declares-quarterly-cash-203000330.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-23 04:30 HKT",
+      "published_hkt": "2026-07-23 05:07 HKT",
       "label": "US Markets"
     },
     {
