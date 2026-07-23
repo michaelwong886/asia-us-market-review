@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-23T20:41:09.635550+00:00",
-  "generated_at_hkt": "2026-07-24 04:41 HKT",
+  "generated_at": "2026-07-23T21:40:43.292449+00:00",
+  "generated_at_hkt": "2026-07-24 05:40 HKT",
   "indices": {
     "HK": {
       "label": "Hong Kong",
@@ -111,7 +111,7 @@
         "ticker": "^IXIC",
         "close": 25137.69,
         "pct_change": -2.15,
-        "volume_fmt": "$6.4B"
+        "volume_fmt": "$6.5B"
       },
       "tertiary": {
         "name": "Dow Jones",
@@ -186,29 +186,121 @@
     },
     "USD/CNY": {
       "rate": 6.77,
-      "pct_change": 0.06
+      "pct_change": 0.02
     },
     "USD/KRW": {
-      "rate": 1475.67,
-      "pct_change": -0.27
+      "rate": 1474.12,
+      "pct_change": -0.38
     },
     "USD/JPY": {
-      "rate": 163.85,
-      "pct_change": 0.41
+      "rate": 163.79,
+      "pct_change": 0.37
     },
     "EUR/USD": {
       "rate": 1.14,
-      "pct_change": -0.2
+      "pct_change": -0.22
     },
     "DXY": {
-      "rate": 101.43,
-      "pct_change": 0.28
+      "rate": 101.44,
+      "pct_change": 0.3
     }
   },
   "movers": {
     "HK": {
-      "gainers": [],
-      "losers": [],
+      "gainers": [
+        {
+          "ticker": "3690.HK",
+          "close": 87.3,
+          "pct_change": 4.36,
+          "volume": 63249932,
+          "volume_fmt": "HK$63M",
+          "longName": "Meituan",
+          "industry": "Internet Retail"
+        },
+        {
+          "ticker": "2628.HK",
+          "close": 28.6,
+          "pct_change": 2.88,
+          "volume": 52996027,
+          "volume_fmt": "HK$53M",
+          "longName": "China Life Insurance Company Limited",
+          "industry": "Insurance - Life"
+        },
+        {
+          "ticker": "1398.HK",
+          "close": 7.17,
+          "pct_change": 2.43,
+          "volume": 165694774,
+          "volume_fmt": "HK$166M",
+          "longName": "Industrial and Commercial Bank of China Limited",
+          "industry": "Banks - Diversified"
+        },
+        {
+          "ticker": "0939.HK",
+          "close": 8.74,
+          "pct_change": 2.22,
+          "volume": 232985324,
+          "volume_fmt": "HK$233M",
+          "longName": "China Construction Bank Corporation",
+          "industry": "Banks - Diversified"
+        },
+        {
+          "ticker": "1299.HK",
+          "close": 78.6,
+          "pct_change": 2.21,
+          "volume": 21486964,
+          "volume_fmt": "HK$21M",
+          "longName": "AIA Group Limited",
+          "industry": "Insurance - Life"
+        }
+      ],
+      "losers": [
+        {
+          "ticker": "1177.HK",
+          "close": 5.19,
+          "pct_change": -2.99,
+          "volume": 51514018,
+          "volume_fmt": "HK$52M",
+          "longName": "Sino Biopharmaceutical Limited",
+          "industry": "Biotechnology"
+        },
+        {
+          "ticker": "9999.HK",
+          "close": 191.0,
+          "pct_change": -1.04,
+          "volume": 6015826,
+          "volume_fmt": "HK$6M",
+          "longName": "NetEase, Inc.",
+          "industry": "Electronic Gaming & Multimedia"
+        },
+        {
+          "ticker": "0002.HK",
+          "close": 77.4,
+          "pct_change": -0.13,
+          "volume": 3714093,
+          "volume_fmt": "HK$4M",
+          "longName": "CLP Holdings Limited",
+          "industry": "Utilities - Regulated Electric"
+        },
+        {
+          "ticker": "0016.HK",
+          "close": 123.0,
+          "pct_change": 0.41,
+          "volume": 4206302,
+          "volume_fmt": "HK$4M",
+          "longName": "Sun Hung Kai Properties Limited",
+          "industry": "Real Estate - Development"
+        },
+        {
+          "ticker": "0883.HK",
+          "close": 24.22,
+          "pct_change": 0.5,
+          "volume": 62811921,
+          "volume_fmt": "HK$63M",
+          "longName": "CNOOC Limited",
+          "industry": "Oil & Gas E&P"
+        }
+      ],
       "is_friday_fallback": false,
       "screener_note": "Last trading day data"
     },
@@ -218,8 +310,8 @@
           "ticker": "TMO",
           "close": 572.32,
           "pct_change": 8.71,
-          "volume": 5218353,
-          "volume_fmt": "$5M",
+          "volume": 5800421,
+          "volume_fmt": "$6M",
           "longName": "Thermo Fisher Scientific Inc.",
           "industry": "Diagnostics & Research"
         },
@@ -227,8 +319,8 @@
           "ticker": "DHR",
           "close": 192.5,
           "pct_change": 7.46,
-          "volume": 9659428,
-          "volume_fmt": "$10M",
+          "volume": 11551902,
+          "volume_fmt": "$12M",
           "longName": "Danaher Corporation",
           "industry": "Diagnostics & Research"
         },
@@ -236,8 +328,8 @@
           "ticker": "RTX",
           "close": 209.16,
           "pct_change": 7.33,
-          "volume": 8471470,
-          "volume_fmt": "$8M",
+          "volume": 9992168,
+          "volume_fmt": "$10M",
           "longName": "RTX Corporation",
           "industry": "Aerospace & Defense"
         },
@@ -245,7 +337,7 @@
           "ticker": "HON",
           "close": 246.27,
           "pct_change": 5.7,
-          "volume": 6036414,
+          "volume": 6303982,
           "volume_fmt": "$6M",
           "longName": "Honeywell International Inc.",
           "industry": "Conglomerates"
@@ -254,8 +346,8 @@
           "ticker": "MU",
           "close": 990.21,
           "pct_change": 3.2,
-          "volume": 38485580,
-          "volume_fmt": "$38M",
+          "volume": 39884211,
+          "volume_fmt": "$40M",
           "longName": "Micron Technology, Inc.",
           "industry": "Semiconductors"
         }
@@ -265,8 +357,8 @@
           "ticker": "TSLA",
           "close": 319.69,
           "pct_change": -14.52,
-          "volume": 113736601,
-          "volume_fmt": "$114M",
+          "volume": 115037671,
+          "volume_fmt": "$115M",
           "longName": "Tesla, Inc.",
           "industry": "Auto Manufacturers"
         },
@@ -274,8 +366,8 @@
           "ticker": "GOOGL",
           "close": 317.69,
           "pct_change": -7.13,
-          "volume": 67226154,
-          "volume_fmt": "$67M",
+          "volume": 69055767,
+          "volume_fmt": "$69M",
           "longName": "Alphabet Inc.",
           "industry": "Internet Content & Information"
         },
@@ -283,7 +375,7 @@
           "ticker": "SHOP",
           "close": 112.0,
           "pct_change": -5.42,
-          "volume": 9767552,
+          "volume": 10273623,
           "volume_fmt": "$10M",
           "longName": "Shopify Inc.",
           "industry": "Software - Application"
@@ -292,8 +384,8 @@
           "ticker": "ORCL",
           "close": 120.04,
           "pct_change": -4.61,
-          "volume": 29126982,
-          "volume_fmt": "$29M",
+          "volume": 29755325,
+          "volume_fmt": "$30M",
           "longName": "Oracle Corporation",
           "industry": "Software - Infrastructure"
         },
@@ -301,8 +393,8 @@
           "ticker": "AMZN",
           "close": 233.66,
           "pct_change": -4.57,
-          "volume": 45250017,
-          "volume_fmt": "$45M",
+          "volume": 47358884,
+          "volume_fmt": "$47M",
           "longName": "Amazon.com, Inc.",
           "industry": "Internet Retail"
         }
@@ -313,102 +405,102 @@
   },
   "news": [
     {
-      "title": "Intel Faces Earnings Test After 28% July Drop Despite Strong Q2 Expectations",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/intel-faces-earnings-test-28-203653720.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-24 04:36 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Global oil prices hit $100 a barrel amid attacks in Red Sea",
-      "url": "https://www.cbsnews.com/news/global-oil-prices-red-sea-attacks-rates/?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-24 04:32 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "RTX Raises Outlook as Shares Jump 8% on Strong Q2 Beat",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/rtx-raises-outlook-shares-jump-203036781.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-24 04:30 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Which Long-Term Bond ETF Is the Better Buy: State Street's SPLB or Vanguard's VGLT?",
-      "url": "https://www.fool.com/coverage/etfs/2026/07/23/which-long-term-bond-etf-is-the-better-buy-state-street-s-splb-or-vanguard-s-vglt/?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-24 04:30 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Comcast Beats Earnings as Media Revenue Jumps 25%, Broadband Losses Persist",
-      "url": "https://finance.yahoo.com/media-advertising/articles/comcast-beats-earnings-media-revenue-202743517.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-24 04:27 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Update: Nasdaq, S&P 500 Log Worst Day in More Than Four Weeks as Brent Tops $100",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/nasdaq-p-500-log-worst-202557019.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-24 04:25 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Could Buying Archer Aviation Stock Today Set You Up for Life?",
-      "url": "https://www.fool.com/investing/2026/07/23/could-buying-archer-today-set-you-up-for-life/?.tsrc=rss",
+      "title": "Pacific Gas & Electric Co. Q2 2026 Earnings Call Summary",
+      "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-pacific-gas-electric-co-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-24 04:25 HKT",
+      "published_hkt": "2026-07-24 05:32 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "Direct Indexing, Structured Notes Help Advisors Manage Index Fund Concentration Risk",
-      "url": "https://www.wealthmanagement.com/investing-strategies/advisors-turn-to-direct-indexing-to-combat-risk?.tsrc=rss",
+      "title": "Lockheed Martin Corporation Q2 2026 Earnings Call Summary",
+      "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-lockheed-martin-corporation-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-24 05:26 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Prediction: $1,000 Invested in SpaceX Stock Will Be Worth This Amount in 3 Years",
+      "url": "https://www.fool.com/investing/2026/07/23/prediction-1000-invested-in-spacex-stock-will-be-w/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-24 05:25 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Independent Bank Corporation Q2 2026 Earnings Call Summary",
+      "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-independent-bank-corporation-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-24 05:22 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Is Pfizer's 7% Dividend Yield Too Good to Be True? Here's the Straight Answer",
+      "url": "https://www.fool.com/investing/2026/07/23/is-pfizers-7-dividend-yield-too-good-to-be-true-he/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-24 05:20 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Stock Market Today, July 23: Tesla Stock Crashes on Earnings Miss and Rising AI Spending",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/23/stock-market-today-july-23-tesla-stock-crashes-on-earnings-miss-and-rising-ai-spending/?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-24 04:23 HKT",
+      "published_hkt": "2026-07-24 05:19 HKT",
       "label": "US Markets"
     },
     {
-      "title": "Why IMAX Stock Popped Today",
-      "url": "https://www.fool.com/investing/2026/07/23/why-imax-stock-is-up-today/?.tsrc=rss",
+      "title": "Ladder Capital Corp Q2 2026 Earnings Call Summary",
+      "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-ladder-capital-corp-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-24 04:20 HKT",
+      "published_hkt": "2026-07-24 05:18 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "'Magnificent 7' stocks erase $797 billion in market value in worst day since April 2025",
-      "url": "https://finance.yahoo.com/markets/article/magnificent-7-stocks-erase-797-billion-in-market-value-in-worst-day-since-april-2025-201930579.html?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-24 04:19 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Energy ETFs for a Volatile Market: Is a High Yield Midstream ETF or Diversified Infrastructure ETF the Better Buy for 2026?",
-      "url": "https://www.fool.com/coverage/etfs/2026/07/23/amlp-vs-emlp-high-yield-midstream-vs-diversified-infrastructure/?.tsrc=rss",
+      "title": "Dow Jones Futures: Market Sells Off On Oil Prices, Google, Tesla; Intel Jumps Late, SpaceX Starship Launch Due",
+      "url": "https://finance.yahoo.com/m/96fdd7c6-3e7b-334a-a08e-b91b60ced4b6/dow-jones-futures%3A-market.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-24 04:19 HKT",
+      "published_hkt": "2026-07-24 05:17 HKT",
       "label": "US Markets"
     },
     {
-      "title": "NVIDIA vs. UiPath: Which Artificial Intelligence Stock Is a Better Buy in 2026?",
-      "url": "https://www.fool.com/coverage/better-buy/2026/07/23/nvidia-vs-uipath-which-artificial-intelligence-stock-is-a-better-buy-in-2026/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-24 04:17 HKT",
-      "label": "Semiconductors"
+      "title": "3 Reasons MD is Risky and 1 Stock to Buy Instead",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-md-risky-1-211631822.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-24 05:16 HKT",
+      "label": "US Markets"
     },
     {
-      "title": "Here's Why Honeywell Shares Popped Higher Today",
-      "url": "https://www.fool.com/investing/2026/07/23/heres-why-honeywell-shares-popped-higher-today/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-24 04:13 HKT",
-      "label": "Semiconductors"
+      "title": "Stock Market Today, July 23: Alphabet Slides 7% After Announcing 2026 Capex of Roughly $200 Billion",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/23/stock-market-today-july-23-alphabet-slides-7-after-announcing-2026-capex-of-roughly-usd200-billion/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-24 05:15 HKT",
+      "label": "US Markets"
     },
     {
-      "title": "This Overlooked Pipeline Stock Could Quietly Make You a Fortune",
-      "url": "https://www.fool.com/investing/2026/07/23/this-overlooked-pipeline-stock-could-quietly-make/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-24 04:13 HKT",
-      "label": "Semiconductors"
+      "title": "Update: US Equity Indexes Slump, Crude Oil Soars as Trump Warns of Big Iran Attack",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-slump-crude-210304104.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-24 05:03 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Value Is Quietly Winning 2026 and These 3 Dividend-Paying Value ETFs Prove You Do Not Need Tech to Beat the Market",
+      "url": "https://247wallst.com/investing/2026/07/23/value-is-quietly-winning-2026-and-these-3-dividend-paying-value-etfs-prove-you-do-not-need-tech-to-beat-the-market/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-24 04:53 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Is a Traditional ETF Like FTXO Better for Profiting With Financials, or Is the Leveraged Fund UYG the Better Bet?",
+      "url": "https://www.fool.com/coverage/etfs/2026/07/23/is-a-traditional-etf-like-ftxo-better-for-profiting-with-financials-or-is-the-leveraged-fund-uyg-the-better-bet/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-24 04:51 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Newmont Reported Strong Earnings and Cash Flow. The Stock Is Down.",
+      "url": "https://finance.yahoo.com/m/a35d032d-7847-38f7-acb2-c7c68d7f5190/newmont-reported-strong.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-24 04:51 HKT",
+      "label": "US Markets"
     },
     {
       "title": "Trump’s Iran War and Tariffs Are Changing Corporate Strategies",
