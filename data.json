@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-29T16:37:38.102576+00:00",
-  "generated_at_hkt": "2026-07-30 00:37 HKT",
+  "generated_at": "2026-07-29T17:52:41.182520+00:00",
+  "generated_at_hkt": "2026-07-30 01:52 HKT",
   "indices": {
     "HK": {
       "label": "Hong Kong",
@@ -8,20 +8,22 @@
       "primary": {
         "name": "HSI",
         "ticker": "^HSI",
-        "close": 25207.18,
-        "pct_change": -0.01,
-        "volume_fmt": "HK$2.6B"
+        "close": 25310.85,
+        "pct_change": 0.41,
+        "volume_fmt": "HK$3.1B"
       },
       "secondary": {
         "name": "HSCEI",
         "ticker": "^HSCE",
-        "close": 8365.38,
-        "pct_change": 0.15,
+        "close": 8436.25,
+        "pct_change": 0.85,
         "volume_fmt": "HK$0.0B"
       },
       "sparkline": [
         25210.81,
-        25207.18
+        24963.23,
+        25207.18,
+        25310.85
       ]
     },
     "CN": {
@@ -51,21 +53,22 @@
       "primary": {
         "name": "KOSPI",
         "ticker": "^KS11",
-        "close": NaN,
-        "pct_change": NaN,
+        "close": 6023.66,
+        "pct_change": -10.84,
         "volume_fmt": "₩0.0T"
       },
       "secondary": {
         "name": "KOSDAQ",
         "ticker": "^KQ11",
-        "close": NaN,
-        "pct_change": NaN,
+        "close": 705.85,
+        "pct_change": -7.72,
         "volume_fmt": "₩0.0T"
       },
       "sparkline": [
         7096.89,
+        6690.62,
         6755.75,
-        NaN
+        6023.66
       ]
     },
     "JP": {
@@ -74,8 +77,8 @@
       "primary": {
         "name": "Nikkei 225",
         "ticker": "^N225",
-        "close": 64931.19,
-        "pct_change": -2.25,
+        "close": 62364.92,
+        "pct_change": -3.95,
         "volume_fmt": "¥0.0T"
       },
       "secondary": {
@@ -87,7 +90,9 @@
       },
       "sparkline": [
         66422.6,
-        64931.19
+        64611.15,
+        64931.19,
+        62364.92
       ]
     },
     "US": {
@@ -96,28 +101,30 @@
       "primary": {
         "name": "S&P 500",
         "ticker": "^GSPC",
-        "close": 7356.51,
-        "pct_change": -0.76,
-        "volume_fmt": "$1.3B"
+        "close": 7384.66,
+        "pct_change": -0.59,
+        "volume_fmt": "$1.7B"
       },
       "secondary": {
         "name": "NASDAQ",
         "ticker": "^IXIC",
-        "close": 24587.84,
-        "pct_change": -1.38,
-        "volume_fmt": "$3.3B"
+        "close": 24738.76,
+        "pct_change": -0.56,
+        "volume_fmt": "$4.0B"
       },
       "tertiary": {
         "name": "Dow Jones",
         "ticker": "^DJI",
-        "close": 51870.58,
-        "pct_change": -0.65,
-        "volume_fmt": "$0.2B"
+        "close": 51979.78,
+        "pct_change": -1.46,
+        "volume_fmt": "$0.3B"
       },
       "sparkline": [
         7408.3,
+        7411.98,
         7413.18,
-        7356.51
+        7428.78,
+        7384.66
       ]
     }
   },
@@ -125,76 +132,76 @@
     "AI / Chips": {
       "anchor": "SOXX",
       "markets": "US/HK/KR",
-      "close": 468.67,
-      "pct_change": -9.21
+      "close": 474.71,
+      "pct_change": -3.41
     },
     "CN Internet": {
       "anchor": "KWEB",
       "markets": "HK/CN",
-      "close": 27.8,
-      "pct_change": 2.96
+      "close": 27.83,
+      "pct_change": 1.9
     },
     "EV / Battery": {
       "anchor": "LIT",
       "markets": "CN/US",
-      "close": 66.61,
-      "pct_change": -2.94
+      "close": 66.82,
+      "pct_change": -0.2
     },
     "Robotics": {
       "anchor": "ROBO",
       "markets": "JP/CN",
-      "close": 75.8,
-      "pct_change": -3.54
+      "close": 76.26,
+      "pct_change": -1.6
     },
     "Clean Energy": {
       "anchor": "ICLN",
       "markets": "US/CN",
-      "close": 16.9,
-      "pct_change": -5.14
+      "close": 17.02,
+      "pct_change": -1.05
     },
     "Biotech": {
       "anchor": "XBI",
       "markets": "US/HK/KR",
-      "close": 147.28,
-      "pct_change": -2.2
+      "close": 148.57,
+      "pct_change": -0.81
     },
     "Financials": {
       "anchor": "XLF",
       "markets": "US/HK/KR",
       "close": 57.06,
-      "pct_change": 0.31
+      "pct_change": -0.93
     },
     "Defence": {
       "anchor": "ITA",
       "markets": "US/KR",
-      "close": 237.2,
-      "pct_change": -2.75
+      "close": 239.34,
+      "pct_change": -2.3
     }
   },
   "fx": {
     "USD/HKD": {
       "rate": 7.84,
-      "pct_change": 0.01
+      "pct_change": 0.02
     },
     "USD/CNY": {
       "rate": 6.76,
       "pct_change": -0.13
     },
     "USD/KRW": {
-      "rate": 1448.64,
+      "rate": 1448.59,
       "pct_change": -1.08
     },
     "USD/JPY": {
-      "rate": 163.89,
-      "pct_change": 0.07
+      "rate": 163.78,
+      "pct_change": 0.0
     },
     "EUR/USD": {
       "rate": 1.14,
-      "pct_change": 0.12
+      "pct_change": 0.29
     },
     "DXY": {
-      "rate": 101.46,
-      "pct_change": -0.05
+      "rate": 101.36,
+      "pct_change": -0.02
     }
   },
   "movers": {
@@ -207,96 +214,96 @@
     "US": {
       "gainers": [
         {
-          "ticker": "ACN",
-          "close": 173.99,
-          "pct_change": 12.94,
-          "volume": 4972665,
+          "ticker": "SNOW",
+          "close": 288.28,
+          "pct_change": 6.63,
+          "volume": 5141600,
           "volume_fmt": "$5M",
+          "longName": "Snowflake Inc.",
+          "industry": "Software - Application"
+        },
+        {
+          "ticker": "ACN",
+          "close": 174.76,
+          "pct_change": 6.13,
+          "volume": 6064255,
+          "volume_fmt": "$6M",
           "longName": "Accenture plc",
           "industry": "Information Technology Services"
         },
         {
           "ticker": "ADBE",
-          "close": 262.17,
-          "pct_change": 10.27,
-          "volume": 4661676,
-          "volume_fmt": "$5M",
+          "close": 264.23,
+          "pct_change": 6.04,
+          "volume": 5646098,
+          "volume_fmt": "$6M",
           "longName": "Adobe Inc.",
           "industry": "Software - Application"
         },
         {
-          "ticker": "NOW",
-          "close": 116.08,
-          "pct_change": 9.97,
-          "volume": 17917904,
-          "volume_fmt": "$18M",
-          "longName": "ServiceNow, Inc.",
-          "industry": "Software - Application"
-        },
-        {
           "ticker": "SAP",
-          "close": 185.94,
-          "pct_change": 8.73,
-          "volume": 3296479,
-          "volume_fmt": "$3M",
+          "close": 187.0,
+          "pct_change": 4.37,
+          "volume": 3891083,
+          "volume_fmt": "$4M",
           "longName": "SAP SE",
           "industry": "Software - Application"
         },
         {
-          "ticker": "CRM",
-          "close": 187.96,
-          "pct_change": 8.27,
-          "volume": 7785785,
-          "volume_fmt": "$8M",
-          "longName": "Salesforce, Inc.",
+          "ticker": "NOW",
+          "close": 115.26,
+          "pct_change": 4.2,
+          "volume": 22292182,
+          "volume_fmt": "$22M",
+          "longName": "ServiceNow, Inc.",
           "industry": "Software - Application"
         }
       ],
       "losers": [
         {
           "ticker": "KLAC",
-          "close": 172.05,
-          "pct_change": -15.39,
-          "volume": 9754727,
-          "volume_fmt": "$10M",
+          "close": 174.43,
+          "pct_change": -8.58,
+          "volume": 11289810,
+          "volume_fmt": "$11M",
           "longName": "KLA Corporation",
           "industry": "Semiconductor Equipment & Materials"
         },
         {
+          "ticker": "CAT",
+          "close": 785.33,
+          "pct_change": -6.6,
+          "volume": 3385717,
+          "volume_fmt": "$3M",
+          "longName": "Caterpillar Inc.",
+          "industry": "Farm & Heavy Construction Machinery"
+        },
+        {
           "ticker": "MU",
-          "close": 770.79,
-          "pct_change": -14.38,
-          "volume": 30027905,
-          "volume_fmt": "$30M",
+          "close": 773.47,
+          "pct_change": -5.74,
+          "volume": 36792733,
+          "volume_fmt": "$37M",
           "longName": "Micron Technology, Inc.",
           "industry": "Semiconductors"
         },
         {
           "ticker": "AMAT",
-          "close": 444.03,
-          "pct_change": -14.1,
-          "volume": 4051624,
-          "volume_fmt": "$4M",
+          "close": 449.63,
+          "pct_change": -5.63,
+          "volume": 4781650,
+          "volume_fmt": "$5M",
           "longName": "Applied Materials, Inc.",
           "industry": "Semiconductor Equipment & Materials"
         },
         {
-          "ticker": "ARM",
-          "close": 229.48,
-          "pct_change": -13.84,
-          "volume": 3194997,
-          "volume_fmt": "$3M",
-          "longName": "Arm Holdings plc",
-          "industry": "Semiconductors"
-        },
-        {
-          "ticker": "AMD",
-          "close": 428.1,
-          "pct_change": -13.51,
-          "volume": 15248294,
-          "volume_fmt": "$15M",
-          "longName": "Advanced Micro Devices, Inc.",
-          "industry": "Semiconductors"
+          "ticker": "SMCI",
+          "close": 26.9,
+          "pct_change": -5.45,
+          "volume": 18702573,
+          "volume_fmt": "$19M",
+          "longName": "Super Micro Computer, Inc.",
+          "industry": "Computer Hardware"
         }
       ],
       "is_friday_fallback": false,
@@ -305,101 +312,101 @@
   },
   "news": [
     {
-      "title": "Stock Market Today: Dow Sinks As Fed Rate Call Looms; Bloom Energy Reverses Lower After Crushing Earnings (Live Coverage)",
+      "title": "Wedbush Delivers Urgent Message on Nvidia Stock",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/wedbush-delivers-urgent-message-nvidia-174855693.html?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-30 01:48 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Lennox International Inc. Q2 2026 Earnings Call Summary",
+      "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-lennox-international-inc-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-30 01:42 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "The Playbook for Palantir Ahead of Q3 Earnings",
+      "url": "https://247wallst.com/investing/2026/07/29/the-playbook-for-palantir-ahead-of-q3-earnings/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-30 01:42 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Monro, Inc. Q1 2027 Earnings Call Summary",
+      "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-monro-inc-q1-2027-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-30 01:42 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "AerCap Holdings N.V. Q2 2026 Earnings Call Summary",
+      "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-aercap-holdings-nv-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-30 01:41 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Is Ford Motor Stock a Buy After Its Latest Earnings Report?",
+      "url": "https://www.fool.com/investing/2026/07/29/is-ford-motor-stock-a-buy-after-its-latest-earnings-report/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-30 01:36 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Is a Caterpillar Stock Split Inevitable?",
+      "url": "https://www.fool.com/investing/2026/07/29/is-a-caterpillar-stock-split-inevitable/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-30 01:33 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Stock Market Today: Dow Sinks As Fed Rate Decision, Warsh Comments Loom; KLA Tumbles (Live Coverage)",
       "url": "https://finance.yahoo.com/m/031fc95b-4216-3fa9-93d3-0f98e7121d16/stock-market-today%3A-dow-sinks.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-30 00:24 HKT",
+      "published_hkt": "2026-07-30 01:28 HKT",
       "label": "US Markets"
     },
     {
-      "title": "Why Meta’s Risk Profile Screams Buy Right Now",
-      "url": "https://247wallst.com/investing/2026/07/29/why-metas-risk-profile-screams-buy-right-now/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-30 00:18 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Intel Continues to Get Pummeled: Why One Analyst Maintains His Conviction That 130% Gains Will Come",
-      "url": "https://247wallst.com/investing/2026/07/29/intel-continues-to-get-pummeled-why-one-analyst-maintains-his-conviction-that-130-gains-will-come/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-30 00:18 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Why Lennox Stock Crashed Today",
-      "url": "https://www.fool.com/investing/2026/07/29/why-lennox-stock-crashed-today/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-30 00:17 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Why Gartner Stock Is Climbing Higher Today",
-      "url": "https://www.fool.com/investing/2026/07/29/why-gartner-stock-is-climbing-higher-today/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-30 00:14 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Alphabet Captures 2026 AI Capex Alpha But Amazon Begins Surging in 2027",
-      "url": "https://247wallst.com/investing/2026/07/29/alphabet-captures-2026-ai-capex-alpha-but-amazon-begins-surging-in-2027/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-30 00:13 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "SanDisk Cratered Again But One Analyst Believes 200% Returns Are Coming",
-      "url": "https://247wallst.com/investing/2026/07/29/sandisk-cratered-again-but-one-analyst-believes-200-returns-are-coming/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-30 00:12 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "SpaceX stock back under pressure as Q2 earnings approach",
-      "url": "https://finance.yahoo.com/markets/stocks/article/spacex-stock-back-under-pressure-as-q2-earnings-approach-152137218.html?.tsrc=rss",
+      "title": "Why Teradyne Stock Is Gaining Today",
+      "url": "https://www.fool.com/investing/2026/07/29/why-teradyne-stock-is-gaining-today/?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-29 23:21 HKT",
+      "published_hkt": "2026-07-30 01:22 HKT",
       "label": "US Markets"
     },
     {
-      "title": "SpaceX Is Worth More Than Most S&P 500 Companies. Is That Valuation Rational?",
-      "url": "https://www.fool.com/investing/2026/07/29/spacex-is-worth-more-than-most-sp-500-companies-is/?.tsrc=rss",
+      "title": "Why Lemonade Stock Is Crashing Today",
+      "url": "https://www.fool.com/investing/2026/07/29/why-lemonade-stock-is-crashing-today/?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-29 23:20 HKT",
+      "published_hkt": "2026-07-30 00:59 HKT",
       "label": "US Markets"
     },
     {
-      "title": "AMREP Stock Slips Post Q4 Earnings, Net Income Declines",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/amrep-stock-slips-post-q4-151900153.html?.tsrc=rss",
+      "title": "Update: US Equity Indexes Slide Ahead of Warsh's Press Briefing, Big-Tech Results While Trump Vows to Hit Iran Hard",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-slide-ahead-165633062.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-29 23:19 HKT",
+      "published_hkt": "2026-07-30 00:56 HKT",
       "label": "US Markets"
     },
     {
-      "title": "Veralto's Q2 Earnings Beat Estimates, Increase Year Over Year",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/veraltos-q2-earnings-beat-estimates-151700729.html?.tsrc=rss",
+      "title": "Dow drops 900 points as oil surges ahead of Fed rate decision",
+      "url": "https://qz.com/dow-drops-oil-surges-iran-fed-rate-decision-072926?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-29 23:17 HKT",
+      "published_hkt": "2026-07-30 00:48 HKT",
       "label": "US Markets"
     },
     {
-      "title": "Raymond James Puts New Breakout Into Gear. Now This Grind Looms.",
-      "url": "https://finance.yahoo.com/m/2db4c33b-aa95-3031-9910-1887099d2974/raymond-james-puts-new.html?.tsrc=rss",
+      "title": "Two Reasons The Fed May Hike Today: Oil Prices And History (Live Coverage)",
+      "url": "https://finance.yahoo.com/m/073dde9a-c175-3284-a40f-0cc73742ea31/two-reasons-the-fed-may-hike.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-29 23:14 HKT",
+      "published_hkt": "2026-07-30 00:47 HKT",
       "label": "US Markets"
     },
     {
-      "title": "Dow Tumbles Over 850 Points – Trump's Latest Iran Warning Sends Crude Oil Prices Soaring Ahead Of Fed Decision",
-      "url": "https://stocktwits.com/news-articles/markets/equity/dow-tumbles-trump-latest-iran-warning-crude-oil-prices-soaring-fed-decision/cZNRyqIRJT5?.tsrc=rss",
+      "title": "FTSE 100 sets new record ahead of US rate call",
+      "url": "https://uk.finance.yahoo.com/news/ftse-100-sets-record-ahead-164552680.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-29 23:11 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "How Far Tesla Stock Needs to Fall to Lose Trillion-Dollar Status",
-      "url": "https://finance.yahoo.com/m/20b7db84-ba0b-39b3-8dec-9f60052331ab/how-far-tesla-stock-needs-to.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-29 23:07 HKT",
+      "published_hkt": "2026-07-30 00:45 HKT",
       "label": "US Markets"
     },
     {
