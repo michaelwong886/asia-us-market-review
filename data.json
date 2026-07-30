@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-30T20:54:35.842274+00:00",
-  "generated_at_hkt": "2026-07-31 04:54 HKT",
+  "generated_at": "2026-07-30T21:58:19.309358+00:00",
+  "generated_at_hkt": "2026-07-31 05:58 HKT",
   "indices": {
     "HK": {
       "label": "Hong Kong",
@@ -110,7 +110,7 @@
         "ticker": "^IXIC",
         "close": 25122.18,
         "pct_change": 2.78,
-        "volume_fmt": "$7.9B"
+        "volume_fmt": "$8.0B"
       },
       "tertiary": {
         "name": "Dow Jones",
@@ -181,33 +181,125 @@
   "fx": {
     "USD/HKD": {
       "rate": 7.84,
-      "pct_change": 0.02
+      "pct_change": 0.03
     },
     "USD/CNY": {
-      "rate": 6.75,
-      "pct_change": -0.24
+      "rate": 6.74,
+      "pct_change": -0.4
     },
     "USD/KRW": {
-      "rate": 1423.54,
-      "pct_change": -2.04
+      "rate": 1422.26,
+      "pct_change": -2.13
     },
     "USD/JPY": {
-      "rate": 159.59,
-      "pct_change": -2.61
+      "rate": 159.61,
+      "pct_change": -2.6
     },
     "EUR/USD": {
       "rate": 1.15,
-      "pct_change": 1.27
+      "pct_change": 1.25
     },
     "DXY": {
-      "rate": 99.98,
-      "pct_change": -0.81
+      "rate": 100.01,
+      "pct_change": -0.78
     }
   },
   "movers": {
     "HK": {
-      "gainers": [],
-      "losers": [],
+      "gainers": [
+        {
+          "ticker": "0883.HK",
+          "close": 24.18,
+          "pct_change": 2.89,
+          "volume": 92366391,
+          "volume_fmt": "HK$92M",
+          "longName": "CNOOC Limited",
+          "industry": "Oil & Gas E&P"
+        },
+        {
+          "ticker": "0857.HK",
+          "close": 10.15,
+          "pct_change": 2.22,
+          "volume": 89082406,
+          "volume_fmt": "HK$89M",
+          "longName": "PetroChina Company Limited",
+          "industry": "Oil & Gas Integrated"
+        },
+        {
+          "ticker": "1398.HK",
+          "close": 7.64,
+          "pct_change": 2.14,
+          "volume": 352187689,
+          "volume_fmt": "HK$352M",
+          "longName": "Industrial and Commercial Bank of China Limited",
+          "industry": "Banks - Diversified"
+        },
+        {
+          "ticker": "2628.HK",
+          "close": 28.9,
+          "pct_change": 2.05,
+          "volume": 56032928,
+          "volume_fmt": "HK$56M",
+          "longName": "China Life Insurance Company Limited",
+          "industry": "Insurance - Life"
+        },
+        {
+          "ticker": "9618.HK",
+          "close": 128.7,
+          "pct_change": 1.98,
+          "volume": 15183888,
+          "volume_fmt": "HK$15M",
+          "longName": "JD.com, Inc.",
+          "industry": "Internet Retail"
+        }
+      ],
+      "losers": [
+        {
+          "ticker": "2269.HK",
+          "close": 37.8,
+          "pct_change": -4.01,
+          "volume": 38213724,
+          "volume_fmt": "HK$38M",
+          "longName": "WuXi Biologics (Cayman) Inc.",
+          "industry": "Biotechnology"
+        },
+        {
+          "ticker": "1177.HK",
+          "close": 5.06,
+          "pct_change": -3.25,
+          "volume": 107407848,
+          "volume_fmt": "HK$107M",
+          "longName": "Sino Biopharmaceutical Limited",
+          "industry": "Biotechnology"
+        },
+        {
+          "ticker": "1810.HK",
+          "close": 31.04,
+          "pct_change": -2.63,
+          "volume": 242298426,
+          "volume_fmt": "HK$242M",
+          "longName": "Xiaomi Corporation",
+          "industry": "Consumer Electronics"
+        },
+        {
+          "ticker": "9988.HK",
+          "close": 111.8,
+          "pct_change": -1.58,
+          "volume": 74326961,
+          "volume_fmt": "HK$74M",
+          "longName": "Alibaba Group Holding Limited",
+          "industry": "Internet Retail"
+        },
+        {
+          "ticker": "0762.HK",
+          "close": 6.78,
+          "pct_change": -0.44,
+          "volume": 33294159,
+          "volume_fmt": "HK$33M",
+          "longName": "China Unicom (Hong Kong) Limited",
+          "industry": "Telecom Services"
+        }
+      ],
       "is_friday_fallback": false,
       "screener_note": "Last trading day data"
     },
@@ -244,7 +336,7 @@
           "ticker": "AMAT",
           "close": 501.77,
           "pct_change": 14.97,
-          "volume": 11627672,
+          "volume": 12120342,
           "volume_fmt": "$12M",
           "longName": "Applied Materials, Inc.",
           "industry": "Semiconductor Equipment & Materials"
@@ -264,7 +356,7 @@
           "ticker": "META",
           "close": 539.03,
           "pct_change": -7.95,
-          "volume": 41822464,
+          "volume": 42028145,
           "volume_fmt": "$42M",
           "longName": "Meta Platforms, Inc.",
           "industry": "Internet Content & Information"
@@ -273,7 +365,7 @@
           "ticker": "ADBE",
           "close": 247.9,
           "pct_change": -5.9,
-          "volume": 6579731,
+          "volume": 6859688,
           "volume_fmt": "$7M",
           "longName": "Adobe Inc.",
           "industry": "Software - Application"
@@ -282,8 +374,8 @@
           "ticker": "ACN",
           "close": 163.29,
           "pct_change": -5.71,
-          "volume": 7356865,
-          "volume_fmt": "$7M",
+          "volume": 8484422,
+          "volume_fmt": "$8M",
           "longName": "Accenture plc",
           "industry": "Information Technology Services"
         },
@@ -291,7 +383,7 @@
           "ticker": "SHOP",
           "close": 122.4,
           "pct_change": -5.24,
-          "volume": 9907247,
+          "volume": 10343367,
           "volume_fmt": "$10M",
           "longName": "Shopify Inc.",
           "industry": "Software - Application"
@@ -312,10 +404,87 @@
   },
   "news": [
     {
+      "title": "Cullen/Frost Bankers, Inc. Q2 2026 Earnings Call Summary",
+      "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-cullenfrost-bankers-inc-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-31 05:45 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Dow Jones Futures: Apple, Amazon Diverge Late; What To Do After AI Stocks Surge",
+      "url": "https://finance.yahoo.com/m/410b5188-fada-3c74-b2e7-6fb6f4fcea6e/dow-jones-futures%3A-apple%2C.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-31 05:44 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Stock Market Today, July 30: Amazon Soars Over 8% After Hours on Earnings Beat",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/30/stock-market-today-july-30-amazon-soars-over-8-after-hours-on-earnings-beat/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-31 05:42 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Brunswick Corporation Q2 2026 Earnings Call Summary",
+      "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-brunswick-corporation-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-31 05:36 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Xenia Hotels & Resorts, Inc. Q2 2026 Earnings Call Summary",
+      "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-xenia-hotels-resorts-inc-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-31 05:24 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Valero Energy Corporation Q2 2026 Earnings Call Summary",
+      "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-valero-energy-corporation-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-31 05:22 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Colliers International Group Inc. Q2 2026 Earnings Call Summary",
+      "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-colliers-international-group-inc-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-31 04:57 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "AGCO Corporation Q2 2026 Earnings Call Summary",
+      "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-agco-corporation-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-07-31 04:55 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Sandisk Stock Is Having Its Best Day Since January. It Has Had a Tough Month.",
+      "url": "https://finance.yahoo.com/m/ae656ca1-8ae1-391d-8f12-22230841adc0/sandisk-stock-is-having-its.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-31 04:55 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "FICO Stock Drops the Most in 6 Years. Here’s What Went Wrong.",
+      "url": "https://finance.yahoo.com/m/9fdf6f5e-41c6-3ce8-9601-60c29a559033/fico-stock-drops-the-most-in.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-31 04:54 HKT",
+      "label": "US Markets"
+    },
+    {
       "title": "Stock Market Today: Chips Lead Nasdaq's Fierce Rebound, But Meta Bashed",
       "url": "https://finance.yahoo.com/m/826969c6-014c-37f9-9ed7-da1bab782e05/stock-market-today%3A-chips.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
       "published_hkt": "2026-07-31 04:46 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Update: Nasdaq Composite Snaps 6-Day Slump as Microsoft Soars",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/nasdaq-composite-snaps-6-day-204416812.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-07-31 04:44 HKT",
       "label": "US Markets"
     },
     {
@@ -326,87 +495,10 @@
       "label": "US Markets"
     },
     {
-      "title": "Robinhood Is Now Making More Money From Prediction Markets Than Crypto Trading. Here's What That Means For Crypto Investors",
-      "url": "https://www.fool.com/investing/2026/07/30/robinhood-is-now-making-more-money-from-prediction-markets-than-crypto-trading-heres-what-that-means-for-crypto-investors/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-31 04:35 HKT",
-      "label": "Semiconductors"
-    },
-    {
       "title": "Johnson & Johnson Just Got FDA Clearance for Its Surgical Robot, Hiked Its Dividend for the 64th Time, and Is Targeting $100 Billion in Revenue. But Here's What Investors Should Be Most Excited About",
       "url": "https://www.fool.com/investing/2026/07/30/johnson-johnson-just-got-fda-clearance-for-its-sur/?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
       "published_hkt": "2026-07-31 04:35 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "How SCHY ETF Held Up While Stocks Fell",
-      "url": "https://www.trefis.com/articles/609466/how-schy-etf-held-up-while-stocks-fell/2026-07-30?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-31 04:29 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "AMD Stock Gets Powerful Vote of Confidence",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/amd-stock-gets-powerful-vote-202832603.html?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-31 04:28 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "SpaceX Is Down Nearly 50% From Its All-Time High -- That's Great News for Long-Term Investors",
-      "url": "https://www.fool.com/investing/2026/07/30/spacex-is-down-50-thats-great-news-for-long-term/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-31 04:25 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "US Equity Markets End Higher on Microsoft's Cloud Gains, Semiconductor Rebound",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/us-equity-markets-end-higher-201704981.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-31 04:17 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Nvidia-Backed Stock Opens Door to Classified AI Work",
-      "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-backed-stock-opens-door-201009493.html?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-31 04:10 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "The S&P 500's Biggest 2026 Winner Is Skyrocketing. Three Reasons To Stay Away.",
-      "url": "https://finance.yahoo.com/m/08a53932-a831-3946-b7dd-82e55b75455b/the-s%26p-500%27s-biggest-2026.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-31 04:06 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Looking To Diversify Away From AI? This Surging Stock Deserves a Look",
-      "url": "https://www.fool.com/investing/2026/07/30/looking-to-diversify-away-from-ai-this-surging-sto/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-31 04:05 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "NVDA Stock: Where Compounding Could Take The Price",
-      "url": "https://www.trefis.com/articles/609450/nvda-stock-where-compounding-could-take-the-price/2026-07-30?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-07-31 04:03 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Dow, S&P 500, Nasdaq Gain After Inflation Surprise Calms Investors",
-      "url": "https://finance.yahoo.com/markets/articles/dow-p-500-nasdaq-gain-195530042.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-31 03:55 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Expect to see less stock buybacks from Big Tech as companies ramp up AI capex",
-      "url": "https://finance.yahoo.com/video/expect-see-less-stock-buybacks-195451803.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-07-31 03:54 HKT",
       "label": "US Markets"
     },
     {
