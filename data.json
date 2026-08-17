@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-17T20:43:17.370305+00:00",
-  "generated_at_hkt": "2026-08-18 04:43 HKT",
+  "generated_at": "2026-08-17T21:36:50.550406+00:00",
+  "generated_at_hkt": "2026-08-18 05:36 HKT",
   "indices": {
     "HK": {
       "label": "Hong Kong",
@@ -111,7 +111,7 @@
         "ticker": "^IXIC",
         "close": 26644.91,
         "pct_change": -0.32,
-        "volume_fmt": "$6.7B"
+        "volume_fmt": "$6.8B"
       },
       "tertiary": {
         "name": "Dow Jones",
@@ -182,33 +182,125 @@
   "fx": {
     "USD/HKD": {
       "rate": 7.84,
-      "pct_change": -0.04
-    },
-    "USD/CNY": {
-      "rate": 6.74,
       "pct_change": -0.05
     },
+    "USD/CNY": {
+      "rate": 6.73,
+      "pct_change": -0.18
+    },
     "USD/KRW": {
-      "rate": 1416.72,
-      "pct_change": -0.01
+      "rate": 1414.82,
+      "pct_change": -0.14
     },
     "USD/JPY": {
-      "rate": 159.47,
-      "pct_change": 0.03
+      "rate": 159.38,
+      "pct_change": -0.03
     },
     "EUR/USD": {
       "rate": 1.16,
-      "pct_change": 0.41
+      "pct_change": 0.42
     },
     "DXY": {
-      "rate": 99.59,
-      "pct_change": -0.08
+      "rate": 99.58,
+      "pct_change": -0.09
     }
   },
   "movers": {
     "HK": {
-      "gainers": [],
-      "losers": [],
+      "gainers": [
+        {
+          "ticker": "2628.HK",
+          "close": 27.98,
+          "pct_change": 4.4,
+          "volume": 51218023,
+          "volume_fmt": "HK$51M",
+          "longName": "China Life Insurance Company Limited",
+          "industry": "Insurance - Life"
+        },
+        {
+          "ticker": "1299.HK",
+          "close": 73.4,
+          "pct_change": 4.26,
+          "volume": 30905797,
+          "volume_fmt": "HK$31M",
+          "longName": "AIA Group Limited",
+          "industry": "Insurance - Life"
+        },
+        {
+          "ticker": "9618.HK",
+          "close": 113.0,
+          "pct_change": 2.54,
+          "volume": 16577807,
+          "volume_fmt": "HK$17M",
+          "longName": "JD.com, Inc.",
+          "industry": "Internet Retail"
+        },
+        {
+          "ticker": "2269.HK",
+          "close": 46.16,
+          "pct_change": 2.26,
+          "volume": 26097084,
+          "volume_fmt": "HK$26M",
+          "longName": "WuXi Biologics (Cayman) Inc.",
+          "industry": "Biotechnology"
+        },
+        {
+          "ticker": "1211.HK",
+          "close": 90.05,
+          "pct_change": 2.04,
+          "volume": 12966274,
+          "volume_fmt": "HK$13M",
+          "longName": "BYD Company Limited",
+          "industry": "Auto Manufacturers"
+        }
+      ],
+      "losers": [
+        {
+          "ticker": "0027.HK",
+          "close": 34.54,
+          "pct_change": -0.58,
+          "volume": 9350657,
+          "volume_fmt": "HK$9M",
+          "longName": "Galaxy Entertainment Group Limited",
+          "industry": "Resorts & Casinos"
+        },
+        {
+          "ticker": "0002.HK",
+          "close": 78.5,
+          "pct_change": -0.57,
+          "volume": 2815962,
+          "volume_fmt": "HK$3M",
+          "longName": "CLP Holdings Limited",
+          "industry": "Utilities - Regulated Electric"
+        },
+        {
+          "ticker": "0688.HK",
+          "close": 13.42,
+          "pct_change": -0.45,
+          "volume": 17848663,
+          "volume_fmt": "HK$18M",
+          "longName": "China Overseas Land & Investment Limited",
+          "industry": "Real Estate - Development"
+        },
+        {
+          "ticker": "0762.HK",
+          "close": 6.33,
+          "pct_change": -0.08,
+          "volume": 33107984,
+          "volume_fmt": "HK$33M",
+          "longName": "China Unicom (Hong Kong) Limited",
+          "industry": "Telecom Services"
+        },
+        {
+          "ticker": "0388.HK",
+          "close": 406.2,
+          "pct_change": -0.05,
+          "volume": 2259609,
+          "volume_fmt": "HK$2M",
+          "longName": "Hong Kong Exchanges and Clearing Limited",
+          "industry": "Financial Data & Stock Exchanges"
+        }
+      ],
       "is_friday_fallback": false,
       "screener_note": "Last trading day data"
     },
@@ -227,8 +319,8 @@
           "ticker": "MRVL",
           "close": 234.33,
           "pct_change": 5.54,
-          "volume": 20437357,
-          "volume_fmt": "$20M",
+          "volume": 20909958,
+          "volume_fmt": "$21M",
           "longName": "Marvell Technology, Inc.",
           "industry": "Semiconductors"
         },
@@ -236,8 +328,8 @@
           "ticker": "MU",
           "close": 1011.75,
           "pct_change": 4.13,
-          "volume": 31541539,
-          "volume_fmt": "$32M",
+          "volume": 33067341,
+          "volume_fmt": "$33M",
           "longName": "Micron Technology, Inc.",
           "industry": "Semiconductors"
         },
@@ -245,7 +337,7 @@
           "ticker": "LRCX",
           "close": 343.84,
           "pct_change": 3.45,
-          "volume": 7776554,
+          "volume": 7783261,
           "volume_fmt": "$8M",
           "longName": "Lam Research Corporation",
           "industry": "Semiconductor Equipment & Materials"
@@ -313,6 +405,13 @@
   },
   "news": [
     {
+      "title": "OpenAI to lease massive new AI data center in US, backed by Nvidia",
+      "url": "https://finance.yahoo.com/technology/ai/articles/openai-lease-massive-ai-data-205913179.html?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-08-18 04:59 HKT",
+      "label": "Semiconductors"
+    },
+    {
       "title": "Morgan Stanley Delivers a Bullish Message for Nvidia Stock Investors",
       "url": "https://finance.yahoo.com/markets/stocks/articles/morgan-stanley-delivers-bullish-message-204121851.html?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
@@ -369,13 +468,6 @@
       "label": "Semiconductors"
     },
     {
-      "title": "Brookfield Asset Management (BAM) & NVIDIA Corporation (NVDA): BAM’s CEO Says AI’s Bottleneck Is Infrastructure, Not Capital",
-      "url": "https://finance.yahoo.com/technology/ai/articles/brookfield-asset-management-bam-nvidia-201033002.html?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-18 04:10 HKT",
-      "label": "Semiconductors"
-    },
-    {
       "title": "Update: US Equity Indexes Decline, Crude Oil Jumps After Trump Threatens to Bomb Oman",
       "url": "https://finance.yahoo.com/markets/articles/us-equity-indexes-decline-crude-195613628.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
@@ -397,17 +489,17 @@
       "label": "US Markets"
     },
     {
+      "title": "The Unusual Cash Offer Sitting In T Stock",
+      "url": "https://www.trefis.com/articles/611664/the-unusual-cash-offer-sitting-in-t-stock-2/2026-08-17?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-08-18 03:45 HKT",
+      "label": "US Markets"
+    },
+    {
       "title": "Here’s How Nancy Pelosi Beat the Stock Market and Warren Buffett",
       "url": "https://247wallst.com/investing/2025/11/23/heres-how-nancy-pelosi-beat-the-stock-market-and-warren-buffett/?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
       "published_hkt": "2026-08-18 03:12 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Dow Falls 300 Points. Energy and Chips Are the Only Winners.",
-      "url": "https://finance.yahoo.com/m/1eea0c67-5f22-3884-bcc6-511582f7541a/dow-falls-300-points.-energy.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-18 02:58 HKT",
       "label": "US Markets"
     },
     {
