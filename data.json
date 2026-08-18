@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-18T14:58:45.736842+00:00",
-  "generated_at_hkt": "2026-08-18 22:58 HKT",
+  "generated_at": "2026-08-18T15:29:21.517020+00:00",
+  "generated_at_hkt": "2026-08-18 23:29 HKT",
   "indices": {
     "HK": {
       "label": "Hong Kong",
@@ -53,15 +53,15 @@
       "primary": {
         "name": "KOSPI",
         "ticker": "^KS11",
-        "close": 6869.83,
-        "pct_change": -1.55,
+        "close": NaN,
+        "pct_change": NaN,
         "volume_fmt": "₩0.0T"
       },
       "secondary": {
         "name": "KOSDAQ",
         "ticker": "^KQ11",
-        "close": 834.2,
-        "pct_change": -3.52,
+        "close": NaN,
+        "pct_change": NaN,
         "volume_fmt": "₩0.0T"
       },
       "sparkline": [
@@ -69,7 +69,7 @@
         6579.04,
         6813.34,
         6977.94,
-        6869.83
+        NaN
       ]
     },
     "JP": {
@@ -78,8 +78,8 @@
       "primary": {
         "name": "Nikkei 225",
         "ticker": "^N225",
-        "close": 67460.73,
-        "pct_change": -1.82,
+        "close": 68713.8,
+        "pct_change": 0.59,
         "volume_fmt": "¥0.0T"
       },
       "secondary": {
@@ -92,8 +92,7 @@
       "sparkline": [
         67524.06,
         68308.59,
-        68713.8,
-        67460.73
+        68713.8
       ]
     },
     "US": {
@@ -102,29 +101,29 @@
       "primary": {
         "name": "S&P 500",
         "ticker": "^GSPC",
-        "close": 7697.35,
-        "pct_change": -1.14,
-        "volume_fmt": "$0.7B"
+        "close": 7700.09,
+        "pct_change": -1.1,
+        "volume_fmt": "$0.8B"
       },
       "secondary": {
         "name": "NASDAQ",
         "ticker": "^IXIC",
-        "close": 26280.62,
-        "pct_change": -1.68,
-        "volume_fmt": "$2.1B"
+        "close": 26321.06,
+        "pct_change": -1.53,
+        "volume_fmt": "$2.5B"
       },
       "tertiary": {
         "name": "Dow Jones",
         "ticker": "^DJI",
-        "close": 53421.56,
-        "pct_change": -0.58,
+        "close": 53349.89,
+        "pct_change": -0.71,
         "volume_fmt": "$0.1B"
       },
       "sparkline": [
         7748.5,
         7798.99,
         7785.76,
-        7697.35
+        7700.09
       ]
     }
   },
@@ -132,26 +131,26 @@
     "AI / Chips": {
       "anchor": "SOXX",
       "markets": "US/HK/KR",
-      "close": 524.94,
-      "pct_change": -4.63
+      "close": 527.26,
+      "pct_change": -4.21
     },
     "CN Internet": {
       "anchor": "KWEB",
       "markets": "HK/CN",
-      "close": 26.77,
-      "pct_change": -0.89
+      "close": 26.75,
+      "pct_change": -0.94
     },
     "EV / Battery": {
       "anchor": "LIT",
       "markets": "CN/US",
-      "close": 73.94,
-      "pct_change": -1.71
+      "close": 73.98,
+      "pct_change": -1.66
     },
     "Robotics": {
       "anchor": "ROBO",
       "markets": "JP/CN",
-      "close": 81.91,
-      "pct_change": -3.44
+      "close": 82.0,
+      "pct_change": -3.33
     },
     "Clean Energy": {
       "anchor": "ICLN",
@@ -162,46 +161,46 @@
     "Biotech": {
       "anchor": "XBI",
       "markets": "US/HK/KR",
-      "close": 158.3,
-      "pct_change": 0.57
+      "close": 159.04,
+      "pct_change": 1.04
     },
     "Financials": {
       "anchor": "XLF",
       "markets": "US/HK/KR",
-      "close": 57.87,
-      "pct_change": -0.51
+      "close": 57.81,
+      "pct_change": -0.6
     },
     "Defence": {
       "anchor": "ITA",
       "markets": "US/KR",
-      "close": 251.3,
-      "pct_change": -0.76
+      "close": 251.6,
+      "pct_change": -0.64
     }
   },
   "fx": {
     "USD/HKD": {
       "rate": 7.84,
-      "pct_change": -0.04
+      "pct_change": -0.03
     },
     "USD/CNY": {
       "rate": 6.73,
-      "pct_change": -0.18
+      "pct_change": -0.17
     },
     "USD/KRW": {
-      "rate": 1411.82,
-      "pct_change": -0.25
+      "rate": 1411.73,
+      "pct_change": -0.26
     },
     "USD/JPY": {
-      "rate": 159.54,
-      "pct_change": 0.2
+      "rate": 159.6,
+      "pct_change": 0.24
     },
     "EUR/USD": {
       "rate": 1.16,
-      "pct_change": 0.11
+      "pct_change": 0.07
     },
     "DXY": {
-      "rate": 99.56,
-      "pct_change": -0.11
+      "rate": 99.62,
+      "pct_change": -0.05
     }
   },
   "movers": {
@@ -238,7 +237,7 @@
           "ticker": "0857.HK",
           "close": 9.81,
           "pct_change": 2.51,
-          "volume": 102765199,
+          "volume": 103331199,
           "volume_fmt": "HK$103M",
           "longName": "PetroChina Company Limited",
           "industry": "Oil & Gas Integrated"
@@ -294,7 +293,7 @@
           "ticker": "9961.HK",
           "close": 350.2,
           "pct_change": -1.41,
-          "volume": 1988957,
+          "volume": 2000657,
           "volume_fmt": "HK$2M",
           "longName": "Trip.com Group Limited",
           "industry": "Travel Services"
@@ -307,46 +306,46 @@
       "gainers": [
         {
           "ticker": "XOM",
-          "close": 163.51,
-          "pct_change": 2.79,
-          "volume": 4013113,
-          "volume_fmt": "$4M",
+          "close": 165.11,
+          "pct_change": 3.8,
+          "volume": 5796910,
+          "volume_fmt": "$6M",
           "longName": "ExxonMobil Holdings Corporation",
           "industry": "Oil & Gas Integrated"
         },
         {
           "ticker": "LLY",
-          "close": 1210.54,
-          "pct_change": 2.57,
-          "volume": 544008,
-          "volume_fmt": "544,008",
+          "close": 1215.4,
+          "pct_change": 2.99,
+          "volume": 661356,
+          "volume_fmt": "661,356",
           "longName": "Eli Lilly and Company",
           "industry": "Drug Manufacturers - General"
         },
         {
           "ticker": "ABBV",
-          "close": 255.64,
-          "pct_change": 2.48,
-          "volume": 1067267,
+          "close": 256.75,
+          "pct_change": 2.92,
+          "volume": 1314661,
           "volume_fmt": "$1M",
           "longName": "AbbVie Inc.",
           "industry": "Drug Manufacturers - General"
         },
         {
           "ticker": "CVX",
-          "close": 204.01,
-          "pct_change": 2.0,
-          "volume": 2016685,
+          "close": 204.51,
+          "pct_change": 2.25,
+          "volume": 2361840,
           "volume_fmt": "$2M",
           "longName": "Chevron Corporation",
           "industry": "Oil & Gas Integrated"
         },
         {
           "ticker": "SAP",
-          "close": 211.65,
-          "pct_change": 1.77,
-          "volume": 990081,
-          "volume_fmt": "990,081",
+          "close": 212.43,
+          "pct_change": 2.14,
+          "volume": 1282327,
+          "volume_fmt": "$1M",
           "longName": "SAP SE",
           "industry": "Software - Application"
         }
@@ -354,46 +353,46 @@
       "losers": [
         {
           "ticker": "ARM",
-          "close": 249.51,
-          "pct_change": -10.71,
-          "volume": 1953366,
+          "close": 249.98,
+          "pct_change": -10.54,
+          "volume": 2404575,
           "volume_fmt": "$2M",
           "longName": "Arm Holdings plc",
           "industry": "Semiconductors"
         },
         {
           "ticker": "SMCI",
-          "close": 36.51,
-          "pct_change": -8.35,
-          "volume": 17646127,
-          "volume_fmt": "$18M",
+          "close": 36.53,
+          "pct_change": -8.32,
+          "volume": 21275058,
+          "volume_fmt": "$21M",
           "longName": "Super Micro Computer, Inc.",
           "industry": "Computer Hardware"
         },
         {
           "ticker": "AMD",
-          "close": 475.85,
-          "pct_change": -7.49,
-          "volume": 8373602,
-          "volume_fmt": "$8M",
+          "close": 479.78,
+          "pct_change": -6.73,
+          "volume": 9916366,
+          "volume_fmt": "$10M",
           "longName": "Advanced Micro Devices, Inc.",
           "industry": "Semiconductors"
         },
         {
           "ticker": "META",
-          "close": 549.62,
-          "pct_change": -6.82,
-          "volume": 9980139,
-          "volume_fmt": "$10M",
+          "close": 552.44,
+          "pct_change": -6.34,
+          "volume": 11667272,
+          "volume_fmt": "$12M",
           "longName": "Meta Platforms, Inc.",
           "industry": "Internet Content & Information"
         },
         {
           "ticker": "INTC",
-          "close": 95.88,
-          "pct_change": -6.46,
-          "volume": 44690393,
-          "volume_fmt": "$45M",
+          "close": 96.21,
+          "pct_change": -6.14,
+          "volume": 53526424,
+          "volume_fmt": "$54M",
           "longName": "Intel Corporation",
           "industry": "Semiconductors"
         }
@@ -404,17 +403,31 @@
   },
   "news": [
     {
-      "title": "There Is Now a Way to Collect 6.25% From Google. It Stops Paying in 2029",
-      "url": "https://247wallst.com/investing/2026/08/18/there-is-now-a-way-to-collect-6-25-from-google-it-stops-paying-in-2029/?.tsrc=rss",
+      "title": "Nvidia Stock Drops In Broad Market Slide With Earnings In Sight. Is Nvidia A Buy Or Sell Now?",
+      "url": "https://finance.yahoo.com/m/8ee4c58b-006b-3d70-9412-d97f819595f3/nvidia-stock-drops-in-broad.html?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-18 22:50 HKT",
+      "published_hkt": "2026-08-18 23:13 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "What's Going On With The Metals Company Stock?",
-      "url": "https://www.fool.com/investing/2026/08/18/whats-going-on-with-the-metals-company-stock/?.tsrc=rss",
+      "title": "Veteran Analyst Revamps Nvidia Stock Price Target Ahead of Earnings",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/veteran-analyst-revamps-nvidia-stock-150713824.html?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-18 22:50 HKT",
+      "published_hkt": "2026-08-18 23:07 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "McDonald's: Traffic Disappointed, but the Rent Still Gets Paid",
+      "url": "https://www.fool.com/investing/2026/08/18/mcdonalds-traffic-disappointed-but-the-rent-still/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-08-18 23:05 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Nvidia and Broadcom earnings: TD Cowen says earnings won’t settle big questions",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-broadcom-earnings-td-cowen-150343867.html?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-08-18 23:03 HKT",
       "label": "Semiconductors"
     },
     {
@@ -439,25 +452,11 @@
       "label": "Semiconductors"
     },
     {
-      "title": "4 Famous Billionaire Investors Just Bought This Little Known Semiconductor Stock",
-      "url": "https://247wallst.com/investing/2026/08/18/4-famous-billionaire-investors-just-bought-this-little-known-semiconductor-stock/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-18 22:40 HKT",
-      "label": "Semiconductors"
-    },
-    {
       "title": "Nvidia Is on Track to Beat the S&P 500 for the 4th Straight Year. Should Its $500 Billion AI Infrastructure Financing Plan Give Investors Pause?",
       "url": "https://www.fool.com/investing/2026/08/18/nvidia-is-on-track-to-beat-the-sp-500-for-the-4th/?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
       "published_hkt": "2026-08-18 22:40 HKT",
       "label": "US Markets"
-    },
-    {
-      "title": "Nvidia's attack plan: Dominate every single aspect of AI",
-      "url": "https://finance.yahoo.com/markets/stocks/article/nvidias-attack-plan-dominate-every-single-aspect-of-ai-143905381.html?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-18 22:39 HKT",
-      "label": "Semiconductors"
     },
     {
       "title": "3 Reasons to Sell DHI and 1 Stock to Buy Instead",
@@ -474,17 +473,17 @@
       "label": "US Markets"
     },
     {
-      "title": "Bitcoin on Alert as 30-Year Treasury Yield Hits Level Last Seen Before 2008 Crash",
-      "url": "https://www.ccn.com/news/crypto/bitcoin-alert-30-year-treasury-yield-2007-high/?.tsrc=rss",
+      "title": "NL Q2 Earnings Rise Y/Y as CompX & Kronos Results Improve",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/nl-q2-earnings-rise-y-135700334.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-18 21:58 HKT",
+      "published_hkt": "2026-08-18 21:57 HKT",
       "label": "US Markets"
     },
     {
-      "title": "This Stock Is Jumping on Its Big Plans for the Tesla Semi Truck",
-      "url": "https://finance.yahoo.com/m/cbd06751-ce7c-3122-9990-0270ca9e93b8/this-stock-is-jumping-on-its.html?.tsrc=rss",
+      "title": "VATE Q2 Earnings Improve Y/Y as Infrastructure Revenues Surge",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/vate-q2-earnings-improve-y-135300740.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-18 21:58 HKT",
+      "published_hkt": "2026-08-18 21:53 HKT",
       "label": "US Markets"
     },
     {
@@ -495,10 +494,10 @@
       "label": "US Markets"
     },
     {
-      "title": "Nasdaq Falls 1.1%. The Chip Stock Rally Is Reversing.",
-      "url": "https://finance.yahoo.com/m/ab9f6510-d693-3e57-8cc7-f5dafaf84649/nasdaq-falls-1.1%25.-the-chip.html?.tsrc=rss",
+      "title": "Clean Harbors Stock Gains 16% in 6 Months: Here's What You Should Know",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/clean-harbors-stock-gains-16-134700435.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-18 21:33 HKT",
+      "published_hkt": "2026-08-18 21:47 HKT",
       "label": "US Markets"
     },
     {
