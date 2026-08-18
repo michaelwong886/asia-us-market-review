@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-18T21:18:28.474132+00:00",
-  "generated_at_hkt": "2026-08-19 05:18 HKT",
+  "generated_at": "2026-08-18T21:44:00.030307+00:00",
+  "generated_at_hkt": "2026-08-19 05:44 HKT",
   "indices": {
     "HK": {
       "label": "Hong Kong",
@@ -110,7 +110,7 @@
         "ticker": "^IXIC",
         "close": 26289.71,
         "pct_change": -1.33,
-        "volume_fmt": "$6.4B"
+        "volume_fmt": "$6.5B"
       },
       "tertiary": {
         "name": "Dow Jones",
@@ -192,22 +192,78 @@
       "pct_change": -0.22
     },
     "USD/JPY": {
-      "rate": 159.6,
-      "pct_change": 0.24
+      "rate": 159.55,
+      "pct_change": 0.21
     },
     "EUR/USD": {
       "rate": 1.16,
-      "pct_change": 0.07
+      "pct_change": 0.05
     },
     "DXY": {
-      "rate": 99.65,
-      "pct_change": 0.01
+      "rate": 99.64,
+      "pct_change": -0.0
     }
   },
   "movers": {
     "HK": {
-      "gainers": [],
-      "losers": [],
+      "gainers": [
+        {
+          "ticker": "9988.HK",
+          "close": 126.7,
+          "pct_change": 3.68,
+          "volume": 120433806,
+          "volume_fmt": "HK$120M",
+          "longName": "Alibaba Group Holding Limited",
+          "industry": "Internet Retail"
+        },
+        {
+          "ticker": "1211.HK",
+          "close": 90.0,
+          "pct_change": -0.06,
+          "volume": 12363089,
+          "volume_fmt": "HK$12M",
+          "longName": "BYD Company Limited",
+          "industry": "Auto Manufacturers"
+        },
+        {
+          "ticker": "0700.HK",
+          "close": 442.4,
+          "pct_change": -0.9,
+          "volume": 23218078,
+          "volume_fmt": "HK$23M",
+          "longName": "Tencent Holdings Limited",
+          "industry": "Internet Content & Information"
+        }
+      ],
+      "losers": [
+        {
+          "ticker": "0700.HK",
+          "close": 442.4,
+          "pct_change": -0.9,
+          "volume": 23218078,
+          "volume_fmt": "HK$23M",
+          "longName": "Tencent Holdings Limited",
+          "industry": "Internet Content & Information"
+        },
+        {
+          "ticker": "1211.HK",
+          "close": 90.0,
+          "pct_change": -0.06,
+          "volume": 12363089,
+          "volume_fmt": "HK$12M",
+          "longName": "BYD Company Limited",
+          "industry": "Auto Manufacturers"
+        },
+        {
+          "ticker": "9988.HK",
+          "close": 126.7,
+          "pct_change": 3.68,
+          "volume": 120433806,
+          "volume_fmt": "HK$120M",
+          "longName": "Alibaba Group Holding Limited",
+          "industry": "Internet Retail"
+        }
+      ],
       "is_friday_fallback": false,
       "screener_note": "Last trading day data"
     },
@@ -312,6 +368,20 @@
   },
   "news": [
     {
+      "title": "Dow Jones Futures: Sandisk, Micron, Credo Lead AI Rug Pull; Indexes Near Critical Level",
+      "url": "https://finance.yahoo.com/m/ae8bbbcf-7a5d-37db-bb3e-baf2ff1d28ef/dow-jones-futures%3A-sandisk%2C.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-08-19 05:24 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Micron, Other Chip Stocks Drop During Dog Days Of Summer",
+      "url": "https://finance.yahoo.com/m/47aad014-8127-390d-b5bf-5fe35d3c29d4/micron%2C-other-chip-stocks.html?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-08-19 05:11 HKT",
+      "label": "Semiconductors"
+    },
+    {
       "title": "China’s Favorite Budget Meal? Burgers",
       "url": "https://app.moby.co/home/news/news-chinas-favorite-balanced-budget-meals-are-burgers?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
@@ -347,25 +417,11 @@
       "label": "Semiconductors"
     },
     {
-      "title": "Dow Jones Futures: Sandisk, Micron, Credo Lead AI Rug Pull; Target Earnings Due",
-      "url": "https://finance.yahoo.com/m/ae8bbbcf-7a5d-37db-bb3e-baf2ff1d28ef/dow-jones-futures%3A-sandisk%2C.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-19 04:59 HKT",
-      "label": "US Markets"
-    },
-    {
       "title": "Update: Technology Leads US Equity Indexes Lower as 30-Year Yield Touches 19-Year High, Crude Oil Extends Gains",
       "url": "https://finance.yahoo.com/markets/stocks/articles/technology-leads-us-equity-indexes-205919534.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
       "published_hkt": "2026-08-19 04:59 HKT",
       "label": "US Markets"
-    },
-    {
-      "title": "AMD vs. Nvidia: 1 Metric Tells Me Which Is Clearly the Better Buy for 2026",
-      "url": "https://www.fool.com/investing/2026/08/18/amd-vs-nvidia-1-metric-tells-me-which-is-clearly-t/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-19 04:57 HKT",
-      "label": "Semiconductors"
     },
     {
       "title": "Stock Market Today: Nasdaq Slides Along With Chip Names; Sandisk, Micron Lose Big",
