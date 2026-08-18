@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-18T14:15:46.042365+00:00",
-  "generated_at_hkt": "2026-08-18 22:15 HKT",
+  "generated_at": "2026-08-18T14:58:45.736842+00:00",
+  "generated_at_hkt": "2026-08-18 22:58 HKT",
   "indices": {
     "HK": {
       "label": "Hong Kong",
@@ -102,21 +102,21 @@
       "primary": {
         "name": "S&P 500",
         "ticker": "^GSPC",
-        "close": 7704.25,
-        "pct_change": -1.05,
-        "volume_fmt": "$0.4B"
+        "close": 7697.35,
+        "pct_change": -1.14,
+        "volume_fmt": "$0.7B"
       },
       "secondary": {
         "name": "NASDAQ",
         "ticker": "^IXIC",
-        "close": 26302.0,
-        "pct_change": -1.6,
-        "volume_fmt": "$1.5B"
+        "close": 26280.62,
+        "pct_change": -1.68,
+        "volume_fmt": "$2.1B"
       },
       "tertiary": {
         "name": "Dow Jones",
         "ticker": "^DJI",
-        "close": 53420.64,
+        "close": 53421.56,
         "pct_change": -0.58,
         "volume_fmt": "$0.1B"
       },
@@ -124,7 +124,7 @@
         7748.5,
         7798.99,
         7785.76,
-        7704.25
+        7697.35
       ]
     }
   },
@@ -132,50 +132,50 @@
     "AI / Chips": {
       "anchor": "SOXX",
       "markets": "US/HK/KR",
-      "close": 529.37,
-      "pct_change": -3.82
+      "close": 524.94,
+      "pct_change": -4.63
     },
     "CN Internet": {
       "anchor": "KWEB",
       "markets": "HK/CN",
-      "close": 26.82,
-      "pct_change": -0.72
+      "close": 26.77,
+      "pct_change": -0.89
     },
     "EV / Battery": {
       "anchor": "LIT",
       "markets": "CN/US",
-      "close": 74.4,
-      "pct_change": -1.11
+      "close": 73.94,
+      "pct_change": -1.71
     },
     "Robotics": {
       "anchor": "ROBO",
       "markets": "JP/CN",
-      "close": 82.22,
-      "pct_change": -3.07
+      "close": 81.91,
+      "pct_change": -3.44
     },
     "Clean Energy": {
       "anchor": "ICLN",
       "markets": "US/CN",
-      "close": 17.81,
-      "pct_change": -2.2
+      "close": 17.75,
+      "pct_change": -2.53
     },
     "Biotech": {
       "anchor": "XBI",
       "markets": "US/HK/KR",
-      "close": 158.96,
-      "pct_change": 0.98
+      "close": 158.3,
+      "pct_change": 0.57
     },
     "Financials": {
       "anchor": "XLF",
       "markets": "US/HK/KR",
-      "close": 57.95,
-      "pct_change": -0.36
+      "close": 57.87,
+      "pct_change": -0.51
     },
     "Defence": {
       "anchor": "ITA",
       "markets": "US/KR",
-      "close": 250.62,
-      "pct_change": -1.03
+      "close": 251.3,
+      "pct_change": -0.76
     }
   },
   "fx": {
@@ -188,20 +188,20 @@
       "pct_change": -0.18
     },
     "USD/KRW": {
-      "rate": 1410.78,
-      "pct_change": -0.32
+      "rate": 1411.82,
+      "pct_change": -0.25
     },
     "USD/JPY": {
-      "rate": 159.52,
-      "pct_change": 0.19
+      "rate": 159.54,
+      "pct_change": 0.2
     },
     "EUR/USD": {
       "rate": 1.16,
       "pct_change": 0.11
     },
     "DXY": {
-      "rate": 99.58,
-      "pct_change": -0.09
+      "rate": 99.56,
+      "pct_change": -0.11
     }
   },
   "movers": {
@@ -211,7 +211,7 @@
           "ticker": "2269.HK",
           "close": 48.58,
           "pct_change": 5.24,
-          "volume": 57738057,
+          "volume": 57782557,
           "volume_fmt": "HK$58M",
           "longName": "WuXi Biologics (Cayman) Inc.",
           "industry": "Biotechnology"
@@ -220,7 +220,7 @@
           "ticker": "9988.HK",
           "close": 126.7,
           "pct_change": 3.68,
-          "volume": 120434606,
+          "volume": 120494606,
           "volume_fmt": "HK$120M",
           "longName": "Alibaba Group Holding Limited",
           "industry": "Internet Retail"
@@ -285,7 +285,7 @@
           "ticker": "2318.HK",
           "close": 53.9,
           "pct_change": -1.64,
-          "volume": 55700826,
+          "volume": 55839826,
           "volume_fmt": "HK$56M",
           "longName": "Ping An Insurance (Group) Company of China, Ltd.",
           "industry": "Insurance - Life"
@@ -307,46 +307,46 @@
       "gainers": [
         {
           "ticker": "XOM",
-          "close": 164.22,
-          "pct_change": 3.24,
-          "volume": 2544863,
-          "volume_fmt": "$3M",
+          "close": 163.51,
+          "pct_change": 2.79,
+          "volume": 4013113,
+          "volume_fmt": "$4M",
           "longName": "ExxonMobil Holdings Corporation",
           "industry": "Oil & Gas Integrated"
         },
         {
+          "ticker": "LLY",
+          "close": 1210.54,
+          "pct_change": 2.57,
+          "volume": 544008,
+          "volume_fmt": "544,008",
+          "longName": "Eli Lilly and Company",
+          "industry": "Drug Manufacturers - General"
+        },
+        {
           "ticker": "ABBV",
-          "close": 256.33,
-          "pct_change": 2.75,
-          "volume": 725293,
-          "volume_fmt": "725,293",
+          "close": 255.64,
+          "pct_change": 2.48,
+          "volume": 1067267,
+          "volume_fmt": "$1M",
           "longName": "AbbVie Inc.",
           "industry": "Drug Manufacturers - General"
         },
         {
-          "ticker": "ZS",
-          "close": 188.0,
-          "pct_change": 2.4,
-          "volume": 514953,
-          "volume_fmt": "514,953",
-          "longName": "Zscaler, Inc.",
-          "industry": "Software - Infrastructure"
-        },
-        {
           "ticker": "CVX",
-          "close": 204.8,
-          "pct_change": 2.4,
-          "volume": 1254798,
-          "volume_fmt": "$1M",
+          "close": 204.01,
+          "pct_change": 2.0,
+          "volume": 2016685,
+          "volume_fmt": "$2M",
           "longName": "Chevron Corporation",
           "industry": "Oil & Gas Integrated"
         },
         {
           "ticker": "SAP",
-          "close": 212.34,
-          "pct_change": 2.1,
-          "volume": 740514,
-          "volume_fmt": "740,514",
+          "close": 211.65,
+          "pct_change": 1.77,
+          "volume": 990081,
+          "volume_fmt": "990,081",
           "longName": "SAP SE",
           "industry": "Software - Application"
         }
@@ -354,46 +354,46 @@
       "losers": [
         {
           "ticker": "ARM",
-          "close": 254.02,
-          "pct_change": -9.1,
-          "volume": 1310361,
-          "volume_fmt": "$1M",
+          "close": 249.51,
+          "pct_change": -10.71,
+          "volume": 1953366,
+          "volume_fmt": "$2M",
           "longName": "Arm Holdings plc",
           "industry": "Semiconductors"
         },
         {
-          "ticker": "META",
-          "close": 547.51,
-          "pct_change": -7.18,
-          "volume": 6994500,
-          "volume_fmt": "$7M",
-          "longName": "Meta Platforms, Inc.",
-          "industry": "Internet Content & Information"
-        },
-        {
-          "ticker": "AMD",
-          "close": 479.09,
-          "pct_change": -6.86,
-          "volume": 5966510,
-          "volume_fmt": "$6M",
-          "longName": "Advanced Micro Devices, Inc.",
-          "industry": "Semiconductors"
-        },
-        {
           "ticker": "SMCI",
-          "close": 37.26,
-          "pct_change": -6.48,
-          "volume": 12457393,
-          "volume_fmt": "$12M",
+          "close": 36.51,
+          "pct_change": -8.35,
+          "volume": 17646127,
+          "volume_fmt": "$18M",
           "longName": "Super Micro Computer, Inc.",
           "industry": "Computer Hardware"
         },
         {
+          "ticker": "AMD",
+          "close": 475.85,
+          "pct_change": -7.49,
+          "volume": 8373602,
+          "volume_fmt": "$8M",
+          "longName": "Advanced Micro Devices, Inc.",
+          "industry": "Semiconductors"
+        },
+        {
+          "ticker": "META",
+          "close": 549.62,
+          "pct_change": -6.82,
+          "volume": 9980139,
+          "volume_fmt": "$10M",
+          "longName": "Meta Platforms, Inc.",
+          "industry": "Internet Content & Information"
+        },
+        {
           "ticker": "INTC",
-          "close": 96.42,
-          "pct_change": -5.93,
-          "volume": 32796348,
-          "volume_fmt": "$33M",
+          "close": 95.88,
+          "pct_change": -6.46,
+          "volume": 44690393,
+          "volume_fmt": "$45M",
           "longName": "Intel Corporation",
           "industry": "Semiconductors"
         }
@@ -404,66 +404,87 @@
   },
   "news": [
     {
-      "title": "Kailera Therapeutics: The Record-Breaking Obesity IPO Big Pharma Cannot Ignore",
-      "url": "https://247wallst.com/investing/2026/08/18/kailera-therapeutics-the-record-breaking-obesity-ipo-big-pharma-cannot-ignore/?.tsrc=rss",
+      "title": "There Is Now a Way to Collect 6.25% From Google. It Stops Paying in 2029",
+      "url": "https://247wallst.com/investing/2026/08/18/there-is-now-a-way-to-collect-6-25-from-google-it-stops-paying-in-2029/?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-18 22:10 HKT",
+      "published_hkt": "2026-08-18 22:50 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "3 Absurdly Cheap Dividend Stocks to Buy for Under $100 Right Now",
-      "url": "https://www.fool.com/investing/2026/08/18/3-absurdly-cheap-dividend-stocks-to-buy-for-under-usd100-right-now/?.tsrc=rss",
+      "title": "What's Going On With The Metals Company Stock?",
+      "url": "https://www.fool.com/investing/2026/08/18/whats-going-on-with-the-metals-company-stock/?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-18 22:08 HKT",
+      "published_hkt": "2026-08-18 22:50 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "I Own Enbridge for the Yield, Not the Growth Story. Here's Why This Quarter Didn't Change My Mind.",
-      "url": "https://www.fool.com/investing/2026/08/18/i-own-enbridge-for-the-yield-not-the-growth-story/?.tsrc=rss",
+      "title": "Huang Says the $105 Billion OpenAI Deal Isn't Circular Financing",
+      "url": "https://finance.yahoo.com/technology/ai/articles/huang-says-105-billion-openai-144632036.html?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-18 22:05 HKT",
+      "published_hkt": "2026-08-18 22:46 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "Microsoft Is Owed Billions It Hasn’t Collected. One Analyst Says That Line Tells You Who Holds the Power",
-      "url": "https://247wallst.com/investing/2026/08/18/microsoft-is-owed-billions-it-hasnt-collected-one-analyst-says-that-line-tells-you-who-holds-the-power/?.tsrc=rss",
+      "title": "10-Year Treasury Yield Near Breakout; What You Need To Know",
+      "url": "https://finance.yahoo.com/m/87a1a761-b4a8-3387-bdcb-5547b0a1e789/10-year-treasury-yield-near.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-08-18 22:45 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Nvidia Backs OpenAI's Ohio AI Hub With $100 Billion",
+      "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-backs-openais-ohio-ai-144319382.html?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-18 21:59 HKT",
+      "published_hkt": "2026-08-18 22:43 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "Billionaire David Tepper’s Top 5 Holdings Just Revealed",
-      "url": "https://247wallst.com/investing/2026/08/18/billionaire-david-teppers-top-5-holdings-just-revealed-2/?.tsrc=rss",
+      "title": "4 Famous Billionaire Investors Just Bought This Little Known Semiconductor Stock",
+      "url": "https://247wallst.com/investing/2026/08/18/4-famous-billionaire-investors-just-bought-this-little-known-semiconductor-stock/?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-08-18 22:40 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Nvidia Is on Track to Beat the S&P 500 for the 4th Straight Year. Should Its $500 Billion AI Infrastructure Financing Plan Give Investors Pause?",
+      "url": "https://www.fool.com/investing/2026/08/18/nvidia-is-on-track-to-beat-the-sp-500-for-the-4th/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-08-18 22:40 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Nvidia's attack plan: Dominate every single aspect of AI",
+      "url": "https://finance.yahoo.com/markets/stocks/article/nvidias-attack-plan-dominate-every-single-aspect-of-ai-143905381.html?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-08-18 22:39 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "3 Reasons to Sell DHI and 1 Stock to Buy Instead",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-sell-dhi-1-143733668.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-08-18 22:37 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Stock Market Today: Nasdaq Falls As Treasury Yields Rise; Micron, Sandisk And Fabrinet All Slide (Live Coverage)",
+      "url": "https://finance.yahoo.com/m/fdb8b55e-c80b-38c5-bab0-70133d76c05f/stock-market-today%3A-nasdaq.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-08-18 22:21 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Bitcoin on Alert as 30-Year Treasury Yield Hits Level Last Seen Before 2008 Crash",
+      "url": "https://www.ccn.com/news/crypto/bitcoin-alert-30-year-treasury-yield-2007-high/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
       "published_hkt": "2026-08-18 21:58 HKT",
-      "label": "Semiconductors"
+      "label": "US Markets"
     },
     {
       "title": "This Stock Is Jumping on Its Big Plans for the Tesla Semi Truck",
       "url": "https://finance.yahoo.com/m/cbd06751-ce7c-3122-9990-0270ca9e93b8/this-stock-is-jumping-on-its.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
       "published_hkt": "2026-08-18 21:58 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "SpaceX Stock Drops After Spending $60 Billion to Bolster Musk’s AI Ambitions",
-      "url": "https://finance.yahoo.com/m/063a2978-daec-368b-8347-993b685ffe58/spacex-stock-drops-after.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-18 21:56 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Baidu Stock Drops as Earnings Show the Perils of Going All-In on AI",
-      "url": "https://finance.yahoo.com/m/9fe2a7c2-90f0-377e-8680-1145cb487b7b/baidu-stock-drops-as-earnings.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-18 21:53 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Global bond sell-off pressures stocks: AlphaCheck",
-      "url": "https://finance.yahoo.com/markets/article/global-bond-sell-off-pressures-stocks-alphacheck-135011383.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-18 21:50 HKT",
       "label": "US Markets"
     },
     {
@@ -474,31 +495,10 @@
       "label": "US Markets"
     },
     {
-      "title": "Nvidia's OpenAI data center deal raises 'circular financing' questions",
-      "url": "https://finance.yahoo.com/video/nvidias-openai-data-center-deal-134849157.html?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-18 21:48 HKT",
-      "label": "Semiconductors"
-    },
-    {
       "title": "Nasdaq Falls 1.1%. The Chip Stock Rally Is Reversing.",
       "url": "https://finance.yahoo.com/m/ab9f6510-d693-3e57-8cc7-f5dafaf84649/nasdaq-falls-1.1%25.-the-chip.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
       "published_hkt": "2026-08-18 21:33 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "3 Reasons We Love ITT (ITT)",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-love-itt-itt-130133739.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-18 21:01 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "London Company Income Equity Strategy Reduced TE Connectivity Ltd. (TEL) Holdings for Strategic Positioning",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/london-company-income-equity-strategy-125817478.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-18 20:58 HKT",
       "label": "US Markets"
     },
     {
