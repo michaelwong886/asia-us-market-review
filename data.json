@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-19T05:30:17.162636+00:00",
-  "generated_at_hkt": "2026-08-19 13:30 HKT",
+  "generated_at": "2026-08-19T05:59:10.109270+00:00",
+  "generated_at_hkt": "2026-08-19 13:59 HKT",
   "indices": {
     "HK": {
       "label": "Hong Kong",
@@ -8,22 +8,23 @@
       "primary": {
         "name": "HSI",
         "ticker": "^HSI",
-        "close": 25445.19,
-        "pct_change": -0.03,
+        "close": 25478.28,
+        "pct_change": 0.03,
         "volume_fmt": "HK$0.0B"
       },
       "secondary": {
         "name": "HSCEI",
         "ticker": "^HSCE",
-        "close": 8472.68,
-        "pct_change": 0.39,
+        "close": 8483.15,
+        "pct_change": 0.35,
         "volume_fmt": "HK$0.0B"
       },
       "sparkline": [
         25396.51,
         25116.85,
         25453.23,
-        25445.19
+        25471.15,
+        25478.28
       ]
     },
     "CN": {
@@ -32,19 +33,19 @@
       "primary": {
         "name": "CSI 300",
         "ticker": "000300.SS",
-        "close": 4588.37,
+        "close": 4603.5,
         "pct_change": null,
         "volume_fmt": "¥0.0T"
       },
       "secondary": {
         "name": "SSE Composite",
         "ticker": "000001.SS",
-        "close": 3897.02,
-        "pct_change": -2.15,
+        "close": 3904.95,
+        "pct_change": -2.14,
         "volume_fmt": "¥0.0T"
       },
       "sparkline": [
-        4588.37
+        4603.5
       ]
     },
     "KR": {
@@ -53,22 +54,23 @@
       "primary": {
         "name": "KOSPI",
         "ticker": "^KS11",
-        "close": 6516.45,
-        "pct_change": -6.61,
+        "close": 6488.19,
+        "pct_change": -5.56,
         "volume_fmt": "₩0.0T"
       },
       "secondary": {
         "name": "KOSDAQ",
         "ticker": "^KQ11",
-        "close": 833.33,
-        "pct_change": -3.62,
+        "close": 829.16,
+        "pct_change": -0.6,
         "volume_fmt": "₩0.0T"
       },
       "sparkline": [
         6579.04,
         6813.34,
         6977.94,
-        6516.45
+        6869.83,
+        6488.19
       ]
     },
     "JP": {
@@ -77,8 +79,8 @@
       "primary": {
         "name": "Nikkei 225",
         "ticker": "^N225",
-        "close": 65345.96,
-        "pct_change": -5.6,
+        "close": 65225.61,
+        "pct_change": -3.31,
         "volume_fmt": "¥0.0T"
       },
       "secondary": {
@@ -92,7 +94,8 @@
         68308.59,
         68713.8,
         69220.25,
-        65345.96
+        67460.73,
+        65225.61
       ]
     },
     "US": {
@@ -101,22 +104,22 @@
       "primary": {
         "name": "S&P 500",
         "ticker": "^GSPC",
-        "close": NaN,
-        "pct_change": NaN,
-        "volume_fmt": "$2.7B"
+        "close": 7691.76,
+        "pct_change": -0.69,
+        "volume_fmt": "$4.6B"
       },
       "secondary": {
         "name": "NASDAQ",
         "ticker": "^IXIC",
-        "close": NaN,
-        "pct_change": NaN,
-        "volume_fmt": "$6.5B"
+        "close": 26289.71,
+        "pct_change": -1.33,
+        "volume_fmt": "$7.4B"
       },
       "tertiary": {
         "name": "Dow Jones",
         "ticker": "^DJI",
-        "close": NaN,
-        "pct_change": NaN,
+        "close": 53343.4,
+        "pct_change": -0.22,
         "volume_fmt": "$0.4B"
       },
       "sparkline": [
@@ -124,7 +127,7 @@
         7798.99,
         7785.76,
         7745.06,
-        NaN
+        7691.76
       ]
     }
   },
@@ -132,76 +135,76 @@
     "AI / Chips": {
       "anchor": "SOXX",
       "markets": "US/HK/KR",
-      "close": NaN,
-      "pct_change": NaN
+      "close": 531.39,
+      "pct_change": -4.96
     },
     "CN Internet": {
       "anchor": "KWEB",
       "markets": "HK/CN",
-      "close": NaN,
-      "pct_change": NaN
+      "close": 26.78,
+      "pct_change": -0.63
     },
     "EV / Battery": {
       "anchor": "LIT",
       "markets": "CN/US",
-      "close": NaN,
-      "pct_change": NaN
+      "close": 74.02,
+      "pct_change": -2.91
     },
     "Robotics": {
       "anchor": "ROBO",
       "markets": "JP/CN",
-      "close": NaN,
-      "pct_change": NaN
+      "close": 81.82,
+      "pct_change": -3.54
     },
     "Clean Energy": {
       "anchor": "ICLN",
       "markets": "US/CN",
-      "close": NaN,
-      "pct_change": NaN
+      "close": 17.74,
+      "pct_change": -2.04
     },
     "Biotech": {
       "anchor": "XBI",
       "markets": "US/HK/KR",
-      "close": NaN,
-      "pct_change": NaN
+      "close": 160.11,
+      "pct_change": 0.36
     },
     "Financials": {
       "anchor": "XLF",
       "markets": "US/HK/KR",
-      "close": NaN,
-      "pct_change": NaN
+      "close": 57.84,
+      "pct_change": 0.45
     },
     "Defence": {
       "anchor": "ITA",
       "markets": "US/KR",
-      "close": NaN,
-      "pct_change": NaN
+      "close": 252.16,
+      "pct_change": 0.38
     }
   },
   "fx": {
     "USD/HKD": {
       "rate": 7.84,
-      "pct_change": -0.01
+      "pct_change": -0.0
     },
     "USD/CNY": {
       "rate": 6.74,
-      "pct_change": -0.0
+      "pct_change": -0.01
     },
     "USD/KRW": {
-      "rate": 1397.38,
-      "pct_change": -1.23
+      "rate": 1398.18,
+      "pct_change": -1.17
     },
     "USD/JPY": {
-      "rate": 159.25,
-      "pct_change": -0.05
+      "rate": 159.3,
+      "pct_change": -0.03
     },
     "EUR/USD": {
       "rate": 1.16,
-      "pct_change": 0.06
+      "pct_change": 0.09
     },
     "DXY": {
-      "rate": 99.54,
-      "pct_change": -0.1
+      "rate": 99.53,
+      "pct_change": -0.12
     }
   },
   "movers": {
@@ -209,10 +212,10 @@
       "gainers": [
         {
           "ticker": "0003.HK",
-          "close": 7.22,
-          "pct_change": 6.41,
-          "volume": 173076809,
-          "volume_fmt": "HK$173M",
+          "close": 7.24,
+          "pct_change": 6.78,
+          "volume": 185567452,
+          "volume_fmt": "HK$186M",
           "longName": "The Hong Kong and China Gas Company Limited",
           "industry": "Utilities - Regulated Gas"
         },
@@ -220,92 +223,184 @@
           "ticker": "1810.HK",
           "close": 27.78,
           "pct_change": 6.11,
-          "volume": 237278269,
-          "volume_fmt": "HK$237M",
+          "volume": 249942546,
+          "volume_fmt": "HK$250M",
           "longName": "Xiaomi Corporation",
           "industry": "Consumer Electronics"
         },
         {
+          "ticker": "3690.HK",
+          "close": 88.05,
+          "pct_change": 2.92,
+          "volume": 19999867,
+          "volume_fmt": "HK$20M",
+          "longName": "Meituan",
+          "industry": "Internet Retail"
+        },
+        {
           "ticker": "2020.HK",
-          "close": 74.0,
-          "pct_change": 2.64,
-          "volume": 2953477,
+          "close": 73.7,
+          "pct_change": 2.22,
+          "volume": 3235277,
           "volume_fmt": "HK$3M",
           "longName": "ANTA Sports Products Limited",
           "industry": "Leisure"
         },
         {
           "ticker": "0857.HK",
-          "close": 10.04,
-          "pct_change": 2.4,
-          "volume": 54946497,
-          "volume_fmt": "HK$55M",
+          "close": 10.02,
+          "pct_change": 2.19,
+          "volume": 64662497,
+          "volume_fmt": "HK$65M",
           "longName": "PetroChina Company Limited",
           "industry": "Oil & Gas Integrated"
-        },
-        {
-          "ticker": "3690.HK",
-          "close": 87.6,
-          "pct_change": 2.4,
-          "volume": 17530535,
-          "volume_fmt": "HK$18M",
-          "longName": "Meituan",
-          "industry": "Internet Retail"
         }
       ],
       "losers": [
         {
           "ticker": "0762.HK",
-          "close": 5.66,
-          "pct_change": -9.81,
-          "volume": 157504049,
-          "volume_fmt": "HK$158M",
+          "close": 5.68,
+          "pct_change": -9.33,
+          "volume": 172987527,
+          "volume_fmt": "HK$173M",
           "longName": "China Unicom (Hong Kong) Limited",
           "industry": "Telecom Services"
-        },
-        {
-          "ticker": "2269.HK",
-          "close": 47.44,
-          "pct_change": -2.35,
-          "volume": 20328217,
-          "volume_fmt": "HK$20M",
-          "longName": "WuXi Biologics (Cayman) Inc.",
-          "industry": "Biotechnology"
         },
         {
           "ticker": "9988.HK",
           "close": 124.2,
           "pct_change": -1.97,
-          "volume": 42272907,
-          "volume_fmt": "HK$42M",
+          "volume": 46756967,
+          "volume_fmt": "HK$47M",
           "longName": "Alibaba Group Holding Limited",
           "industry": "Internet Retail"
         },
         {
+          "ticker": "2269.HK",
+          "close": 47.72,
+          "pct_change": -1.77,
+          "volume": 23647217,
+          "volume_fmt": "HK$24M",
+          "longName": "WuXi Biologics (Cayman) Inc.",
+          "industry": "Biotechnology"
+        },
+        {
           "ticker": "0005.HK",
-          "close": 160.1,
-          "pct_change": -1.23,
-          "volume": 4519201,
+          "close": 160.0,
+          "pct_change": -1.3,
+          "volume": 5113289,
           "volume_fmt": "HK$5M",
           "longName": "HSBC Holdings plc",
           "industry": "Banks - Diversified"
         },
         {
-          "ticker": "1299.HK",
-          "close": 72.2,
-          "pct_change": -0.48,
-          "volume": 11145246,
-          "volume_fmt": "HK$11M",
-          "longName": "AIA Group Limited",
-          "industry": "Insurance - Life"
+          "ticker": "1211.HK",
+          "close": 89.65,
+          "pct_change": -0.39,
+          "volume": 4219432,
+          "volume_fmt": "HK$4M",
+          "longName": "BYD Company Limited",
+          "industry": "Auto Manufacturers"
         }
       ],
       "is_friday_fallback": false,
       "screener_note": "Last trading day data"
     },
     "US": {
-      "gainers": [],
-      "losers": [],
+      "gainers": [
+        {
+          "ticker": "LLY",
+          "close": 1225.73,
+          "pct_change": 3.6,
+          "volume": 2506500,
+          "volume_fmt": "$3M",
+          "longName": "Eli Lilly and Company",
+          "industry": "Drug Manufacturers - General"
+        },
+        {
+          "ticker": "ADBE",
+          "close": 263.14,
+          "pct_change": 3.58,
+          "volume": 4771700,
+          "volume_fmt": "$5M",
+          "longName": "Adobe Inc.",
+          "industry": "Software - Application"
+        },
+        {
+          "ticker": "ABBV",
+          "close": 258.92,
+          "pct_change": 3.43,
+          "volume": 5008800,
+          "volume_fmt": "$5M",
+          "longName": "AbbVie Inc.",
+          "industry": "Drug Manufacturers - General"
+        },
+        {
+          "ticker": "CRM",
+          "close": 196.14,
+          "pct_change": 2.71,
+          "volume": 14144100,
+          "volume_fmt": "$14M",
+          "longName": "Salesforce, Inc.",
+          "industry": "Software - Application"
+        },
+        {
+          "ticker": "XOM",
+          "close": 165.56,
+          "pct_change": 2.54,
+          "volume": 18946100,
+          "volume_fmt": "$19M",
+          "longName": "ExxonMobil Holdings Corporation",
+          "industry": "Oil & Gas Integrated"
+        }
+      ],
+      "losers": [
+        {
+          "ticker": "MRVL",
+          "close": 216.0,
+          "pct_change": -7.82,
+          "volume": 25737800,
+          "volume_fmt": "$26M",
+          "longName": "Marvell Technology, Inc.",
+          "industry": "Semiconductors"
+        },
+        {
+          "ticker": "MU",
+          "close": 940.76,
+          "pct_change": -7.02,
+          "volume": 36947400,
+          "volume_fmt": "$37M",
+          "longName": "Micron Technology, Inc.",
+          "industry": "Semiconductors"
+        },
+        {
+          "ticker": "ARM",
+          "close": 253.32,
+          "pct_change": -6.67,
+          "volume": 6357500,
+          "volume_fmt": "$6M",
+          "longName": "Arm Holdings plc",
+          "industry": "Semiconductors"
+        },
+        {
+          "ticker": "INTC",
+          "close": 96.69,
+          "pct_change": -6.57,
+          "volume": 121341000,
+          "volume_fmt": "$121M",
+          "longName": "Intel Corporation",
+          "industry": "Semiconductors"
+        },
+        {
+          "ticker": "KLAC",
+          "close": 194.79,
+          "pct_change": -5.33,
+          "volume": 13525000,
+          "volume_fmt": "$14M",
+          "longName": "KLA Corporation",
+          "industry": "Semiconductor Equipment & Materials"
+        }
+      ],
       "is_friday_fallback": false,
       "screener_note": "Last trading day data"
     }
@@ -431,6 +526,13 @@
       "label": "US Markets"
     },
     {
+      "title": "A 4X S&P 500 ETN Now Exists. A 10% Market Drop Cuts It Nearly in Half and Investors Are Buying Anyway",
+      "url": "https://247wallst.com/investing/etf/2026/08/18/a-4x-sp-500-etn-now-exists-a-10-market-drop-cuts-it-nearly-in-half-and-investors-are-buying-anyway/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-08-19 06:25 HKT",
+      "label": "US Markets"
+    },
+    {
       "title": "Every Quarter Your 401(k) Quietly Deducts a Fee You Never Approved. These 3 ETFs Charge Almost Nothing",
       "url": "https://247wallst.com/investing/etf/2026/08/18/every-quarter-your-401k-quietly-deducts-a-fee-you-never-approved-these-3-etfs-charge-almost-nothing/?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
@@ -449,13 +551,6 @@
       "url": "https://finance.yahoo.com/markets/stocks/articles/samsara-inc-iot-increases-despite-221502132.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
       "published_hkt": "2026-08-19 06:15 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Why Signet (SIG) Dipped More Than Broader Market Today",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/why-signet-sig-dipped-more-220002884.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-19 06:00 HKT",
       "label": "US Markets"
     },
     {
