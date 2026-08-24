@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-24T19:22:43.391581+00:00",
-  "generated_at_hkt": "2026-08-25 03:22 HKT",
+  "generated_at": "2026-08-24T19:50:56.253430+00:00",
+  "generated_at_hkt": "2026-08-25 03:50 HKT",
   "indices": {
     "HK": {
       "label": "Hong Kong",
@@ -101,21 +101,21 @@
       "primary": {
         "name": "S&P 500",
         "ticker": "^GSPC",
-        "close": 7659.11,
-        "pct_change": -0.2,
-        "volume_fmt": "$1.6B"
+        "close": 7655.0,
+        "pct_change": -0.25,
+        "volume_fmt": "$1.7B"
       },
       "secondary": {
         "name": "NASDAQ",
         "ticker": "^IXIC",
-        "close": 26036.92,
-        "pct_change": -0.55,
-        "volume_fmt": "$4.9B"
+        "close": 26001.5,
+        "pct_change": -0.68,
+        "volume_fmt": "$5.3B"
       },
       "tertiary": {
         "name": "Dow Jones",
         "ticker": "^DJI",
-        "close": 53450.74,
+        "close": 53451.58,
         "pct_change": 0.33,
         "volume_fmt": "$0.3B"
       },
@@ -124,7 +124,7 @@
         7707.98,
         7641.16,
         7674.37,
-        7659.11
+        7655.0
       ]
     }
   },
@@ -132,50 +132,50 @@
     "AI / Chips": {
       "anchor": "SOXX",
       "markets": "US/HK/KR",
-      "close": 507.72,
-      "pct_change": -2.37
+      "close": 505.86,
+      "pct_change": -2.73
     },
     "CN Internet": {
       "anchor": "KWEB",
       "markets": "HK/CN",
-      "close": 26.23,
-      "pct_change": -1.61
+      "close": 26.25,
+      "pct_change": -1.52
     },
     "EV / Battery": {
       "anchor": "LIT",
       "markets": "CN/US",
-      "close": 77.11,
-      "pct_change": 0.65
+      "close": 77.09,
+      "pct_change": 0.63
     },
     "Robotics": {
       "anchor": "ROBO",
       "markets": "JP/CN",
-      "close": 80.16,
-      "pct_change": -1.24
+      "close": 80.01,
+      "pct_change": -1.43
     },
     "Clean Energy": {
       "anchor": "ICLN",
       "markets": "US/CN",
-      "close": 17.44,
-      "pct_change": -0.82
+      "close": 17.41,
+      "pct_change": -1.05
     },
     "Biotech": {
       "anchor": "XBI",
       "markets": "US/HK/KR",
-      "close": 164.41,
-      "pct_change": -0.8
+      "close": 164.57,
+      "pct_change": -0.7
     },
     "Financials": {
       "anchor": "XLF",
       "markets": "US/HK/KR",
-      "close": 58.13,
-      "pct_change": 1.13
+      "close": 58.19,
+      "pct_change": 1.23
     },
     "Defence": {
       "anchor": "ITA",
       "markets": "US/KR",
-      "close": 233.11,
-      "pct_change": -1.78
+      "close": 233.26,
+      "pct_change": -1.72
     }
   },
   "fx": {
@@ -188,19 +188,19 @@
       "pct_change": -0.16
     },
     "USD/KRW": {
-      "rate": 1382.61,
-      "pct_change": -0.59
+      "rate": 1382.75,
+      "pct_change": -0.58
     },
     "USD/JPY": {
-      "rate": 159.2,
-      "pct_change": 0.2
+      "rate": 159.13,
+      "pct_change": 0.16
     },
     "EUR/USD": {
       "rate": 1.17,
-      "pct_change": -0.2
+      "pct_change": -0.18
     },
     "DXY": {
-      "rate": 99.01,
+      "rate": 99.02,
       "pct_change": 0.22
     }
   },
@@ -214,47 +214,47 @@
     "US": {
       "gainers": [
         {
+          "ticker": "V",
+          "close": 383.05,
+          "pct_change": 3.24,
+          "volume": 4886959,
+          "volume_fmt": "$5M",
+          "longName": "Visa Inc.",
+          "industry": "Credit Services"
+        },
+        {
           "ticker": "MA",
-          "close": 597.81,
-          "pct_change": 2.96,
-          "volume": 2129840,
+          "close": 599.13,
+          "pct_change": 3.19,
+          "volume": 2372939,
           "volume_fmt": "$2M",
           "longName": "Mastercard Incorporated",
           "industry": "Credit Services"
         },
         {
-          "ticker": "V",
-          "close": 381.66,
-          "pct_change": 2.86,
-          "volume": 4357407,
-          "volume_fmt": "$4M",
-          "longName": "Visa Inc.",
-          "industry": "Credit Services"
-        },
-        {
-          "ticker": "WMT",
-          "close": 106.12,
-          "pct_change": 2.33,
-          "volume": 23917135,
-          "volume_fmt": "$24M",
-          "longName": "Walmart Inc.",
-          "industry": "Discount Stores"
-        },
-        {
           "ticker": "COST",
-          "close": 969.77,
-          "pct_change": 2.32,
-          "volume": 1088306,
+          "close": 972.7,
+          "pct_change": 2.63,
+          "volume": 1253097,
           "volume_fmt": "$1M",
           "longName": "Costco Wholesale Corporation",
           "industry": "Discount Stores"
         },
         {
+          "ticker": "WMT",
+          "close": 106.4,
+          "pct_change": 2.61,
+          "volume": 26194905,
+          "volume_fmt": "$26M",
+          "longName": "Walmart Inc.",
+          "industry": "Discount Stores"
+        },
+        {
           "ticker": "UNH",
-          "close": 398.25,
-          "pct_change": 2.09,
-          "volume": 2322487,
-          "volume_fmt": "$2M",
+          "close": 398.89,
+          "pct_change": 2.25,
+          "volume": 2665858,
+          "volume_fmt": "$3M",
           "longName": "UnitedHealth Group Incorporated",
           "industry": "Healthcare Plans"
         }
@@ -262,48 +262,48 @@
       "losers": [
         {
           "ticker": "MU",
-          "close": 913.74,
-          "pct_change": -5.49,
-          "volume": 23106371,
-          "volume_fmt": "$23M",
+          "close": 909.47,
+          "pct_change": -5.93,
+          "volume": 24498121,
+          "volume_fmt": "$24M",
           "longName": "Micron Technology, Inc.",
           "industry": "Semiconductors"
         },
         {
           "ticker": "SMCI",
-          "close": 35.42,
-          "pct_change": -4.9,
-          "volume": 33589008,
-          "volume_fmt": "$34M",
+          "close": 35.07,
+          "pct_change": -5.83,
+          "volume": 35292064,
+          "volume_fmt": "$35M",
           "longName": "Super Micro Computer, Inc.",
           "industry": "Computer Hardware"
         },
         {
-          "ticker": "AMD",
-          "close": 456.36,
-          "pct_change": -3.57,
-          "volume": 10673167,
-          "volume_fmt": "$11M",
-          "longName": "Advanced Micro Devices, Inc.",
-          "industry": "Semiconductors"
+          "ticker": "COIN",
+          "close": 178.58,
+          "pct_change": -4.24,
+          "volume": 10154973,
+          "volume_fmt": "$10M",
+          "longName": "Coinbase Global, Inc.",
+          "industry": "Financial Data & Stock Exchanges"
         },
         {
           "ticker": "TSLA",
-          "close": 350.4,
-          "pct_change": -3.43,
-          "volume": 30155136,
-          "volume_fmt": "$30M",
+          "close": 349.35,
+          "pct_change": -3.72,
+          "volume": 32780648,
+          "volume_fmt": "$33M",
           "longName": "Tesla, Inc.",
           "industry": "Auto Manufacturers"
         },
         {
-          "ticker": "COIN",
-          "close": 180.5,
-          "pct_change": -3.21,
-          "volume": 9502760,
-          "volume_fmt": "$10M",
-          "longName": "Coinbase Global, Inc.",
-          "industry": "Financial Data & Stock Exchanges"
+          "ticker": "AMD",
+          "close": 456.24,
+          "pct_change": -3.59,
+          "volume": 11446774,
+          "volume_fmt": "$11M",
+          "longName": "Advanced Micro Devices, Inc.",
+          "industry": "Semiconductors"
         }
       ],
       "is_friday_fallback": false,
@@ -312,10 +312,38 @@
   },
   "news": [
     {
+      "title": "Which Aerospace and Defense Stock Has Dominated in 2026: GE Aerospace, Boeing, or RTX?",
+      "url": "https://247wallst.com/investing/2026/08/24/which-aerospace-and-defense-stock-has-dominated-in-2026-ge-aerospace-boeing-or-rtx/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-08-25 03:39 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Stock Market Today: Dow Up As Bessent Touts These Iran Measures; Copper Player Tests Entry (Live Coverage)",
+      "url": "https://finance.yahoo.com/m/1a58dcaa-61d6-34aa-8999-e800df60b02d/stock-market-today%3A-dow-up-as.html?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-08-25 03:36 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Nvidia heads into earnings with supply, not demand, as the story",
+      "url": "https://www.proactiveinvestors.com/companies/news/1097511/nvidia-heads-into-earnings-with-supply-not-demand-as-the-story-1097511.html?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-08-25 03:23 HKT",
+      "label": "Semiconductors"
+    },
+    {
       "title": "Nvidia's valuation looks surprisingly cheap heading into earnings. Could it be an issue for the stock?",
       "url": "https://finance.yahoo.com/markets/stocks/article/nvidias-valuation-looks-surprisingly-cheap-heading-into-earnings-could-it-be-an-issue-for-the-stock-191738544.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
       "published_hkt": "2026-08-25 03:17 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "The Shock Record Understates How Far Applied Optoelectronics Stock Can Fall",
+      "url": "https://www.trefis.com/articles/612579/the-shock-record-understates-how-far-applied-optoelectronics-stock-can-fall/2026-08-24?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-08-25 03:15 HKT",
       "label": "US Markets"
     },
     {
@@ -347,20 +375,6 @@
       "label": "US Markets"
     },
     {
-      "title": "Freeport-McMoRan Diversifies Your Return, Not Your Risk",
-      "url": "https://www.trefis.com/articles/612584/freeport-mcmoran-diversifies-your-return-not-your-risk/2026-08-24?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-25 02:45 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Stock Market Today: Dow Up As Bessent Touts These Iran Measures; Nvidia Dips, Steel Gains Melt (Live Coverage)",
-      "url": "https://finance.yahoo.com/m/1a58dcaa-61d6-34aa-8999-e800df60b02d/stock-market-today%3A-dow-up-as.html?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-25 02:26 HKT",
-      "label": "Semiconductors"
-    },
-    {
       "title": "Nvidia-Backed Hugging Face Could Fetch $13 Billion in a Sale",
       "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-backed-hugging-face-could-182628890.html?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
@@ -382,25 +396,11 @@
       "label": "Semiconductors"
     },
     {
-      "title": "Nvidia Signed a $1.5 Billion Deal With This Chip Stock. Then the Stock Crashed 25%",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-signed-1-5-billion-181658818.html?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-25 02:16 HKT",
-      "label": "Semiconductors"
-    },
-    {
       "title": "Marvell, Micron, SpaceX, XPeng, Tesla, Moderna, and More Stocks That Explain Today’s Market",
       "url": "https://finance.yahoo.com/m/7eb54b1a-9c04-36c6-9efc-08ba3ba3c669/marvell%2C-micron%2C-spacex%2C.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
       "published_hkt": "2026-08-25 02:08 HKT",
       "label": "US Markets"
-    },
-    {
-      "title": "Nvidia Makes Another Big AI Bet",
-      "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-makes-another-big-ai-180134448.html?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-25 02:01 HKT",
-      "label": "Semiconductors"
     },
     {
       "title": "Update: US Equity Indexes Mixed as Investors Await Iran Sanctions While Chipmakers Push Technology Lower",
