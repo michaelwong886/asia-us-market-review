@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-26T14:26:18.741949+00:00",
-  "generated_at_hkt": "2026-08-26 22:26 HKT",
+  "generated_at": "2026-08-26T15:57:26.797795+00:00",
+  "generated_at_hkt": "2026-08-26 23:57 HKT",
   "indices": {
     "HK": {
       "label": "Hong Kong",
@@ -54,15 +54,15 @@
       "primary": {
         "name": "KOSPI",
         "ticker": "^KS11",
-        "close": 6808.21,
-        "pct_change": 0.97,
+        "close": NaN,
+        "pct_change": NaN,
         "volume_fmt": "₩0.0T"
       },
       "secondary": {
         "name": "KOSDAQ",
         "ticker": "^KQ11",
-        "close": 826.87,
-        "pct_change": -0.03,
+        "close": NaN,
+        "pct_change": NaN,
         "volume_fmt": "₩0.0T"
       },
       "sparkline": [
@@ -70,7 +70,7 @@
         6912.95,
         6696.96,
         6742.74,
-        6808.21
+        NaN
       ]
     },
     "JP": {
@@ -79,8 +79,8 @@
       "primary": {
         "name": "Nikkei 225",
         "ticker": "^N225",
-        "close": 66262.16,
-        "pct_change": 0.62,
+        "close": 65856.43,
+        "pct_change": 0.5,
         "volume_fmt": "¥0.0T"
       },
       "secondary": {
@@ -94,8 +94,7 @@
         66216.79,
         66016.36,
         65528.09,
-        65856.43,
-        66262.16
+        65856.43
       ]
     },
     "US": {
@@ -104,22 +103,22 @@
       "primary": {
         "name": "S&P 500",
         "ticker": "^GSPC",
-        "close": 7667.9,
-        "pct_change": -0.12,
-        "volume_fmt": "$0.4B"
+        "close": 7675.11,
+        "pct_change": -0.03,
+        "volume_fmt": "$0.8B"
       },
       "secondary": {
         "name": "NASDAQ",
         "ticker": "^IXIC",
-        "close": 26049.07,
-        "pct_change": -0.39,
-        "volume_fmt": "$2.0B"
+        "close": 26083.04,
+        "pct_change": -0.26,
+        "volume_fmt": "$3.2B"
       },
       "tertiary": {
         "name": "Dow Jones",
         "ticker": "^DJI",
-        "close": 53459.41,
-        "pct_change": -0.22,
+        "close": 53481.9,
+        "pct_change": -0.18,
         "volume_fmt": "$0.1B"
       },
       "sparkline": [
@@ -127,7 +126,7 @@
         7674.37,
         7652.86,
         7677.28,
-        7667.9
+        7675.11
       ]
     }
   },
@@ -135,26 +134,26 @@
     "AI / Chips": {
       "anchor": "SOXX",
       "markets": "US/HK/KR",
-      "close": 509.6,
-      "pct_change": -0.87
+      "close": 513.78,
+      "pct_change": -0.05
     },
     "CN Internet": {
       "anchor": "KWEB",
       "markets": "HK/CN",
-      "close": 26.4,
-      "pct_change": -0.04
+      "close": 26.31,
+      "pct_change": -0.38
     },
     "EV / Battery": {
       "anchor": "LIT",
       "markets": "CN/US",
-      "close": 76.2,
-      "pct_change": -0.51
+      "close": 75.87,
+      "pct_change": -0.94
     },
     "Robotics": {
       "anchor": "ROBO",
       "markets": "JP/CN",
-      "close": 81.04,
-      "pct_change": 0.14
+      "close": 80.99,
+      "pct_change": 0.07
     },
     "Clean Energy": {
       "anchor": "ICLN",
@@ -165,46 +164,46 @@
     "Biotech": {
       "anchor": "XBI",
       "markets": "US/HK/KR",
-      "close": 167.64,
-      "pct_change": -0.86
+      "close": 167.26,
+      "pct_change": -1.09
     },
     "Financials": {
       "anchor": "XLF",
       "markets": "US/HK/KR",
-      "close": 58.18,
-      "pct_change": -0.21
+      "close": 58.3,
+      "pct_change": -0.02
     },
     "Defence": {
       "anchor": "ITA",
       "markets": "US/KR",
-      "close": 237.35,
-      "pct_change": 1.3
+      "close": 236.73,
+      "pct_change": 1.04
     }
   },
   "fx": {
     "USD/HKD": {
       "rate": 7.84,
-      "pct_change": 0.04
+      "pct_change": 0.03
     },
     "USD/CNY": {
       "rate": 6.71,
-      "pct_change": -0.17
+      "pct_change": -0.16
     },
     "USD/KRW": {
-      "rate": 1386.35,
-      "pct_change": 0.4
+      "rate": 1385.68,
+      "pct_change": 0.36
     },
     "USD/JPY": {
-      "rate": 159.42,
-      "pct_change": 0.18
+      "rate": 159.36,
+      "pct_change": 0.14
     },
     "EUR/USD": {
-      "rate": 1.16,
-      "pct_change": -0.18
+      "rate": 1.17,
+      "pct_change": -0.11
     },
     "DXY": {
-      "rate": 99.17,
-      "pct_change": 0.25
+      "rate": 99.14,
+      "pct_change": 0.22
     }
   },
   "movers": {
@@ -309,96 +308,96 @@
     "US": {
       "gainers": [
         {
-          "ticker": "ORCL",
-          "close": 148.06,
-          "pct_change": 2.28,
-          "volume": 5627811,
-          "volume_fmt": "$6M",
-          "longName": "Oracle Corporation",
-          "industry": "Software - Infrastructure"
-        },
-        {
-          "ticker": "UNH",
-          "close": 403.71,
-          "pct_change": 1.8,
-          "volume": 880803,
-          "volume_fmt": "880,803",
-          "longName": "UnitedHealth Group Incorporated",
-          "industry": "Healthcare Plans"
-        },
-        {
-          "ticker": "GE",
-          "close": 355.75,
-          "pct_change": 1.78,
-          "volume": 549931,
-          "volume_fmt": "549,931",
-          "longName": "GE Aerospace",
-          "industry": "Aerospace & Defense"
-        },
-        {
           "ticker": "FTNT",
-          "close": 156.22,
-          "pct_change": 1.67,
-          "volume": 623521,
-          "volume_fmt": "623,521",
+          "close": 157.02,
+          "pct_change": 2.19,
+          "volume": 982387,
+          "volume_fmt": "982,387",
           "longName": "Fortinet, Inc.",
           "industry": "Software - Infrastructure"
         },
         {
-          "ticker": "PLTR",
-          "close": 175.6,
-          "pct_change": 1.66,
-          "volume": 7110054,
-          "volume_fmt": "$7M",
-          "longName": "Palantir Technologies Inc.",
+          "ticker": "ORCL",
+          "close": 147.8,
+          "pct_change": 2.1,
+          "volume": 9118676,
+          "volume_fmt": "$9M",
+          "longName": "Oracle Corporation",
           "industry": "Software - Infrastructure"
+        },
+        {
+          "ticker": "HON",
+          "close": 219.59,
+          "pct_change": 1.81,
+          "volume": 737253,
+          "volume_fmt": "737,253",
+          "longName": "Honeywell International Inc.",
+          "industry": "Conglomerates"
+        },
+        {
+          "ticker": "UPS",
+          "close": 106.75,
+          "pct_change": 1.54,
+          "volume": 1179518,
+          "volume_fmt": "$1M",
+          "longName": "United Parcel Service, Inc.",
+          "industry": "Integrated Freight & Logistics"
+        },
+        {
+          "ticker": "GE",
+          "close": 354.3,
+          "pct_change": 1.36,
+          "volume": 1044635,
+          "volume_fmt": "$1M",
+          "longName": "GE Aerospace",
+          "industry": "Aerospace & Defense"
         }
       ],
       "losers": [
         {
+          "ticker": "LLY",
+          "close": 1189.93,
+          "pct_change": -3.54,
+          "volume": 1295833,
+          "volume_fmt": "$1M",
+          "longName": "Eli Lilly and Company",
+          "industry": "Drug Manufacturers - General"
+        },
+        {
           "ticker": "SAP",
-          "close": 210.35,
-          "pct_change": -3.03,
-          "volume": 822070,
-          "volume_fmt": "822,070",
+          "close": 209.67,
+          "pct_change": -3.35,
+          "volume": 1467651,
+          "volume_fmt": "$1M",
           "longName": "SAP SE",
           "industry": "Software - Application"
         },
         {
+          "ticker": "COIN",
+          "close": 181.22,
+          "pct_change": -3.17,
+          "volume": 2929638,
+          "volume_fmt": "$3M",
+          "longName": "Coinbase Global, Inc.",
+          "industry": "Financial Data & Stock Exchanges"
+        },
+        {
           "ticker": "ACN",
-          "close": 182.02,
-          "pct_change": -2.63,
-          "volume": 711705,
-          "volume_fmt": "711,705",
+          "close": 182.12,
+          "pct_change": -2.58,
+          "volume": 1407861,
+          "volume_fmt": "$1M",
           "longName": "Accenture plc",
           "industry": "Information Technology Services"
         },
         {
-          "ticker": "NOW",
-          "close": 124.04,
-          "pct_change": -2.33,
-          "volume": 3683982,
-          "volume_fmt": "$4M",
-          "longName": "ServiceNow, Inc.",
-          "industry": "Software - Application"
-        },
-        {
-          "ticker": "MS",
-          "close": 212.07,
-          "pct_change": -2.17,
-          "volume": 715068,
-          "volume_fmt": "715,068",
-          "longName": "Morgan Stanley",
-          "industry": "Capital Markets"
-        },
-        {
-          "ticker": "COIN",
-          "close": 183.27,
-          "pct_change": -2.08,
-          "volume": 1303722,
-          "volume_fmt": "$1M",
-          "longName": "Coinbase Global, Inc.",
-          "industry": "Financial Data & Stock Exchanges"
+          "ticker": "MRK",
+          "close": 153.4,
+          "pct_change": -1.95,
+          "volume": 3055828,
+          "volume_fmt": "$3M",
+          "longName": "Merck & Co., Inc.",
+          "industry": "Drug Manufacturers - General"
         }
       ],
       "is_friday_fallback": false,
@@ -407,102 +406,102 @@
   },
   "news": [
     {
-      "title": "Stocks in holding pattern ahead of Nvidia earnings: AlphaCheck",
-      "url": "https://finance.yahoo.com/markets/article/stocks-in-holding-pattern-ahead-of-nvidia-earnings-alphacheck-141558586.html?.tsrc=rss",
+      "title": "Top Midday Stories: Meta to Pay Up to $16.68 Billion to Settle Teen Harm Case With States; Victory Capital to Buy First Eagle for $7 Billion",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/top-midday-stories-meta-pay-154325329.html?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-26 22:15 HKT",
+      "published_hkt": "2026-08-26 23:43 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "Nvidia Stock Slips Ahead Of Report (Live Coverage)",
-      "url": "https://finance.yahoo.com/m/2c85f5e2-5d51-37a6-ac7d-103fd18836b6/nvidia-stock-slips-ahead-of.html?.tsrc=rss",
+      "title": "BofA Analyst Says Nvidia Is ‘Checking Every Box’ Ahead Of Earnings, Sees $1B Daily Free Cash Flow By This Time Next Year",
+      "url": "https://stocktwits.com/news-articles/markets/equity/nvidia-is-checking-every-box-ahead-of-earnings-sees-1-b-daily-free-cash-flow-by-2027/cZYNz8ZRJYs?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-26 22:15 HKT",
+      "published_hkt": "2026-08-26 23:42 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "2 Oil Refiners Outperforming NVIDIA: Are They Better Buys Now?",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/2-oil-refiners-outperforming-nvidia-140000785.html?.tsrc=rss",
+      "title": "Nvidia's Earnings Could Trigger a $280 Billion Swing",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/nvidias-earnings-could-trigger-280-154155615.html?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-26 22:00 HKT",
+      "published_hkt": "2026-08-26 23:41 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "Why the sustainability of the AI boom could be in focus after Nvidia's earnings call",
-      "url": "https://finance.yahoo.com/video/why-sustainability-ai-boom-could-135959475.html?.tsrc=rss",
+      "title": "Stock Market Today: Dow Eases After Inflation Data; Nvidia Slips Before Earnings, Zoom Tanks (Live Coverage)",
+      "url": "https://finance.yahoo.com/m/d7f80b14-8dc7-32d8-aa94-5ee0dea18bdb/stock-market-today%3A-dow-eases.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-08-26 23:41 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Raymond James Has Message For Nvidia Stock Investors",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/raymond-james-message-nvidia-stock-153828281.html?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-26 21:59 HKT",
+      "published_hkt": "2026-08-26 23:38 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "Druckenmiller Warns Bessent’s Treasury Is Undermining “the Only Fiscal Disciplinarian the U.S. Has Left”",
-      "url": "https://247wallst.com/investing/2026/08/26/druckenmiller-warns-bessents-treasury-is-undermining-the-only-fiscal-disciplinarian-the-u-s-has-left/?.tsrc=rss",
+      "title": "Why Is Universal Health Services (UHS) Up 5.7% Since Last Earnings Report?",
+      "url": "https://finance.yahoo.com/healthcare/articles/why-universal-health-services-uhs-153005808.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-08-26 23:30 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Principal Financial (PFG) Down 2.2% Since Last Earnings Report: Can It Rebound?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/principal-financial-pfg-down-2-153004352.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-08-26 23:30 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Navitas Semiconductor (NVTS) Up 24.3% Since Last Earnings Report: Can It Continue?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/navitas-semiconductor-nvts-24-3-153004379.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-08-26 23:30 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Sanmina (SANM) Up 10.8% Since Last Earnings Report: Can It Continue?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/sanmina-sanm-10-8-since-153004175.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-08-26 23:30 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Marvell Technology's Next Earnings Report on Aug. 27 Could Send the Stock Soaring. Here's Why.",
+      "url": "https://www.fool.com/investing/2026/08/26/marvell-technology-s-next-earnings-report-on-aug-27-could-send-the-stock-soaring-here-s-why/?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-26 21:55 HKT",
+      "published_hkt": "2026-08-26 23:25 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "Nvidia Earnings Prediction Market Preview: What Will Jensen Huang Say?",
-      "url": "https://www.benzinga.com/markets/prediction-markets/26/08/61434588/nvidia-earnings-prediction-market-preview?utm_source=yahooFinance&utm_campaign=partner_feed&utm_medium=referral&.tsrc=rss",
+      "title": "Can AI Help You Beat the Stock Market? The Answer May Surprise You",
+      "url": "https://247wallst.com/investing/2026/08/26/can-ai-help-you-beat-the-stock-market-the-answer-may-surprise-you/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-08-26 23:23 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "If You Invest $1,000 in VOO Right Now and Never Touch It, Here's What History Says You Could Have in 25 Years",
+      "url": "https://www.fool.com/investing/2026/08/26/if-you-invest-1000-in-voo-right-now-never-touch/?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-08-26 23:20 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Here's Why You Should Retain IQVIA Stock in Your Portfolio Now",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/heres-why-retain-iqvia-stock-151700895.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-08-26 23:17 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Nvidia earnings countdown: 2 things investors need to see for the stock to climb higher",
+      "url": "https://finance.yahoo.com/video/nvidia-earnings-countdown-2-things-150246651.html?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-26 21:51 HKT",
+      "published_hkt": "2026-08-26 23:02 HKT",
       "label": "Semiconductors"
-    },
-    {
-      "title": "Is Soaring AI CapEx Putting Microsoft Stock’s Valuation At Risk?",
-      "url": "https://www.trefis.com/articles/613008/is-soaring-ai-capex-putting-microsoft-stocks-valuation-at-risk/2026-08-26?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-26 21:46 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Stock Market Today: Dow Steady On Inflation Data; Nvidia Earnings Due Next (Live Coverage)",
-      "url": "https://finance.yahoo.com/m/d7f80b14-8dc7-32d8-aa94-5ee0dea18bdb/stock-market-today%3A-dow.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-26 21:44 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Stock Market Today (Aug. 26, 2026): S&P 500 futures edge lower ahead Nvidia earnings",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-aug-26-2026?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-26 21:43 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "PCE Inflation Data Sets High Bar For Warsh's Jackson Hole Speech (Live Coverage)",
-      "url": "https://finance.yahoo.com/m/741e3ea3-d578-31a2-a47a-f1a93f0bfa34/pce-inflation-data-sets-high.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-26 21:23 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "3 Reasons to Sell MCHP and 1 Stock to Buy Instead",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-sell-mchp-1-131513911.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-26 21:15 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "UBS lifts S&P 500 target to 8,100 as earnings upgrades broaden beyond AI",
-      "url": "https://www.proactiveinvestors.com/companies/news/1097632/ubs-lifts-s-p-500-target-to-8-100-as-earnings-upgrades-broaden-beyond-ai-1097632.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-26 21:01 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Guardrail Technologies Releases New Benchmark Report Tracking How the S&P 500 Discloses AI Cybersecurity Risk",
-      "url": "https://finance.yahoo.com/technology/ai/articles/guardrail-technologies-releases-benchmark-report-130000889.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-26 21:00 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "2 Reasons to Watch CI and 1 to Stay Cautious",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/2-reasons-watch-ci-1-125913633.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-26 20:59 HKT",
-      "label": "US Markets"
     },
     {
       "title": "〈港股盤後〉券商、半導體領漲 恒指收升0.56% 有色金屬強勢",
