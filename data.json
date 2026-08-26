@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-26T20:20:30.871729+00:00",
-  "generated_at_hkt": "2026-08-27 04:20 HKT",
+  "generated_at": "2026-08-26T23:50:03.689972+00:00",
+  "generated_at_hkt": "2026-08-27 07:50 HKT",
   "indices": {
     "HK": {
       "label": "Hong Kong",
@@ -110,7 +110,7 @@
         "ticker": "^IXIC",
         "close": 26130.2,
         "pct_change": -0.08,
-        "volume_fmt": "$6.1B"
+        "volume_fmt": "$6.3B"
       },
       "tertiary": {
         "name": "Dow Jones",
@@ -181,33 +181,125 @@
   "fx": {
     "USD/HKD": {
       "rate": 7.84,
-      "pct_change": 0.03
+      "pct_change": 0.01
     },
     "USD/CNY": {
-      "rate": 6.72,
-      "pct_change": 0.0
+      "rate": 6.71,
+      "pct_change": -0.12
     },
     "USD/KRW": {
-      "rate": 1385.09,
-      "pct_change": 0.31
+      "rate": 1384.31,
+      "pct_change": 0.2
     },
     "USD/JPY": {
-      "rate": 159.33,
-      "pct_change": 0.12
+      "rate": 159.25,
+      "pct_change": 0.02
     },
     "EUR/USD": {
       "rate": 1.17,
-      "pct_change": -0.11
+      "pct_change": -0.13
     },
     "DXY": {
-      "rate": 99.15,
-      "pct_change": 0.24
+      "rate": 99.13,
+      "pct_change": 0.22
     }
   },
   "movers": {
     "HK": {
-      "gainers": [],
-      "losers": [],
+      "gainers": [
+        {
+          "ticker": "2020.HK",
+          "close": 78.75,
+          "pct_change": 9.53,
+          "volume": 21867491,
+          "volume_fmt": "HK$22M",
+          "longName": "ANTA Sports Products Limited",
+          "industry": "Leisure"
+        },
+        {
+          "ticker": "0688.HK",
+          "close": 14.35,
+          "pct_change": 4.06,
+          "volume": 32766968,
+          "volume_fmt": "HK$33M",
+          "longName": "China Overseas Land & Investment Limited",
+          "industry": "Real Estate - Development"
+        },
+        {
+          "ticker": "2628.HK",
+          "close": 29.2,
+          "pct_change": 3.84,
+          "volume": 65888544,
+          "volume_fmt": "HK$66M",
+          "longName": "China Life Insurance Company Limited",
+          "industry": "Insurance - Life"
+        },
+        {
+          "ticker": "1810.HK",
+          "close": 28.46,
+          "pct_change": 2.52,
+          "volume": 142477417,
+          "volume_fmt": "HK$142M",
+          "longName": "Xiaomi Corporation",
+          "industry": "Consumer Electronics"
+        },
+        {
+          "ticker": "2318.HK",
+          "close": 57.65,
+          "pct_change": 2.22,
+          "volume": 39504067,
+          "volume_fmt": "HK$40M",
+          "longName": "Ping An Insurance (Group) Company of China, Ltd.",
+          "industry": "Insurance - Life"
+        }
+      ],
+      "losers": [
+        {
+          "ticker": "2269.HK",
+          "close": 50.75,
+          "pct_change": -2.78,
+          "volume": 88949369,
+          "volume_fmt": "HK$89M",
+          "longName": "WuXi Biologics (Cayman) Inc.",
+          "industry": "Biotechnology"
+        },
+        {
+          "ticker": "9999.HK",
+          "close": 195.5,
+          "pct_change": -1.76,
+          "volume": 7684963,
+          "volume_fmt": "HK$8M",
+          "longName": "NetEase, Inc.",
+          "industry": "Electronic Gaming & Multimedia"
+        },
+        {
+          "ticker": "0003.HK",
+          "close": 7.36,
+          "pct_change": -1.47,
+          "volume": 37880870,
+          "volume_fmt": "HK$38M",
+          "longName": "The Hong Kong and China Gas Company Limited",
+          "industry": "Utilities - Regulated Gas"
+        },
+        {
+          "ticker": "0857.HK",
+          "close": 9.92,
+          "pct_change": -1.39,
+          "volume": 82027175,
+          "volume_fmt": "HK$82M",
+          "longName": "PetroChina Company Limited",
+          "industry": "Oil & Gas Integrated"
+        },
+        {
+          "ticker": "6098.HK",
+          "close": 5.48,
+          "pct_change": -1.17,
+          "volume": 10342035,
+          "volume_fmt": "HK$10M",
+          "longName": "Country Garden Services Holdings Company Limited",
+          "industry": "Real Estate Services"
+        }
+      ],
       "is_friday_fallback": false,
       "screener_note": "Last trading day data"
     },
@@ -217,7 +309,7 @@
           "ticker": "ARM",
           "close": 251.06,
           "pct_change": 3.93,
-          "volume": 3798736,
+          "volume": 3830094,
           "volume_fmt": "$4M",
           "longName": "Arm Holdings plc",
           "industry": "Semiconductors"
@@ -226,8 +318,8 @@
           "ticker": "ORCL",
           "close": 148.87,
           "pct_change": 2.84,
-          "volume": 16194726,
-          "volume_fmt": "$16M",
+          "volume": 18073128,
+          "volume_fmt": "$18M",
           "longName": "Oracle Corporation",
           "industry": "Software - Infrastructure"
         },
@@ -235,7 +327,7 @@
           "ticker": "PLTR",
           "close": 177.5,
           "pct_change": 2.76,
-          "volume": 27591637,
+          "volume": 27720671,
           "volume_fmt": "$28M",
           "longName": "Palantir Technologies Inc.",
           "industry": "Software - Infrastructure"
@@ -244,7 +336,7 @@
           "ticker": "FTNT",
           "close": 157.54,
           "pct_change": 2.53,
-          "volume": 2971206,
+          "volume": 2982167,
           "volume_fmt": "$3M",
           "longName": "Fortinet, Inc.",
           "industry": "Software - Infrastructure"
@@ -253,7 +345,7 @@
           "ticker": "HON",
           "close": 220.67,
           "pct_change": 2.31,
-          "volume": 3158154,
+          "volume": 3160727,
           "volume_fmt": "$3M",
           "longName": "Honeywell International Inc.",
           "industry": "Conglomerates"
@@ -264,7 +356,7 @@
           "ticker": "LLY",
           "close": 1189.41,
           "pct_change": -3.59,
-          "volume": 2922353,
+          "volume": 2990458,
           "volume_fmt": "$3M",
           "longName": "Eli Lilly and Company",
           "industry": "Drug Manufacturers - General"
@@ -273,7 +365,7 @@
           "ticker": "ACN",
           "close": 181.38,
           "pct_change": -2.97,
-          "volume": 4350858,
+          "volume": 4370137,
           "volume_fmt": "$4M",
           "longName": "Accenture plc",
           "industry": "Information Technology Services"
@@ -282,7 +374,7 @@
           "ticker": "COIN",
           "close": 181.78,
           "pct_change": -2.87,
-          "volume": 6196577,
+          "volume": 6210882,
           "volume_fmt": "$6M",
           "longName": "Coinbase Global, Inc.",
           "industry": "Financial Data & Stock Exchanges"
@@ -291,7 +383,7 @@
           "ticker": "SMCI",
           "close": 37.39,
           "pct_change": -2.78,
-          "volume": 31770682,
+          "volume": 32294665,
           "volume_fmt": "$32M",
           "longName": "Super Micro Computer, Inc.",
           "industry": "Computer Hardware"
@@ -300,7 +392,7 @@
           "ticker": "SAP",
           "close": 211.68,
           "pct_change": -2.42,
-          "volume": 2657229,
+          "volume": 2820232,
           "volume_fmt": "$3M",
           "longName": "SAP SE",
           "industry": "Software - Application"
@@ -312,101 +404,101 @@
   },
   "news": [
     {
-      "title": "XLF vs IYF: Which Financial Sector ETF Offers Better Value?",
-      "url": "https://www.fool.com/coverage/etfs/2026/08/26/xlf-vs-iyf-which-financial-sector-etf-offers-better-value/?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-27 04:12 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Which Small-Cap Growth ETF Is the Better Buy: State Street's SLYG or Invesco's RZG?",
-      "url": "https://www.fool.com/coverage/etfs/2026/08/26/which-small-cap-growth-etf-is-the-better-buy-state-street-s-slyg-or-invesco-s-rzg/?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-27 04:07 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Update: US Equity Indexes Trade Mixed in Final Leg as Investors Await Nvidia's Earnings",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-trade-mixed-200558163.html?.tsrc=rss",
+      "title": "Dow Jones Futures Rise; Nvidia, CrowdStrike, Okta, Salesforce Lead Earnings Movers",
+      "url": "https://finance.yahoo.com/m/c03ae35d-d27e-3caf-a89c-0c33467ec9c9/dow-jones-futures-rise%3B.html?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-27 04:05 HKT",
+      "published_hkt": "2026-08-27 07:48 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "Nvidia Down 1% Ahead Of Report (Live Coverage)",
-      "url": "https://finance.yahoo.com/m/2c85f5e2-5d51-37a6-ac7d-103fd18836b6/nvidia-down-1%25-ahead-of.html?.tsrc=rss",
+      "title": "Nvidia Posts Record $96.2B Revenue, Shares Jump on $108B Outlook",
+      "url": "https://www.cryptoprowl.com/releases/nvidia-posts-record-962b-revenue-shares-jump-on-108b-outlook-6550?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-27 04:05 HKT",
+      "published_hkt": "2026-08-27 07:40 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "NVDA vs. AVGO: Which AI Chip Giant Actually Wins for Retirement Portfolios in 2026?",
-      "url": "https://247wallst.com/investing/2026/08/26/nvda-vs-avgo-which-ai-chip-giant-actually-wins-for-retirement-portfolios-in-2026/?.tsrc=rss",
+      "title": "Nvidia's Valuation Just Hit Lows Not Seen Since 2019, Even as Its Profits Doubled",
+      "url": "https://www.fool.com/investing/2026/08/26/nvidia-valuation-lows-2019-profits-grew-100-percent/?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-27 03:59 HKT",
+      "published_hkt": "2026-08-27 07:35 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "Michael Burry Buys NVDA Calls As A ‘Hedge,’ Adds To ORCL, PLTR, NBIS Shorts — Why He Thinks ‘Nvidia Will Not Distribute Enough To Shareholders’",
-      "url": "https://stocktwits.com/news-articles/markets/equity/michael-burry-buys-nvda-calls-as-a-hedge-adds-to-orcl-pltr-nbis-shorts-why-he-thinks-nvidia-will-not-distribute-enough-to-shareholders/cZYVdSURJpP?.tsrc=rss",
+      "title": "NVIDIA Q2 Earnings Call Highlights",
+      "url": "https://www.marketbeat.com/instant-alerts/transcript-nvidia-q2-earnings-call-highlights-2026-08-26/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-27 03:59 HKT",
+      "published_hkt": "2026-08-27 07:04 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "Bank of America Spots Bigger Nvidia Catalyst Before Earnings",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/bank-america-spots-bigger-nvidia-193831689.html?.tsrc=rss",
+      "title": "Nvidia’s quarterly revenue doubles to nearly $100bn as CEO declares ‘golden age’",
+      "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-quarterly-revenue-doubles-nearly-221102357.html?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-27 03:38 HKT",
+      "published_hkt": "2026-08-27 06:57 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "Nvidia Stock Slips Before Earnings -- $92 Billion Revenue Forecast in Focus",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-stock-slips-earnings-92-193540264.html?.tsrc=rss",
+      "title": "Why Nvidia says its AI partnerships aren't 'circular financing'",
+      "url": "https://finance.yahoo.com/video/why-nvidia-says-its-ai-partnerships-arent-circular-financing-222400222.html?.tsrc=rss",
       "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-08-27 03:35 HKT",
+      "published_hkt": "2026-08-27 06:24 HKT",
       "label": "Semiconductors"
     },
     {
-      "title": "Stock Market Today: Dow Dips On Inflation News; Nvidia Drops With Earnings Next (Live Coverage)",
-      "url": "https://finance.yahoo.com/m/d7f80b14-8dc7-32d8-aa94-5ee0dea18bdb/stock-market-today%3A-dow-dips.html?.tsrc=rss",
+      "title": "Halliburton (HAL) Rises As Market Takes a Dip: Key Facts",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/halliburton-hal-rises-market-takes-221502728.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-27 03:26 HKT",
+      "published_hkt": "2026-08-27 06:15 HKT",
       "label": "US Markets"
     },
     {
-      "title": "Nervous About Big Tech? This Vanguard Value ETF Is Where the Money Is Rotating",
-      "url": "https://247wallst.com/investing/2026/08/26/nervous-about-big-tech-this-vanguard-value-etf-is-where-the-money-is-rotating/?.tsrc=rss",
+      "title": "Copart, Inc. (CPRT) Falls More Steeply Than Broader Market: What Investors Need to Know",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/copart-inc-cprt-falls-more-221502354.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-27 03:15 HKT",
+      "published_hkt": "2026-08-27 06:15 HKT",
       "label": "US Markets"
     },
     {
-      "title": "Why Has Meta Stock Underperformed Despite Huge Payouts?",
-      "url": "https://www.trefis.com/articles/612936/why-has-meta-stock-underperformed-despite-huge-payouts/2026-08-26?.tsrc=rss",
+      "title": "Lockheed Martin (LMT) Rises As Market Takes a Dip: Key Facts",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/lockheed-martin-lmt-rises-market-215003622.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-27 03:10 HKT",
+      "published_hkt": "2026-08-27 05:50 HKT",
       "label": "US Markets"
     },
     {
-      "title": "There Are Only a Handful of S&P 500 Stocks That Yield Over 5%. Here's My Top Pick to Buy Before the End of August.",
-      "url": "https://www.fool.com/investing/2026/08/26/there-are-only-a-handful-of-sp-500-stocks-that-yie/?.tsrc=rss",
+      "title": "AZZ (AZZ) Advances While Market Declines: Some Information for Investors",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/azz-azz-advances-while-market-215002279.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-27 02:35 HKT",
+      "published_hkt": "2026-08-27 05:50 HKT",
       "label": "US Markets"
     },
     {
-      "title": "Energy, Industrials, and Utilities Are Leading the Stock Market",
-      "url": "https://finance.yahoo.com/m/0f06cb43-4d03-3520-aa2d-e1193ed18406/energy%2C-industrials%2C-and.html?.tsrc=rss",
+      "title": "Johnson & Johnson (JNJ) Sees a More Significant Dip Than Broader Market: Some Facts to Know",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/johnson-johnson-jnj-sees-more-214503349.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-27 01:49 HKT",
+      "published_hkt": "2026-08-27 05:45 HKT",
       "label": "US Markets"
     },
     {
-      "title": "Market Indexes Hold Flat as Wall Street Waits on Nvidia",
-      "url": "https://www.fool.com/investing/2026/08/26/market-indexes-flat-as-wall-street-waits-on-nvidia/?.tsrc=rss",
+      "title": "Zscaler (ZS) Ascends While Market Falls: Some Facts to Note",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/zscaler-zs-ascends-while-market-214503554.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-08-27 01:40 HKT",
+      "published_hkt": "2026-08-27 05:45 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Macy's (M) Ascends While Market Falls: Some Facts to Note",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/macys-m-ascends-while-market-214502388.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-08-27 05:45 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Dell Technologies (DELL) Advances While Market Declines: Some Information for Investors",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/dell-technologies-dell-advances-while-214502638.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-08-27 05:45 HKT",
       "label": "US Markets"
     },
     {
