@@ -1,6 +1,24 @@
 {
-  "updated": "2026-09-08T14:09:54.293197+00:00",
+  "updated": "2026-09-08T17:54:50.916691+00:00",
   "hk": [
+    {
+      "title": "Hong Kong’s first chief executive, Tung Chee-hwa, dies aged 89",
+      "link": "https://www.scmp.com/news/hong-kong/politics/article/3366827/hong-kongs-first-chief-executive-tung-chee-hwa-dies-aged-89?utm_source=rss_feed",
+      "publishedAt": "Tue, 08 Sep 2026 17:00:36 +0000",
+      "source": "SCMP",
+      "desc": "Tung Chee-hwa, who served as Hong Kong’s first chief executive and oversaw the 1997 return of the city to Chinese rule, ",
+      "badge": "SCMP",
+      "color": "var(--gold)"
+    },
+    {
+      "title": "Hong Kong students drop in global rankings for maths, science and literacy",
+      "link": "https://www.scmp.com/news/hong-kong/education/article/3366822/hong-kong-students-drop-global-rankings-maths-science-and-literacy?utm_source=rss_feed",
+      "publishedAt": "Tue, 08 Sep 2026 14:42:47 +0000",
+      "source": "SCMP",
+      "desc": "Hong Kong secondary school students’ performance has fallen in an international assessment focused on three core subject",
+      "badge": "SCMP",
+      "color": "var(--gold)"
+    },
     {
       "title": "Shenzhen-Hong Kong-Guangzhou retains crown as world’s top innovation hub",
       "link": "https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3366805/shenzhen-hong-kong-guangzhou-retains-crown-worlds-top-innovation-hub?utm_source=rss_feed",
@@ -25,24 +43,6 @@
       "publishedAt": "Tue, 08 Sep 2026 10:26:16 +0000",
       "source": "SCMP",
       "desc": "Ride-hailing platform Uber will submit its operator’s licence application in Hong Kong by the end of October, its local ",
-      "badge": "SCMP",
-      "color": "var(--gold)"
-    },
-    {
-      "title": "Hong Kong Jockey Club to offer computer training to more children in Cambodia",
-      "link": "https://www.scmp.com/news/hong-kong/education/article/3366790/hong-kong-jockey-club-offer-computer-training-more-children-cambodia?utm_source=rss_feed",
-      "publishedAt": "Tue, 08 Sep 2026 10:19:15 +0000",
-      "source": "SCMP",
-      "desc": "The Hong Kong Jockey Club Charities Trust has signed a memorandum of understanding (MOU) with Cambodian education author",
-      "badge": "SCMP",
-      "color": "var(--gold)"
-    },
-    {
-      "title": "Hong Kong seizes HK$1.4b suspected drugs over summer as traffickers target students",
-      "link": "https://www.scmp.com/news/hong-kong/law-and-crime/article/3366786/hong-kong-seizes-hk14b-suspected-drugs-over-summer-traffickers-target-students?utm_source=rss_feed",
-      "publishedAt": "Tue, 08 Sep 2026 10:09:51 +0000",
-      "source": "SCMP",
-      "desc": "Hong Kong customs has smashed an international drug trafficking network over the summer, seizing 6.1 tonnes of suspected",
       "badge": "SCMP",
       "color": "var(--gold)"
     }
@@ -136,8 +136,17 @@
     {
       "symbol": "INTC",
       "name": "Intel Corporation",
-      "price": "101.34",
-      "chg": "+5.79%",
+      "price": "105.02",
+      "chg": "+9.62%",
+      "up": true,
+      "label": "ACTIVE",
+      "color": "var(--text-muted)"
+    },
+    {
+      "symbol": "NOK",
+      "name": "Nokia Corporation Sp",
+      "price": "10.81",
+      "chg": "+7.78%",
       "up": true,
       "label": "ACTIVE",
       "color": "var(--text-muted)"
@@ -145,35 +154,17 @@
     {
       "symbol": "NVDA",
       "name": "NVIDIA Corporation",
-      "price": "229.22",
-      "chg": "-0.49%",
+      "price": "226.08",
+      "chg": "-1.86%",
       "up": false,
       "label": "ACTIVE",
       "color": "var(--text-muted)"
     },
     {
-      "symbol": "NOK",
-      "name": "Nokia Corporation Sp",
-      "price": "10.36",
-      "chg": "+3.24%",
-      "up": true,
-      "label": "ACTIVE",
-      "color": "var(--text-muted)"
-    },
-    {
-      "symbol": "PHVS",
-      "name": "Pharvaris N.V.",
-      "price": "41.57",
-      "chg": "+17.93%",
-      "up": true,
-      "label": "GAINER",
-      "color": "var(--up)"
-    },
-    {
       "symbol": "ROIV",
       "name": "Roivant Sciences Ltd",
-      "price": "40.44",
-      "chg": "+15.76%",
+      "price": "42.22",
+      "chg": "+20.87%",
       "up": true,
       "label": "GAINER",
       "color": "var(--up)"
@@ -181,8 +172,17 @@
     {
       "symbol": "SEI",
       "name": "Solaris Energy Infra",
-      "price": "62.59",
-      "chg": "+13.79%",
+      "price": "63.86",
+      "chg": "+16.11%",
+      "up": true,
+      "label": "GAINER",
+      "color": "var(--up)"
+    },
+    {
+      "symbol": "CRWV",
+      "name": "CoreWeave, Inc.",
+      "price": "102.78",
+      "chg": "+15.02%",
       "up": true,
       "label": "GAINER",
       "color": "var(--up)"
@@ -190,8 +190,8 @@
     {
       "symbol": "DYN",
       "name": "Dyne Therapeutics, I",
-      "price": "18.48",
-      "chg": "-23.87%",
+      "price": "20.55",
+      "chg": "-15.38%",
       "up": false,
       "label": "LOSER",
       "color": "var(--down)"
@@ -199,8 +199,8 @@
     {
       "symbol": "NVS",
       "name": "Novartis AG",
-      "price": "139.31",
-      "chg": "-12.92%",
+      "price": "137.80",
+      "chg": "-13.87%",
       "up": false,
       "label": "LOSER",
       "color": "var(--down)"
@@ -208,8 +208,8 @@
     {
       "symbol": "BEAM",
       "name": "Beam Therapeutics In",
-      "price": "25.80",
-      "chg": "-12.99%",
+      "price": "26.54",
+      "chg": "-10.52%",
       "up": false,
       "label": "LOSER",
       "color": "var(--down)"
