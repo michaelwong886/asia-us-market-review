@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-13T20:08:48.147264+00:00",
-  "generated_at_hkt": "2026-11-14 04:08 HKT",
+  "generated_at": "2026-11-14T00:51:51.544812+00:00",
+  "generated_at_hkt": "2026-11-14 08:51 HKT",
   "indices": {
     "HK": {
       "label": "Hong Kong",
@@ -102,30 +102,30 @@
       "primary": {
         "name": "S&P 500",
         "ticker": "^GSPC",
-        "close": 7555.13,
-        "pct_change": -0.49,
-        "volume_fmt": "$1.7B"
+        "close": 7561.67,
+        "pct_change": -0.4,
+        "volume_fmt": "$2.7B"
       },
       "secondary": {
         "name": "NASDAQ",
         "ticker": "^IXIC",
-        "close": 25131.4,
-        "pct_change": -0.93,
-        "volume_fmt": "$5.7B"
+        "close": 25136.27,
+        "pct_change": -0.91,
+        "volume_fmt": "$7.7B"
       },
       "tertiary": {
         "name": "Dow Jones",
         "ticker": "^DJI",
-        "close": 52334.91,
-        "pct_change": 0.07,
-        "volume_fmt": "$0.5B"
+        "close": 52347.55,
+        "pct_change": 0.1,
+        "volume_fmt": "$0.6B"
       },
       "sparkline": [
         7549.94,
         7520.93,
         7619.38,
         7592.4,
-        7555.13
+        7561.67
       ]
     }
   },
@@ -133,50 +133,50 @@
     "AI / Chips": {
       "anchor": "SOXX",
       "markets": "US/HK/KR",
-      "close": 149.15,
-      "pct_change": -3.77
+      "close": 149.3,
+      "pct_change": -3.67
     },
     "CN Internet": {
       "anchor": "KWEB",
       "markets": "HK/CN",
-      "close": 22.9,
-      "pct_change": -0.04
+      "close": 22.93,
+      "pct_change": 0.09
     },
     "EV / Battery": {
       "anchor": "LIT",
       "markets": "CN/US",
-      "close": 58.64,
-      "pct_change": -1.33
+      "close": 58.76,
+      "pct_change": -1.13
     },
     "Robotics": {
       "anchor": "ROBO",
       "markets": "JP/CN",
-      "close": 72.04,
-      "pct_change": -1.23
+      "close": 72.11,
+      "pct_change": -1.12
     },
     "Clean Energy": {
       "anchor": "ICLN",
       "markets": "US/CN",
-      "close": 15.77,
-      "pct_change": -0.79
+      "close": 15.81,
+      "pct_change": -0.57
     },
     "Biotech": {
       "anchor": "XBI",
       "markets": "US/HK/KR",
-      "close": 150.96,
-      "pct_change": -0.16
+      "close": 150.55,
+      "pct_change": -0.43
     },
     "Financials": {
       "anchor": "XLF",
       "markets": "US/HK/KR",
-      "close": 58.53,
-      "pct_change": 0.56
+      "close": 58.68,
+      "pct_change": 0.81
     },
     "Defence": {
       "anchor": "ITA",
       "markets": "US/KR",
-      "close": 71.47,
-      "pct_change": -0.36
+      "close": 71.51,
+      "pct_change": -0.31
     }
   },
   "fx": {
@@ -189,16 +189,16 @@
       "pct_change": 0.0
     },
     "USD/KRW": {
-      "rate": 1335.82,
-      "pct_change": -0.03
+      "rate": 1333.78,
+      "pct_change": -0.19
     },
     "USD/JPY": {
-      "rate": 159.75,
-      "pct_change": 0.01
+      "rate": 159.88,
+      "pct_change": 0.09
     },
     "EUR/USD": {
-      "rate": 1.1,
-      "pct_change": -0.61
+      "rate": 1.11,
+      "pct_change": -0.41
     },
     "DXY": {
       "rate": 103.41,
@@ -207,8 +207,100 @@
   },
   "movers": {
     "HK": {
-      "gainers": [],
-      "losers": [],
+      "gainers": [
+        {
+          "ticker": "0857.HK",
+          "close": 10.33,
+          "pct_change": 2.79,
+          "volume": 101981125,
+          "volume_fmt": "HK$102M",
+          "longName": "PetroChina Company Limited",
+          "industry": "Oil & Gas Integrated"
+        },
+        {
+          "ticker": "1398.HK",
+          "close": 7.92,
+          "pct_change": 1.08,
+          "volume": 194620596,
+          "volume_fmt": "HK$195M",
+          "longName": "Industrial and Commercial Bank of China Limited",
+          "industry": "Banks - Diversified"
+        },
+        {
+          "ticker": "0939.HK",
+          "close": 10.5,
+          "pct_change": 0.57,
+          "volume": 163779946,
+          "volume_fmt": "HK$164M",
+          "longName": "China Construction Bank Corporation",
+          "industry": "Banks - Diversified"
+        },
+        {
+          "ticker": "1038.HK",
+          "close": 71.45,
+          "pct_change": 0.42,
+          "volume": 1398202,
+          "volume_fmt": "HK$1M",
+          "longName": "CK Infrastructure Holdings Limited",
+          "industry": "Utilities - Regulated Electric"
+        },
+        {
+          "ticker": "0002.HK",
+          "close": 81.05,
+          "pct_change": 0.25,
+          "volume": 2961174,
+          "volume_fmt": "HK$3M",
+          "longName": "CLP Holdings Limited",
+          "industry": "Utilities - Regulated Electric"
+        }
+      ],
+      "losers": [
+        {
+          "ticker": "2269.HK",
+          "close": 46.74,
+          "pct_change": -4.38,
+          "volume": 28509332,
+          "volume_fmt": "HK$29M",
+          "longName": "WuXi Biologics (Cayman) Inc.",
+          "industry": "Biotechnology"
+        },
+        {
+          "ticker": "0688.HK",
+          "close": 12.19,
+          "pct_change": -4.02,
+          "volume": 34111000,
+          "volume_fmt": "HK$34M",
+          "longName": "China Overseas Land & Investment Limited",
+          "industry": "Real Estate - Development"
+        },
+        {
+          "ticker": "1211.HK",
+          "close": 65.0,
+          "pct_change": -3.77,
+          "volume": 27002673,
+          "volume_fmt": "HK$27M",
+          "longName": "BYD Company Limited",
+          "industry": "Auto Manufacturers"
+        },
+        {
+          "ticker": "1810.HK",
+          "close": 28.86,
+          "pct_change": -3.74,
+          "volume": 109152387,
+          "volume_fmt": "HK$109M",
+          "longName": "Xiaomi Corporation",
+          "industry": "Consumer Electronics"
+        },
+        {
+          "ticker": "9988.HK",
+          "close": 90.55,
+          "pct_change": -3.46,
+          "volume": 158411438,
+          "volume_fmt": "HK$158M",
+          "longName": "Alibaba Group Holding Limited",
+          "industry": "Internet Retail"
+        }
+      ],
       "is_friday_fallback": true,
       "screener_note": "Last trading day data  (Fri fallback)"
     },
@@ -216,93 +308,93 @@
       "gainers": [
         {
           "ticker": "ABNB",
-          "close": 186.38,
-          "pct_change": 2.9,
-          "volume": 2794698,
-          "volume_fmt": "$3M",
+          "close": 186.78,
+          "pct_change": 3.12,
+          "volume": 4949070,
+          "volume_fmt": "$5M",
           "longName": "Airbnb, Inc.",
           "industry": "Travel Services"
         },
         {
           "ticker": "META",
-          "close": 641.34,
-          "pct_change": 2.84,
-          "volume": 11106348,
-          "volume_fmt": "$11M",
+          "close": 641.69,
+          "pct_change": 2.9,
+          "volume": 15088458,
+          "volume_fmt": "$15M",
           "longName": "Meta Platforms, Inc.",
           "industry": "Internet Content & Information"
         },
         {
-          "ticker": "NOW",
-          "close": 102.83,
-          "pct_change": 2.16,
-          "volume": 5931890,
-          "volume_fmt": "$6M",
-          "longName": "ServiceNow, Inc.",
-          "industry": "Software - Application"
+          "ticker": "PEP",
+          "close": 145.44,
+          "pct_change": 2.24,
+          "volume": 7909584,
+          "volume_fmt": "$8M",
+          "longName": "PepsiCo, Inc.",
+          "industry": "Beverages - Non-Alcoholic"
         },
         {
           "ticker": "ADBE",
-          "close": 243.43,
-          "pct_change": 2.05,
-          "volume": 1434605,
-          "volume_fmt": "$1M",
+          "close": 243.08,
+          "pct_change": 1.9,
+          "volume": 2434078,
+          "volume_fmt": "$2M",
           "longName": "Adobe Inc.",
           "industry": "Software - Application"
         },
         {
-          "ticker": "UPS",
-          "close": 112.46,
-          "pct_change": 1.88,
-          "volume": 4908200,
-          "volume_fmt": "$5M",
-          "longName": "United Parcel Service, Inc.",
-          "industry": "Integrated Freight & Logistics"
+          "ticker": "KO",
+          "close": 99.25,
+          "pct_change": 1.86,
+          "volume": 18015059,
+          "volume_fmt": "$18M",
+          "longName": "The Coca-Cola Company",
+          "industry": "Beverages - Non-Alcoholic"
         }
       ],
       "losers": [
         {
           "ticker": "AMD",
-          "close": 533.14,
-          "pct_change": -8.91,
-          "volume": 39012272,
-          "volume_fmt": "$39M",
+          "close": 534.06,
+          "pct_change": -8.75,
+          "volume": 48915652,
+          "volume_fmt": "$49M",
           "longName": "Advanced Micro Devices, Inc.",
           "industry": "Semiconductors"
         },
         {
           "ticker": "CSCO",
-          "close": 95.73,
-          "pct_change": -6.16,
-          "volume": 18311284,
-          "volume_fmt": "$18M",
+          "close": 95.64,
+          "pct_change": -6.24,
+          "volume": 28424788,
+          "volume_fmt": "$28M",
           "longName": "Cisco Systems, Inc.",
           "industry": "Communication Equipment"
         },
         {
           "ticker": "AVGO",
-          "close": 345.75,
-          "pct_change": -5.11,
-          "volume": 20705465,
-          "volume_fmt": "$21M",
+          "close": 347.01,
+          "pct_change": -4.76,
+          "volume": 31515597,
+          "volume_fmt": "$32M",
           "longName": "Broadcom Inc.",
           "industry": "Semiconductors"
         },
         {
           "ticker": "MRVL",
-          "close": 156.61,
-          "pct_change": -4.77,
-          "volume": 17854337,
-          "volume_fmt": "$18M",
+          "close": 156.76,
+          "pct_change": -4.68,
+          "volume": 23544835,
+          "volume_fmt": "$24M",
           "longName": "Marvell Technology, Inc.",
           "industry": "Semiconductors"
         },
         {
           "ticker": "ARM",
-          "close": 190.35,
-          "pct_change": -4.72,
-          "volume": 4310136,
-          "volume_fmt": "$4M",
+          "close": 190.53,
+          "pct_change": -4.63,
+          "volume": 5474252,
+          "volume_fmt": "$5M",
           "longName": "Arm Holdings plc",
           "industry": "Semiconductors"
         }
@@ -313,101 +405,101 @@
   },
   "news": [
     {
-      "title": "Stock Market Today: Indexes Pare Losses; S&P's Worst Performer Sells Chips, And It's Not Nvidia (Live Coverage)",
+      "title": "Dow Jones Futures: Market Rally Shaky As Nvidia Earnings, Anthropic IPO Loom; SpaceX Starship Flight 15 Booster Diverts.",
+      "url": "https://finance.yahoo.com/m/53e50dc8-f137-3f6c-bfd6-912334fef9f1/dow-jones-futures%3A-market.html?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-11-14 08:41 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "What Is The Market Seeing In Eli Lilly Stock?",
+      "url": "https://www.trefis.com/stock/lly/articles/624864/what-is-the-market-seeing-in-eli-lilly-stock/2026-11-13?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-11-14 08:33 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Scott Bessent and Lutnick clash over Nvidia chips and China",
+      "url": "https://www.thestreet.com/technology/scott-bessent-and-lutnick-clash-over-nvidia-chips-and-china?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-11-14 07:55 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "What Would A Short Seller Say About Astera Labs?",
+      "url": "https://www.trefis.com/stock/alab/articles/624869/what-would-a-short-seller-say-about-astera-labs/2026-11-13?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-11-14 07:40 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "S&P 500, Dow, Nasdaq End Lower Amid Nvidia Turmoil, But Record Best Week Since August —  SPCX, NVDA, ARM, AZN In Focus",
+      "url": "https://stocktwits.com/news-articles/markets/equity/s-and-p-500-dow-nasdaq-end-lower-amid-nvidia-turmoil-but-record-best-week-since-august-spcx-nvda-arm-azn-in-focus/cNbRj3uR9Q2?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-11-14 07:37 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "The 60/40 Portfolio Is Having a Disappointing Year. Blame Bonds.",
+      "url": "https://finance.yahoo.com/m/e5dcf856-6a7b-3e77-94cd-b1000bbf154c/the-60%2F40-portfolio-is-having.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-11-14 07:25 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Why Intel Stock Slumped Today",
+      "url": "https://www.fool.com/investing/2026/11/13/why-intel-stock-slumped-today/?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-11-14 07:09 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Wall Street stocks mostly lower as Nvidia extends slump",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/wall-street-stocks-mostly-lower-230704278.html?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-11-14 07:07 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Walmart, Target, and Nvidia Headline a Pivotal Week for Q3 Earnings",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/walmart-target-nvidia-headline-pivotal-230000146.html?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-11-14 07:00 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Nscale reports ballooning debt and need for more as IPO approaches",
+      "url": "https://www.axios.com/2026/11/13/nscale-ipo-debt-nvidia-jensen-huang#utm_source=yahoo_finance&utm_medium=partner&utm_campaign=subs-partner-yahoo-finance-AI?.tsrc=rss",
+      "source": "Yahoo! Finance: NVDA News",
+      "published_hkt": "2026-11-14 06:54 HKT",
+      "label": "Semiconductors"
+    },
+    {
+      "title": "Why Analog Devices (ADI) Dipped More Than Broader Market Today",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/why-analog-devices-adi-dipped-220001409.html?.tsrc=rss",
+      "source": "Yahoo! Finance: ^GSPC News",
+      "published_hkt": "2026-11-14 06:00 HKT",
+      "label": "US Markets"
+    },
+    {
+      "title": "Stock Market Today: Indexes Trim Losses, Manage To Score Weekly Gains Despite Strong Volatility",
       "url": "https://finance.yahoo.com/m/59c1380c-6194-35f8-be3b-4a6a3148bfa4/stock-market-today%3A-indexes.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-11-14 03:55 HKT",
+      "published_hkt": "2026-11-14 05:49 HKT",
       "label": "US Markets"
     },
     {
-      "title": "Why You Need To Pay Attention To Occidental Petroleum Stock?",
-      "url": "https://www.trefis.com/stock/oxy/articles/625003/why-you-need-to-pay-attention-to-occidental-petroleum-stock/2026-11-13?.tsrc=rss",
+      "title": "Update: Wall Street Notches Weekly Gains Despite Nvidia Sell-Off",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/wall-street-notches-weekly-gains-214935845.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-11-14 03:48 HKT",
+      "published_hkt": "2026-11-14 05:49 HKT",
       "label": "US Markets"
     },
     {
-      "title": "Nvidia Scandal is Poking Real Holes in the AI Trade. But That Doesn’t Mean it’s Over.",
-      "url": "https://finance.yahoo.com/m/8cfa758b-f94e-38fb-92b4-fb2bde5383db/nvidia-scandal-is-poking-real.html?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-11-14 03:39 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Wall Street Is Writing Off Nvidia Stock. Here's Why That's a Mistake.",
-      "url": "https://www.fool.com/investing/2026/11/13/wall-street-is-writing-off-nvidia-stock-heres-why/?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-11-14 03:37 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Veteran Analyst Downgrades Nvidia Stock Ahead of Earnings",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/veteran-analyst-downgrades-nvidia-stock-192947020.html?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-11-14 03:29 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Jensen Huang Joins Wall Street’s Fallen-Founder Hall of Fame: 13 Founders Who Fell Before Him",
-      "url": "https://www.benzinga.com/markets/equities/26/11/63262520/jensen-huang-joins-wall-streets-fallen-founder-hall-of-fame-13-founders-who-fell-before-him?utm_source=yahooFinance&utm_campaign=partner_feed&utm_medium=referral&.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-11-14 03:26 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Can Bloom Energy Stock Jump 50%?",
-      "url": "https://www.trefis.com/stock/be/articles/624994/can-bloom-energy-stock-jump-50-2/2026-11-13?.tsrc=rss",
+      "title": "Walmart (WMT) Gains As Market Dips: What You Should Know",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/walmart-wmt-gains-market-dips-214502776.html?.tsrc=rss",
       "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-11-14 03:26 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "The powerful figures caught up in the Nvidia scandal",
-      "url": "https://www.axios.com/2026/11/13/nvidia-jensen-huang-key-players-scandal#utm_source=yahoo_finance&utm_medium=partner&utm_campaign=subs-partner-yahoo-finance-AI?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-11-14 03:23 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Why You Should Think About Charter Communications Differently Now?",
-      "url": "https://www.trefis.com/stock/chtr/articles/625005/why-you-should-think-about-charter-communications-differently-now/2026-11-13?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-11-14 03:16 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "How Investors May Respond To Broadcom (AVGO) As Nvidia Rivals Gain Attention",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/investors-may-respond-broadcom-avgo-191037922.html?.tsrc=rss",
-      "source": "Yahoo! Finance: NVDA News",
-      "published_hkt": "2026-11-14 03:10 HKT",
-      "label": "Semiconductors"
-    },
-    {
-      "title": "Update: US Equity Indexes Fall as Nvidia Debacle Hits Chipmakers, Long Treasury Yields Jump on 'Elevated' Producer Prices",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-fall-nvidia-190946104.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-11-14 03:09 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Goldman Sachs sees upside for S&P 500 in 2027 — even as earnings growth slows",
-      "url": "https://finance.yahoo.com/markets/article/goldman-sachs-sees-upside-for-sp-500-in-2027--even-as-earnings-growth-slows-185627269.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-11-14 02:56 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "Why ADI Global Distribution Stock Plunged This Week",
-      "url": "https://www.fool.com/coverage/market-movers/2026/11/13/why-adi-global-distribution-stock-plunged-this-week/?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-11-14 02:55 HKT",
-      "label": "US Markets"
-    },
-    {
-      "title": "The Stock Market's Early Rally Fades as Wholesale Inflation Hits 6.5%",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/stock-markets-early-rally-fades-185155071.html?.tsrc=rss",
-      "source": "Yahoo! Finance: ^GSPC News",
-      "published_hkt": "2026-11-14 02:51 HKT",
+      "published_hkt": "2026-11-14 05:45 HKT",
       "label": "US Markets"
     },
     {
